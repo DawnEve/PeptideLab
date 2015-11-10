@@ -13,17 +13,17 @@ dustbin
 test
 bin
 
-#zip(s)
+#zip(s)不备份
 *.rar
 *.backup.zip
 
-# 论坛文件不处理
-!forum
+# 论坛文件不备份
+forum
 
-# wiki百科文件不处理
+# wiki百科文件不备份
 wiki
 
-# exe文件除外
+# exe文件不备份
 *.exe
 
 # 照片文件夹不保存
