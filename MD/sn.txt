@@ -1,0 +1,12 @@
+
+<pre>
+
+<a href="Molecular_Devices_i3_MinimaxManual.pdf" target="_blank">微孔板检测系统操作简介</a><br />
+<a href="SoftMaxProReleaseNotes.pdf" target="_blank">软件手册-SoftMaxProReleaseNotes.pdf</a><br />
+
+
+<br /><br />
+<a href="SoftMaxPro6.4.0.2Setup.exe" target="_blank">软件下载-SoftMaxPro6.4.0.2Setup.exe</a>
+
+
+</pre>
