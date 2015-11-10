@@ -1,0 +1,52 @@
+设计能插入新载体的引物
+
+
+
+-----------------------
+linker 序列为：通用连接肽(G4S)3 共15 个氨基酸，45 个碱基。
+GGTGGTGGTGGCAGCGGCGGCGGCGGCTCTGGTGGTGGTGGtTCC(因为密码子频率而修改)
+GGTGGTGGTGGCAGC GGCGGCGGCGGCTCT GGTGGTGGTGGtTCC
+G G G G S G G G G S G G G G S
+GGGGSGGGGSGGGGS
+
+
+模拟退火后，重叠共35bp：
+GGTGGTGGTGGCAGC GGCGGCGGCGGCTCT GGTGGTGGTG
+     TGGTGGCAGC GGCGGCGGCGGCTCT GGTGGTGGTGGtTCC
+	 
+----------------------------------
+HUp:5-保护碱基[SfiI]{读码框调整区域}[VH上游匹配区]-3
+HDn:5-[linker][VH下游匹配区]-3
+
+LUp:5-[linker][VL上游匹配区]-3
+LDn:5-保护碱基[SfiI位点]{读码框调整区域}[VL下游匹配区]-3
+
+-----------------------
+HUp:5-保护碱基[GGCCCAGCCGGCC]{读码框调整区域}[VH上游匹配区]-3
+HDn:5-[CACCACCACCAGAGCCGCCGCCGCCGCTGCCACCACCACC][VH下游匹配区]-3
+
+LUp:5-[TGGTGGCAGC GGCGGCGGCGGCTCT GGTGGTGGTGGtTCC][VL上游匹配区]-3
+LDn:5-保护碱基[GGCCGGCCTGGCC]{读码框调整区域}[VL下游匹配区]-3
+
+-----------------------
+HUp:5-g gag gcg G[GGCCCAGCCGGCC]{读码框调整区域}[VH上游匹配区]-3
+HDn:5-[CACCACCACCAGAGCCGCCGCCGCCGCTGCCACCACCACC][VH下游匹配区]-3
+
+LUp:5-[TGGTGGCAGC GGCGGCGGCGGCTCT GGTGGTGGTGGtTCC][VL上游匹配区]-3
+LDn:5-g gag cct[GGCCGGCCTGGCC]{读码框调整区域}[VL下游匹配区]-3
+
+
+-----------------------
+HUp:5-g gag gcg G[GGCCCAGCCGGCC]{读码框调整区域}[CAG GTG CAG CTG CAG GAG TCS G]-3
+HDn:5-[CACCACCACCAGAGCCGCCGCCGCCGCTGCCACCACCACC][TGA GGA GAC GGT GAC CAG GGT T]-3
+
+LUp:5-[TGGTGGCAGC GGCGGCGGCGGCTCT GGTGGTGGTGGtTCC][TCC TAT GWG CTG ACW CAG CCA C]-3
+LDn:5-g gag cct[GGCCGGCCTGGCC]{读码框调整区域}[TAG GAC GGT SAS CTT GGT CC]-3
+
+-----------------------
+
+
+
+
+
+

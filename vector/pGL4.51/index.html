@@ -1,0 +1,223 @@
+﻿<style>
+.dna, .dna2 {
+  border: 1px solid red;
+  padding: 5px;
+  table-layout: fixed;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: auto;
+  width:1000px;
+}
+.gene{background:#bbb; color:#fff;}
+.luc2{background:#8AF48A; color:#000; margin:0 10px;}
+.CMV,.SV40E{color:red; border-top:2px solid red;  margin:0 10px;}
+.SV40L{color:purple;  margin:0 10px;}
+.NeoR,.AmpR{color:#aaa;  margin:0 10px;}
+.polyA{background:#D1D3D4;  margin:0 10px;}
+.primer{background:red; color:#fff; margin:0 10px;}
+
+h3{background:#000; color:#fff; padding:5px;}
+</style>
+
+<h1>pGL4.51(promega)</h1>
+<div class=dna2>
+	GOTO <a href="../">载体首页</a> | 
+	<a target="_blank" href="pgl4 51 vector.pdf">pgl4 51 vector.pdf</a> | 
+	<a target="_blank" href="http://www.ncbi.nlm.nih.gov/nuccore/EU921841" target="_blank">NCBI的序列</a> | 
+	<!--a target="_blank" href="20150517李一帆/PGL4.51测序文件.rar" target="_blank">卖家给的测序文件</a-->
+	<a target="_blank" href="validation.html" target="_blank">测序文件</a>
+</div> 
+
+
+<pre>
+<h3>简介Description</h3>
+Description: The pGL4.51[luc2/CMV/Neo] Vector(a–e) (Cat.# E1320) encodes the luciferase reporter gene luc2 (Photinus
+pyralis), which has been codon optimized for mammalian expression. This vector is also engineered with fewer consensus
+regulatory sequences for reduced backgrounds and a decreased risk of anomalous transcription.
+This vector contains the following features:
+• luc2 reporter gene for expression in mammalian cells
+• CMV promoter for high translational expression
+• SV40 late poly(A) signal sequence is positioned downstream of luc2 to provide efficient transcription termination and
+mRNA polyadenylation
+• Binding region for RVprimer 3 and RVprimer 4
+• Synthetic poly(A) signal/transcription start site
+• Synthetic Neomycin-resistance gene for mammalian cell selection of the plasmid
+• Plasmid replication origin
+• Ampr gene for bacterial selection for vector amplification
+For more information, see the pGL4 Luciferase Reporter Vectors Technical Manual #TM259, available online at:
+www.promega.com/protocols
+
+
+<h3>序列与图谱</h3>
+http://cn.promega.com/resources/protocols/product-information-sheets/a/pgl451-vector-protocol/
+http://www.ncbi.nlm.nih.gov/nuccore/EU921841
+图谱：
+http://cn.promega.com/~/media/files/resources/protocols/product%20information%20sheets/a/pgl4%2051%20vector.pdf
+<img src="images/map.png"> <img src="images/features.png">
+CMV immediate early enhancer/promoter 14–755
+luc2 859–2511
+SV40 late poly(A) region 2546–2767
+SV40 early enhancer/promoter 2815–3233
+Synthetic neomycin phosphotransferase coding region (Neor
+) 3258–4055
+Synthetic poly(A) 4077–4125
+Reporter vector primer 4 binding region 4357–4365
+Replication origin 4449
+Synthetic beta-lactamase (Ampr ) coding region 5240–6100
+Synthetic poly(A) signal/transcriptional pause region 6205–6358
+Reporter vector primer 3 binding region 6307–6326
+
+
+<div class=dna>
+>pGL4.51(promega)-6358bp<br />
+GGCCTAACTGGCC<a class=CMV title="CMV immediate early enhancer/promoter 14–755">TCAATATTGGCCATTAGCCATATTATTCATTGGTTATATAGCATAAATCAATATTGGCTATTGGCCATTGCATACGTTGTATCTATATCATAATATGTACATTTATATTGGCTCATGTCCAATATGACCGCCATGTTGGCATTGATTATTGACTAGTTATTAATAGTAATCAATTACGGGGTCATTAGTTCATAGCCCATATATGGAGTTCCGCGTTACATAACTTACGGTAAATGGCCCGCCTGGCTGACCGCCCAACGACCCCCGCCCATTGACGTCAATAATGACGTATGTTCCCATAGTAACGCCAATAGGGACTTTCCATTGACGTCAATGGGTGGAGTATTTACGGTAAACTGCCCACTTGGCAGTACATCAAGTGTATCATATGCCAAGTCCGCCCCCTATTGACGTCAATGACGGTAAATGGCCCGCCTGGCATTATGCCCAGTACATGACCTTACGGGACTTTCCTACTTGGCAGTACATCTACGTATTAGTCATCGCTATTACCATGGTGATGCGGTTTTGGCAGTACACCAATGGGCGTGGATAGCGGTTTGACTCACGGGGATTTCCAAGTCTCCACCCCATTGACGTCAATGGGAGTTTGTTTTGGCACCAAAATCAACGGGACTTTCCAAAATGTCGTAATAACCCCGCCCCGTTGACGCAAATGGGCGGTAGGCGTGTACGGTGGGAGGTCTATATAAGCAGAGCTCGTTTAGTGAACCGTCAGATC</a>ACTAGAAGCTTTATTGCGGTAGTTTATCACAGTTAAATTGCTAACGCAGTCAGTGGGCCTCGGCGGCCAAGCTTGGCAATCCGGTACTGTTGGTAAAGCCACC<a class=luc2 title="luc2:859–2511荧光素酶基因">ATGGAAGATGCCAAAAACATTAAGAAGGGCCCAGCGCCATTCTACCCACTCGAAGACGGGACCGCCGGCGAGCAGCTGCACAAAGCCATGAAGCGCTACGCCCTGGTGCCCGGCACCATCGCCTTTACCGACGCACATATCGAGGTGGACATTACCTACGCCGAGTACTTCGAGATGAGCGTTCGGCTGGCAGAAGCTATGAAGCGCTATGGGCTGAATACAAACCATCGGATCGTGGTGTGCAGCGAGAATAGCTTGCAGTTCTTCATGCCCGTGTTGGGTGCCCTGTTCATCGGTGTGGCTGTGGCCCCAGCTAACGACATCTACAACGAGCGCGAGCTGCTGAACAGCATGGGCATCAGCCAGCCCACCGTCGTATTCGTGAGCAAGAAAGGGCTGCAAAAGATCCTCAACGTGCAAAAGAAGCTACCGATCATACAAAAGATCATCATCATGGATAGCAAGACCGACTACCAGGGCTTCCAAAGCATGTACACCTTCGTGACTTCCCATTTGCCACCCGGCTTCAACGAGTACGACTTCGTGCCCGAGAGCTTCGACCGGGACAAAACCATCGCCCTGATCATGAACAGTAGTGGCAGTACCGGATTGCCCAAGGGCGTAGCCCTACCGCACCGCACCGCTTGTGTCCGATTCAGTCATGCCCGCGACCCCATCTTCGGCAACCAGATCATCCCCGACACCGCTATCCTCAGCGTGGTGCCATTTCACCACGGCTTCGGCATGTTCACCACGCTGGGCTACTTGATCTGCGGCTTTCGGGTCGTGCTCATGTACCGCTTCGAGGAGGAGCTATTCTTGCGCAGCTTGCAAGACTATAAGATTCAATCTGCCCTGCTGGTGCCCACACTATTTAGCTTCTTCGCTAAGAGCACTCTCATCGACAAGTACGACCTAAGCAACTTGCACGAGATCGCCAGCGGCGGGGCGCCGCTCAGCAAGGAGGTAGGTGAGGCCGTGGCCAAACGCTTCCACCTACCAGGCATCCGCCAGGGCTACGGCCTGACAGAAACAACCAGCGCCATTCTGATCACCCCCGAAGGGGACGACAAGCCTGGCGCAGTAGGCAAGGTGGTGCCCTTCTTCGAGGCTAAGGTGGTGGACTTGGACACCGGTAAGACACTGGGTGTGAACCAGCGCGGCGAGCTGTGCGTCCGTGGCCCCATGATCATGAGCGGCTACGTTAACAACCCCGAGGCTACAAACGCTCTCATCGACAAGGACGGCTGGCTGCACAGCGGCGACATCGCCTACTGGGACGAGGACGAGCACTTCTTCATCGTGGACCGGCTGAAGAGCCTGATCAAATACAAGGGCTACCAGGTAGCCCCAGCCGAACTGGAGAGCATCCTGCTGCAACACCCCAACATCTTCGACGCCGGGGTCGCCGGCCTGCCCGACGACGATGCCGGCGAGCTGCCCGCCGCAGTCGTCGTGCTGGAACACGGTAAAACCATGACCGAGAAGGAGATCGTGGACTATGTGGCCAGCCAGGTTACAACCGCCAAGAAGCTGCGCGGTGGTGTTGTGTTCGTGGACGAGGTGCCTAAAGGACTGACCGGCAAGTTGGACGCCCGCAAGATCCGCGAGATTCTCATTAAGGCCAAGAAGGGCGGCAAGATCGCCGTGTAA</a>TAATTCTAGAGTCGGGGCGGCCGGCCGCTTCGAG<a class=SV40L title="SV40 late poly(A) region 2546–2767">CAGACATGATAAGATACATTGATGAGTTTGGACAAACCACAACTAGAATGCAGTGAAAAAAATGCTTTATTTGTGAAATTTGTGATGCTATTGCTTTATTTGTAACCATTATAAGCTGCAATAAACAAGTTAACAACAACAATTGCATTCATTTTATGTTTCAGGTTCAGGGGGAGGTGTGGGAGGTTTTTTAAAGCAAGTAAAACCTCTACAAATGTGGTA</a>AAATCGATAAGGATCCGTTTGCGTATTGGGCGCTCTTCCGCTGATCT<a  class=SV40E title="SV40 early enhancer/promoter 2815–3233">GCGCAGCACCATGGCCTGAAATAACCTCTGAAAGAGGAACTTGGTTAGCTACCTTCTGAGGCGGAAAGAACCAGCTGTGGAATGTGTGTCAGTTAGGGTGTGGAAAGTCCCCAGGCTCCCCAGCAGGCAGAAGTATGCAAAGCATGCATCTCAATTAGTCAGCAACCAGGTGTGGAAAGTCCCCAGGCTCCCCAGCAGGCAGAAGTATGCAAAGCATGCATCTCAATTAGTCAGCAACCATAGTCCCGCCCCTAACTCCGCCCATCCCGCCCCTAACTCCGCCCAGTTCCGCCCATTCTCCGCCCCATGGCTGACTAATTTTTTTTATTTATGCAGAGGCCGAGGCCGCCTCTGCCTCTGAGCTATTCCAGAAGTAGTGAGGAGGCTTTTTTGGAGGCCTAGGCTTTTGCAAAAAGCTC</a>GATTCTTCTGACACTAGCGCCACC<a class=NeoR title="Synthetic neomycin phosphotransferase coding region (Neor
+) 3258–4055">ATGATCGAACAAGACGGCCTCCATGCTGGCAGTCCCGCAGCTTGGGTCGAACGCTTGTTCGGGTACGACTGGGCCCAGCAGACCATCGGATGTAGCGATGCGGCCGTGTTCCGTCTAAGCGCTCAAGGCCGGCCCGTGCTGTTCGTGAAGACCGACCTGAGCGGCGCCCTGAACGAGCTTCAAGACGAGGCTGCCCGCCTGAGCTGGCTGGCCACCACCGGCGTACCCTGCGCCGCTGTGTTGGATGTTGTGACCGAAGCCGGCCGGGACTGGCTGCTGCTGGGCGAGGTCCCTGGCCAGGATCTGCTGAGCAGCCACCTTGCCCCCGCTGAGAAGGTTTCTATCATGGCCGATGCAATGCGGCGCCTGCACACCCTGGACCCCGCTACCTGCCCCTTCGACCACCAGGCTAAGCATCGGATCGAGCGTGCTCGGACCCGCATGGAGGCCGGCCTGGTGGACCAGGACGACCTGGACGAGGAGCATCAGGGCCTGGCCCCCGCTGAACTGTTCGCCCGACTGAAAGCCCGCATGCCGGACGGTGAGGACCTGGTTGTCACACACGGAGATGCCTGCCTCCCTAACATCATGGTCGAGAATGGCCGCTTCTCCGGCTTCATCGACTGCGGTCGCCTAGGAGTTGCCGACCGCTACCAGGACATCGCCCTGGCCACCCGCGACATCGCTGAGGAGCTTGGCGGCGAGTGGGCCGACCGCTTCTTAGTCTTGTACGGCATCGCAGCTCCCGACAGCCAGCGCATCGCCTTCTACCGCTTGCTCGACGAGTTCTTTTAATGA</a>TCTAGAACCGGTCATGGCCGC<a class=polyA title="Synthetic poly(A) 4077–4125">AATAAAATATCTTTATTTTCATTACATCTGTGTGTTGGTTTTTTGTGTG</a>TTCGAACTAGATGCTGTCGACCGATGCCCTTGAGAGCCTTCAACCCAGTCAGCTCCTTCCGGTGGGCGCGGGGCATGACTATCGTCGCCGCACTTATGACTGTCTTCTTTATCATGCAACTCGTAGGACAGGTGCCGGCAGCGCTCTTCCGCTTCCTCGCTCACTGACTCGCTGCGCTCGGTCGTTCGGCTGCGGCGAGCGGTATCAGCTCACTCAAAGGCGGTAATACGG<a class=primer title="Reporter vector primer 4 binding region 4357–4365">TTATCCACA</a>GAATCAGGGGATAACGCAGGAAAGAACATGTGAGCAAAAGGCCAGCAAAAGGCCAGGAACCGTAAAAAGGCCGCGTTGCTGGCGTTTTTCCATAGGCTCCGCCCCCCTGACGAGCATCACAAAAATCGACGCTCAAGTCAGAGGTGGCGAAACCCGACAGGACTATAAAGATACCAGGCGTTTCCCCCTGGAAGCTCCCTCGTGCGCTCTCCTGTTCCGACCCTGCCGCTTACCGGATACCTGTCCGCCTTTCTCCCTTCGGGAAGCGTGGCGCTTTCTCATAGCTCACGCTGTAGGTATCTCAGTTCGGTGTAGGTCGTTCGCTCCAAGCTGGGCTGTGTGCACGAACCCCCCGTTCAGCCCGACCGCTGCGCCTTATCCGGTAACTATCGTCTTGAGTCCAACCCGGTAAGACACGACTTATCGCCACTGGCAGCAGCCACTGGTAACAGGATTAGCAGAGCGAGGTATGTAGGCGGTGCTACAGAGTTCTTGAAGTGGTGGCCTAACTACGGCTACACTAGAAGAACAGTATTTGGTATCTGCGCTCTGCTGAAGCCAGTTACCTTCGGAAAAAGAGTTGGTAGCTCTTGATCCGGCAAACAAACCACCGCTGGTAGCGGTGGTTTTTTTGTTTGCAAGCAGCAGATTACGCGCAGAAAAAAAGGATCTCAAGAAGATCCTTTGATCTTTTCTACGGGGTCTGACGCTCAGTGGAACGAAAACTCACGTTAAGGGATTTTGGTCATGAGATTATCAAAAAGGATCTTCACCTAGATCCTTTTAAATTAAAAATGAAGTTTTAAATCAATCTAAAGTATATATGAGTAAACTTGGTCTGACAGCGGCCGCAAATGCTAAACCACTGCAGTGG<a class=AmpR title="Synthetic beta-lactamase (Ampr ) coding region 5240–6100" >TTACCAGTGCTTGATCAGTGAGGCACCGATCTCAGCGATCTGCCTATTTCGTTCGTCCATAGTGGCCTGACTCCCCGTCGTGTAGATCACTACGATTCGTGAGGGCTTACCATCAGGCCCCAGCGCAGCAATGATGCCGCGAGAGCCGCGTTCACCGGCCCCCGATTTGTCAGCAATGAACCAGCCAGCAGGGAGGGCCGAGCGAAGAAGTGGTCCTGCTACTTTGTCCGCCTCCATCCAGTCTATGAGCTGCTGTCGTGATGCTAGAGTAAGAAGTTCGCCAGTGAGTAGTTTCCGAAGAGTTGTGGCCATTGCTACTGGCATCGTGGTATCACGCTCGTCGTTCGGTATGGCTTCGTTCAACTCTGGTTCCCAGCGGTCAAGCCGGGTCACATGATCACCCATATTATGAAGAAATGCAGTCAGCTCCTTAGGGCCTCCGATCGTTGTCAGAAGTAAGTTGGCCGCGGTGTTGTCGCTCATGGTAATGGCAGCACTACACAATTCTCTTACCGTCATGCCATCCGTAAGATGCTTTTCCGTGACCGGCGAGTACTCAACCAAGTCGTTTTGTGAGTAGTGTATACGGCGACCAAGCTGCTCTTGCCCGGCGTCTATACGGGACAACACCGCGCCACATAGCAGTACTTTGAAAGTGCTCATCATCGGGAATCGTTCTTCGGGGCGGAAAGACTCAAGGATCTTGCCGCTATTGAGATCCAGTTCGATATAGCCCACTCTTGCACCCAGTTGATCTTCAGCATCTTTTACTTTCACCAGCGTTTCGGGGTGTGCAAAAACAGGCAAGCAAAATGCCGCAAAGAAGGGAATGAGTGCGACACGAAAATGTTGGATGCTCAT</a>ACTCGTCCTTTTTCAATATTATTGAAGCATTTATCAGGGTTACTAGTACGTCTCTCAAGGATAAGTAAGTAATATTAAGGTACGGGAGGTATTGGACAGGCCGC<a class=polyA title="Synthetic poly(A) signal/transcriptional pause region 6205–6358">AATAAAATATCTTTATTTTCATTACATCTGTGTGTTGGTTTTTTGTGTGAATCGATAGTACTAACATACGCTCTCCATCAAAACAAAACGAAACAAAACAAA<span class=primer title="Reporter vector primer 3 binding region 6307–6326">CTAGCAAAATAGGCTGTCCC</span>CAGTGCAAGTGCAGGTGCCAGAACATTTCTCT</a>
+</div>
+
+
+
+
+<h3>测序文件的可信区</h3>
+<div class=dna>
+>RVP3<br>
+AACTGGCCTCAATATTGGCCATTAGCCATATTATTCATTGGTTATATAGCATAAATCAATATTGGCTATTGGCCATTGCATACGTTGTATCTATATCATAATATGTACATTTATATTGGCTCATGTCCAATATGACCGCCATGTTGGCATTGATTATTGACTAGTTATTAATAGTAATCAATTACGGGGTCATTAGTTCATAGCCCATATATGGAGTTCCGCGTTACATAACTTACGGTAAATGGCCCGCCTGGCTGACCGCCCAACGACCCCCGCCCATTGACGTCAATAATGACGTATGTTCCCATAGTAACGCCAATAGGGACTTTCCATTGACGTCAATGGGTGGAGTATTTACGGTAAACTGCCCACTTGGCAGTACATCAAGTGTATCATATGCCAAGTCCGCCCCCTATTGACGTCAATGACGGTAAATGGCCCGCCTGGCATTATGCCCAGTACATGACCTTACGGGACTTTCCTACTTGGCAGTACATCTACGTATTAGTCATCGCTATTACCATGGTGATGCGGTTTTGGCAGTACACCAATGGGCGTGGATAGCGGTTTGACTCACGGGGATTTCCAAGTCTCCACCCCATTGACGTCAATGGGAGTTTGTTTTGGCACCAAAATCAACGGGACTTTCCAAAATGTCGTAATAACCCCGCCCCGTTGACGCAAATG<br><br>
+
+>RVP4<br>
+TGTTGGATGTTGTGACCGAAGCCGGCCGGGACTGGCTGCTGCTGGGCGAGGTCCCTGGCCAGGATCTGCTGAGCAGCCACCTTGCCCCCGCTGAGAAGGTTTCTATCATGGCCGATGCAATGCGGCGCCTGCACACCCTGGACCCCGCTACCTGCCCCTTCGACCACCAGGCTAAGCATCGGATCGAGCGTGCTCGGACCCGCATGGAGGCCGGCCTGGTGGACCAGGACGACCTGGACGAGGAGCATCAGGGCCTGGCCCCCGCTGAACTGTTCGCCCGACTGAAAGCCCGCATGCCGGACGGTGAGGACCTGGTTGTCACACACGGAGATGCCTGCCTCCCTAACATCATGGTCGAGAATGGCCGCTTCTCCGGCTTCATCGACTGCGGTCGCCTAGGAGTTGCCGACCGCTACCAGGACATCGCCCTGGCCACCCGCGACATCGCTGAGGAGCTTGGCGGCGAGTGGGCCGACCGCTTCTTAGTCTTGTACGGCATCGCAGCTCCCGACAGCCAGCGCATCGCCTTCTACCGCTTGCTCGACGAGTTCTTTTAATGATCTAGAACCGGTCATGGCCGCAATAAAATATCTTTATTTTCATTACATCTGTGTGTTGGTTTTTTGTGTGTTCGAACTAGAT
+</div>
+
+<h3>详细序列</h3>
+-----------------------
+LOCUS       EU921841                6358 bp    DNA     linear   SYN 28-AUG-2008
+DEFINITION  Firefly luciferase reporter vector pGL4.51[luc2/CMV/Neo], complete
+            sequence.
+			
+     CDS             859..2511
+                     /gene="luc2"
+                     /note="luminescent reporter protein; derived from Photinus
+                     pyralis"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="firefly luciferase"
+                     /protein_id="ACH53166.1"
+                     /db_xref="GI:197215837"
+                     /translation="MEDAKNIKKGPAPFYPLEDGTAGEQLHKAMKRYALVPGTIAFTD
+                     AHIEVDITYAEYFEMSVRLAEAMKRYGLNTNHRIVVCSENSLQFFMPVLGALFIGVAV
+                     APANDIYNERELLNSMGISQPTVVFVSKKGLQKILNVQKKLPIIQKIIIMDSKTDYQG
+                     FQSMYTFVTSHLPPGFNEYDFVPESFDRDKTIALIMNSSGSTGLPKGVALPHRTACVR
+                     FSHARDPIFGNQIIPDTAILSVVPFHHGFGMFTTLGYLICGFRVVLMYRFEEELFLRS
+                     LQDYKIQSALLVPTLFSFFAKSTLIDKYDLSNLHEIASGGAPLSKEVGEAVAKRFHLP
+                     GIRQGYGLTETTSAILITPEGDDKPGAVGKVVPFFEAKVVDLDTGKTLGVNQRGELCV
+                     RGPMIMSGYVNNPEATNALIDKDGWLHSGDIAYWDEDEHFFIVDRLKSLIKYKGYQVA
+                     PAELESILLQHPNIFDAGVAGLPDDDAGELPAAVVVLEHGKTMTEKEIVDYVASQVTT
+                     AKKLRGGVVFVDEVPKGLTGKLDARKIREILIKAKKGGKIAV"
+
+ORIGIN      
+        1 ggcctaactg gcctcaatat tggccattag ccatattatt cattggttat atagcataaa
+       61 tcaatattgg ctattggcca ttgcatacgt tgtatctata tcataatatg tacatttata
+      121 ttggctcatg tccaatatga ccgccatgtt ggcattgatt attgactagt tattaatagt
+      181 aatcaattac ggggtcatta gttcatagcc catatatgga gttccgcgtt acataactta
+      241 cggtaaatgg cccgcctggc tgaccgccca acgacccccg cccattgacg tcaataatga
+      301 cgtatgttcc catagtaacg ccaataggga ctttccattg acgtcaatgg gtggagtatt
+      361 tacggtaaac tgcccacttg gcagtacatc aagtgtatca tatgccaagt ccgcccccta
+      421 ttgacgtcaa tgacggtaaa tggcccgcct ggcattatgc ccagtacatg accttacggg
+      481 actttcctac ttggcagtac atctacgtat tagtcatcgc tattaccatg gtgatgcggt
+      541 tttggcagta caccaatggg cgtggatagc ggtttgactc acggggattt ccaagtctcc
+      601 accccattga cgtcaatggg agtttgtttt ggcaccaaaa tcaacgggac tttccaaaat
+      661 gtcgtaataa ccccgccccg ttgacgcaaa tgggcggtag gcgtgtacgg tgggaggtct
+      721 atataagcag agctcgttta gtgaaccgtc agatcactag aagctttatt gcggtagttt
+      781 atcacagtta aattgctaac gcagtcagtg ggcctcggcg gccaagcttg gcaatccggt
+      841 actgttggta aagccaccat ggaagatgcc aaaaacatta agaagggccc agcgccattc
+      901 tacccactcg aagacgggac cgccggcgag cagctgcaca aagccatgaa gcgctacgcc
+      961 ctggtgcccg gcaccatcgc ctttaccgac gcacatatcg aggtggacat tacctacgcc
+     1021 gagtacttcg agatgagcgt tcggctggca gaagctatga agcgctatgg gctgaataca
+     1081 aaccatcgga tcgtggtgtg cagcgagaat agcttgcagt tcttcatgcc cgtgttgggt
+     1141 gccctgttca tcggtgtggc tgtggcccca gctaacgaca tctacaacga gcgcgagctg
+     1201 ctgaacagca tgggcatcag ccagcccacc gtcgtattcg tgagcaagaa agggctgcaa
+     1261 aagatcctca acgtgcaaaa gaagctaccg atcatacaaa agatcatcat catggatagc
+     1321 aagaccgact accagggctt ccaaagcatg tacaccttcg tgacttccca tttgccaccc
+     1381 ggcttcaacg agtacgactt cgtgcccgag agcttcgacc gggacaaaac catcgccctg
+     1441 atcatgaaca gtagtggcag taccggattg cccaagggcg tagccctacc gcaccgcacc
+     1501 gcttgtgtcc gattcagtca tgcccgcgac cccatcttcg gcaaccagat catccccgac
+     1561 accgctatcc tcagcgtggt gccatttcac cacggcttcg gcatgttcac cacgctgggc
+     1621 tacttgatct gcggctttcg ggtcgtgctc atgtaccgct tcgaggagga gctattcttg
+     1681 cgcagcttgc aagactataa gattcaatct gccctgctgg tgcccacact atttagcttc
+     1741 ttcgctaaga gcactctcat cgacaagtac gacctaagca acttgcacga gatcgccagc
+     1801 ggcggggcgc cgctcagcaa ggaggtaggt gaggccgtgg ccaaacgctt ccacctacca
+     1861 ggcatccgcc agggctacgg cctgacagaa acaaccagcg ccattctgat cacccccgaa
+     1921 ggggacgaca agcctggcgc agtaggcaag gtggtgccct tcttcgaggc taaggtggtg
+     1981 gacttggaca ccggtaagac actgggtgtg aaccagcgcg gcgagctgtg cgtccgtggc
+     2041 cccatgatca tgagcggcta cgttaacaac cccgaggcta caaacgctct catcgacaag
+     2101 gacggctggc tgcacagcgg cgacatcgcc tactgggacg aggacgagca cttcttcatc
+     2161 gtggaccggc tgaagagcct gatcaaatac aagggctacc aggtagcccc agccgaactg
+     2221 gagagcatcc tgctgcaaca ccccaacatc ttcgacgccg gggtcgccgg cctgcccgac
+     2281 gacgatgccg gcgagctgcc cgccgcagtc gtcgtgctgg aacacggtaa aaccatgacc
+     2341 gagaaggaga tcgtggacta tgtggccagc caggttacaa ccgccaagaa gctgcgcggt
+     2401 ggtgttgtgt tcgtggacga ggtgcctaaa ggactgaccg gcaagttgga cgcccgcaag
+     2461 atccgcgaga ttctcattaa ggccaagaag ggcggcaaga tcgccgtgta ataattctag
+     2521 agtcggggcg gccggccgct tcgagcagac atgataagat acattgatga gtttggacaa
+     2581 accacaacta gaatgcagtg aaaaaaatgc tttatttgtg aaatttgtga tgctattgct
+     2641 ttatttgtaa ccattataag ctgcaataaa caagttaaca acaacaattg cattcatttt
+     2701 atgtttcagg ttcaggggga ggtgtgggag gttttttaaa gcaagtaaaa cctctacaaa
+     2761 tgtggtaaaa tcgataagga tccgtttgcg tattgggcgc tcttccgctg atctgcgcag
+     2821 caccatggcc tgaaataacc tctgaaagag gaacttggtt agctaccttc tgaggcggaa
+     2881 agaaccagct gtggaatgtg tgtcagttag ggtgtggaaa gtccccaggc tccccagcag
+     2941 gcagaagtat gcaaagcatg catctcaatt agtcagcaac caggtgtgga aagtccccag
+     3001 gctccccagc aggcagaagt atgcaaagca tgcatctcaa ttagtcagca accatagtcc
+     3061 cgcccctaac tccgcccatc ccgcccctaa ctccgcccag ttccgcccat tctccgcccc
+     3121 atggctgact aatttttttt atttatgcag aggccgaggc cgcctctgcc tctgagctat
+     3181 tccagaagta gtgaggaggc ttttttggag gcctaggctt ttgcaaaaag ctcgattctt
+     3241 ctgacactag cgccaccatg atcgaacaag acggcctcca tgctggcagt cccgcagctt
+     3301 gggtcgaacg cttgttcggg tacgactggg cccagcagac catcggatgt agcgatgcgg
+     3361 ccgtgttccg tctaagcgct caaggccggc ccgtgctgtt cgtgaagacc gacctgagcg
+     3421 gcgccctgaa cgagcttcaa gacgaggctg cccgcctgag ctggctggcc accaccggcg
+     3481 taccctgcgc cgctgtgttg gatgttgtga ccgaagccgg ccgggactgg ctgctgctgg
+     3541 gcgaggtccc tggccaggat ctgctgagca gccaccttgc ccccgctgag aaggtttcta
+     3601 tcatggccga tgcaatgcgg cgcctgcaca ccctggaccc cgctacctgc cccttcgacc
+     3661 accaggctaa gcatcggatc gagcgtgctc ggacccgcat ggaggccggc ctggtggacc
+     3721 aggacgacct ggacgaggag catcagggcc tggcccccgc tgaactgttc gcccgactga
+     3781 aagcccgcat gccggacggt gaggacctgg ttgtcacaca cggagatgcc tgcctcccta
+     3841 acatcatggt cgagaatggc cgcttctccg gcttcatcga ctgcggtcgc ctaggagttg
+     3901 ccgaccgcta ccaggacatc gccctggcca cccgcgacat cgctgaggag cttggcggcg
+     3961 agtgggccga ccgcttctta gtcttgtacg gcatcgcagc tcccgacagc cagcgcatcg
+     4021 ccttctaccg cttgctcgac gagttctttt aatgatctag aaccggtcat ggccgcaata
+     4081 aaatatcttt attttcatta catctgtgtg ttggtttttt gtgtgttcga actagatgct
+     4141 gtcgaccgat gcccttgaga gccttcaacc cagtcagctc cttccggtgg gcgcggggca
+     4201 tgactatcgt cgccgcactt atgactgtct tctttatcat gcaactcgta ggacaggtgc
+     4261 cggcagcgct cttccgcttc ctcgctcact gactcgctgc gctcggtcgt tcggctgcgg
+     4321 cgagcggtat cagctcactc aaaggcggta atacggttat ccacagaatc aggggataac
+     4381 gcaggaaaga acatgtgagc aaaaggccag caaaaggcca ggaaccgtaa aaaggccgcg
+     4441 ttgctggcgt ttttccatag gctccgcccc cctgacgagc atcacaaaaa tcgacgctca
+     4501 agtcagaggt ggcgaaaccc gacaggacta taaagatacc aggcgtttcc ccctggaagc
+     4561 tccctcgtgc gctctcctgt tccgaccctg ccgcttaccg gatacctgtc cgcctttctc
+     4621 ccttcgggaa gcgtggcgct ttctcatagc tcacgctgta ggtatctcag ttcggtgtag
+     4681 gtcgttcgct ccaagctggg ctgtgtgcac gaaccccccg ttcagcccga ccgctgcgcc
+     4741 ttatccggta actatcgtct tgagtccaac ccggtaagac acgacttatc gccactggca
+     4801 gcagccactg gtaacaggat tagcagagcg aggtatgtag gcggtgctac agagttcttg
+     4861 aagtggtggc ctaactacgg ctacactaga agaacagtat ttggtatctg cgctctgctg
+     4921 aagccagtta ccttcggaaa aagagttggt agctcttgat ccggcaaaca aaccaccgct
+     4981 ggtagcggtg gtttttttgt ttgcaagcag cagattacgc gcagaaaaaa aggatctcaa
+     5041 gaagatcctt tgatcttttc tacggggtct gacgctcagt ggaacgaaaa ctcacgttaa
+     5101 gggattttgg tcatgagatt atcaaaaagg atcttcacct agatcctttt aaattaaaaa
+     5161 tgaagtttta aatcaatcta aagtatatat gagtaaactt ggtctgacag cggccgcaaa
+     5221 tgctaaacca ctgcagtggt taccagtgct tgatcagtga ggcaccgatc tcagcgatct
+     5281 gcctatttcg ttcgtccata gtggcctgac tccccgtcgt gtagatcact acgattcgtg
+     5341 agggcttacc atcaggcccc agcgcagcaa tgatgccgcg agagccgcgt tcaccggccc
+     5401 ccgatttgtc agcaatgaac cagccagcag ggagggccga gcgaagaagt ggtcctgcta
+     5461 ctttgtccgc ctccatccag tctatgagct gctgtcgtga tgctagagta agaagttcgc
+     5521 cagtgagtag tttccgaaga gttgtggcca ttgctactgg catcgtggta tcacgctcgt
+     5581 cgttcggtat ggcttcgttc aactctggtt cccagcggtc aagccgggtc acatgatcac
+     5641 ccatattatg aagaaatgca gtcagctcct tagggcctcc gatcgttgtc agaagtaagt
+     5701 tggccgcggt gttgtcgctc atggtaatgg cagcactaca caattctctt accgtcatgc
+     5761 catccgtaag atgcttttcc gtgaccggcg agtactcaac caagtcgttt tgtgagtagt
+     5821 gtatacggcg accaagctgc tcttgcccgg cgtctatacg ggacaacacc gcgccacata
+     5881 gcagtacttt gaaagtgctc atcatcggga atcgttcttc ggggcggaaa gactcaagga
+     5941 tcttgccgct attgagatcc agttcgatat agcccactct tgcacccagt tgatcttcag
+     6001 catcttttac tttcaccagc gtttcggggt gtgcaaaaac aggcaagcaa aatgccgcaa
+     6061 agaagggaat gagtgcgaca cgaaaatgtt ggatgctcat actcgtcctt tttcaatatt
+     6121 attgaagcat ttatcagggt tactagtacg tctctcaagg ataagtaagt aatattaagg
+     6181 tacgggaggt attggacagg ccgcaataaa atatctttat tttcattaca tctgtgtgtt
+     6241 ggttttttgt gtgaatcgat agtactaaca tacgctctcc atcaaaacaa aacgaaacaa
+     6301 aacaaactag caaaataggc tgtccccagt gcaagtgcag gtgccagaac atttctct
+//
+</pre>

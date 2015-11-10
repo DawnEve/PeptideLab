@@ -1,0 +1,52 @@
+﻿#showBox{
+	width:1000px;
+	min-height:50px;
+	border:1px solid red;
+}
+body,
+.dna{font-family:Courier,MS Courier New, Prestige,"微软雅黑";
+	/*word-break:break-all;*/
+}
+.greyBg{ background:#efeeef;}
+.grey{ color:#ccc;}
+.red{color:red;}
+.highlight{background:#0096ff;}
+
+.primer{
+	width:700px;
+	margin:10px;
+}
+
+/*-----------table style--------------*/
+table.show{
+	margin:10px 0;
+	width:200px; background:#efeeef;
+	font-family: Courier,MS Courier New, Prestige, verdana,arial,sans-serif;
+	font-size:18px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.show th {
+	background-color:#ff9600;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #dd6400;
+}
+table.show tr {
+	background-color:#d4e3e5;
+}
+table.show td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+	
+	min-width:100px;
+}
+
+#show3{border-bottom:50px #eee solid;}
+#showU{display:none;}
+#show4{opacity:0.30; display:none;}

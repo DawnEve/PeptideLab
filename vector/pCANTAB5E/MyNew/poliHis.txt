@@ -1,0 +1,49 @@
+>linker before Myc
+tac gta
+原始序列:TACGTA[6bp]
+翻译产物:Y  V  
+翻译产物:YV[2aa]
+
+
+>c-Myc tag Peptide[建议不要放在信号肽后面，防止影响分泌。]
+gaa caa aaa ctc atc tca gaa gag gat ctg[from  原核载体pBAD/Myc-His]
+http://en.wikipedia.org/wiki/Myc-tag
+
+原始序列:GAACAAAAACTCATCTCAGAAGAGGATCTG[30bp]
+翻译产物:E  Q  K  L  I  S  E  E  D  L  
+翻译产物:EQKLISEEDL[10aa]
+
+
+>5aa linker
+AAT ATG CAT ACC GGT[from 真核载体pcDNA3.1/myc-His,with AgeI site]
+原始序列:AATATGCATACCGGT[15bp]
+翻译产物:N  M  H  T  G  
+翻译产物:NMHTG[5aa]
+
+AAT AGC GCC GTC GAC[from 原核载体pBAD/Myc-His, with SalI site]
+原始序列:AATAGCGCCGTCGAC[15bp]
+翻译产物:N  S  A  V  D  
+翻译产物:NSAVD[5aa]
+
+最终使用了原核载体中的序列，但是通过兼并碱基替换除去SalI位点。
+AAT AGC GCC GTT GAT
+原始序列:AATAGCGCCGTTGAT[15bp]
+翻译产物:N  S  A  V  D  
+翻译产物:NSAVD[5aa]
+
+
+
+>his
+CAC CAC CAC CAC CAC CAC[from 原核载体pET22b]
+原始序列:CACCACCACCACCACCAC[18bp]
+翻译产物:H  H  H  H  H  H  
+翻译产物:HHHHHH[6aa]
+
+
+>myc-5aaLinker-his[看到Etag后和Amber stop coden之间还有2个a，不知道为什么？]
+gaa caa aaa ctc atc tca gaa gag gat ctg-AAT AGC GCC GTT GAT-CAC CAC CAC CAC CAC CAC -[gcc gca ] [tag]
+原始序列:GAACAAAAACTCATCTCAGAAGAGGATCTGAATAGCGCCGTTGATCACCACCACCACCACCAC gcc gca tag[72bp]
+翻译产物:E  Q  K  L  I  S  E  E  D  L  N  S  A  V  D  H  H  H  H  H  H   a   a   -  
+翻译产物:EQKLISEEDLNSAVDHHHHHHaa[23aa]
+
+

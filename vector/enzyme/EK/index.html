@@ -1,0 +1,126 @@
+﻿<style>
+.wrap {
+  width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 5px #bbb;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  	table-layout:fixed;  /*for IE*/
+	white-space:normal; /*for IE*/
+	word-wrap:break-word; /*for IE*/
+}
+.dna,.dna2{
+	border: 1px solid red;
+	padding: 5px;
+	
+	table-layout:fixed;  /*for IE*/
+	white-space:normal; /*for IE*/
+	word-wrap:break-word; /*for IE*/
+	overflow:auto;
+}
+
+.mouseEKL{ margin-left:5px;margin-right:5px; background:#9D90FC;}
+
+.promoter{margin-left:10px; color:red; border-top:3px solid red; border-left:3px solid red;}
+.lacOperator{margin:0 10px; border-top:3px solid green; color:green;}
+.rbs{margin:0 10px;border-top:3px solid blue; color:blue;}
+h2{ background:#eee; color:#000; border-left:5px solid #aaa; margin:5px;}
+.green{color:green;}
+.trxA{color:#aaa;}
+.stop{background:#000; color:#fff;}
+</style>
+<div class=wrap>
+<h1>EK: enterokinase</h1>
+
+<a target="_blank" href="http://www.ncbi.nlm.nih.gov/nuccore/NM_178855.4" title="">NCBI</a> | 
+<a target="_blank" href="validation.html" title="">测序验证</a> | 
+<a target="_blank" href="align.html" title="">测序序列及翻译产物</a> | 
+
+<pre>
+<h2>EK酶简介</h2>
+肠激酶( enterokinase，EK) 是一种广泛存在于哺乳动物的一种肽内切酶，属于胰蛋白酶家族的一员，能够特异性地识别并切割Asp-Asp-Asp-Asp-Lys-↓-X( ↓代表切割位点，X 代表任意氨基酸) 序列。肠激酶在体内的功能主要是通过特异性切割来激活胰蛋白酶原，因此在蛋白质消化中起重要作用，并有可能成为肥胖症治疗的新靶点。由于识别序列相对较长、专一性强、且属于天然蛋白中的稀有序列，特别是切割位点的后一个氨基酸可以是任意氨基酸残基，因此肠激酶是非常理想的基因工程用工具酶———用来专一性切割重组融合蛋白，以便高效生产具有天然N 端序列的小分子多肽。由于天然肠激酶来源有限、且制备成本高，所以利用基因工程手段建立肠激酶的高效生产系统在肠激酶功能研究和开发其在基因工程产业中的应用价值具有重要意义。
+
+	肠激酶[EC 3·4·21·9]原名肠蛋白酶,是小肠上的跨膜丝氨酸蛋白酶,在体内能激活胰蛋白酶原引起一系列酶的链接反应,这是由于肠激酶能够特异性地识别人和动物体内胰蛋白酶原氨基端的(Asp)4-Lys-的高度保守序列。
+肠激酶是一种以异源二聚体的形式存在的Ⅱ型跨膜丝氨酸蛋白酶，由一条重链和一条轻链组成，由二硫键连接的重链和轻链2个亚单位组成,其中重链负责在消化道细胞膜上的定位以及与胰蛋白酶的结合，轻链具有全酶的催化活性。
+
+	因此重组肠激酶主要是利用基因工程手段生产的肠激酶轻链。肠激酶轻链约含有310 个氨基酸残基，在进化上高度保守，Genbank 已收录人［6］、牛［7］、鼠［8］和猪［9］等物种的肠激酶轻链cDNA 和氨基酸序列，并有重组牛和鼠源肠激酶轻链的报道，
+
+
+<h2>EK酶buffer</h2>
+NEB: http://www.neb.com/~/media/Catalog/All-Products/29E5C3E433BC4F50AE52934DDCF2D888/Datacards%20or%20Manuals/P8070Datasheet-Lot0401210.pdf
+http://www.neb.sg/products/p8070-enterokinase-light-chain
+
+Supplied in: 20 mM Tris-HCl, 200 mM NaCl, 2 mM CaCl2 , 50% glycerol (pH 7.2 @ 4°C). 
+Molecular Weight: 26.3 kDa. Its apparent molecular weight on SDS-PAGE is 31 kDa.
+
+Suggested Reaction Conditions: The amount of enzyme required to cleave a fusion protein in a 16 hour reaction at room temperature ranges from 0.0001% to 0.5% (w/w). Cleavage of an MPBparamyosin-ΔSal fusion protein with an enterokinase site requires 0.0006%. 
+
+Unit Definition: 0.00016 ug of Enterokinase will cleave 25 ug of test substrate to 95% completion in 16 hours or less at 25°C. 
+
+Unit Assay Conditions: 20 mM Tris-HCl (pH 8.0 @ 25°C), 50 mM NaCl, 2 mM CaCl2 , 25 ug of an MBP fusion protein test substrate and enzyme. 
+Incubate at 23°C
+
+<h2>序列</h2>
+>aa of mouse EK
+ Region          830..1069
+                     /gene="Tmprss15"
+                     /gene_synonym="Entk"
+                     /gene_synonym="Prss7"
+                     /region_name="Mature chain"
+                     /experiment="experimental evidence, no additional details recorded"
+                     /note="Enteropeptidase catalytic light chain.
+                     /FTId=PRO_0000027722."
+>Enteropeptidase catalytic light chain(240aa)
+      781 gpfvrvnqap ngsliltpsl qcsqdslill qcnhkscgek kvtqkvspk[i vggsdaqaga
+      841 wpwvvalyhr drstdrllcg aslvssdwlv saahcvyrrn ldptrwtavl glhmqsnlts
+      901 pqvvrrvvdq ivinphydrr rkvndiammh lefkvnytdy iqpiclpeen qifipgrtcs
+      961 iagwgydkin agstvdvlke advplisnek cqqqlpeyni tesmicagye eggidscqgd
+     1021 sggplmcqen nrwflvgvts fgvqcalpnh pgvyvrvsqf iewihsflh]
+
+>mRNA of mouse EK
+http://www.ncbi.nlm.nih.gov/nuccore/NM_178855.4
+ mat_peptide     2623..3342
+                     /gene="Tmprss15"
+                     /gene_synonym="Entk; Prss7"
+                     /product="Enteropeptidase catalytic light chain"
+                     /experiment="experimental evidence, no additional details recorded"
+
+<div class=dna>原始序列:<br />
+ATCGTTGGTGGAAGTGACGCCCAGGCAGGGGCCTGGCCCTGGGTTGTGGCTTTGTATCACAGAGACAGGTCTACAGACCGTCTGCTCTGCGGTGCATCTCTTGTCAGCAGTGACTGGCTGGTGTCAGCTGCACACTGTGTGTATAGAAGAAATCTAGATCCAACCAGATGGACAGCAGTCCTGGGCCTGCATATGCAATCAAATCTGACTTCTCCTCAAGTAGTAAGACGGGTGGTTGATCAAATTGTCATAAACCCTCATTATGACAGACGCAGAAAGGTCAACGACATCGCTATGATGCACCTTGAGTTTAAAGTAAATTACACAGATTATATACAGCCTATTTGTTTACCAGAAGAGAATCAAATATTTATTCCAGGAAGAACTTGTTCGATTGCTGGCTGGGGATATGATAAAATAAATGCAGGTTCTACTGTTGATGTGCTGAAAGAAGCTGATGTTCCTCTTATATCCAATGAAAAGTGCCAGCAACAGCTGCCAGAATACAACATCACTGAAAGTATGATATGTGCAGGATATGAAGAAGGAGGAATAGATTCTTGTCAGGGTGATTCTGGAGGGCCATTAATGTGCCAAGAAAACAACAGATGGTTTCTTGTTGGTGTGACATCATTTGGAGTCCAGTGTGCACTGCCTAATCACCCTGGGGTATATGTCCGAGTCTCACAGTTTATAGAATGGATCCATAGCTTTCTACAT<a class=stop>TAG</a>[723bp]<br />
+翻译产物:<br />
+I  V  G  G  S  D  A  Q  A  G  A  W  P  W  V  V  A  L  Y  H  R  D  R  S  T  D  R  L  L  C  G  A  S  L  V  S  S  D  W  L  V  S  A  A  H  C  V  Y  R  R  N  L  D  P  T  R  W  T  A  V  L  G  L  H  M  Q  S  N  L  T  S  P  Q  V  V  R  R  V  V  D  Q  I  V  I  N  P  H  Y  D  R  R  R  K  V  N  D  I  A  M  M  H  L  E  F  K  V  N  Y  T  D  Y  I  Q  P  I  C  L  P  E  E  N  Q  I  F  I  P  G  R  T  C  S  I  A  G  W  G  Y  D  K  I  N  A  G  S  T  V  D  V  L  K  E  A  D  V  P  L  I  S  N  E  K  C  Q  Q  Q  L  P  E  Y  N  I  T  E  S  M  I  C  A  G  Y  E  E  G  G  I  D  S  C  Q  G  D  S  G  G  P  L  M  C  Q  E  N  N  R  W  F  L  V  G  V  T  S  F  G  V  Q  C  A  L  P  N  H  P  G  V  Y  V  R  V  S  Q  F  I  E  W  I  H  S  F  L  H  -<br />  
+翻译产物:<br />
+<span class=mouseEKL title="mouse EK light chain">IVGGSDAQAGAWPWVVALYHRDRSTDRLLCGASLVSSDWLVSAAHCVYRRNLDPTRWTAVLGLHMQSNLTSPQVVRRVVDQIVINPHYDRRRKVNDIAMMHLEFKVNYTDYIQPICLPEENQIFIPGRTCSIAGWGYDKINAGSTVDVLKEADVPLISNEKCQQQLPEYNITESMICAGYEEGGIDSCQGDSGGPLMCQENNRWFLVGVTSFGVQCALPNHPGVYVRVSQFIEWIHSFLH</span>[240aa]<br />
+</div>
+
+
+<h2>载体构建</h2>
+1.先拿到EK序列，放到pET22b中,以及pET22b/Trx载体( pETrx载体 )
+<span class=green>EKUP: 5-cg[gaattc]{g}[ATCGTTGGTGGAAGTGACGC]-3 EcoRI
+EKDown: 5-ccg[ctcgag][ATGTAGAAAGCTATGGATCCA]-3 XhoI</span>
+<div class=dna>
+>pET22b-rmEKL
+原始序列:<br />
+ATGAAATACCTGCTGCCGACCGCTGCTGCTGGTCTGCTGCTCCTCGCTGCCCAGCCGGCGATGGCCATGGATATCGGAATTAATTCGGATCCGAATTCGATCGTTGGTGGAAGTGACGCCCAGGCAGGGGCCTGGCCCTGGGTTGTGGCTTTGTATCACAGAGACAGGTCTACAGACCGTCTGCTCTGCGGTGCATCTCTTGTCAGCAGTGACTGGCTGGTGTCAGCTGCACACTGTGTGTATAGAAGAAATCTAGATCCAACCAGATGGACAGCAGTCCTGGGCCTGCATATGCAATCAAATCTGACTTCTCCTCAAGTAGTAAGACGGGTGGTTGATCAAATTGTCATAAACCCTCATTATGACAGACGCAGAAAGGTCAACGACATCGCTATGATGCACCTTGAGTTTAAAGTAAATTACACAGATTATATACAGCCTATTTGTTTACCAGAAGAGAATCAAATATTTATTCCAGGAAGAACTTGTTCGATTGCTGGCTGGGGATATGATAAAATAAATGCAGGTTCTACTGTTGATGTGCTGAAAGAAGCTGATGTTCCTCTTATATCCAATGAAAAGTGCCAGCAACAGCTGCCAGAATACAACATCACTGAAAGTATGATATGTGCAGGATATGAAGAAGGAGGAATAGATTCTTGTCAGGGTGATTCTGGAGGGCCATTAATGTGCCAAGAAAACAACAGATGGTTTCTTGTTGGTGTGACATCATTTGGAGTCCAGTGTGCACTGCCTAATCACCCTGGGGTATATGTCCGAGTCTCACAGTTTATAGAATGGATCCATAGCTTTCTACATCTCGAGCACCACCACCACCACCACTGA[846bp]<br />
+翻译产物:<br />
+M  K  Y  L  L  P  T  A  A  A  G  L  L  L  L  A  A  Q  P  A  M  A  M  D  I  G  I  N  S  D  P  N  S  I  V  G  G  S  D  A  Q  A  G  A  W  P  W  V  V  A  L  Y  H  R  D  R  S  T  D  R  L  L  C  G  A  S  L  V  S  S  D  W  L  V  S  A  A  H  C  V  Y  R  R  N  L  D  P  T  R  W  T  A  V  L  G  L  H  M  Q  S  N  L  T  S  P  Q  V  V  R  R  V  V  D  Q  I  V  I  N  P  H  Y  D  R  R  R  K  V  N  D  I  A  M  M  H  L  E  F  K  V  N  Y  T  D  Y  I  Q  P  I  C  L  P  E  E  N  Q  I  F  I  P  G  R  T  C  S  I  A  G  W  G  Y  D  K  I  N  A  G  S  T  V  D  V  L  K  E  A  D  V  P  L  I  S  N  E  K  C  Q  Q  Q  L  P  E  Y  N  I  T  E  S  M  I  C  A  G  Y  E  E  G  G  I  D  S  C  Q  G  D  S  G  G  P  L  M  C  Q  E  N  N  R  W  F  L  V  G  V  T  S  F  G  V  Q  C  A  L  P  N  H  P  G  V  Y  V  R  V  S  Q  F  I  E  W  I  H  S  F  L  H  L  E  H  H  H  H  H  H  -  <br />
+翻译产物:<br />
+MKYLLPTAAAGLLLLAAQPAMAMDIGINSDPNS<span class=mouseEKL title="mouse EK light chain">IVGGSDAQAGAWPWVVALYHRDRSTDRLLCGASLVSSDWLVSAAHCVYRRNLDPTRWTAVLGLHMQSNLTSPQVVRRVVDQIVINPHYDRRRKVNDIAMMHLEFKVNYTDYIQPICLPEENQIFIPGRTCSIAGWGYDKINAGSTVDVLKEADVPLISNEKCQQQLPEYNITESMICAGYEEGGIDSCQGDSGGPLMCQENNRWFLVGVTSFGVQCALPNHPGVYVRVSQFIEWIHSFLH</span>LEHHHHHH[281aa]<br /><br />
+
+Theoretical pI/Mw: 5.92 / 31373.73 <hr />
+
+>pETrx-rmEKL<br />
+原始序列:<br />
+CATATGAGCGATAAAATTATTCACCTGACTGACGACAGTTTTGACACGGATGTACTCAAAGCGGACGGGGCGATCCTCGTCGATTTCTGGGCAGAGTGGTGCGGTCCGTGCAAAATGATCGCCCCGATTCTGGATGAAATCGCTGACGAATATCAGGGCAAACTGACCGTTGCAAAACTGAACATCGATCAAAACCCTGGCACTGCGCCGAAATATGGCATCCGTGGTATCCCGACTCTGCTGCTGTTCAAAAACGGTGAAGTGGCGGCAACCAAAGTGGGTGCACTGTCTAAAGGTCAGTTGAAAGAGTTCCTCGACGCTAACCTGGCGATGGATCCGAATTCGATCGTTGGTGGAAGTGACGCCCAGGCAGGGGCCTGGCCCTGGGTTGTGGCTTTGTATCACAGAGACAGGTCTACAGACCGTCTGCTCTGCGGTGCATCTCTTGTCAGCAGTGACTGGCTGGTGTCAGCTGCACACTGTGTGTATAGAAGAAATCTAGATCCAACCAGATGGACAGCAGTCCTGGGCCTGCATATGCAATCAAATCTGACTTCTCCTCAAGTAGTAAGACGGGTGGTTGATCAAATTGTCATAAACCCTCATTATGACAGACGCAGAAAGGTCAACGACATCGCTATGATGCACCTTGAGTTTAAAGTAAATTACACAGATTATATACAGCCTATTTGTTTACCAGAAGAGAATCAAATATTTATTCCAGGAAGAACTTGTTCGATTGCTGGCTGGGGATATGATAAAATAAATGCAGGTTCTACTGTTGATGTGCTGAAAGAAGCTGATGTTCCTCTTATATCCAATGAAAAGTGCCAGCAACAGCTGCCAGAATACAACATCACTGAAAGTATGATATGTGCAGGATATGAAGAAGGAGGAATAGATTCTTGTCAGGGTGATTCTGGAGGGCCATTAATGTGCCAAGAAAACAACAGATGGTTTCTTGTTGGTGTGACATCATTTGGAGTCCAGTGTGCACTGCCTAATCACCCTGGGGTATATGTCCGAGTCTCACAGTTTATAGAATGGATCCATAGCTTTCTACATCTCGAGCACCACCACCACCACCACTGA[1092bp]<br />
+翻译产物:<br />
+H<span class=trxA title="trxA">MSDKIIHLTDDSFDTDVLKADGAILVDFWAEWCGPCKMIAPILDEIADEYQGKLTVAKLNIDQNPGTAPKYGIRGIPTLLLFKNGEVAATKVGALSKGQLKEFLDANLA</span>MDPNS<span class=mouseEKL title="mouse EK light chain">IVGGSDAQAGAWPWVVALYHRDRSTDRLLCGASLVSSDWLVSAAHCVYRRNLDPTRWTAVLGLHMQSNLTSPQVVRRVVDQIVINPHYDRRRKVNDIAMMHLEFKVNYTDYIQPICLPEENQIFIPGRTCSIAGWGYDKINAGSTVDVLKEADVPLISNEKCQQQLPEYNITESMICAGYEEGGIDSCQGDSGGPLMCQENNRWFLVGVTSFGVQCALPNHPGVYVRVSQFIEWIHSFLH</span>LEHHHHHH-[364aa]<br /><br />
+
+Theoretical pI/Mw: 5.61 / 40489.08 
+</div>
+
+
+
+</pre>
+</div>

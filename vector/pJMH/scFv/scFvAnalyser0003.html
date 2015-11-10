@@ -1,0 +1,318 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>scFv序列元件分析程序</title>
+
+<style>
+.wrap {
+  width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 5px #bbb;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding:5px;
+}
+#footer {
+  clear: both;
+  padding: 10px 5px;
+  background: #0096ff;
+  font-size: 12px;
+  line-height: 15px;
+  color: #fff;
+}
+#input {
+  font-family: monospace;
+  border-color: rgb(169, 169, 169);
+  width: 660px;
+  height: 150px;
+  float: left;
+}
+#output {
+  word-break: break-word;
+  border: 1px solid #0096ff;
+  font-family: monospace,"宋体";
+  font-size: 15px;
+  padding: 10px 5px;
+}
+#CodeBox{  float:left; padding:2px; margin-left:20px;width:250px;}
+pre {
+  float: left;
+  background: #efeeef;
+  padding: 10px;
+  border-radius: 15%;
+  margin: 20px;
+}
+.dna, .dna2 {
+  border: 1px solid red;
+  padding: 5px;
+  table-layout: fixed;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: auto;
+}
+.G3pSignal {
+  margin-left: 5px;
+  color: green;
+  border-top: 3px solid green;
+}
+.red {
+  color: red;
+}
+
+.Sfi1{  padding: 0 3px;
+    background: #FCB4D1;
+  color: #fff;}
+.Sfi2{  padding: 0 3px;
+  background: #FF297F;
+  color: #fff;}
+
+.Myc{background: #9BFF9B;
+  color: #000;}
+.GSlinker,
+.MHlinker,
+.linkerAmber{ border:#aaa 1px dashed; color:#ddd;}
+.GSlinker{color:red;}
+
+.His{  background: #aaa;
+  color: #fff;}
+.AmberStop{  background: #000;
+  color: #fff;}
+
+
+</style>
+		</style>
+	</head>
+	<body>
+
+
+<div class=wrap>
+<h1>scFv analyser(version0.004)</h1>
+
+scFv测序引物: <br>
+后向M13R	17mer	5'-d(CAGGAAACAGCTATGAC)-3'<br>
+前向amberDn:5-[CTATGCGGCGTGGTGGTG]-3   反向互补后5-[CACCACCACgccgcaTAG]-3
+<hr />
+
+<textarea class="input" id="input">
+>L73-M13R_F02.ab1
+GGGAGGCATTGGAGCTTTTTTTTGGAGATTTTCACGTGAAAAAATTATTATTCGCAATTCCTTTAGTTGTTCCTTTCTATGCGGCCCAGCCGGCCCAGGTGCAGCTGCAGGAGTCGGGCCCAGGACTGGTGAAGCCTTCGGAGACCCTGTCCCTCACCTGCGCTGTCTCTGGTGGCTCCGTCAATAATTGCTGCTGGAGCTGGCTCCGGCAGCCCGCCGGGAAGGGACTGGAGTGGATTGGGCGTATTTATACCAGTGGGAGTTTGAACTACAACCCCTCCCTCAAGAGTCGAGTCACCATGTCAGTAGACACGTCCAAGAACCAGTTCTCCCTAAAGCTCAACTCTGTGACCGCCGCGGACACGGCCCTGTATTACTGTGTGAGAGGCAGTGGCTGGTACCCCGACTGGGGCCAGGGAACCCTGGTCACCGTCTCCTCAGGTGGTGGTGGCAGCGGCGGCGGCGGCTCTGGTGGTGGTGGTTCCTCCTATGTGCTGACTCAGCCACCCTCGGTGTCAGTGGCCCCAGGAAAGTCGGCCAGGATTACCTGTGGGGGAAACAACATTGGAAGTAAAAGTGTGCACTGGTTCCAGCAGAAGCCAGGCCGGGCCCCTGCGCTGGTCGCCTATGATGAGAGCGACCGGCCCTCACGTATCCCTGAGCGATTCTCTGGCTCCAACTCTGGGAACACAGCCACTCTGACCATCAGCGGGACCCAGGCTATGGATGAGGCTGACTATTACTGTCAGGCGTGGGACAGCAAGGTATTCGGCGGAGGGACCAAGCTCACCGTCCTAGGCCAGGCCGGCCAGGCTCCGAACAAAAACTCATCTCAGAAGAGGATCTGAATAGCGCCGTTGATCACCACCACCACCACCACgccgcaTAGACTGTTGAAAGTTGTTTAGCAAAACCTCATACAGAAAATTCATTTACTAACGTCTGGAAAGACGACAAACTTTAGATCGTTACGCTAACTATGAGGGCTGTCTGTTGAATGCTACAGGCGTTGTGGTTTGTACTGGTGG 
+</textarea>
+
+<pre><span class="red"><b>点击submit处理流程:</b></span>
+1.高亮<b>Sfi/GSlinker/Myc/His</b>；
+2.翻译为氨基酸；
+</pre>
+
+<textarea id="CodeBox">格式化序列输出窗口...</textarea>
+
+<div style="clear:both;"></div> <br>
+<input type="button" id="submit" value="submit">
+<input type="button" id="reset" value="reset">
+
+<div style="clear:both;"></div> <br>
+<div id="output"></div>
+
+<hr>
+<div id="footer">
+			如有任何建议和意见，欢迎反馈到 jimmymall@163.com.<br>
+			声明:作者尽力保证程序正确，但对结果的正确性不作任何保证；请在仔细验证后使用！<br>
+			Distributed under the MIT license.
+			©2014 By FireCloud | 
+
+			<script type="text/javascript">
+			function print(s){document.write(s);}
+			print("lastModified: "+document.lastModified);print(" | ");
+			
+/*统计代码			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253196206'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1253196206%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));*/
+			
+			</script><br> 
+		</div>
+
+
+</div>
+
+
+
+
+<!-- ---------------------javascript part--------------------------->
+	
+	<script>
+//javascript
+/*-----------------------------javascript单击事件----------------------------*/
+window.onload=function(){
+/*--------------------------------重置事件绑定------------------------------*/
+	$("reset").onclick=function(){
+		//$("input").innerHTML="";//不会清空用户的输入。
+		$("input").value="";
+		$("CodeBox").value="";
+		$("output").innerHTML="";
+		$("input").focus();
+	}
+
+/*--------------------------------提交事件绑定------------------------------*/
+	$("submit").onclick=function(){
+		$("output").innerHTML="";
+//1.获取字符串，并区分出标题与序列
+		var str=$("input").value; //wjl=str;	
+		var title=getDNA(str)[0]; //n(getDNA(str))
+		var sequence=getDNA(str)[1];
+		
+//2.关键字及高亮显示；
+		n("<span class=red>关键元件:</span><br>","output");
+		for(var x in DNA){
+			n(x+': ['+DNA[x]+"] ["+translate(DNA[x])+"]<br>","output");
+		}
+		
+		n("<hr><span class=red>正在分析的文件是: "+title+"</span><br>","output");
+		n("高亮显示:<br>"+highLightDNA(sequence)+"<br/>","output");
+		
+		//格式化序列输出
+		$("CodeBox").value="高亮显示:"+title+"<br>"+highLightDNA(sequence)+"<br/>","CodeBox";//textarea输出，便于复制
+		//全选输出code区域
+		$("CodeBox").select();
+		
+		//获取读码框并输出翻译结果
+		var dna=sequence.substring(sequence.indexOf("GTGAAAAAATTATTATTCG"));
+		n("<hr>翻译结果:<span class=red>GTG起始位置时当做ATG，翻译为Met！请自行更改。</span><br>"+highLightPro(translate(dna))+"<br/>","output");
+	}
+	
+	
+}
+
+
+
+
+/*--------------------------------tool kit------------------------------*/
+function $(s){
+	if(typeof s=="object")
+		return s;
+	return document.getElementById(s);
+}
+
+function println(s){document.write(s+"<br />");}
+
+function n(s, o){
+	if(o==undefined){
+		console.log(s);
+	}else{
+		$(o).innerHTML+=s;
+	}
+}
+
+var DNA={};//定义一个全局顶层对象；
+DNA.Sfi1="GGCCCAGCCGGCC";
+DNA.Sfi2="GGCCAGGCCGGCC";
+DNA.GSlinker="GGTGGTGGTGGCAGCGGCGGCGGCGGCTCTGGTGGTGGTGGtTCC";
+DNA.Myc="GAACAAAAACTCATCTCAGAAGAGGATCTG";
+DNA.MHlinker="AATAGCGCCGTTGAT";
+DNA.His="CACCACCACCACCACCAC";
+DNA.linkerAmber="gccgcatag";
+
+
+//高亮显示DNA关键元件
+function highLightDNA(str){
+	str = str.replace(/(GTGAAAAAATTATTATTCGCAATTCCTTTAGTTGTTCCTTTCTATGCGGCCCAGCCGGCC)/gi, '<a class=G3pSignal title=G3pSignal>$1</a>');
+	
+	for(var tag in DNA){
+			var reg=new RegExp("(" + DNA[tag] + ")","gi" );
+			//js中正则需要先定义，不能再正则中引用变量；
+		if(tag=="linkerAmber"){
+			str = str.replace(reg, '<span class=linkerAmber title="linkerAmber">gccgca</span><span class=AmberStop title=AmberStop>TAG</span>');
+			//n(tag+"=="+reg+":"+str);
+		}else{
+			str = str.replace(reg, '<span class='+tag+' title='+tag+'>$1</span>');
+		}
+		
+	}
+	return str;
+}
+
+
+
+var Pro={};//定义一个全局顶层对象；
+Pro.GSlinker="GGGGSGGGGSGGGGS";
+Pro.Myc="EQKLISEEDL";
+Pro.MHlinker="NSAVD";
+Pro.His="HHHHHH";
+Pro.linkerAmber="AA-";
+
+//高亮显示protein关键元件
+function highLightPro(str){
+	for(var tag in Pro){
+		var reg=new RegExp("(" + Pro[tag] + ")","gi" );
+		//js中正则需要先定义，不能再正则中引用变量；
+		str = str.replace(reg, '<span class='+tag+' title='+tag+'>$1</span>');
+	}
+	return str;
+}
+
+//翻译
+function translate(dna){
+	var str=dna.toUpperCase();
+	//定义密码子表
+	var codens={
+		"TTT":"F",  "TCT":"S",  "TAT":"Y",  "TGT":"C", 
+		"TTC":"F",  "TCC":"S",  "TAC":"Y",  "TGC":"C", 
+		"TTA":"L",  "TCA":"S",  "TAA":"-",  "TGA":"-", 
+		"TTG":"L",  "TCG":"S",  "TAG":"-",  "TGG":"W", 
+
+		"CTT":"L",  "CCT":"P",  "CAT":"H",  "CGT":"R", 
+		"CTC":"L",  "CCC":"P",  "CAC":"H",  "CGC":"R", 
+		"CTA":"L",  "CCA":"P",  "CAA":"Q",  "CGA":"R", 
+		"CTG":"L",  "CCG":"P",  "CAG":"Q",  "CGG":"R", 
+
+		"ATT":"I",  "ACT":"T",  "AAT":"N",  "AGT":"S", 
+		"ATC":"I",  "ACC":"T",  "AAC":"N",  "AGC":"S", 
+		"ATA":"I",  "ACA":"T",  "AAA":"K",  "AGA":"R", 
+		"ATG":"M",  "ACG":"T",  "AAG":"K",  "AGG":"R", 
+
+		"GTT":"V",  "GCT":"A",  "GAT":"D",  "GGT":"G", 
+		"GTC":"V",  "GCC":"A",  "GAC":"D",  "GGC":"G", 
+		"GTA":"V",  "GCA":"A",  "GAA":"E",  "GGA":"G", 
+		"GTG":"V",  "GCG":"A",  "GAG":"E",  "GGG":"G"
+	}
+
+	//翻译dna为aa单字母缩写
+	var aa="";
+	for (i = 0; i < str.length; i=i+3) {
+		var sub=str.substring(i, i+3);
+		var a=codens[sub];
+		if(a==undefined){
+			a="x";
+		}
+		aa += a;
+	}
+	
+	return aa;
+}
+
+//过滤DNA：截取文件名和序列部分，对序列部分转变成大写，去掉非字母
+function getDNA(str){
+	//如果第一个有>开头，则为fasta格式,含有标题和序列
+	if(str.search(">")!=-1){//wjl
+		var titleEnd=str.search(/\n/);
+		var title=str.substring(0,titleEnd);
+		var dna=str.substring(titleEnd+1);
+	}else{
+		var title="unname";
+		var dna=str;
+	}
+	
+	//输入DNA并格式化:去掉换行
+	dna=dna.replace(/\r/g,'').replace(/\n/g,'');
+	//去掉空格
+	dna=dna.replace(/\s/g,"");
+	//去掉非字母字符:数字、特殊符号
+	dna=dna.replace(/[^a-zA-Z]/g,'');
+	//变成大写
+	dna=dna.toUpperCase();
+	
+	//返回的是一个数组，有标题和序列
+	return [title, dna];
+}
+</script>
+		
+</body>
+</html>

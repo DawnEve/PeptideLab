@@ -1,0 +1,139 @@
+﻿ <html>
+<head>
+<style>
+.wrap{margin:10px auto; width:800px;}
+.dataIn{padding:10px; border:5px solid #eeefee; }
+#output{padding:10px; border:1px solid #0096ff; }
+.dataIn input{width:100%; }
+.red{color:red}
+.caption{background:#0096ff; color:white; padding:2px 5px;}
+
+#footer{
+	clear: both;
+	margin-top:10px;
+	padding: 10px 5px;
+	background: #0096ff;
+	font-size:12px;
+	line-height:15px;
+	color:#fff;
+		}
+
+</style>
+<title>T4 ligation calculator</title>
+</head>
+
+<body>
+<div class=wrap>
+<h2>T4 ligation system calculator v0.02</h2>
+<table class=dataIn>
+	<tr>
+		<td></td>
+		<td>Vector</td>
+		<td>Insertion</td>
+	</tr>
+	<tr>
+		<td>Concentration(ng/ul)</td>
+		<td><input  type="text" id="c1" value="8" /></td>
+		<td><input  type="text" id="c2" value="2" /></td>
+	</tr>
+	<tr>
+		<td>Length(bp)</td>
+		<td><input  type="text" id=l1 value="5400" /></td>
+		<td><input  type="text" id=l2 value="800" /></td>
+	</tr>
+	<tr>
+		<td>Total Volume(ul)</td>
+		<td colspan="2"><input  type="text" id=TV value="8.5" /></td>
+	</tr>
+	<tr>
+		<td>Molar Ratio</td>
+		<td>1</td>
+		<td><input type="text" id=t value="5" /></td>
+	</tr>
+</table>
+
+<br />
+<input type="button" id="submit" value="Calculate" />
+<hr />
+
+<div id=output></div>
+
+
+
+<div id=footer>
+			如有任何建议和意见，欢迎反馈到 jimmymall@163.com.<br>
+			声明：作者尽力保证程序正确，但对结果的正确性不作任何保证；请在仔细验证后使用！<br />
+			Distributed under the MIT license.
+			&copy;2014 By FireCloud | 
+
+			<script type="text/javascript">
+			function print(s){document.write(s);}
+			print("lastModified: "+document.lastModified);
+			
+/*			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253196206'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1253196206%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+			
+			*/</script><br /> 
+		</div><!--end of footer-->
+
+		
+</div>
+
+
+<script>
+//tools
+function $(s){
+	if(typeof s=="object")
+		return s;
+	return document.getElementById(s);
+}
+
+function n(s,o){
+	o=o || "output";
+	$(o).innerHTML += s;
+}
+
+//onload
+window.onload=function(){
+	
+	$("submit").onclick=function(){
+		$("output").innerHTML="";
+//1.获取浓度、碱基长度、体系总体积
+		var c1=$("c1").value, c2=$("c2").value;	
+		var l1=$("l1").value, l2=$("l2").value;	
+		var totalV=$("TV").value;
+		var t=$("t").value;
+		
+		n("<div class=caption>已知条件：</div>");
+		n("质粒浓度： "+c1+" ng/ul, 插入片段浓度： "+c2+" ng/ul<br>");
+		n("质粒长度： "+l1+" bp, 插入片段长度： "+l2+" bp<br>");
+		n("质粒和插入片段总体积："+totalV +"ul<br>");
+		
+		//t means vector/insertion molarRatio;
+//计算加入体积
+		n("<div class=caption>计算结果：</div>");
+		
+		var array3=calcV(c1,c2,l1,l2,totalV,3);
+		n("[摩尔比1: 3] 质粒体积："+array3[0].toFixed(2) +"ul, 插入片段体积："+array3[1].toFixed(2) +"ul<br>");
+		
+		var array10=calcV(c1,c2,l1,l2,totalV,10);
+		n("[摩尔比1:10] 质粒体积："+array10[0].toFixed(2) +"ul, 插入片段体积："+array10[1].toFixed(2) +"ul<br>");
+		
+		
+		var arrayt=calcV(c1,c2,l1,l2,totalV,t);
+		n("<span class=red>[摩尔比1:"+t+"] 质粒体积："+arrayt[0].toFixed(2) +"ul, 插入片段体积："+arrayt[1].toFixed(2) +"ul</span><br>");
+		
+	}
+	
+	//由已知条件(浓度、长度、总体积)返回需要加入的体积【数组】；
+	function calcV(c1,c2,l1,l2,totalV, t){
+		var vRatio=l1/l2 *1/t *c2/c1;
+		var v1=totalV*1/(1+vRatio);
+		var v2=totalV*vRatio/(1+vRatio);
+		return [v2, v1];
+	};
+
+}
+</script>
+
+</body>
+</html>

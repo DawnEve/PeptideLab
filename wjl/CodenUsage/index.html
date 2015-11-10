@@ -1,0 +1,312 @@
+﻿<HTML>
+<HEAD>
+<TITLE>E. coli codon usage analyzer</TITLE>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+//Morris Maduro
+//October, 1996
+
+var windowline
+var baseslo="acgt"
+var baseshi="ACGT"
+
+function convertme()  {
+
+windowline = "Initializing.."; updatebar()
+
+var sequence = document.forms[0].entry.value
+var protein = document.forms[0].prot.value
+var threshold = (document.forms[0].thr.selectedIndex) * 5
+var offset = (document.forms[0].startpos.selectedIndex) * 250
+if (!threshold) {threshold=1}
+var output
+var M
+var use
+var p
+var nmax = (document.forms[0].perrow.selectedIndex) * 10 
+     nmax += 40 // number of outputs before carriage return
+var n
+var codonnum
+var usetemp
+var useprint
+var i
+var codonstring
+var seq
+var seqsub
+var L
+var spc
+var below
+var total
+var U1
+var U2
+var usespaces
+var toprow
+var middlerow
+var bottomrow
+var color
+var totalcols
+var numrow
+var startrow
+var tally
+var end
+
+updatebar ()
+ 
+var code = "lysKasnNlysKasnNthrTthrTthrTthrTargRserSargRserSileIileImetMileI"
+code += "glnQhisHglnQhisHproPproPproPproPargRargRargRargRleuLleuLleuLleuL"
+code += "gluEaspDgluEaspDalaAalaAalaAalaAglyGglyGglyGglyGvalVvalVvalVvalV"
+code += "OCHZtyrYAMBZtyrYserSserSserSserSOPAZcysCtrpWcysCleuLpheFleuLpheF"
+
+//codon usage for Class II genes, in same order as for code, but with 5 placeholders each
+
+updatebar ()
+
+var usage = "07855082750214501725"
+usage += "00467053600126502908"
+usage += "00062024330002900452"
+usage += "00057065941000003349"
+
+usage += "01865070230813502977"
+usage += "01525001630718901123"
+usage += "00107032970008006425"
+usage += "00083008030766700556"
+
+usage += "07535053950246504605"
+usage += "02401016140323002754"
+usage += "00197042830043605084"
+usage += "01997013450268103977"
+
+usage += "00000064770000003523"
+usage += "00479026560073903241"
+usage += "00000061151000003885"
+usage += "00344070920054702908"
+
+//put HTML together
+
+updatebar()
+
+     output = "<HTML><HEAD><TITLE>Codon Usage Analysis for "+protein
+
+var printthedate = getthedate()
+
+     output += "</TITLE></HEAD><BODY BGCOLOR=FFFFFF><FONT SIZE=+1><P><B><I>E. coli</I> Codon Usage Analysis 2.0</B> <FONT SIZE=-1>by Morris Maduro</FONT><P><B>Date</B>: " + printthedate + "&#160;&#160;&#160;<B>Sequence</B>: "+protein+"<P><B>Sequence entered</B> ("
+
+// remove illegal characters
+
+windowline = "Checking sequence.."; updatebar ()
+
+     seq=""
+
+     for (p=0; p<sequence.length; p++) {
+          M = sequence.charAt(p)
+          if (M=="A" || M=="C" || M=="G" || M=="T" || M=="a" || M=="c" || M=="g" || M=="t" || M=="u" || M=="U") {seq += M} // if character good, add it to seq
+     }
+     L = seq.length
+     if (L<3) {alert ("Insufficient sequence entered."); return}
+// strip off any remaining bases not part of a triplet  
+     seq = seq.substring(0,L-(L%3))
+
+// sequence too long (some browsers will run out of memory)?
+
+     if (seq.length>750) {if (!(confirm("The sequence is longer than 750 bases (" + seq.length + ").\nAre you sure you wish to continue?"))) {return}
+     }
+
+
+// print out sequence at top of page
+
+     output += seq.length + " bases):<FONT SIZE=-1><P><PRE>5'-"
+
+     n=0
+     for (i=0;i<seq.length;i++) {
+     output+=seq.charAt(i); n++
+          if (n==80) {n=0; output+="\n  "}
+          if (!(n%10)) {output+=" "}
+     }
+
+
+
+// begin table
+
+     windowline = "Building table.."; updatebar ()
+
+     output +="-3'\n\n</PRE></FONT><P>"
+
+//begin analysis
+
+     n=0; toprow=""; middlerow=""; bottomrow="" // initialize table parts
+     below=0 // number of codons whose usage is below threshold
+     total=0 // total number of sense codons
+
+     for (p=0; p<seq.length; p+=3) {
+
+          //get codon pieces
+
+          M=seq.charAt(p); codonnum = 16 * getbase(M)
+          M=seq.charAt(p+1); codonnum += 4 * getbase(M)
+          M=seq.charAt(p+2); codonnum += getbase(M) 
+
+          //get string as 'usetemp,' and its integer value as 'use'
+
+           usetemp = usage.substring(codonnum*5,codonnum*5+5)
+
+          //find first nonzero digit
+          usespaces = ""
+          useprint = ""
+
+          for (i=0; i<5; i++) {
+               if (usetemp.charAt(i)!="0") {break}
+               usespaces+=" "
+          }
+
+
+          if (i!=5) {total++} // increase tally of sense codons
+
+// this part used to calculate how much of the actual string to print
+//          if (i<3) {useprint=usetemp.substring(i,3)}
+//          useprint += "." + usetemp.substring(3,5)
+
+// must avoid getting integer from a string with leading 0's
+
+          use = parseInt(usetemp.substring(i,5))
+      
+     // begin putting table together
+
+     if (!n) {
+     output += "<P><HR SIZE=1 NOSHADE><TABLE CELLSPACING=0 CELLPADDING=0><TR><TD ROWSPAN=3 VALIGN=MIDDLE ALIGN=RIGHT>Codon<BR>Freq.</TD><TD VALIGN=TOP>100</TD><TD ROWSPAN=3><IMG HEIGHT=100 WIDTH=2 SRC='whitebar.GIF'></TD>"; startrow=p/3+1
+     }
+
+//CHECK IF USAGE IS BELOW THRESHOLD
+
+     color="green"
+     if (use<(threshold*100) && (i!=5)) {below++; color="red"}   
+
+     toprow+="<TD ROWSPAN=3 VALIGN=BOTTOM ALIGN=MIDDLE><IMG SRC='" + color + "bar.GIF' WIDTH=5 HEIGHT=" + (parseInt(use/100)+1) + "></TD>"
+     middlerow+="<TD ALIGN=CENTER><FONT SIZE=-2><TT>" + seq.charAt(p) + "<BR>" + seq.charAt(p+1) + "<BR>" + seq.charAt(p+2) + "</TD>"
+     bottomrow+="<TD ALIGN=CENTER><FONT SIZE=-2><TT>" + code.charAt(codonnum*4+3) + "</TD>"
+
+// check if this is the very last codon; if so, end the table row
+          totalcols = n+1 ; end = 0
+          if (p==seq.length-3) {n = nmax - 1 ; end = 1}
+ 
+          n++; if (n==nmax) {
+
+          n=0;
+
+          updatebar ();
+
+          output += toprow + "</TR><TR><TD VALIGN=MIDDLE ALIGN=RIGHT>50</TD></TR>"
+          output += "<TR><TD VALIGN=BOTTOM ALIGN=RIGHT>0</TD></TR>"
+          output += "<TR><TD COLSPAN=2 VALIGN=MIDDLE ALIGN=RIGHT>Codon</TD><TD ROWSPAN=3></TD>"
+          output += middlerow + "</TR><TR><TD COLSPAN=2 VALIGN=MIDDLE ALIGN=RIGHT>Amino Acid</TD>"
+          output += bottomrow + "</TR><TR><TD COLSPAN=2 ALIGN=RIGHT VALIGN=MIDDLE>Position</TD>"
+
+          //calculate "position" row
+
+          numrow=""; tally=0
+          for (i=startrow; i<startrow+totalcols; i++) {
+          tally++; if (tally==10) {tally = 0 ; numrow += "<TD COLSPAN=10 ALIGN=RIGHT><FONT SIZE=-2>"+ (i+offset) + "</FONT></TD>"}
+           }
+
+          if (end) {numrow += "<TD></TD>"} 
+
+          output += numrow + "</TR></TABLE>"
+          toprow = ""; middlerow = ""; bottomrow = ""
+          }
+
+     }
+
+     output += "<HR SIZE=1 NOSHADE><FONT SIZE=-1>Colors: <IMG SRC='redbar.GIF' WIDTH=10 HEIGHT=10> = less than " + threshold + "% of codons for same amino acid; <IMG SRC='greenbar.GIF' WIDTH=10 HEIGHT=10> = at least " + threshold + "%</FONT><P>Fraction of sense codons below threshold (=" + threshold + ".00): <B>" + below + "/" + total + "  (" + parseInt(100*(below/total)) + "%)</B><P>-- End of report --"
+     output += "<FORM><INPUT TYPE='button' VALUE = 'Done'  onClick='self.close()'></FORM>"
+     output += "</BODY></HTML>"
+
+// write to new page
+
+     windowline = "sending HTML.." ; updatebar ()
+
+     newWindow = window.open("","","toolbar,status,resizable,menubar,scrollbars,status")
+
+     if (newWindow != null)  {
+          newWindow.document.write(output)
+          newWindow.document.close()
+     } else {alert("Could not open a new window;\nThe browser may not have enough memory.")}
+
+window.status = ""
+ 
+return } 
+
+
+function getbase (B) {
+     if (B=="U" || B=="u") {return 3}
+     for (var x=0; x<4; x++) {
+          if (B==baseslo.charAt(x)) {break}
+          if (B==baseshi.charAt(x)) {break}
+          }
+     return x}
+
+
+function getthedate () {
+
+date = new Date()
+var monthnames = "JanFebMarAprMayJunJulAugSepOctNovDec"
+var month = date.getMonth()
+var monthname = monthnames.substring(month*3,month*3+3)
+var datenum = date.getDate()
+var year = date.getYear()
+var day = date.getDay()
+var daynames = "SunMonTueWedThuFriSat"
+var dayname = daynames.substring(day*3,day*3+3)
+var hour = date.getHours()
+var min = date.getMinutes()
+var hourstring = "" + hour
+var ampm = "am"
+var minprint = "" + min
+
+     if (min<10) { minprint = "0" + min }
+     if (hour>12) { hourstring = (hour - 12)}
+     if (hour>11) {ampm = "pm"}
+     if (hour==0) { hourstring = "12" }
+
+var datestring = "" + dayname + " " + datenum + " " + monthname + " " + year + " - " + hourstring + ":" + minprint + " " + ampm
+return datestring
+}
+
+function updatebar() { windowline +=  "." ; window.status = windowline}
+
+
+//-->
+</SCRIPT>
+
+<BODY bgcolor=FFFFFF><FONT FACE="Arial">
+<CENTER><TABLE CELLPADDING=20><TR><TD CELL BGCOLOR=404040 ALIGN=CENTER VALIGN=MIDDLE><FONT SIZE=+2 COLOR=FFFFFF><B><I>E. coli</I> Codon Usage Analyzer 2.1</TD></TR></TABLE>
+<FONT SIZE=-1>by <A HREF="mailto:mmaduro@citrus.ucr.edu">Morris Maduro</A></FONT>
+
+</CENTER>
+<P>This Javascript will take a DNA coding sequence and display a graphic report showing the frequency with which each codon is used in <I>E. coli</I>.  The data for this program are from the Class II gene <A HREF="codontable.htm">data</A> from Henaut and Danchin: Analysis and Predictions from <I>Escherichia coli</I> sequences in: <I> Escherichia coli and Salmonella</I>, Vol. 2, Ch. 114:2047-2066, 1996, Neidhardt FC ed., ASM press, Washington, D.C.
+<BR><b>For a more comprehensive program, try the <A HREF="http://gcua.schoedl.de/">Graphical Codon Usage Analyzer</a> by Thomas Sch&oumldl.</b>
+<P><b>Instructions</b>:
+Paste or type the coding sequence into the large textarea below (uppercase or lowercase is fine). Improper characters will be ignored; U can be put in place of T. The 'threshold' is the cutoff to display a different color for a particular codon, and for the tally of 'bad' codons.<BR><FONT SIZE=-1>
+<FORM>
+<FONT SIZE=+1 COLOR=000080>Sequence name: </FONT><INPUT TYPE="text" NAME="prot" VALUE="(Unspecified)" SIZE=30> <FONT SIZE=+1 COLOR=000080>Threshold: </FONT><SELECT NAME="thr"><OPTION>1%<OPTION>5%<OPTION SELECTED>10%<OPTION>15%<OPTION>20%<OPTION>25%</SELECT>
+  
+<P><FONT SIZE=+1 COLOR=000080>Enter the coding sequence:</FONT>
+<BR><TEXTAREA NAME="entry" ROWS=6 COLS=70></TEXTAREA>
+
+<P><FONT SIZE=+1 COLOR=000000>for display: </FONT>&#160;&#160;<FONT SIZE=+1 COLOR=000080>Start: </FONT><SELECT NAME="startpos"><OPTION SELECTED>0<OPTION>250<OPTION>500<OPTION>750<OPTION>1000<OPTION>1250<OPTION>1500</SELECT>&#160;&#160;&#160;<FONT SIZE=+1 COLOR=000080>Codons/row: </FONT><SELECT NAME="perrow"><OPTION>40<OPTION SELECTED>50<OPTION>60<OPTION>70<OPTION>80<OPTION>90<OPTION>100</SELECT>
+
+<P><INPUT TYPE="button" VALUE="Create Codon Usage Report" onClick="convertme()">
+<INPUT TYPE="reset" VALUE="Reset Form"></FORM>
+
+<P><B>Notes:</B><UL><LI>On older machines be careful entering sequences larger than 750 bp (Javascript may run out of memory) -- you may have to split larger ORFs.<LI>Computation will take ~10 seconds depending on the platform.<LI>The resulting file can be printed, just set printer to "color/grayscale" mode.</UL>
+Copyright (c) 1996/2003 <a href="mailto:mmaduro@citrus.ucr.edu">Morris Maduro</a> <IMG SRC="whitebar.GIF" HEIGHT = 5 WIDTH = 5>
+<IMG SRC="greenbar.GIF" HEIGHT = 5 WIDTH = 5>
+<IMG SRC="redbar.GIF" HEIGHT = 5 WIDTH = 5> 
+<BR>
+<a href="http://faculty.ucr.edu/~mmaduro/resources.htm">[Resources Page]</a> <a href="http://faculty.ucr.edu/~mmaduro/index.htm">[Main Page]</a>
+<br>
+<HR SIZE=1 NOSHADE>
+ 
+</BODY>
+</HTML>

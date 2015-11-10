@@ -1,0 +1,89 @@
+LOCUS       X62568                   649 bp    mRNA    linear   PRI 30-JUL-1996
+DEFINITION  H.sapiens vegf gene for vascular endothelial growth factor.
+ACCESSION   X62568
+VERSION     X62568.1  GI:37658
+KEYWORDS    vascular endothelial growth factor; vegf gene.
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 649)
+  AUTHORS   Weindel,K., Marme,D. and Weich,H.A.
+  TITLE     AIDS-associated Kaposi's sarcoma cells in culture express vascular
+            endothelial growth factor
+  JOURNAL   Biochem. Biophys. Res. Commun. 183 (3), 1167-1174 (1992)
+   PUBMED   1567395
+REFERENCE   2  (bases 1 to 649)
+  AUTHORS   Weich,H.A.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (10-OCT-1991) H.A. Weich, University of Freiburg,
+            Molecular Cell Biology, c/o Goedecke AG, Mooswaldallee 1-9, 7800
+            Freiburg, FRG
+COMMENT     subunit structure dimer.
+FEATURES             Location/Qualifiers
+     source          1..649
+                     /organism="Homo sapiens"
+                     /mol_type="mRNA"
+                     /isolate="KS-3 cells"
+                     /db_xref="taxon:9606"
+                     /cell_line="AIDS-KS 3 cells"
+                     /cell_type="KS-3"
+     gene            1..649
+                     /gene="vegf"
+     mRNA            1..649
+                     /gene="vegf"
+     CDS             17..592
+                     /gene="vegf"
+                     /codon_start=1
+                     /product="vascular endothelial growth factor"
+                     /protein_id="CAA44447.1"
+                     /db_xref="GI:37659"
+                     /db_xref="GDB:132244"
+                     /db_xref="GOA:P15692"
+                     /db_xref="HGNC:HGNC:12680"
+                     /db_xref="InterPro:IPR000072"
+                     /db_xref="PDB:1BJ1"
+                     /db_xref="PDB:1CZ8"
+                     /db_xref="PDB:1FLT"
+                     /db_xref="PDB:1KAT"
+                     /db_xref="PDB:1KMX"
+                     /db_xref="PDB:1MJV"
+                     /db_xref="PDB:1MKG"
+                     /db_xref="PDB:1MKK"
+                     /db_xref="PDB:1QTY"
+                     /db_xref="PDB:1TZH"
+                     /db_xref="PDB:1TZI"
+                     /db_xref="PDB:1VGH"
+                     /db_xref="PDB:1VPF"
+                     /db_xref="PDB:1VPP"
+                     /db_xref="PDB:2FJG"
+                     /db_xref="PDB:2FJH"
+                     /db_xref="PDB:2QR0"
+                     /db_xref="PDB:2VGH"
+                     /db_xref="PDB:2VPF"
+                     /db_xref="PDB:3BDY"
+                     /db_xref="UniProtKB/Swiss-Prot:P15692"
+                     /translation="MNFLLSWVHWSLALLLYLHHAKWSQAAPMAEGGGQNHHEVVKFM
+                     DVYQRSYCHPIETLVDIFQEYPDEIEYIFKPSCVPLMRCGGCCNDEGLECVPTEESNI
+                     TMQIMRIKPHQGQHIGEMSFLQHNKCECRPKKDRARQENPCGPCSERRKHLFVQDPQT
+                     CKCSCKNTDSRCKARQLELNERTCRCDKPRR"
+     sig_peptide     17..94
+                     /gene="vegf"
+     mat_peptide     95..589
+                     /gene="vegf"
+                     /product="vascular endothelial growth factor"
+ORIGIN      
+        1 tcgggcctcc gaaaccatga actttctgct gtcttgggtg cattggagcc ttgccttgct
+       61 gctctacctc caccatgcca agtggtccca ggctgcaccc atggcagaag gaggagggca
+      121 gaatcatcac gaagtggtga agttcatgga tgtctatcag cgcagctact gccatccaat
+      181 cgagaccctg gtggacatct tccaggagta ccctgatgag atcgagtaca tcttcaagcc
+      241 atcctgtgtg cccctgatgc gatgcggggg ctgctgcaat gacgagggcc tggagtgtgt
+      301 gcccactgag gagtccaaca tcaccatgca gattatgcgg atcaaacctc accaaggcca
+      361 gcacatagga gagatgagct tcctacagca caacaaatgt gaatgcagac caaagaaaga
+      421 tagagcaaga caagaaaatc cctgtgggcc ttgctcagag cggagaaagc atttgtttgt
+      481 acaagatccg cagacgtgta aatgttcctg caaaaacaca gactcgcgtt gcaaggcgag
+      541 gcagcttgag ttaaacgaac gtacttgcag atgtgacaag ccgaggcggt gagccgggca
+      601 ggaggaagga gcctccctca gcgtttcggg aaccagatct ctcaccagg
+//
+

@@ -1,0 +1,214 @@
+﻿<html>
+<head>
+<title>VGP-VGene Primer Helper</title>
+<style>
+body{
+	font-family:"微软雅黑";
+}
+.dna{
+	border:1px solid #eee;margin:5px;
+	font-family: Courier,MS Courier New, Prestige, verdana,arial,sans-serif;}
+.primer{
+	width:700px;
+}
+.separator{
+	/*the separator*/
+	background:#000;
+	color:#fff;
+	font-family:"微软雅黑";
+	font-size:18px;
+	padding:5px;
+	margin-top:10px;
+	font-weight:bold;
+}
+
+.grey{color:#aaa;}
+.blue{color:#0096ff;}
+.hit{
+	padding:0px 5px;margin:0px 5px; border-radius:10px;
+	background:red;color:#fff;font-weight:bold;
+}
+
+
+table.show{width:200px; background:#efeeef;
+	font-family: Courier,MS Courier New, Prestige, verdana,arial,sans-serif;
+	font-size:18px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.show th {
+	background-color:#ff9600;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #dd6400;
+}
+table.show tr {
+	background-color:#d4e3e5;
+}
+table.show td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.highlight{background:#0096ff;}
+</style>
+</head>
+<body>
+<h1>Vgph-VGene Primer Helper(version0.3.1)</h1>
+<h3>Find out how many Vgenes matching your primer?</h3>
+<div class="dna grey">Degenerate base:
+R:AG	Y:CT	M:AC	K:GT	S:GC	W:AT
+H:ATC	B:GTC	V:GAC	D:GAT	N:ATGC</div>
+
+<div class=dna>
+	Pls input your primer:
+	<input class=primer id=primer type=text />
+	<input type=button id=submit value="submit" />
+
+	<p>
+	<input type="radio" value="humIGHV" name="vclass" checked=checked>humIGHV(272) 
+	<input type="radio" value="humIGLV" name="vclass">humIGLV(136) 
+	<input type="radio" value="humIGKV" name="vclass">humIGKV(168)
+	<input type="radio" value="humIGLVAndhumIGKV" name="vclass">humIGLV and humIGKV(304)
+	<input type="radio" value="all" name="vclass">all(576) </p>
+</div>
+	
+<div id=vgeneHited class=dna></div>
+
+
+
+
+<!-- start of the ruler -->
+<table class='show dna' border=1 >  
+  <tr>
+	<td>Ruler</td>
+	<td>xxxXXXXX</td>
+	<td>xxxXXXX</td>
+	<td>12345678901234567891123456789212345678931234567894123456789512345678961234567897123456789812345678991234567890</td>
+ </tr>
+</table>
+<!-- end of the ruler -->
+
+
+
+</body>
+</html>
+
+
+
+<script>
+function $(s){	return document.getElementById(s);}
+function println(s){ document.write(s+"<br />");}
+function getVClass(){
+	var temp=document.getElementsByName("vclass"); 
+	for (i=0;i<temp.length;i++){ 
+	//遍历Radio 
+		if(temp[i].checked){
+			return temp[i].value; //获取Radio的值
+		}
+	}
+}
+
+
+//
+window.onload=function(){
+	//提交函数
+	function VgeneSubmit(){
+		var primer=$("primer").value;
+		
+		vclass=getVClass();
+		showVgene(primer,vclass);
+	}
+	
+	//单击触发
+	$("submit").onclick=VgeneSubmit;
+	
+	//输入框回车触发
+	$("primer").onkeydown=function(event){
+		var e = event || window.event || arguments.callee.caller.arguments[0];
+		if(e && e.keyCode==13){ // enter 键
+			VgeneSubmit();
+		}
+	}
+	
+	//全局回车触发	
+	document.onkeydown=function(event){
+		var e = event || window.event || arguments.callee.caller.arguments[0];
+		if(e && e.keyCode==27){ // 按 Esc 
+			//要做的事情
+			alert("Input your primer and get the vgenes mathcing.\rGet more help from: JimmyMall@163.com");
+		}
+		if(e && e.keyCode==113){ // 按 F2 
+			//要做的事情
+			alert("Input your primer and get the vgenes mathcing.\rGet more help from: JimmyMall@163.com");
+		}            
+		if(e && e.keyCode==13){ // enter 键
+			VgeneSubmit();
+		}
+	}; 
+}
+
+
+
+
+//==============================================
+var xmlHttp
+
+function showVgene(str,vclass){
+	if (str.length==0) { 
+	  document.getElementById("vgeneHited").innerHTML=""
+	  return
+	}
+	
+	xmlHttp=GetXmlHttpObject()
+	
+	if (xmlHttp==null){
+	  alert ("Browser does not support HTTP Request")
+	  return
+	}
+	
+	var url="getVgene.php";
+	url=url+"?q="+str;//传入引物字符串str
+	url=url+"&c="+vclass;//传入v基因类别
+	
+	url=url+"&sid="+Math.random();
+	xmlHttp.onreadystatechange=stateChanged;
+	xmlHttp.open("GET",url,true);
+	xmlHttp.send(null);
+} 
+
+
+
+//
+function stateChanged(){
+	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){ 
+		document.getElementById("vgeneHited").innerHTML=xmlHttp.responseText 
+	}
+}
+
+
+
+
+
+//获得ajax对象
+function GetXmlHttpObject(){
+	var xmlHttp=null;
+	try{
+		// Firefox, Opera 8.0+, Safari
+		xmlHttp=new XMLHttpRequest();
+	}catch (e){
+		// Internet Explorer
+		try{
+			xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+		}catch (e){
+			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+	return xmlHttp;
+}
+
+</script>

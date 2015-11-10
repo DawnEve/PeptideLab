@@ -1,0 +1,36 @@
+<346-420, likely promoter 75bp,not in homo, but in mus>
+GATCTGGCCATACACTTGAGTGACAATGACATCCACTTTGCCTTTCTCTCCACAGGTGTCCACTCCCAGGTCCAA  
+CMV Forward: CGCAAATGGGCGGTAGGCGTG 
+caatgggcg gtaggcgtgt  
+
+
+
+
+CMV Forward	CGCAAATGGGCGGTAGGCGTG (Invitrogen) 
+Human CMV immediate early promoter, forward primer
+
+
+LNCX	AGCTCGTTTAGTGAACCGTCAGATC (BD Biosciences) 
+Human CMV promoter, forward primer
+
+pAd-CMV	GCTAGAGATCTGGTACCGTC 
+For cloning sites after SalI in pAd-CMV vector
+
+pMRB101-F	AAGATGCAGGCAGCTGAGTT 
+HCMV major immediate-early protein (IE), forward primer
+
+
+http://dnaseq.med.virginia.edu/primers.html
+
+
+
+Real-time PCR primer sequences（TLR/ NK /IFN /DC ）
+http://www.veterinaryresearch.org/content/44/1/92/table/T1
+
+
+
+ pTT3 Reverse                       GGTCGAGGTCGGGGGATCC
+反向引物 PTT3_DOWN       TATTAGCCAGAGGTCGAGGT
+                 ATTTCCTTTATTAGCCAGAGGTCGAGGTCGGGGGATCCGGCCTTGC
+
+	反向互补后： 5-ACCTCGACCTCTGGCTAATA-3

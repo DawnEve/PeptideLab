@@ -1,0 +1,149 @@
+﻿<style>
+.dna,.dna2{
+	border: 1px solid red;
+	padding: 5px;
+	table-layout: fixed;
+	white-space: normal;
+	word-wrap: break-word;
+	overflow: auto;
+	width:1000px;
+}
+
+.signal{color:#aaa; margin:0 10px;}
+.domain{background:#e22092; margin:0 10px; color:#fff;}
+.linker{background:#aaa; margin:0 10px;}
+.green{color:green;}
+.grey{color:#ddd;}
+h2{background:#0096ff; color:#fff; border-left:5px solid #ff9600;}
+h3{background:#aadaff; color:#666; border-left:5px solid #ffda00; padding:}
+</style>
+<pre>
+<h1>pCT5M和pJMH1载体设计(based on pCANTAB5E)</h1>{WJL, 20150507}
+<!--
+>linker before Myc{可否换成GS？}
+tac gta
+原始序列:TACGTA[6bp]
+翻译产物:Y  V  
+翻译产物:YV[2aa]
+-->
+<div class=dna2>
+	GOTO <a href="../">载体首页</a> | 
+	<a target="_blank" href="poliHis.txt">poliHis.txt</a> | 
+	<a target="_blank" href="yanzheng4Long_2.1.txt">yanzheng4Long_2.1.txt</a> | 
+	<a target="_blank" href="yanzheng4Short_2.txt">yanzheng4Short_2.txt</a> | 
+	<a target="_blank" href="Primers.txt">Primers.txt</a> | 
+	<a target="_blank" href="primer_验证.txt">primer_验证.txt</a> |
+	<hr>
+	<a target="_blank" href="pJMH/">测序结果</a> |
+	
+</div>
+
+<h2>pCantab5e中g3p含有的酶切位点</h2>
+<img src="map_Plan copy.jpg" style="width:1000px;"/>	
+
+<h2>Myc-his tag的细节讨论</h2>
+<textarea rows="10" cols="150" style="border:5px solid #0096ff; opacity:0.5;">
+>c-Myc tag Peptide[建议不要放在信号肽后面，防止影响分泌。]
+gaa caa aaa ctc atc tca gaa gag gat ctg[from  原核载体pBAD/Myc-His]
+http://en.wikipedia.org/wiki/Myc-tag
+
+原始序列:GAACAAAAACTCATCTCAGAAGAGGATCTG[30bp]
+翻译产物:E  Q  K  L  I  S  E  E  D  L  
+翻译产物:EQKLISEEDL[10aa]
+
+>5aa linker
+AAT ATG CAT ACC GGT[from 真核载体pcDNA3.1/myc-His,with AgeI site]
+原始序列:AATATGCATACCGGT[15bp]
+翻译产物:N  M  H  T  G  
+翻译产物:NMHTG[5aa]
+
+AAT AGC GCC GTC GAC[from 原核载体pBAD/Myc-His, with SalI site]
+原始序列:AATAGCGCCGTCGAC[15bp]
+翻译产物:N  S  A  V  D  
+翻译产物:NSAVD[5aa]
+
+最终使用了原核载体中的序列，但是通过兼并碱基替换除去SalI位点。
+AAT AGC GCC GTT GAT
+原始序列:AATAGCGCCGTTGAT[15bp]
+翻译产物:N  S  A  V  D  
+翻译产物:NSAVD[5aa]
+
+>his
+CAC CAC CAC CAC CAC CAC[from 原核载体pET22b]
+原始序列:CACCACCACCACCACCAC[18bp]
+翻译产物:H  H  H  H  H  H  
+翻译产物:HHHHHH[6aa]
+
+>myc-5aaLinker-his[看到Etag后和Amber stop coden之间还有2个a，不知道为什么？][pCobm的Amber后面是一个S(编码基因TCT)]
+gaa caa aaa ctc atc tca gaa gag gat ctg-AAT AGC GCC GTT GAT-CAC CAC CAC CAC CAC CAC -[gcc gca ] [tag]
+原始序列:GAACAAAAACTCATCTCAGAAGAGGATCTGAATAGCGCCGTTGATCACCACCACCACCACCAC gcc gca tag[72bp]
+翻译产物:E  Q  K  L  I  S  E  E  D  L  N  S  A  V  D  H  H  H  H  H  H   a   a   -  
+翻译产物:EQKLISEEDLNSAVDHHHHHHaa[23aa]
+</textarea>
+
+<H2>扩增引物：</H2>
+>扩增myc-his片段的引物：
+#1-MHUp:5-[保护碱基][NotI位点]{其他位点}{SfiI位点}[是否需要linker？][GAACAAAAACTCATCTCAGAAG]-3 NotI
+#1-MHUp:5-[保护碱基][NotI位点]{其他位点}{SfiI位点}[GS linker][GAACAAAAACTCATCTCAGAAG]-3 NotI
+<span class=green> #1=MHUp:5-[ATAAGAAT][GCGGCCGCA]{}{GGCCAGGCCGGCCAG}[ggctcc][GAACAAAAACTCATCTCAGAAG]-3 NotI</span>
+
+GAACAAAAACTCATCTCAGAAGAGGATCTGAATAGCGCCGTTGATCACCACCACCACCACCAC
+-----------------
+#2#下游引物模拟退火
+GAACAAAAACTCATCTCAGAAGAGGATCTGAATAGCGCCGTTGATCACCACCACCACCACCAC
+	[CGTTGATCACCACCACCACCACCAC][gcc gca]{TAG}[G3Long]			
+	[CGTTGATCACCACCACCACCACCAC][gcc gca]{TAG}[TAGACTGTTGAAAGTTGTTTAG]			
+#2-MHLongDown:5-[g3匹配区Long][amber][AA linker][his 匹配区]-3
+<span class=grey> [作废]#2=MHLongDown:5-[CTAAACAACTTTCAACAGTCTA]{CTA}[TGC GGC][GTGGTGGTGGTGGTGGTGATCAACG]-3  </span>
+
+#5-MHShortDown:5-[g3匹配区Short][amber][AA linker][his 匹配区]-3
+<span class=grey> [作废]#5=MHShortDown:5-[CTCAGAGCCGCCACCCTC]{CTA}[TGC GGC][GTGGTGGTGGTGGTGGTGATCAACG]-3  </span> 
+=========================
+
+合并引物#2和#5为#25（去掉了g3匹配区），当使用#2或#5时，使用引物#25，具体序列如下：
+#25-5-[amber][AA linker][his 匹配区]-3
+<span class=green> #25=MHAllDown:5-{CTA}[TGC GGC][GTGGTGGTGGTGGTGGTGATCAACG]-3  </span>
+
+<div class=dna>
+>扩增g3长片段的引物：<br>
+原始序列:<br>TAGACTGTTGAAAGTTGTTTAGCAAAACCTCATACAGAAAATTCATTTACTAACGTCTGGAAAGACGACAAAACTTTAGATCGTTACGCTAACTATGAGGGCTGTCTGTGGAATGCTACAGGCGTTGTGGTTTGTACTGGTGACGAAACTCAGTGTTACGGTACATGGGTTCCTATTGGGCTTGCTATCCCTGAAAATGAGGGTGGTGGCTCTGAGGGTGGCGGTTCTGAGGGTGGCGGTTCTGAGGGTGGCGGTACTAAACCTCCTGAGTACGGTGATACACCTATTCCGGGCTATACTTATATCAACCCTCTCGACGGCACTTATCCGCCTGGTACTGAGCAAAACCCCGCTAATCCTAATCCTTCTCTTGAGGAGTCTCAGCCTCTTAATACTTTCATGTTTCAGAATAATAGGTTCCGAAATAGGCAGGGTGCATTAACTGTTTATACGGGCACTGTTACTCAAGGCACTGACCCCGTTAAAACTTATTACCAGTACACTCCTGTATCATCAAAAGCCATGTATGACGCTTACTGGAACGGTAAATTCAGAGACTGCGCTTTCCATTCTGGCTTTAATGAGGATCC[590bp]<br>
+翻译产物:-  T  V  E  S  C  L  A  K  P  H  T  E  N  S  F  T  N  V  W  K  D  D  K  T  L  D  R  Y  A  N  Y  E  G  C  L  W  N  A  T  G  V  V  V  C  T  G  D  E  T  Q  C  Y  G  T  W  V  P  I  G  L  A  I  P  E  N  E  G  G  G  S  E  G  G  G  S  E  G  G  G  S  E  G  G  G  T  K  P  P  E  Y  G  D  T  P  I  P  G  Y  T  Y  I  N  P  L  D  G  T  Y  P  P  G  T  E  Q  N  P  A  N  P  N  P  S  L  E  E  S  Q  P  L  N  T  F  M  F  Q  N  N  R  F  R  N  R  Q  G  A  L  T  V  Y  T  G  T  V  T  Q  G  T  D  P  V  K  T  Y  Y  Q  Y  T  P  V  S  S  K  A  M  Y  D  A  Y  W  N  G  K  F  R  D  C  A  F  H  S  G  F  N  E  D  x  <br>
+翻译产物:-TVESCLAKPHTENSFTNVWKDDKTLDRYANYEGCLWNATGVVVCTGDETQCYGTWVPIGLAIPENEGGGSEGGGSEGGGSEGGGTKPPEYGDTPIPGYTYINPLDGTYPPGTEQNPANPNPSLEESQPLNTFMFQNNRFRNRQGALTVYTGTVTQGTDPVKTYYQYTPVSSKAMYDAYWNGKFRDCAFHSGFNEDx[197aa]<br><br>
+
+[TAGACTGTTGAAAGTTGTTTAGCAAAACCTCATACAGAAAATTCATTTACTAACGTCTGGAAAGACGACAAAACTTTAGATCGTTACGCTAACTATGAGGGCTGTCTGTGGAATGCTACAGGCGTTGTGGTTTGTACTGGTGACGAAACTCAGTGTTACGGTACATGGGTTCCTATTGGGCTTGCTATCCCTGAAAATGAGGGTGGTGGCTCTGAGGGTGGCGGTTCTGAGGGTGGCGGTTCTGAGGGTGGCGGTACTAAACCTCCTGAGTACGGTGATACACCTATTCCGGGCTATACTTATATCAACCCTCTCGACGGCACTTATCCGCCTGGTACTGAGCAAAACCCCGCTAATCCTAATCCTTCTCTTGAGGAGTCTCAGCCTCTTAATACTTTCATGTTTCAGAATAATAGGTTCCGAAATAGGCAGGGTGCATTAACTGTTTATACGGGCACTGTTACTCAAGGCACTGACCCCGTTAAAACTTATTACCAGTACACTCCTGTATCATCAAAAGCCATGTATGACGCTTACTGGAACGGTAAATTCAGAGACTGCGCTTTCCATTCTGGCTTTAATGAGGATCC]<br><br>
+
+#3-g3LongUp:5-[MycHis互补区][TAGACTGTTGAAAGTTGTTTAG]-3<br>
+#3=g3LongUp5-[CGTTGATCACCACCACCACCACCAC][GCC GCA]{TAG}[TAGACTGTTGAAAGTTGTTTAG]-3(有2份tag，下文已经删掉一个了)<br>
+<span class=green>#3=g3LongUp5-[CGTTGATCACCACCACCACCACCAC][GCC GCA]{TAG}[ACTGTTGAAAGTTGTTTAG]-3</span><br>
+#4-g3LongDown:5-BamHI保护碱基[g3匹配区]-3 BamHI位点  退火之后：5[CATTCTGGCTTTAATGAGGATCC][BamHI保护碱基]3<br>
+<span class=green>#4=g3LongDown:5-[cgc]GGATCCTCATTAAAGCCAGAATG-3 BamHI</span>  反向互补之后：3[CATTCTGGCTTTAATGAGGATCC][gcg]5<br>
+</div>
+
+<div class=dna>
+>扩增g3短片段的引物：<br>
+[GAGGGTGGCGGCTCTGAGGGTGGCGGTTCTGAGGGTGGCGGCTCTGAGGGTGGCGGTTCCGGTGGCGGCTCCGGTTCCGGTGATTTTGATTATGAAAAAATGGCAAACGCTAATAAGGGGGCTATGACCGAAAATGCCGATGAAAACGCGCTACAGTCTGACGCTAAAGGCAAACTTGATTCTGTCGCTACTGATTACGGTGCTGCTATCGATGGTTTCATTGGTGACGTTTCCGGCCTTGCTAATGGTAATGGTGCTACTGGTGATTTTGCTGGCTCTAATTCCCAAATGGCTCAAGTCGGTGACGGTGATAATTCACCTTTAATGAATAATTTCCGTCAATATTTACCTTCTTTGCCTCAGTCGGTTGAATGTCGCCCTTATGTCTTTGGCGCTGGTAAACCATATG]<br><br>
+
+#6-g3ShortUp:5-[MycHis互补区][GAGGGTGGCGGCTCTGAG]-3<br>
+<span class=green>#6=g3ShortUp5-[GATCACCACCACCACCACCAC gccgcatag][GAGGGTGGCGGCTCTGAG]-3</span><br>
+#7-g3ShortDown:5-NdeI保护碱基[g3匹配区]-3 NdeI  退火之后3-[GGCGCTGGTAAACCATATG]NdeI保护碱基-5<br>
+<span class=green>#7=g3ShortDown5-GGAATTC[CATATGGTTTACCAGCGCC]-3 NdeI</span>  互补之后3-[GGCGCTGGTAAACCATATG]GAATTCC-5<br>
+</div>
+
+<H2>实验设计流程：</H2>
+引物设计辅助程序：<a href="/wjl/GCScore.html" target="_blank">GcScore</a>、<a href="/wjl/revCom.html" target="_blank">反向互补</a>、<a href="http://tigomall.blog.163.com/blog/static/2127780792015216103525465/" target="_blank">常用限制酶和保护碱基</a>
+
+<h3>构建pCT5MH（替换原ETag为Myc-his Tag）</h3>
+1.使用引物(#1,#2)，模板<a href="/vector/pET22b-Myc/" target="_blank">pET22b/myc</a>，扩增MycHis4Long片段；
+2.使用引物(#3,#4)，模板<a href="/vector/pCANTAB5E/seq/assembleDiff.html" target="_blank">pCANTAB5E</a>，扩增g3Long片段；
+
+3.使用引物(#1,#4)，重叠延伸前两步的片段。
+4.使用(NotI - BamHI)双酶切长片段和载体pCantab5e，并连接。
+
+
+<h3>构建pJMH1（替换原ETag为Myc-his Tag，且删除g3蛋白的N1、N2结构域）</h3>
+1.使用引物(#1,#5)，模板<a href="/vector/pET22b-Myc/" target="_blank">pET22b/myc</a>，扩增MycHis4Short片段；
+2.使用引物(#6,#7)，模板<a href="/vector/pCANTAB5E/seq/assembleDiff.html" target="_blank">pCANTAB5E</a>，扩增(仅CT结构域)g3Short片段；
+
+3.使用引物(#1,#7)，重叠延伸前两步的片段。
+4.使用(NotI - NdeI)双酶切长片段和载体pCantab5e，并连接。
+</pre>

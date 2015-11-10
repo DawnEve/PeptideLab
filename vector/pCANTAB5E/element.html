@@ -1,0 +1,228 @@
+﻿<style>
+.dna,#dna{
+	border: 1px solid red;
+	padding: 5px;
+	table-layout: fixed;
+	white-space: normal;
+	word-wrap: break-word; width:1350px;
+	overflow: auto;
+}
+.red{color:red;}
+.Seq{background:#aaa;color:#fff; margin:0 5px;}
+.SeqR{background:#D44DFF;color:#fff; margin:0 5px;}
+.under{border-bottom:3px solid #000;}
+.site{
+	padding: 0 3px;
+	background: #FF297F;
+	color: #fff;
+}
+.G3pSignal {
+	margin-left: 5px;
+	color: green;
+	border-top: 3px solid green;
+}
+.stop {
+	background: #000;
+	color: #fff;
+}
+h3{background:#9F6222; color:#fff;padding:5px 0;border-left:#562D02 15px solid;}
+.good{/*可信区域*/
+	background:#0096ff;
+	margin:0 5px;
+}
+.error{/*不可信区域*/
+	background:red;
+	margin:0 5px;
+}
+.insertion{
+	background:grey; color:#ffefff;
+	margin:0 5px;
+}
+</style>
+<pre>
+<h1>pCantab5e噬菌粒各个元素</h1>
+<a href="http://www.ncbi.nlm.nih.gov/nuccore/U14321.1?report=genbank" target="_blank">序列@NCBI</a> |
+<b>Record removed.</b> This record was removed at the submitters request because the gene orientation can not be confirmed
+
+<div class=dna>
+>pCantab5e_At_NCBI[4517bp]<br />
+GACGAAAGGGCCTCGTGATACGCCTATTTTTATAGGTTAATGTCATGATAATAATGGTTTCTTAGACGTCAGGTGGCACTTTTCGGGGAAATGTGCGCGGAACCCCTATTTGTTTATTTTTCTAAATACATTCAAATATGTATCCGCTCATGAGACAATAACCCTGATAAATGCTTCAATAATATTGAAAAAGGAAGAGTATGAGTATTCAACATTTCCGTGTCGCCCTTATTCCCTTTTTTGCGGCATTTTGCCTTCCTGTTTTTGCTCACCCAGAAACGCTGGTGAAAGTAAAAGATGCTGAAGATCAGTTGGGTGCTCGAGTGGGTTACATCGAACTGGATCTCAACAGCGGTAAGATCCTTGAGAGTTTTCGCCCCGAAGAACGTTTTCCAATGATGAGCACTTTTAAAGTTCTGCTATGTGGCGCGGTATTATCCCGTATTGACGCCGGGCAAGAGCAACTCGGTCGCCGCATACACTATTCTCAGAATGACTTGGTTGAGTACTCACCAGTCACAGAAAAGCATCTTACGGATGGCATGACAGTAAGAGAATTATGCAGTGCTGCCATAACCATGAGTGATAACACTGCGGCCAACTTACTTCTGACAACGATCGGAGGACCGAAGGAGCTAACCGCTTTTTTGCACAACATGGGGGATCATGTAACTCGCCTTGATCGTTGGGAACCGGAGCTGAATGAAGCCATACCAAACGACGAGCGTGACACCACGATGCCTGTAGCAATGGCAACAACGTTGCGCAAACTATTAACTGGCGAACTACTTACTCTAGCTTCCCGGCAACAATTAATAGACTGGATGGAGGCGGATAAAGTTGCAGGACCACTTCTGCGCTCGGCCCTTCCGGCTGGCTGGTTTATTGCTGATAAATCTGGAGCCGGTGAGCGTGGGTCTCGCGGTATCATTGCAGCACTGGGGCCAGATGGTAAGCCCTCCCGTATCGTAGTTATCTACACGACGGGGAGTCAGGCAACTATGGATGAACGAAATAGACAGATCGCTGAGATAGGTGCCTCACTGATTAAGCATTGGTAACTGTCAGACCAAGTTTACTCATATATACTTTAGATTGATTTAAAACTTCATTTTTAATTTAAAAGGATCTAGGTGAAGATCCTTTTTGATAATCTCATGACCAAAATCCCTTAACGTGAGTTTTCGTTCCACTGAGCGTCAGACCCCGTAGAAAAGATCAAAGGATCTTCTTGAGATCCTTTTTTTCTGCGCGTAATCTGCTGCTTGCAAACAAAAAAACCACCGCTACCAGCGGTGGTTTGTTTGCCGGATCAAGAGCTACCAACTCTTTTTCCGAAGGTAACTGGCTTCAGCAGAGCGCAGATACCAAATACTGTTCTTCTAGTGTAGCCGTAGTTAGGCCACCACTTCAAGAACTCTGTAGCACCGCCTACATACCTCGCTCTGCTAATCCTGTTACCAGTGGCTGCTGCCAGTGGCGATAAGTCGTGTCTTACCGGGTTGGACTCAAGACGATAGTTACCGGATAAGGCGCAGCGGTCGGGCTGAACGGGGGGTTCGTGCATACAGCCCAGCTTGGAGCGAACGACCTACACCGAACTGAGATACCTACAGCGTGAGCATTGAGAAAGCGCCACGCTTCCCGAAGGGAGAAAGGCGGACAGGTATCCGGTAAGCGGCAGGGTCGGAACAGGAGAGCGCACGAGGGAGCTTCCAGGGGGAAACGCCTGGTATCTTTATAGTCCTGTCGGGTTTCGCCACCTCTGACTTGAGCGTCGATTTTTGTGATGCTCGTCAGGGGGGCGGAGCCTATGGAAAAACGCCAGCAACGCGGCCTTTTTACGGTTCCTGGCCTTTTGCTGGCCTTTTGCTCACATGTTCTTTCCTGCGTTATCCCCTGATTCTGTGGATAACCGTATTACCGCCTTTGAGTGAGCTGATACCGCTCGCCGCAGCCGAACGACCGAGCGCAGCGAGTCAGTGAGCGAGGAAGCGGAAGAGCGCCCAATACGCAAACCGCCTCTCCCCGCGCGTTGGCCGATTCATTAATGCAGCTGGCACGACAGGTTTCCCGACTGGAAAGCGGGCAGTGAGCGCAACGCAATTAATGTGAGTTAGCTCACTCATTAGGCACCCCAGGCTTTACACTTTATGCTTCCGGCTCGTATGTTGTGTGGAATTGTGAGCGGATAACAATTTCACACAGGAAACAGCTATGACCATGATTACGCCAAGCTTTGGAGCCTTTTTTTTGGAGATTTTCAACGTGAAAAAATTATTATTCGCAATTCCTTTAGTTGTTCCTTTCTATGCGGCCCAGCCGGCCATGGCCCAGGTCCAACTGCAGGAGCTCGAGATCAAACGGGCGGCCGCAGGTGCGCCGGTGCCGTATCCGGATCCGCTGGAACCGCGTGCCGCATAGACTGTTGAAAGTTGTTTAGCAAAACCTCATACAGAAAATTCATTTACTAACGTCTGGAAAGACGACAAAACTTTAGATCGTTACGCTAACTATGAGGGCTGTCTGTGGAATGCTACAGGCGTTGTGGTTTGTACTGGTGACGAAACTCAGTGTTACGGTACATGGGTTCCTATTGGGCTTGCTATCCCTGAAAATGAGGGTGGTGGCTCTGAGGGTGGCGGTTCTGAGGGTGGCGGTTCTGAGGGTGGCGGTACTAAACCTCCTGAGTACGGTGATACACCTATTCCGGGCTATACTTATATCAACCCTCTCGACGGCACTTATCCGCCTGGTACTGAGCAAAACCCCGCTAATCCTAATCCTTCTCTTGAGGAGTCTCAGCCTCTTAATACTTTCATGTTTCAGAATAATAGGTTCCGAAATAGGCAGGGTGCATTAACTGTTTATACGGGCACTGTTACTCAAGGCACTGACCCCGTTAAAACTTATTACCAGTACACTCCTGTATCATCAAAAGCCATGTATGACGCTTACTGGAACGGTAAATTCAGAGACTGCGCTTTCCATTCTGGCTTTAATGAGGATCCATTCGTTTGTGAATATCAAGGCCAATCGTCTGACCTGCCTCAACCTCCTGTCAATGCTGGCGGCGGCTCTGGTGGTGGTTCTGGTGGCGGCTCTGAGGGTGGCGGCTCTGAGGGTGGCGGTTCTGAGGGTGGCGGCTCTGAGGGTGGCGGTTCCGGTGGCGGCTCCGGTTCCGGTGATTTTGATTATGAAAAAATGGCAAACGCTAATAAGGGGGCTATGACCGAAAATGCCGATGAAAACGCGCTACAGTCTGACGCTAAAGGCAAACTTGATTCTGTCGCTACTGATTACGGTGCTGCTATCGATGGTTTCATTGGTGACGTTTCCGGCCTTGCTAATGGTAATGGTGCTACTGGTGATTTTGCTGGCTCTAATTCCCAAATGGCTCAAGTCGGTGACGGTGATAATTCACCTTTAATGAATAATTTCCGTCAATATTTACCTTCTTTGCCTCAGTCGGTTGAATGTCGCCCTTATGTCTTTGGCGCTGGTAAACCATATGAATTTTCTATTGATTGTGACAAAATAAACTTATTCCGTGGTGTCTTTGCGTTTCTTTTATATGTTGCCACCTTTATGTATGTATTTTCGACGTTTGCTAACATACTGCGTAATAAGGAGTCTTAATAAGAATTCACTGGCCGTCGTTTTACAACGTCGTGACTGGGAAAACCCTGGCGTTACCCAACTTAATCGCCTTGCAGCACATCCCCCTTTCGCCAGCTGGCGTAATAGCGAAGAGGCCCGCACCGATCGCCCTTCCCAACAGTTGCGCAGCCTGAATGGCGAATGGCGCCTGATGCGGTATTTTCTCCTTACGCATCTGTGCGGTATTTCACACCGCATATAAATTGTAAACGTTAATATTTTGTTAAAATTCGCGTTAAATTTTTGTTAAATCAGCTCATTTTTTAACCAATAGGCCGAAATCGGCAAAATCCCTTATAAATCAAAAGAATAGCCCGAGATAGGGTTGAGTGTTGTTCCAGTTTGGAACAAGAGTCCACTATTAAAGAACGTGGACTCCAACGTCAAAGGGCGAAAAACCGTCTATCAGGGCGATGGCCCACTACGTGAACCATCACCCAAATCAAGTTTTTTGGGGTCGAGGTGCCGTAAAGCACTAAATCGGAACCCTAAAGGGAGCCCCCGATTTAGAGCTTGACGGGGAAAGCCGGCGAACGTGGCGAGAAAGGAAGGGAAGAAAGCGAAAGGAGCGGGCGCTAGGGCGCTGGCAAGTGTAGCGGTCACGCTGCGCGTAACCACCACACCCGCCGCGCTTAATGCGCCGCTACAGGGCGCGTACTATGGTTGCTTTGACGGGTGCAGTCTCAGTACAATCTGCTCTGATGCCGCATAGTTAAGCCAGCCCCGACACCCGCCAACACCCGCTGACGCGCCCTGACGGGCTTGTCTGCTCCCGGCATCCGCTTACAGACAAGCTGTGACCGTCTCCGGGAGCTGCATGTGTCAGAGGTTTTCACCGTCATCACCGAAACGCGCGA
+</div>
+
+<hr>
+LOCUS       XXU14321                4517 bp    DNA     circular SYN 07-DEC-1994
+DEFINITION  pCANTAB 5 E cloning vector complete sequence.
+ACCESSION   U14321
+VERSION     U14321.1  GI:595791
+KEYWORDS    .
+SOURCE      unidentified cloning vector
+  ORGANISM  unidentified cloning vector
+            artificial sequence; cloning vectors.
+REFERENCE   1  (bases 1 to 4517)
+  AUTHORS   Malone,J.A.
+  TITLE     pCANTAB 5 E: A vector designed for the expression of antibody F
+            variable regions as phage-displayed or soluble single-chain
+            proteins (ScFv)
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 4517)
+  AUTHORS   Malone,J.A.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (01-SEP-1994) James A. Malone, International Technical
+            Services, Pharmacia Biotech Inc., Molecular Biology Reagents
+            Division, 2202 N. Bartlett Ave., Milwaukee, WI 53202-1009, USA
+FEATURES             Location/Qualifiers
+     source          1..4517
+                     /organism="unidentified cloning vector"
+                     /mol_type="genomic DNA"
+                     /db_xref="taxon:45196"
+                     /lab_host="Escherichia coli"
+     gene            131..1061
+                     /gene="bla"
+     regulatory      131..159
+                     /regulatory_class="promoter"
+                     /gene="bla"
+     CDS             201..1061
+                     /gene="bla"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="beta-lactamase"
+                     /protein_id="AAA56747.1"
+                     /db_xref="GI:595794"
+                     /translation="MSIQHFRVALIPFFAAFCLPVFAHPETLVKVKDAEDQLGARVGY
+                     IELDLNSGKILESFRPEERFPMMSTFKVLLCGAVLSRIDAGQEQLGRRIHYSQNDLVE
+                     YSPVTEKHLTDGMTVRELCSAAITMSDNTAANLLLTTIGGPKELTAFLHNMGDHVTRL
+                     DRWEPELNEAIPNDERDTTMPVAMATTLRKLLTGELLTLASRQQLIDWMEADKVAGPL
+                     LRSALPAGWFIADKSGAGERGSRGIIAALGPDGKPSRIVVIYTTGSQATMDERNRQIA
+                     EIGASLIKHW"
+     rep_origin      1820
+                     /note="plasmid origin of replication; base 1820 represents
+                     the first base of the newly synthesized strand"
+                     /direction=right
+     regulatory      2168..2174
+                     /regulatory_class="minus_10_signal"
+                     /note="lac promoter"
+     protein_bind    2180..2200
+                     /note="lac operator"
+                     /bound_moiety="lacI repressor protein"
+     CDS             join(2269..2313,2425..3639)
+                     /codon_start=1
+                     /transl_table=11
+                     /product="bacteriophage fd gene 3 protein precursor"
+                     /protein_id="AAA56746.1"
+                     /db_xref="GI:595793"
+                     /translation="MKKLLFAIPLVVPFYTVESCLAKPHTENSFTNVWKDDKTLDRYA
+                     NYEGCLWNATGVVVCTGDETQCYGTWVPIGLAIPENEGGGSEGGGSEGGGSEGGGTKP
+                     PEYGDTPIPGYTYINPLDGTYPPGTEQNPANPNPSLEESQPLNTFMFQNNRFRNRQGA
+                     LTVYTGTVTQGTDPVKTYYQYTPVSSKAMYDAYWNGKFRDCAFHSGFNEDPFVCEYQG
+                     QSSDLPQPPVNAGGGSGGGSGGGSEGGGSEGGGSEGGGSEGGGSGGGSGSGDFDYEKM
+                     ANANKGAMTENADENALQSDAKGKLDSVATDYGAAIDGFIGDVSGLANGNGATGDFAG
+                     SNSQMAQVGDGDNSPLMNNFRQYLPSLPQSVECRPYVFGAGKPYEFSIDCDKINLFRG
+                     VFAFLLYVATFMYVFSTFANILRNKES"
+     sig_peptide     2269..2313
+     mat_peptide     2425..3636
+                     /product="bacteriophage fd gene 3 protein"
+     misc_feature    2316..2375
+                     /note="cloning region for insertion of single-chain F
+                     variable (ScFv) recombinant antibody genes; this region
+                     contains unique SfiI and NotI sites for the directional
+                     cloning of ScFv genes"
+     CDS             <2377..>2415
+                     /note="encodes E Tag peptide for the detection and
+                     isolation of single-chain F variable (ScFv) recombinant
+                     antibodies"
+                     /codon_start=1
+                     /transl_table=11
+                     /protein_id="AAA56745.1"
+                     /db_xref="GI:595792"
+                     /translation="GAPVPYPDPLEPR"
+     misc_feature    2422..2424
+                     /note="Amber stop codon (TAG); expression of ScFv genes in
+                     non-suppressing E. coli hosts will yield soluble
+                     recombinant antibodies; expression in suppressing strains
+                     of E. coli will yield phage-displayed recombinant
+                     antibodies"
+     rep_origin      complement(4023)
+                     /note="bacteriophage M13 origin of replication for
+                     production of single-stranded DNA; base 4023 represents
+                     the first base of the newly synthesized single strand"
+                     /direction=left
+ORIGIN      
+        1 gacgaaaggg cctcgtgata cgcctatttt tataggttaa tgtcatgata ataatggttt
+       61 cttagacgtc aggtggcact tttcggggaa atgtgcgcgg aacccctatt tgtttatttt
+      121 tctaaataca ttcaaatatg tatccgctca tgagacaata accctgataa atgcttcaat
+      181 aatattgaaa aaggaagagt atgagtattc aacatttccg tgtcgccctt attccctttt
+      241 ttgcggcatt ttgccttcct gtttttgctc acccagaaac gctggtgaaa gtaaaagatg
+      301 ctgaagatca gttgggtgct cgagtgggtt acatcgaact ggatctcaac agcggtaaga
+      361 tccttgagag ttttcgcccc gaagaacgtt ttccaatgat gagcactttt aaagttctgc
+      421 tatgtggcgc ggtattatcc cgtattgacg ccgggcaaga gcaactcggt cgccgcatac
+      481 actattctca gaatgacttg gttgagtact caccagtcac agaaaagcat cttacggatg
+      541 gcatgacagt aagagaatta tgcagtgctg ccataaccat gagtgataac actgcggcca
+      601 acttacttct gacaacgatc ggaggaccga aggagctaac cgcttttttg cacaacatgg
+      661 gggatcatgt aactcgcctt gatcgttggg aaccggagct gaatgaagcc ataccaaacg
+      721 acgagcgtga caccacgatg cctgtagcaa tggcaacaac gttgcgcaaa ctattaactg
+      781 gcgaactact tactctagct tcccggcaac aattaataga ctggatggag gcggataaag
+      841 ttgcaggacc acttctgcgc tcggcccttc cggctggctg gtttattgct gataaatctg
+      901 gagccggtga gcgtgggtct cgcggtatca ttgcagcact ggggccagat ggtaagccct
+      961 cccgtatcgt agttatctac acgacgggga gtcaggcaac tatggatgaa cgaaatagac
+     1021 agatcgctga gataggtgcc tcactgatta agcattggta actgtcagac caagtttact
+     1081 catatatact ttagattgat ttaaaacttc atttttaatt taaaaggatc taggtgaaga
+     1141 tcctttttga taatctcatg accaaaatcc cttaacgtga gttttcgttc cactgagcgt
+     1201 cagaccccgt agaaaagatc aaaggatctt cttgagatcc tttttttctg cgcgtaatct
+     1261 gctgcttgca aacaaaaaaa ccaccgctac cagcggtggt ttgtttgccg gatcaagagc
+     1321 taccaactct ttttccgaag gtaactggct tcagcagagc gcagatacca aatactgttc
+     1381 ttctagtgta gccgtagtta ggccaccact tcaagaactc tgtagcaccg cctacatacc
+     1441 tcgctctgct aatcctgtta ccagtggctg ctgccagtgg cgataagtcg tgtcttaccg
+     1501 ggttggactc aagacgatag ttaccggata aggcgcagcg gtcgggctga acggggggtt
+     1561 cgtgcataca gcccagcttg gagcgaacga cctacaccga actgagatac ctacagcgtg
+     1621 agcattgaga aagcgccacg cttcccgaag ggagaaaggc ggacaggtat ccggtaagcg
+     1681 gcagggtcgg aacaggagag cgcacgaggg agcttccagg gggaaacgcc tggtatcttt
+     1741 atagtcctgt cgggtttcgc cacctctgac ttgagcgtcg atttttgtga tgctcgtcag
+     1801 gggggcggag cctatggaaa aacgccagca acgcggcctt tttacggttc ctggcctttt
+     1861 gctggccttt tgctcacatg ttctttcctg cgttatcccc tgattctgtg gataaccgta
+     1921 ttaccgcctt tgagtgagct gataccgctc gccgcagccg aacgaccgag cgcagcgagt
+     1981 cagtgagcga ggaagcggaa gagcgcccaa tacgcaaacc gcctctcccc gcgcgttggc
+     2041 cgattcatta atgcagctgg cacgacaggt ttcccgactg gaaagcgggc agtgagcgca
+     2101 acgcaattaa tgtgagttag ctcactcatt aggcacccca ggctttacac tttatgcttc
+     2161 cggctcgtat gttgtgtgga attgtgagcg gataacaatt tcacacagga aacagctatg
+     2221 accatgatta cgccaagctt tggagccttt tttttggaga ttttcaacgt gaaaaaatta
+     2281 ttattcgcaa ttcctttagt tgttcctttc tatgcggccc agccggccat ggcccaggtc
+     2341 caactgcagg agctcgagat caaacgggcg gccgcaggtg cgccggtgcc gtatccggat
+     2401 ccgctggaac cgcgtgccgc atagactgtt gaaagttgtt tagcaaaacc tcatacagaa
+     2461 aattcattta ctaacgtctg gaaagacgac aaaactttag atcgttacgc taactatgag
+     2521 ggctgtctgt ggaatgctac aggcgttgtg gtttgtactg gtgacgaaac tcagtgttac
+     2581 ggtacatggg ttcctattgg gcttgctatc cctgaaaatg agggtggtgg ctctgagggt
+     2641 ggcggttctg agggtggcgg ttctgagggt ggcggtacta aacctcctga gtacggtgat
+     2701 acacctattc cgggctatac ttatatcaac cctctcgacg gcacttatcc gcctggtact
+     2761 gagcaaaacc ccgctaatcc taatccttct cttgaggagt ctcagcctct taatactttc
+     2821 atgtttcaga ataataggtt ccgaaatagg cagggtgcat taactgttta tacgggcact
+     2881 gttactcaag gcactgaccc cgttaaaact tattaccagt acactcctgt atcatcaaaa
+     2941 gccatgtatg acgcttactg gaacggtaaa ttcagagact gcgctttcca ttctggcttt
+     3001 aatgaggatc cattcgtttg tgaatatcaa ggccaatcgt ctgacctgcc tcaacctcct
+     3061 gtcaatgctg gcggcggctc tggtggtggt tctggtggcg gctctgaggg tggcggctct
+     3121 gagggtggcg gttctgaggg tggcggctct gagggtggcg gttccggtgg cggctccggt
+     3181 tccggtgatt ttgattatga aaaaatggca aacgctaata agggggctat gaccgaaaat
+     3241 gccgatgaaa acgcgctaca gtctgacgct aaaggcaaac ttgattctgt cgctactgat
+     3301 tacggtgctg ctatcgatgg tttcattggt gacgtttccg gccttgctaa tggtaatggt
+     3361 gctactggtg attttgctgg ctctaattcc caaatggctc aagtcggtga cggtgataat
+     3421 tcacctttaa tgaataattt ccgtcaatat ttaccttctt tgcctcagtc ggttgaatgt
+     3481 cgcccttatg tctttggcgc tggtaaacca tatgaatttt ctattgattg tgacaaaata
+     3541 aacttattcc gtggtgtctt tgcgtttctt ttatatgttg ccacctttat gtatgtattt
+     3601 tcgacgtttg ctaacatact gcgtaataag gagtcttaat aagaattcac tggccgtcgt
+     3661 tttacaacgt cgtgactggg aaaaccctgg cgttacccaa cttaatcgcc ttgcagcaca
+     3721 tccccctttc gccagctggc gtaatagcga agaggcccgc accgatcgcc cttcccaaca
+     3781 gttgcgcagc ctgaatggcg aatggcgcct gatgcggtat tttctcctta cgcatctgtg
+     3841 cggtatttca caccgcatat aaattgtaaa cgttaatatt ttgttaaaat tcgcgttaaa
+     3901 tttttgttaa atcagctcat tttttaacca ataggccgaa atcggcaaaa tcccttataa
+     3961 atcaaaagaa tagcccgaga tagggttgag tgttgttcca gtttggaaca agagtccact
+     4021 attaaagaac gtggactcca acgtcaaagg gcgaaaaacc gtctatcagg gcgatggccc
+     4081 actacgtgaa ccatcaccca aatcaagttt tttggggtcg aggtgccgta aagcactaaa
+     4141 tcggaaccct aaagggagcc cccgatttag agcttgacgg ggaaagccgg cgaacgtggc
+     4201 gagaaaggaa gggaagaaag cgaaaggagc gggcgctagg gcgctggcaa gtgtagcggt
+     4261 cacgctgcgc gtaaccacca cacccgccgc gcttaatgcg ccgctacagg gcgcgtacta
+     4321 tggttgcttt gacgggtgca gtctcagtac aatctgctct gatgccgcat agttaagcca
+     4381 gccccgacac ccgccaacac ccgctgacgc gccctgacgg gcttgtctgc tcccggcatc
+     4441 cgcttacaga caagctgtga ccgtctccgg gagctgcatg tgtcagaggt tttcaccgtc
+     4501 atcaccgaaa cgcgcga
+//
+
+</pre>

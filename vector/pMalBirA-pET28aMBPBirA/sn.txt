@@ -1,0 +1,7 @@
+1.构建载体pMal-BirA；
+
+2.构建载体pET28a-MBP-BirA；
+1）.先构建的pET28a-MBP质粒；
+
+2）.然后构建的pET28a-MBP-BirA质粒；
+

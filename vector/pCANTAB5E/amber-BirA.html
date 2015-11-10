@@ -1,0 +1,86 @@
+﻿<style>
+.dna,#dna{
+	border: 1px solid red;
+	padding: 5px;
+	table-layout: fixed;
+	white-space: normal;
+	word-wrap: break-word; width:1350px;
+	overflow: auto;
+}
+.red{color:red;}
+.Seq{background:#aaa;color:#fff; margin:0 5px;}
+.SeqR{background:#D44DFF;color:#fff; margin:0 5px;}
+.under{border-bottom:3px solid #000;}
+.site{
+	padding: 0 3px;
+	background: #FF297F;
+	color: #fff;
+	opacity:0.4;
+}
+.G3pSignal {
+	margin-left: 5px;
+	color: green;
+	border-top: 3px solid green;
+}
+.stop {
+	background: #000;
+	color: #fff;
+}
+h3{background:#9F6222; color:#fff;padding:5px 0;border-left:#562D02 15px solid;}
+.good{/*可信区域*/
+	background:#0096ff;
+	margin:0 5px;
+}
+.error{/*不可信区域*/
+	background:red;
+	margin:0 5px;
+}
+.birA{
+	background:grey; color:#ffefff;
+	margin:0 5px;
+}
+.TEV{
+	background:blue; color:#ffefff;
+	margin:0 5px;
+}
+</style>
+
+<h1>pMal-c2x-[amber]-birA[20150419]</h1>
+<hr />
+	GOTO <a href="../">载体首页</a> | 
+	<a href="/vector/pMal/index.html" target="_blank">pMal</a> | 
+	<a href="/vector/pMalBirA-pET28aMBPBirA/" target="_blank">MBPBirA</a> | 
+
+
+
+<hr />
+
+<pre>
+目的：用于检验菌株是否为supE抑制性菌株。比如TG1, HB2151,XL-1 Blue, ER2738等。
+基于pMal-c2x是因为不能使用pET系列载体。
+因为T7启动子需要菌株中含有DE3片段，所以T7启动子引导的蛋白序列在很多菌种中不表达。
+
+<b>>TEV酶切位点</b>
+原始序列:<a class=TEV title="TEV酶切位点">GAAAACCTGTATTTCCAGGGC</a>[21bp]
+翻译产物:E  N  L  Y  F  Q  G  
+翻译产物:ENLYFQG[7aa]
+
+<b>>引物：</b>
+#6 BirAUpAmber[57bp]:	5-CCG[GAATTC]{TAG}{<a class=TEV title="TEV酶切位点">GAAAACCTGTATTTCCAGGGC</a>}ATGAAGGATAACACCGTGCCACTG-3
+		EcoRI   TEV
+
+5# BirADown2[41bp]:	5-ATAAGAAT[AAGCTT]TTATTTTTCTGCACTACGCAGGGATAT-3
+		HindIII
+		反向互补后： 5-ATATCCCTGCGTAGTGCAGAAAAATAA[AAGCTT]ATTCTTAT-3
+											
+酶切位点：EcoRI和HindIII。
+
+
+<b>>读码框：酶切位点EcoRI正好是2个氨基酸。</b>
+<div class=dna>>AmberB-PMAL-C2X-F_F02.ab1
+NNNNCGNNCCNNAGACTGTCGATGAGCCCTGAAGACGCGCAGACTAATTCGAGCTCGAACAACAACAACAATAACAATAACAACAACCTCGGGATCGAGGGAAGGATTTCA<a class=site title="EcoRI">GAATTC</a><span class=stop title="Amber stop coden">TAG</span><a class=TEV title="TEV酶切位点">GAAAACCTGTATTTCCAGGGC</a><a class=birA title="birA 酶">ATGAAGGATAACACCGTGCCACTGAAATTGATTGCCCTGTTAGCGAACGGTGAATTTCACTCTGGCGAGCAGTTGGGTGAAACGCTGGGAATGAGCCGGGCGGCTATTAATAAACACATTCAGACACTGCGTGACTGGGGCGTTGATGTCTTTACCGTTCCGGGTAAAGGATACAGCCTGCCTGAGCCCATCCAGTTACTTAATGCTGAACAGATATTGGGTCAGCTGGATGGCGGTAGTGTAGCCGTGCTGCCAGTTATTGACTCCACGAATCAGTACCTTCTTGATCGTATCGGAGAGCTTAAATCGGGCGATGCCTGTGTTGCAGAATACCAGCAGGCTGGCCGTGGTCGCCGGGGGCGGAAATGGTTTTCGCCTTTTGGCGCAAACTTATATTTGTCGATGTTCTGGCGTCTGGAACAAGGCCCGGCGGCGGCGATTGGTTTAAGTCTGGTTATCGGTATCGTGATGGCGGAAGTATTACGCAAGCTGGGAGCAGATAAAGTTCGTGTCAAATGGCCTAATGACCTCTATCTGCAGGATCGCAAGCTGGCAGGCATTCTTGTGGAGCTGACTGGCAAAACTGGCGATGCGGCGCAAATAGTCATTGGAGCCGGGATCAACATGGCAATGCGCCGTGTTGAAGAGAGTGTCGTTAATCAGGGGTGGATCACGCTGCAGAAGCGGGGATCAATCTCGATCGTAATACGTTGGCGGCCATGCTAATACGTGAATTACGTGCTGCGTTGGAACTCTTCGAACAAGAAGGATTGGCACCTTATCTGTCGCGCTGGGAAAAGCTGGATAATTTTATTAATCGCCCAGTGAAACTTATCATTGGTGATAAAGAAATATTTGGCATTTCACGCGGAATAGACAAACAGGGGGCTTTATTACTTGAGCAGNTGAATAATAAAACCCTNNTGGGCGGTGAATATCCCTGCGTANNGCAGAAAAATAA</a><a class=site title="HindIII">AAGCTT</a>GNACTNNNTCGTTTACNACGTCGTGACTGGGAAACCNGGGCGTTACCNANCTTAAT</div>
+
+
+
+
+</pre>

@@ -1,0 +1,50 @@
+﻿<style>
+.wrap{width:1000px; margin:0 auto; border:1px solid red; padding:0 30px;}
+#result{width:900px; margin:10px auto; border:1px solid blak; background:#eeefee;
+	min-height:20px;
+}
+.red{color:red;}
+</style>
+
+
+<div class=wrap>
+<h1>Concentration calculator v0.5</h1>
+<hr>
+Protein Conc.<input type="input" id="Conc"></input>mg/ml<br><br>
+MW:<input type="input" id="MW"></input>kDa<br><br>
+<input type="button" id="submit" value="submit"></input>
+<div id=result>
+
+</div>
+
+
+</div>
+
+<script>
+//get object
+function $(s){
+	return document.getElementById(s);
+}
+
+//show the result
+function n(s){
+	$("result").innerHTML +=s;
+}
+window.onload=function(){
+	$("submit").onclick=function(){
+		//calculate
+		var conc=$("Conc").value;
+		var MW=$("MW").value;
+		var c=conc*1000/MW;
+		
+		//show
+		$("result").innerHTML ="";//clear
+		n("Protein Conc.:"+conc+"mg/ml"+"<br>");
+		n("WM.:"+MW+"kDa"+"<br>");
+		n("Molar conc.:<span class=red>"+c+"uM</span><br>");
+	}
+
+}
+
+
+</script>

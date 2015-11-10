@@ -1,0 +1,378 @@
+﻿<html>
+<head>
+<link rel="stylesheet" type="text/css" href="main.css" />
+<title>引物匹配助手plus++ version0.3.5</title>
+</head>
+
+<body>
+<h1>引物匹配助手plus++ version0.3.5</h1>
+<div class="dna grey">Degenerate base:
+R:AG	Y:CT	M:AC	K:GT	S:GC	W:AT
+H:ATC	B:GTC	V:GAC	D:GAT	N:ATGC</div>
+
+	<input class=primer id=primer type=text value="CAG GTG CAG CTG CAG GAG TCS G" />
+	<input type=button id=submit value="submit" />
+	
+<div id=showBox>
+	<div id=msg></div>
+	<table id=show class=show>
+		<tr>
+			<th>Name</th><th>match</th><th>mismatch</th><th>Sequence</th>
+		</tr> 
+	</table>
+	
+	<table id="show1" class=show></table>
+	<table id="show2" class=show></table>
+	<table id="show3" class=show></table>
+	<table id="show4" class=show></table>
+	<table id="showU" class=show></table>
+	<table id="showX" class=show></table>
+</div>
+
+
+</body>
+</html>
+
+
+<script src="vgeneSequence.js">//加载基因数据</script>
+<script>
+//tool kit
+function $(s){ return document.getElementById(s);};
+function println(s){ s=s||"";document.write(s+"<br />");}
+function print(s){ s=s||"";document.write(s);}
+function note(s,divId){
+	s=s||""; 
+	divId=divId||"showBox";
+	$(divId).innerHTML += s+"<br />";
+}
+function noteNoBr(s){s=s||""; $("showBox").innerHTML += s;}
+Array.prototype.contains = function(obj) { 
+  var i = this.length; 
+  while (i--) { 
+    if (this[i] === obj) { 
+      return true; 
+    } 
+  } 
+  return false; 
+}
+
+//在字符串指定位置插入字符
+String.prototype.insert=function(insertion,locAfter){
+	var str=this, temp1="",temp2="";
+	//下标越界时，可以返回错误提示，or抛出异常，or设置默认值；
+	if(locAfter>str.length){		
+		locAfter=str.length;//如果下标超过最大值，则放到最后
+	}
+	if(locAfter<0){locAfter=0;}//如果下标低于最小值，则放到最开头
+	
+	temp1=str.substring(0,locAfter);
+	temp2=str.substring(locAfter);
+	
+	return temp1+insertion+temp2;
+}
+
+//end of tool kit
+//==========================================================
+//专用took kit
+//
+function singleBool(bool){
+	return bool==true?"T":"F";
+}
+
+//替换word中的简并碱基
+function replaceATGC($str){
+    $str=$str.replace(/R/ig, "[AG]");
+    $str=$str.replace(/Y/ig, "[TC]");
+    $str=$str.replace(/M/ig, "[AC]");
+    $str=$str.replace(/K/ig, "[TG]");
+    $str=$str.replace(/S/ig, "[GC]");
+    $str=$str.replace(/W/ig, "[AT]");
+	
+    $str=$str.replace(/H/ig, "[ATC]");
+    $str=$str.replace(/B/ig, "[TGC]");
+    $str=$str.replace(/V/ig, "[AGC]");
+    $str=$str.replace(/D/ig, "[ATG]");
+	
+    $str=$str.replace(/N/ig, "[ATGC]");
+
+    return $str;
+}
+
+
+//碱基是否相等；
+function isEqual(strP,strT){
+	if(strT=="A" && (["A","R","M","W","H","V","D","N"].contains(strP)) ){
+		return true;
+	}
+	if(strT=="T" && (["T","Y","K","W","H","B","D","N"].contains(strP)) ){
+		return true;
+	}
+	if(strT=="G" && (["G","R","K","S","V","B","D","N"].contains(strP)) ){
+		return true;
+	}
+	if(strT=="C" && (["C","Y","M","S","H","B","V","N"].contains(strP)) ){
+		return true;
+	}
+	
+	return false;
+}
+
+
+//end of 专用 tool kit
+//==========================================================
+//==========================================================
+//初始化显示框
+function init(){
+	var str="<div id=msg></div>";
+	str +="<table id=show class=show><tr><th>Name</th><th>match</th><th>mismatch</th>";
+	str+="<th>Sequence</th></tr></table>";
+	str+="<table id=show1 class=show></table> <table id=show2 class=show></table>";
+	str+="<table id=show3 class=show></table> <table id=show4 class=show></table>";
+	str+="<table id=showX class=show></table> <table id=showU class=show></table>";
+
+	$("showBox").innerHTML=str;
+}
+
+/*//////////////////////////////////
+//这是实例：
+//input 
+var primer=" cagTCT GTS BTG ACK CgC CCR CC";
+var primer2=" cagTCT GTS BTG ACK dgC CCR CC";
+var template="CAGTCTGTCGTGACGCAGCCGCCCTCAGTGTCTGGGGCCCCAGGGCAGAGGGTCACCATCTCCTGCACTGGGAGCAGCTCCAACATCGGGGCAGGTTATGATGTACACTGGTACCAGCAGCTTCCAGGAACAGCCCCCAAACTCCTCATCTATGGTAACAGCAATCGGCCCTCAGGGGTCCCTGACCGATTCTCTGGCTCCAAGTCTGGCACCTCAGCCTCCCTGGCCATCACTGGGCTCCAGGCTGAGGATGAGGCTGATTATTACTGCCAGTCCTATGACAGCAGCCTG";
+
+printErroMatchFinder(primer,template,"HuVH001");
+//the end of the matches;
+//////////////////////////////////*/
+//var primer="CAG GTG CAG CTG CAG GAG TCS G";
+
+//提交函数
+function VgeneSubmit(){
+	var primer=$("primer").value;
+	if (primer=="") return;
+	//清空
+	init();
+	note("run at:"+new Date().toLocaleString()+", primer:"+primer+" ("+primer.length+"bp)","msg");
+	
+	//统计打印条目
+	var counter=0;
+	for(var i in vgenes){
+		//note(i+":"+obj[i][0]);
+		var b=printErroMatchFinder(primer,vgenes[i][1],vgenes[i][0]);
+		if(true==b) counter++;
+	}
+	note("hit"+counter+"row(s).","msg");
+}
+
+window.onload=function(){	
+	//单击触发
+	$("submit").onclick=VgeneSubmit;
+	
+	//输入框回车触发
+	$("primer").onkeydown=function(event){
+		var e = event || window.event || arguments.callee.caller.arguments[0];
+		if(e && e.keyCode==13){ // enter 键
+			VgeneSubmit();
+		}
+	}
+	
+	//全局回车触发	
+	document.onkeydown=function(event){
+		var e = event || window.event || arguments.callee.caller.arguments[0];
+		if(e && e.keyCode==27){ // 按 Esc 
+			//要做的事情
+			alert("Input your primer and get the vgenes mathcing.\rGet more help from: JimmyMall@163.com");
+		}
+		if(e && e.keyCode==113){ // 按 F2 
+			//要做的事情
+			alert("Input your primer and get the vgenes mathcing.\rGet more help from: JimmyMall@163.com");
+		}            
+		if(e && e.keyCode==13){ // enter 键
+			VgeneSubmit();
+		}
+	}; 
+
+
+}
+
+/**打印错配结果的函数
+输入：引物，模板，模板名
+输出：打印错配结果到table中。如果结果。
+*/
+function printErroMatchFinder(primer,template,templateName){
+	var oMap=ErroMatchFinder(primer,template,templateName);
+	var mismatch=oMap['mismatch'];
+	
+	if(oMap["mismatch"]==undefined){
+		printMap(oMap,"showU");//undefined
+		return false;
+	}
+	
+	if(oMap["mismatch"]==4){
+		printMap(oMap,"show4");
+		return false;
+	}
+	
+	if(oMap["match"]<=10){
+		printMap(oMap,"showX");
+		return false;
+	}
+	
+	//true
+	if(oMap["mismatch"]==3){
+		printMap(oMap,"show3");
+		return true;
+	}
+	if(oMap["mismatch"]==2){
+		printMap(oMap,"show2");
+		return true;
+	}
+	if(oMap["mismatch"]==1){
+		printMap(oMap,"show1");
+		return true;
+	}
+	if(oMap["mismatch"]==0){
+		printMap(oMap,"show");
+		return true;
+	}
+	//end of true
+	
+	printMap(oMap,"showU");
+	return false;
+}
+
+
+//打印Map内容——这个放到innerHTML中没有tr和td了？
+function printMap2(oMap){
+	var tmp1="<td> "+ (oMap['templateName']) +" </td>";
+	var tmp2="<td> "+ (oMap['match']) +" </td>";
+	var tmp3="<td> "+ (oMap['mismatch']) +" </td>";
+	var tmp4="<td> "+ (oMap['finalSequence']) +" </td>";
+	var tmp="<tr> "+ tmp1+tmp2+tmp3+tmp4+" </tr>";
+	//print(tmp);
+	note(tmp)
+}
+//打印Map内容
+function printMap(oMap,divId){
+	divId=divId||"show";
+	var opTable =$(divId);
+	var opTr = opTable .insertRow();
+	//td插入tr的函数
+	function insertTd(str){
+		var opTd=document.createElement("td");
+		opTd.innerHTML=str;
+		opTr.appendChild(opTd);
+	}
+	//插入
+	insertTd(oMap['templateName']);
+	insertTd(oMap['match']);
+	insertTd(oMap['mismatch']);
+	insertTd(oMap['finalSequence']);
+	
+	opTable.appendChild(opTr);
+}
+
+
+
+/**
+把复杂的过程封装成一个函数：
+返回一个obj{
+	templateName:string,
+	matchInfo:string,
+	finalSequence:string,
+	match:number,
+	mismath:number
+}
+*/
+function ErroMatchFinder(primer,template,templateName){
+	//parameters
+	var wordNum=5;//引物3’端首先匹配多少个？
+	var word="";//引物3’端首先匹配的字符
+	var totleMatch=18;//总匹配数
+
+	//返回结果：
+	var matchInfo="", finalSequence=template;
+	
+	//引物，变大写
+	primer=primer.toUpperCase();
+	//引物，去除空格
+	primer=primer.replace(/\s/g,"");
+
+	//引物，取出3‘端 wordNum 个氨基酸
+	word=primer.substr(primer.length-wordNum, wordNum);
+	//note("引物短序列: "+word);
+	word=replaceATGC(word);
+	//note("3‘端匹配短序列word： "+word);
+
+	//构造正则表达式
+	//实例 var re =new RegExp("^\\d+" + v + "$","gim"); // re为/^\d+bl$/gim
+	var reg=new RegExp(word,"gi");
+	//正则匹配，得到匹配的位点，并在匹配位置进行处理
+	if((result = reg.exec(template)) != null){
+		var TempStart5p=reg.lastIndex-wordNum;//模板匹配区域的5’端
+		//note("匹配序列: "+result+", 匹配位置 lastIndex: "+TempStart5p);
+		
+		//定义匹配位置的结尾
+		var temp=template.insert("</span>",reg.lastIndex);
+		
+		var primerStart5p=primer.length-wordNum;//引物匹配区域的5’端
+		
+		//引物与模版信息
+		var info=("<div class='greyBg'><b>row1:ruler; row2:primer; row3:template;</b><br>");
+		info+=("1234567891123456789212345678931234567894<br>");
+		info+=(primer+" ("+primer.length+"bp)<br>");
+		info+=(template+" ("+template.length+"bp)</div>");
+		//note(info);
+		
+		var match=0,mismatch=0;//匹配与否；
+		//note("匹配信息: (模板碱基-引物碱基:是否匹配;)");
+		for(var i=1   ;i<primer.length;i++){//最长就是引物的长度
+			if(primerStart5p<i || TempStart5p<i) break;
+			//var strP=(primerStart5p-i)+" - "+primer.charAt(primerStart5p-i);//引物信息
+			//var strT=(Te(primerStart5p-i)+" - "+primer.charAt(primerStart5p-i);//引物信息
+			
+			var strP=primer.charAt(primerStart5p-i);//引物信息
+			var strT=template.charAt(TempStart5p-i);//模板信息
+			var strEqual=isEqual(primer.charAt(primerStart5p-i),template.charAt(TempStart5p-i));
+			//var strEqual=isEqual(strP,strT);
+			
+			if(strEqual){
+				//如果相等，统计相等的数字；
+				match++;
+				matchInfo+=(strP+"-"+strT+":<span>"+singleBool(strEqual)+"</span>;  " );
+				if(match>(totleMatch-wordNum)) {//总匹配数-已经匹配的数字
+					//在匹配的开头，放颜色标记
+					temp=temp.insert("<span style='background:#0096ff;'>",TempStart5p-i);
+					//note("<br>最终结果： "+temp);
+					//note("匹配统计:<br >match: "+(match+wordNum)+", "+"mismatch: "+mismatch);
+					finalSequence=temp;
+					break;
+				}
+			}else{
+				mismatch++;
+				temp=temp.insert("</span>",TempStart5p-i+1);
+				temp=temp.insert("<span class=red>",TempStart5p-i);
+				
+				//错配信息
+				matchInfo+=(strP+"-"+strT+":<span class=red>"+singleBool(strEqual)+"</span>;  " );
+				if(mismatch>3){
+					//note("不匹配");
+					//note("<br>match: "+(match+wordNum)+", "+"mismatch: "+mismatch);
+					//在匹配的开头，放颜色标记
+					temp=temp.insert("<span style='background:#0096ff;'>",TempStart5p-i);
+					finalSequence=temp;
+					break;
+				} 
+			}
+			
+			//print(strP+"-"+strT+": "+strEqual);
+		}
+	}
+	return {
+		"templateName":templateName,
+		"matchInfo":matchInfo,
+		"finalSequence":finalSequence,
+		"match": match+wordNum,
+		"mismatch": mismatch
+	}
+}
+</script>

@@ -1,0 +1,93 @@
+<style>
+.red{color:red;}
+.grey{color:#afaaaf;}
+.gene{background:#faa; margin:0 10px;}
+.dna {
+	border: 1px solid red;
+	padding: 5px;
+	table-layout: fixed;
+	white-space: normal;
+	word-wrap: break-word;
+	overflow: auto;
+	width:800px;
+}
+.stop {
+	background: #000;
+	color: #fff;
+}
+.part{background:#aaf; color:#000; margin:0 10px;}
+</style>
+<h1>EM7 promoter</h1>
+<pre>
+>The EM7 promoter allows blasticidin(杀稻瘟菌素) selection in E.coli.
+http://www.origene.com/destination_vector/PS100023.aspx
+EM7 promoter is derived from T7 promoter; both are prokaryotic promoters that allow expression of antibiotic genes in e.coli (such as blasticidin)
+CMV promoter is eukaryotic promoter that allows expression of antibiotics (or any other) genes in mammalian cell lines.
+
+<p class=dna>
+[1]
+<a class=red>TTGACA</a>ATTAATCATCGGCATAGTATATCGGCATAG<a class=red>TATAAT</a>ACGA CTCACTATA<br /><br />
+[2]
+<a class=red>TTGACA</a>ATTAATCATCGGCATAGTATATCGGCATAG<a class=red>TATAAT</a>ACGA CAAGGTGAGGAACTAAACC
+<a class=gene title="">ATGGCCAAGCCTTTGTCTCAAGAAGAATCCACCCTCATTGAAAGAGCAACGGCTACAATCAACAGCATCCCCATCTCTGAAGACTACAGCGTCGCCAGCGCAGCTCTCTCTAGCGACGGCCGCATCTTCACTGGTGTCAATGTATATCATTTTACTGGGGGACCTTGTGCAGAACTCGTGGTGCTGGGCACTGCTGCTGCTGCGGCAGCTGGCAACCTGACTTGTATCGTCGCGATCGGAAATGAGAACAGGGGCATCTTGAGCCCCTGCGGACGGTGCCGACAGGTGCTTCTCGATCTGCATCCTGGGATCAAAGCCATAGTGAAGGACAGTGATGGACAGCCGACGGCAGTTGGGATTCGTGAATTGCTGCCCTCTGGTTATGTGTGGGAGGGCTAA</a>[399bp]<br />
+翻译产物:<br />M  A  K  P  L  S  Q  E  E  S  T  L  I  E  R  A  T  A  T  I  N  S  I  P  I  S  E  D  Y  S  V  A  S  A  A  L  S  S  D  G  R  I  F  T  G  V  N  V  Y  H  F  T  G  G  P  C  A  E  L  V  V  L  G  T  A  A  A  A  A  A  G  N  L  T  C  I  V  A  I  G  N  E  N  R  G  I  L  S  P  C  G  R  C  R  Q  V  L  L  D  L  H  P  G  I  K  A  I  V  K  D  S  D  G  Q  P  T  A  V  G  I  R  E  L  L  P  S  G  Y  V  W  E  G  -  <br />
+翻译产物:<br />MAKPLSQEESTLIERATATINSIPISEDYSVASAALSSDGRIFTGVNVYHFTGGPCAELVVLGTAAAAAAGNLTCIVAIGNENRGILSPCGRCRQVLLDLHPGIKAIVKDSDGQPTAVGIRELLPSGYVWEG[132aa]<br />
+http://www.ncbi.nlm.nih.gov/protein/110645059?report=genbank&log$=protalign&blast_rank=2&RID=M68V71FR014
+</p>
+
+>T7 promoter to ATG
+TAATACGACTCACTATAGGGAGACCACAACGGTTTCCCTCTAGAAATAATTTTGTTTAACTTTAAGAAGGAGATATACATatg[T7 promoter to ATG:80bp]
+TAATACGACTCACTATAGGGGAATTGTGAGCGGATAACAATTCCCCTCTAGAAATAATTTTGTTTAACTTTAAGAAGGAGATATACATatg[T7 promoter to ATG:88bp,pET28a]
+
+
+>Tac promoter to ATG
+<a class=red>TTGACA</a>ATTAATCATCGGCTCG<a class=red>TATAAT</a>GTGTGGAATTGTGAGCGGATAACAATTTCACACAGGAAACAGCCAGTCCGTTTAGGTGTTTTCACGAGCACTTCACCAACAAGGACCATAGCATatg[122bp,pMal-c2x]
+
+>Tac promoter to AGT
+<a class=red>TTGACA</a>ATTAATCATCGGCTCG<a class=red>TATAAT</a>GTGTGGAATTGTGAGCGGATAACAATTTCACACAGGAAACAGTATTCatg[75bp,pGEX-4T-2]
+
+
+>T7 promoter from pETDuet-1--T7terminator
+taatacgactcactatag---gggtcttg
+
+
+
+<hr>
+<div class=dna>
+>pelB-MCS-Avi-6his-TGA- T7term
+ATGAAATACCTGCTGCCGACCGCTGCTGCTGGTCTGCTGCTCCTCGCTGCCCAGCCGGCGATGGCCATGGATATCGGAATTAATTCGGATCCGAATTCGAGCTCCGTCGACAAGCTTGCGGCCGCACTCGAGGGCCTGAACGATATCTTTGAAGCGCAGAAAATTGAATGGCATGAACACCACCACCACCACCAC<a class=stop>TGA</a>GATCCGGCTGCTAACAAAGCCCGAAAGGAAGCTGAGTTGGCTGCTGCCACCGCTGAGCAATAACTAGCATAACCCCTTGGGGCCTCTAAACGGGTCTTGAGGGGTTTTTTG</div>
+
+<code class=grey>
+>T7 terminater
+http://www.bio.net/bionet/mm/proteins/2001-August/009636.html
+Absolutely -- functional terminator hairpin RNAs need to be about 15 - 20 nt of dsRNA. Not only the terminators for the strong phage RNA
+polymerases, but also those for the most efficient bacterial RNA polymerases -- the anti-terminating polymerases which transcribe rRNA
+operons -- are about 40 nt long. (See below.)
+
+Sequences --
+Major T7 terminator, from the major (gene 10 coat protein) transcript.
+Termination occurs towards the end of the run of U's. I think I show the
+correct base-pairing.
+
+T7ter-T7 transcription terminator in pET3a.
+;<<<<<<<::: <:<<:-:--: -:>>:>:::> >>>>>>
+ AACCCCTTGG GGCCTCTAAA CGGGTCTTGA GGGGTTTTTT G
+AACCCCTTGGGGCCTCTAAACGGGTCTTGAGGGGTTTTTTG
+
+[ctagcataaccccttggggcctctaaacgggtcttgaggggttttttg]{T7 terminator from pET22b}
+</code>
+
+>EM7启动子[65bp]:
+TTGACAATTAATCATCGGCATAGTATATCGGCATAGTATAATACGACAAGGTGAGGAACTAAACC[MBP-BirA]
+
+
+
+
+
+<hr />
+<div class=dna>
+最终序列：<br />
+<span class=part title="from pET22b:pelB-MCS-AviC-6his-T7term">ATGAAATACCTGCTGCCGACCGCTGCTGCTGGTCTGCTGCTCCTCGCTGCCCAGCCGGCGATGGCCATGGATATCGGAATTAATTCGGATCCGAATTCGAGCTCCGTCGACAAGCTTGCGGCCGCACTCGAGGGCCTGAACGATATCTTTGAAGCGCAGAAAATTGAATGGCATGAACACCACCACCACCACCACTGAGATCCGGCTGCTAACAAAGCCCGAAAGGAAGCTGAGTTGGCTGCTGCCACCGCTGAGCAATAACTAGCATAACCCCTTGGGGCCTCTAAACGGGTCTTGAGGGGTTTTTTG</span><span class=part title="EM7 promoter">TTGACAATTAATCATCGGCATAGTATATCGGCATAGTATAATACGACAAGGTGAGGAACTAAACC</a>
+</div>
+
+</pre>

@@ -1,0 +1,208 @@
+﻿<style>
+.dna,#dna{
+	border: 1px solid red;
+	padding: 5px;
+	table-layout: fixed;
+	white-space: normal;
+	word-wrap: break-word; width:1350px;
+	overflow: auto;
+}
+.red{color:red;}
+.Seq{background:#aaa;color:#fff; margin:0 5px;}
+.SeqR{background:#D44DFF;color:#fff; margin:0 5px;}
+.under{border-bottom:3px solid #000;}
+.site{
+	padding: 0 3px;
+	background: #FF297F;
+	color: #fff;
+}
+.G3pSignal {
+	margin-left: 5px;
+	color: green;
+	border-top: 3px solid green;
+}
+.stop {
+	background: #000;
+	color: #fff;
+}
+h3{background:#9F6222; color:#fff;padding:5px 0;border-left:#562D02 15px solid;}
+.good{/*可信区域*/
+	background:#0096ff;
+	margin:0 5px;
+}
+.error{/*不可信区域*/
+	background:red;
+	margin:0 5px;
+}
+.insertion{
+	background:grey; color:#ffefff;
+	margin:0 5px;
+}
+</style>
+<pre>
+<h1>pCantab5e噬菌粒各个元素</h1>
+<a href="http://www.ncbi.nlm.nih.gov/nuccore/U14321.1?report=genbank" target="_blank">序列@NCBI</a> |
+<b>Record removed.</b> This record was removed at the submitters request because the gene orientation can not be confirmed
+
+
+LOCUS       pCANTAB 5E             4591 bp    DNA     circular SYN 31-OCT-2013
+DEFINITION  pCANTAB5E.
+SOURCE      
+  ORGANISM  other sequences; artificial sequences; vectors.
+COMMENT     This file is created by Vector NTI
+            http://www.biofeng.com/
+COMMENT     VNTAUTHORNAME|biofeng.com|
+FEATURES             Location/Qualifiers
+     promoter        131..159
+                     /vntifkey="30"
+                     /label=AmpR_promoter
+     CDS             201..1061
+                     /gene="Ampicillin"
+                     /vntifkey="4"
+                     /label=Ampicillin
+                     /note="ORF frame 3"
+     gene            201..1061
+                     /gene="Ampicillin"
+                     /vntifkey="60"
+     rep_origin      1216..1835
+                     /vntifkey="33"
+                     /label=pBR322_origin
+     promoter        2144..2173
+                     /vntifkey="30"
+                     /label=lac_promoter
+     misc_feature    2187..2209
+                     /vntifkey="21"
+                     /label=M13_pUC_rev_primer
+     misc_feature    2208..2226
+                     /vntifkey="21"
+                     /label=M13_reverse_primer
+     CDS             2218..3713
+                     /vntifkey="4"
+                     /label=ORF\frame\1
+     misc_feature    complement(3723..3739)
+                     /vntifkey="21"
+                     /label=M13_forward20_primer
+     misc_feature    complement(3732..3754)
+                     /vntifkey="21"
+                     /label=M13_pUC_fwd_primer
+     misc_feature    3720..3875
+                     /vntifkey="21"
+                     /label=lacZ_a
+     rep_origin      complement(4067..4373)
+                     /vntifkey="33"
+                     /label=f1_origin
+     misc_feature    4541..4563
+                     /vntifkey="21"
+                     /label=pGEX_3_primer
+     misc_feature    2329..2342
+                     /vntifkey="21"
+                     /label=VH
+     misc_feature    2437..2441
+                     /vntifkey="21"
+                     /label=VL
+     misc_feature    2376..2398
+                     /vntifkey="21"
+                     /label=pCantab5-S3
+     misc_feature    complement(2376..2398)
+                     /vntifkey="21"
+                     /label=pCantab5-S4
+     primer          2222..2247
+                     /vntifkey="27"
+                     /label=pCantab5-R1
+     primer          2265..2288
+                     /vntifkey="27"
+                     /label=pCantab5-S1
+     misc_feature    complement(2523..2545)
+                     /vntifkey="21"
+                     /label=pCantab-S6
+     misc_feature    complement(2554..2578)
+                     /vntifkey="21"
+                     /label=pCantab-R2
+     misc_feature    2451..2489
+                     /vntifkey="21"
+                     /label=E\Tag
+     misc_feature    2496..2498
+                     /vntifkey="21"
+                     /label=Amber\Stop\Codon
+BASE COUNT     1112 a      1099 c      1172 g      1196 t        12 others
+ORIGIN
+        1 gacgaaaggg cctcgtgata cgcctatttt tataggttaa tgtcatgata ataatggttt 
+       61 cttagacgtc aggtggcact tttcggggaa atgtgcgcgg aacccctatt tgtttatttt 
+      121 tctaaataca ttcaaatatg tatccgctca tgagacaata accctgataa atgcttcaat 
+      181 aatattgaaa aaggaagagt atgagtattc aacatttccg tgtcgccctt attccctttt 
+      241 ttgcggcatt ttgccttcct gtttttgctc acccagaaac gctggtgaaa gtaaaagatg 
+      301 ctgaagatca gttgggtgct cgagtgggtt acatcgaact ggatctcaac agcggtaaga 
+      361 tccttgagag ttttcgcccc gaagaacgtt ttccaatgat gagcactttt aaagttctgc 
+      421 tatgtggcgc ggtattatcc cgtattgacg ccgggcaaga gcaactcggt cgccgcatac 
+      481 actattctca gaatgacttg gttgagtact caccagtcac agaaaagcat cttacggatg 
+      541 gcatgacagt aagagaatta tgcagtgctg ccataaccat gagtgataac actgcggcca 
+      601 acttacttct gacaacgatc ggaggaccga aggagctaac cgcttttttg cacaacatgg 
+      661 gggatcatgt aactcgcctt gatcgttggg aaccggagct gaatgaagcc ataccaaacg 
+      721 acgagcgtga caccacgatg cctgtagcaa tggcaacaac gttgcgcaaa ctattaactg 
+      781 gcgaactact tactctagct tcccggcaac aattaataga ctggatggag gcggataaag 
+      841 ttgcaggacc acttctgcgc tcggcccttc cggctggctg gtttattgct gataaatctg 
+      901 gagccggtga gcgtgggtct cgcggtatca ttgcagcact ggggccagat ggtaagccct 
+      961 cccgtatcgt agttatctac acgacgggga gtcaggcaac tatggatgaa cgaaatagac 
+     1021 agatcgctga gataggtgcc tcactgatta agcattggta actgtcagac caagtttact 
+     1081 catatatact ttagattgat ttaaaacttc atttttaatt taaaaggatc taggtgaaga 
+     1141 tcctttttga taatctcatg accaaaatcc cttaacgtga gttttcgttc cactgagcgt 
+     1201 cagaccccgt agaaaagatc aaaggatctt cttgagatcc tttttttctg cgcgtaatct 
+     1261 gctgcttgca aacaaaaaaa ccaccgctac cagcggtggt ttgtttgccg gatcaagagc 
+     1321 taccaactct ttttccgaag gtaactggct tcagcagagc gcagatacca aatactgttc 
+     1381 ttctagtgta gccgtagtta ggccaccact tcaagaactc tgtagcaccg cctacatacc 
+     1441 tcgctctgct aatcctgtta ccagtggctg ctgccagtgg cgataagtcg tgtcttaccg 
+     1501 ggttggactc aagacgatag ttaccggata aggcgcagcg gtcgggctga acggggggtt 
+     1561 cgtgcataca gcccagcttg gagcgaacga cctacaccga actgagatac ctacagcgtg 
+     1621 agcattgaga aagcgccacg cttcccgaag ggagaaaggc ggacaggtat ccggtaagcg 
+     1681 gcagggtcgg aacaggagag cgcacgaggg agcttccagg gggaaacgcc tggtatcttt 
+     1741 atagtcctgt cgggtttcgc cacctctgac ttgagcgtcg atttttgtga tgctcgtcag 
+     1801 gggggcggag cctatggaaa aacgccagca acgcggcctt tttacggttc ctggcctttt 
+     1861 gctggccttt tgctcacatg ttctttcctg cgttatcccc tgattctgtg gataaccgta 
+     1921 ttaccgcctt tgagtgagct gataccgctc gccgcagccg aacgaccgag cgcagcgagt 
+     1981 cagtgagcga ggaagcggaa gagcgcccaa tacgcaaacc gcctctcccc gcgcgttggc 
+     2041 cgattcatta atgcagctgg cacgacaggt ttcccgactg gaaagcgggc agtgagcgca 
+     2101 acgcaattaa tgtgagttag ctcactcatt aggcacccca ggctttacac tttatgcttc 
+     2161 cggctcgtat gttgtgtgga attgtgagcg gataacaatt tcacacagga aacagctatg 
+     2221 accatgatta cgccaagctt tggagccttt tttttggaga ttttcaacgt gaaaaaatta 
+     2281 ttattcgcaa ttcctttagt tgttcctttc tatgcggccc agccggccnn nnnnggggcc 
+     2341 aaggcaccac ggtcaccgtc tcctcaggtg gaggcggttc aggcggaggt ggctctggcg 
+     2401 gtggcggatc ggacatcgag ctcactcagt ctccannnnn ngcggccgca ggtgcgccgg 
+     2461 tgccgtatcc ggatccgctg gaaccgcgtg ccgcatagac tgttgaaagt tgtttagcaa 
+     2521 aacctcatac agaaaattca tttactaacg tctggaaaga cgacaaaact ttagatcgtt 
+     2581 acgctaacta tgagggctgt ctgtggaatg ctacaggcgt tgtggtttgt actggtgacg 
+     2641 aaactcagtg ttacggtaca tgggttccta ttgggcttgc tatccctgaa aatgagggtg 
+     2701 gtggctctga gggtggcggt tctgagggtg gcggttctga gggtggcggt actaaacctc 
+     2761 ctgagtacgg tgatacacct attccgggct atacttatat caaccctctc gacggcactt 
+     2821 atccgcctgg tactgagcaa aaccccgcta atcctaatcc ttctcttgag gagtctcagc 
+     2881 ctcttaatac tttcatgttt cagaataata ggttccgaaa taggcagggt gcattaactg 
+     2941 tttatacggg cactgttact caaggcactg accccgttaa aacttattac cagtacactc 
+     3001 ctgtatcatc aaaagccatg tatgacgctt actggaacgg taaattcaga gactgcgctt 
+     3061 tccattctgg ctttaatgag gatccattcg tttgtgaata tcaaggccaa tcgtctgacc 
+     3121 tgcctcaacc tcctgtcaat gctggcggcg gctctggtgg tggttctggt ggcggctctg 
+     3181 agggtggcgg ctctgagggt ggcggttctg agggtggcgg ctctgagggt ggcggttccg 
+     3241 gtggcggctc cggttccggt gattttgatt atgaaaaaat ggcaaacgct aataaggggg 
+     3301 ctatgaccga aaatgccgat gaaaacgcgc tacagtctga cgctaaaggc aaacttgatt 
+     3361 ctgtcgctac tgattacggt gctgctatcg atggtttcat tggtgacgtt tccggccttg 
+     3421 ctaatggtaa tggtgctact ggtgattttg ctggctctaa ttcccaaatg gctcaagtcg 
+     3481 gtgacggtga taattcacct ttaatgaata atttccgtca atatttacct tctttgcctc 
+     3541 agtcggttga atgtcgccct tatgtctttg gcgctggtaa accatatgaa ttttctattg 
+     3601 attgtgacaa aataaactta ttccgtggtg tctttgcgtt tcttttatat gttgccacct 
+     3661 ttatgtatgt attttcgacg tttgctaaca tactgcgtaa taaggagtct taataagaat 
+     3721 tcactggccg tcgttttaca acgtcgtgac tgggaaaacc ctggcgttac ccaacttaat 
+     3781 cgccttgcag cacatccccc tttcgccagc tggcgtaata gcgaagaggc ccgcaccgat 
+     3841 cgcccttccc aacagttgcg cagcctgaat ggcgaatggc gcctgatgcg gtattttctc 
+     3901 cttacgcatc tgtgcggtat ttcacaccgc atataaattg taaacgttaa tattttgtta 
+     3961 aaattcgcgt taaatttttg ttaaatcagc tcatttttta accaataggc cgaaatcggc 
+     4021 aaaatccctt ataaatcaaa agaatagccc gagatagggt tgagtgttgt tccagtttgg 
+     4081 aacaagagtc cactattaaa gaacgtggac tccaacgtca aagggcgaaa aaccgtctat 
+     4141 cagggcgatg gcccactacg tgaaccatca cccaaatcaa gttttttggg gtcgaggtgc 
+     4201 cgtaaagcac taaatcggaa ccctaaaggg agcccccgat ttagagcttg acggggaaag 
+     4261 ccggcgaacg tggcgagaaa ggaagggaag aaagcgaaag gagcgggcgc tagggcgctg 
+     4321 gcaagtgtag cggtcacgct gcgcgtaacc accacacccg ccgcgcttaa tgcgccgcta 
+     4381 cagggcgcgt actatggttg ctttgacggg tgcagtctca gtacaatctg ctctgatgcc 
+     4441 gcatagttaa gccagccccg acacccgcca acacccgctg acgcgccctg acgggcttgt 
+     4501 ctgctcccgg catccgctta cagacaagct gtgaccgtct ccgggagctg catgtgtcag 
+     4561 aggttttcac cgtcatcacc gaaacgcgcg a 
+//
+
+</pre>

@@ -1,0 +1,34 @@
+﻿<style>
+.box{ height:20px; color:#fff; }
+.purple{background:purple;}
+.red{background:red;}
+</style>
+<div class="box red">js part</div>
+<script>
+//tools function
+function print(s){	document.write(s); }
+function println(s){	document.write(s+"<br />"); }
+ 
+	//get value from php
+	var str="GGGCCCAGCCGGCCGCCCAGCCGGCC";
+var DNA={};//定义一个全局顶层对象；
+DNA.Sfi1="GGCCCAGCCGGCC";
+DNA.Sfi2="GGCCAGGCCGGCCAG";
+DNA.GSlinker="GGTGGTGGTGGCAGCGGCGGCGGCGGCTCTGGTGGTGGTGGtTCC";
+DNA.Myc="GAACAAAAACTCATCTCAGAAGAGGATCTG";
+DNA.MHlinker="AATAGCGCCGTTGAT";
+DNA.His="CACCACCACCACCACCAC";
+DNA.linkerAmber="gccgcatag";
+	
+	//var reg=DNA.Sfi1;
+	//var reg=/(ggcc)/ig;
+	//var reg=new RegExp("\\$" + _d.name + "\\$","g" )
+	var reg=new RegExp("(" + DNA.Sfi1 + ")","gi" );
+	//js中正则需要先定义，不能再正则中引用变量；
+ 
+	println("<div class=dna>value: "+str+"<br />reg: "+reg+"</div>");
+	var aft=str.replace(reg,"<span class=red>$1</span>");
+	//js中实现模糊匹配，并高亮显示；
+	println("str: "+str);
+	println("aft: "+aft);
+</script>

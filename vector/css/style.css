@@ -1,0 +1,106 @@
+﻿.wrap{width:1000px; margin:0 auto;
+	box-shadow: 0px 0px 5px #bbb;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.ch1{border-bottom:2px solid #FACF0C;}
+.hinge{border-bottom:2px solid #aaa;}
+.intron{color:#6670D5;}
+.ch2{border-bottom:2px solid #E8483F;}
+.ch3{border-bottom:2px solid #47AA46;}
+
+
+.dna,.dna2{
+	border: 1px solid red;
+	padding: 5px;
+	
+	table-layout:fixed;  /*for IE*/
+	white-space:normal; /*for IE*/
+	word-wrap:break-word; /*for IE*/
+	overflow:auto;
+}
+	
+	
+.dna2{
+	border: 5px solid #fff;
+}
+
+.atg{border:2px solid red; border-right:none; /*background:#FCBED7*/}
+
+.thrombin{border:#0078F0 2px solid; border-top:none;}
+
+
+.site{/*border:1px dashed #0096ff;*/ padding:0 3px; background:#FF297F;color:#fff;}
+.EcoRI{/*(ggatct)*/ background:#E8FFB3;	}
+.HindIII{/*(aagctt)*/ background:#FFF0B3;	}
+.BamHI{/*(ggatcc)*/	background:#80FF8C;	}
+.XbaI{background:#FFB3D1;}
+.XhoII{background:#efeeef;}
+.BglII{background:#FFCC80;}
+.ApaLI,.NdeI,.NotI,.SalI{background:#aaa;}
+
+.XhoI{border-top:3px solid red;}
+/*
+http://images2.freshpatents.com/pdf/US20120237976A1.pdf
+*/
+
+.greenTitle{color:#4ba733;
+	font-size: 16px;
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-bottom: 6px;
+	margin-left: 0px;
+	font-weight: bold;
+}
+.stop{background:#000; color:#fff;}
+.HisTag{background:#aaa; color:#fff;}
+.T7Tag{background:#47ABDF; color:#fff;}
+.MycTag{background:#9BFF9B; color:#000;}
+.AviTag{border-top:#0096ff 2px solid; margin: 0 5px; color:#0096ff; }
+.eTag{background:#DC7E6A; color:#000;}
+.linker{background:#0096ff; color:#000;}
+
+/*****************************字体颜色类****************************************/
+.red{color:red;}
+.orange{color:orange;}
+.yellow{color:yellow;}
+.green{color:green;}
+.blue{color:blue;}
+.cyan{color:cyan;}
+.purple{color:purple;}
+.white{color:white;}
+.black{color:black;}
+
+.NEB{color:#f2661b; text-decoration:none;}
+
+/*****************************背景颜色类****************************************/
+.red_b{background:red;}
+.orange_b{background:orange;}
+.yellow_b{background:yellow;}
+.green_b{background:green;}
+.blue_b{background:blue;}
+.cyan_b{background:cyan;}
+.purple_b{background:purple;}
+.white_b{background:white;}
+.black_b{background:black;}
+
+
+/*******************************装饰盒************************************************/
+.figureBox{
+	box-shadow: 0px 0px 5px #bbb;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	clear: both;
+	padding: 9px;
+	position: relative;
+	width: 100%;
+}
+.figureBox .note {
+	color: #585858;
+	font-family: 'Minion Pro', Georgia, Times New Roman, serif;
+	font-style: italic;
+	padding: 12px;
+}
+

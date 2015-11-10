@@ -1,0 +1,119 @@
+﻿<style>
+.dna {
+	border: 1px solid red;
+	padding: 5px;
+	table-layout: fixed;
+	white-space: normal;
+	word-wrap: break-word;
+	width: 900px;
+	overflow: auto;
+}
+
+</style>
+<h1>原核信号肽与分泌表达</h1>
+
+
+<pre>
+<a href="http://wolfson.huji.ac.il/expression/local/bacteria/Secretory%20and%20extracellular%20production%20of%20recombinant%20proteins-2004.pdf" target="_blank">[PDF] 	Secretory and extracellular production of recombinant proteins using ...</a>
+wolfson.huji.ac.il/expression/local/bacteria/Secretory and extracellular product
+14 Feb 2004 ... PhoE (outer-membrane pore protein E). MKKSTLALVVMGIVASASVQA. MalE (maltose-binding protein). MKIKTGARILALSALTTMMFSASALA.
+<img src="signalPeptide.png" />
+
+__________________________________________________________________________________________
+<b>Signal sequences 			Amino acid sequences		length(aa)</b>
+PelB (pectate lyase B) from Erwinia carotovora 	[MKYLLPTAAAGLLLLAAQPAMA]	22
+OmpA (outer-membrane protein A) 		[MKKTAIAIAVALAGFATVAQA]		21
+StII (heat-stable enterotoxin 2) 		[MKKNIAFLLASMFVFSIATNAYA]	23
+Endoxylanase from Bacillus sp. 			[MFKFKKKFLVGLTAAFMSISMFSATASA]	28
+PhoA (alkaline phosphatase) 			[MKQSTIALALLPLLFTPVTKA]		21
+OmpF (outer-membrane protein F) 		[MMKRNILAVIVPALLVAGTANA]	22
+PhoE (outer-membrane pore protein E) 		[MKKSTLALVVMGIVASASVQA]	21
+MalE (maltose-binding protein) 			[MKIKTGARILALSALTTMMFSASALA]	26
+OmpC (outer-membrane protein C) 		[MKVKVLSLLVPALLVAGAANA]	21
+Lpp (murein lipoprotein) 			[MKATKLVLGAVILGSTLLAG]	20
+LamB (λ receptor protein) 			[MMITLRKLPLAVAVAAGVMSAQAMA]	25
+OmpT (protease VII) 				[MRAKLLGIVLTTPIAISSFA]	45
+LTB (heat-labile enterotoxin subunit B) 	[MNKVKCYVLFTALLSSLYAHG]	21
+__________________________________________________________________________________________
+Table 1 Representative signal sequences used for the secretory production of recombinant proteins in Escherichia coli. The
+signal sequence is composed of N-, H- and C-domains. The Ndomains of signal sequences are shown in bold while the Cdomains are underlined
+<hr />
+
+http://www.nature.com/nbt/journal/v24/n7/fig_tab/nbt1218_F1.html
+<img src="nbt1218-F1.jpg" />
+
+
+
+http://wenku.baidu.com/view/0e395eed5ef7ba0d4a733ba9.html
+
+<div class=dna>
+换信号肽相关工具：（<a href="http://www.bioinformatics.org/sms2/rev_trans.html" target="_blank">蛋白质序列 到 碱基</a>，然后考虑<a href="http://tools.neb.com/NEBcutter2/" target="_blank">酶切位点</a>、<a href="http://www.faculty.ucr.edu/~mmaduro/codonusage/usage.htm" target="_blank">碱基偏好性</a>调整。
+<a href="http://innerforum.tk/wjl/revCom.html" target="_blank">翻译</a>）<br />
+	（反翻译程序：http://www.ebi.ac.uk/Tools/st/）<br />
+	（反翻译程序：http://www.bioinformatics.org/sms2/rev_trans.html）<br />
+	- Wherein the signal peptide is one of Omp A, phoA, Lysn, pelB.<br />
+</div>
+	
+	>[推荐]OmpA外膜蛋白（pINIII）（Media）OmpA (outer-membrane protein A). MKKTAIAIAVALAGFATVAQA.
+	Amino acid sequence of OmpA signal peptide is below:
+	SEQ ID NO: 3: MKKTAIAIAV ALAGFATVAQ A
+>reverse translation of sample sequence to a 63 base sequence of most likely codons.
+atgaaaaaaaccgcgattgcgattgcggtggcgctggcgggctttgcgaccgtggcgcaggcg
+原始序列：ATGAAAAAAACCGCGATTGCGATTGCGGTGGCGCTGGCGGGCTTTGCGACCGTGGCGCAGGCG [63bp]
+翻译产物：M  K  K  T  A  I  A  I  A  V  A  L  A  G  F  A  T  V  A  Q  A  
+翻译产物：MKKTAIAIAVALAGFATVAQA [21aa]
+Met-Lys-Lys-Thr-Ala-Ile-Ala-Ile-Ala-Val-Ala-Leu-Ala-Gly-Phe-Ala-Thr-Val-Ala-Gin-Ala-.（http://www.jbc.org/content/255/1/27）
+  某专利:KMKKTAIAIAVALAGFATVA
+
+  
+  
+  
+ >从pASK75质粒找到的OmpA信号肽：
+原始序列： ATGAAAAAGACAGCTATCGCGATTGCAGTGGCACTGGCTGGTTTCGCTACCGTAGCGCAGGCCTGA [66bp]
+翻译产物： M  K  K  T  A  I  A  I  A  V  A  L  A  G  F  A  T  V  A  Q  A  -  
+翻译产物： MKKTAIAIAVALAGFATVAQA [21aa]
+
+
+
+
+
+
+	
+	>phoA碱性磷酸酶（pTA1529）磷酸盐饥饿时，外源蛋白表达。
+	Amino acid sequence of phoA signal peptide is below:
+	SEQ ID NO: 5: MKKMSLFQNM KSKLLPIAAV SVLTAGIFAG A
+>reverse translation of sample sequence to a 93 base sequence of most likely codons.
+atgaaaaaaatgagcctgtttcagaacatgaaaagcaaactgctgccgattgcggcggtg
+agcgtgctgaccgcgggcatttttgcgggcgcg
+原始序列：ATGAAAAAAATGAGCCTGTTTCAGAACATGAAAAGCAAACTGCTGCCGATTGCGGCGGTGAGCGTGCTGACCGCGGGCATTTTTGCGGGCGCG [93bp]
+翻译产物：M  K  K  M  S  L  F  Q  N  M  K  S  K  L  L  P  I  A  A  V  S  V  L  T  A  G  I  F  A  G  A  
+翻译产物：MKKMSLFQNMKSKLLPIAAVSVLTAGIFAGA [31aa]	
+	
+	
+	
+	>Lysn
+	Amino acid sequence of Lysn signal peptide is below:
+	SEQ ID NO: 6: MKKTKNNYYT RPLAIGLSTF ALASIVYGGI QNETHAS
+>reverse translation of sample sequence to a 111 base sequence of most likely codons.
+atgaaaaaaaccaaaaacaactattatacccgcccgctggcgattggcctgagcaccttt
+gcgctggcgagcattgtgtatggcggcattcagaacgaaacccatgcgagc
+原始序列：ATGAAAAAAACCAAAAACAACTATTATACCCGCCCGCTGGCGATTGGCCTGAGCACCTTTGCGCTGGCGAGCATTGTGTATGGCGGCATTCAGAACGAAACCCATGCGAGC [111bp]
+翻译产物：M  K  K  T  K  N  N  Y  Y  T  R  P  L  A  I  G  L  S  T  F  A  L  A  S  I  V  Y  G  G  I  Q  N  E  T  H  A  S  
+翻译产物：MKKTKNNYYTRPLAIGLSTFALASIVYGGIQNETHAS [37aa]
+
+	
+	
+	>pelB(和pET22b中信号肽[MKYLLPTAAAGLLLLAAQPAMA]不一致。)
+	Amino acid sequence of pelB signal peptide is below:
+	SEQ ID NO: 7: MKRLCLWFTV FSLFLVLLPG KALG
+	http://www.uniprot.org/uniprot/H9U028
+>reverse translation of sample sequence to a 72 base sequence of most likely codons.
+atgaaacgcctgtgcctgtggtttaccgtgtttagcctgtttctggtgctgctgccgggc
+aaagcgctgggc
+原始序列：ATGAAACGCCTGTGCCTGTGGTTTACCGTGTTTAGCCTGTTTCTGGTGCTGCTGCCGGGCAAAGCGCTGGGC [72bp]
+翻译产物：M  K  R  L  C  L  W  F  T  V  F  S  L  F  L  V  L  L  P  G  K  A  L  G  
+翻译产物：MKRLCLWFTVFSLFLVLLPGKALG [24aa]
+
+2.PD1
+
+</pre>

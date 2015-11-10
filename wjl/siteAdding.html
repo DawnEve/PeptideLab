@@ -1,0 +1,198 @@
+<style>
+#input{width:800px; height:300px; margin:10px 0;}
+#output{width:800px; border:1px solid red; margin:10px 0;}
+</style>
+
+
+<h1>为DNA标出酶切位点</h1>
+
+
+
+
+请输入dna:<br>
+<textarea type=input id=input>CATatgcatcatTAG</textarea><br>
+<input type=button value="submit" id=submit />
+<input type=button value="clear" id=reset />
+<span id=tips>请刷新页面或点击reset以重新提交序列。</span>
+
+<hr>
+<div id=output></div>
+<script>
+window.onload=function(){
+/*--------------------------------重置事件绑定------------------------------*/
+	$("reset").onclick=function(){
+		//$("input").innerHTML="";//不会清空用户的输入。
+		$("input").value="";
+		$("output").innerHTML="";
+		$("tips").style.visibility="hidden";
+		$("submit").disabled=false;
+		$("input").focus();
+	}
+	
+/*--------------------------------提交事件绑定------------------------------*/
+	$("submit").onclick=function(){
+		$("output").innerHTML="";
+//1.获取字符串
+		var str=$("input").value.toUpperCase();		
+
+//2.反向、互补；
+		n("原始序列："+DNA.getDNA(str)+"<br/>","output");
+		n("反向 - -："+DNA.reverse(str)+"<br/>","output");
+		n("互补 - -："+DNA.complete(str)+"<br/>","output");
+		n("反向互补：<span class=red>"+DNA.revCom(str)+"</span><br/>","output");
+		
+		n("<hr>","output");
+		
+		var strOri=DNA.getDNA(str);
+		var aaOri=DNA.translate(str);
+		n("原始序列："+strOri+" ["+strOri.length+"bp]<br/>","output");
+		n("翻译产物："+DNA.separate(aaOri)+"<br/>","output");
+		n("翻译产物：<span class=red>"+aaOri+" ["+aaOri.length+"aa]</span><br/>","output");
+		
+				
+		n("<hr>","output");
+		n("隔开后 -："+DNA.spaceEvery(str)+"<br/>","output");
+	
+	};
+
+
+
+}
+
+
+
+/*--------------------------------tool kit------------------------------*/
+function $(s){
+	if(typeof s=="object")
+		return s;
+	return document.getElementById(s);
+}
+
+function n(s, o){
+	if(o==undefined){
+		console.log(s);
+	}else{
+		$(o).innerHTML+=s;
+	}
+}
+
+
+/**建立一个DNA对象，有很多静态方法可用。
+	- 仿照Math对象，使用方法也类似;
+	- 集成静态方法，可以直接使用;
+	- 直接返回结果，不支持链式调用。
+	- at: 20141111
+	- by JimmyMall[at]163.com
+*/
+var DNA={
+	//alert("该对象仅仅封装静态方法,请直接使用!");
+	getDNA: function(str){
+		//输入DNA并格式化：去掉换行
+		str=str.replace(/\r/g,'').replace(/\n/g,'');
+		//去掉非字母字符：数字、特殊符号
+		str=str.replace(/[^a-zA-Z]/g,'');
+		//去掉空格、变成大写
+		return str.replace(/\s/g,"").toUpperCase();
+	},
+	//翻转字符串
+	reverse2: function(dna){
+		//反向字符串
+		var rev="";
+		for(var i=dna.length-1; i>=0; i--){
+			rev += dna.charAt(i);
+		}
+		return rev;
+	},
+	reverse: function(dna){
+		//反向字符串
+		dna=DNA.getDNA(dna);
+		return dna.split("").reverse().join("");
+	},
+	//互补序列
+	complete:function(dna){
+		dna=DNA.getDNA(dna);
+		var comp="";
+		for(var i=0;i<dna.length;i++){
+			switch (dna.charAt(i)){
+				case "A": comp +="T";break;
+				case "T": comp +="A";break;
+				case "G": comp +="C";break;
+				case "C": comp +="G";break;
+				default: comp +="X";//不处理简并碱基
+			}
+		}
+		return comp;
+	},
+	//反向互补序列
+	revCom:function(dna){
+		dna=DNA.getDNA(dna);
+		return DNA.complete( DNA.reverse(dna) );
+	},
+	//翻译dna为aa单字母缩写：
+	translate: function(dna){
+		str=DNA.getDNA(dna);
+		var codens={
+			"TTT":"F",  "TCT":"S",  "TAT":"Y",  "TGT":"C", 
+			"TTC":"F",  "TCC":"S",  "TAC":"Y",  "TGC":"C", 
+			"TTA":"L",  "TCA":"S",  "TAA":"-",  "TGA":"-", 
+			"TTG":"L",  "TCG":"S",  "TAG":"-",  "TGG":"W", 
+
+			"CTT":"L",  "CCT":"P",  "CAT":"H",  "CGT":"R", 
+			"CTC":"L",  "CCC":"P",  "CAC":"H",  "CGC":"R", 
+			"CTA":"L",  "CCA":"P",  "CAA":"Q",  "CGA":"R", 
+			"CTG":"L",  "CCG":"P",  "CAG":"Q",  "CGG":"R", 
+
+			"ATT":"I",  "ACT":"T",  "AAT":"N",  "AGT":"S", 
+			"ATC":"I",  "ACC":"T",  "AAC":"N",  "AGC":"S", 
+			"ATA":"I",  "ACA":"T",  "AAA":"K",  "AGA":"R", 
+			"ATG":"M",  "ACG":"T",  "AAG":"K",  "AGG":"R", 
+
+			"GTT":"V",  "GCT":"A",  "GAT":"D",  "GGT":"G", 
+			"GTC":"V",  "GCC":"A",  "GAC":"D",  "GGC":"G", 
+			"GTA":"V",  "GCA":"A",  "GAA":"E",  "GGA":"G", 
+			"GTG":"V",  "GCG":"A",  "GAG":"E",  "GGG":"G"
+		}
+
+		var aa="";
+		for (i = 0; i < str.length; i=i+3) {
+			var sub=str.substring(i, i+3);
+			var a=codens[sub];
+			if(a==undefined){
+				a="x";
+			}
+			aa += a;
+		}
+
+		return aa;
+	},
+	//aa单字母缩写中间加上2个空格；
+	separate: function(s){
+		var temp="";
+		for(i=0; i<s.length; i++){
+			temp+=s.substring(i,i+1);
+			temp+="&nbsp;&nbsp;";
+		}
+		
+		return temp;
+	},
+	//字符串str每隔n个加一个空格；
+	spaceEvery: function(str, n){
+		s=DNA.getDNA(str);
+		var temp="";
+		n=n||3;//默认三个字符加一个空格
+		for(i=0; i<s.length; i+=3){
+			temp+=s.substring(i,i+3);
+			temp+="&nbsp;";
+		}
+		
+		return temp;
+	},
+
+	help: function(){
+		alert("王军亮：JimmyMall[at]163.com");
+	}
+ }
+ /////////end of DNA object
+
+
+</script>
