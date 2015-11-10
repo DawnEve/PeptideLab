@@ -1,0 +1,41 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# My configurations:
+db.ini
+deploy_key_rsa
+
+# dirs
+backup
+dustbin
+test
+bin
+
+#zip(s)
+*.rar
+*.backup.zip
+
+# 论坛文件不处理
+!forum
+
+# wiki百科文件不处理
+wiki
+
+# exe文件除外
+*.exe
+
+# 照片文件夹不保存
+photos
+
+# 过于大的pdf
+regulation
+
+# 视频文件
+film
+*.rmvb
+*.rm
+*.mp4
+*.mkv
+*.avi
