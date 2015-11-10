@@ -1,0 +1,80 @@
+﻿<html>
+<head>
+<style>
+body,div,a,h1{margin:0; padding:0;}
+.wrap{width:800px; margin:0 auto;
+    box-shadow:1px 2px 5px #333333;
+	
+	padding:20px 10px;
+}
+#button a{ border-right:#000 1px solid;
+	border-bottom:#000 1px solid;
+	text-decoration:none;
+	padding:5px 10px;
+	color:#000; background:#eee;
+}
+#button a:hover{color:#fff; background:#000;}
+.clear{clear:both; height:30px; width:100%; overflow:hidden;}
+h2,.skyBlue{color:#0096ff;}
+.b{font-weight:bold;}
+.red{color:red;}
+</style>
+
+
+
+
+</head>
+<body>
+<div class=wrap>
+<h1>How To教程：how to use FTP  </h1>
+<a href="../">返回首页</a> | 
+<a href="ftp://192.168.1.100">登陆ftp</a>
+<hr/>
+<h2>FTP是什么？</h2>
+	<p>FTP是FILE TRANSFER PROTOCOL的简称,中文意为"文件传送协议。</p>
+<h2>FTP能干什么？</h2>
+	<p>用于在电脑和电脑之间传送文件,有了这个协议,文件的传输就可以不受不同的电脑,不同的操作系统,甚至不同文件格式的限制。广泛应用于电影、软件等大型文件的传输。</p>
+	
+
+
+
+<h2>FTP怎么用？</h2>
+	<p>本实验室的ftp仅限于本局域网使用。<span class=red>需要用户名和密码(有上传权限)，也可以进行匿名查看(仅能下载)。</span>可以使用我的电脑登陆，也可以使用ftp客户端登陆，后者更灵活权限更多。使用浏览器也行，但有可能中文乱码。</p>
+	
+	<pre>
+----------------------------------
+<span class=b>登录方式1：使用 我的电脑 登陆</span>
+
+打开我的电脑，在地址栏输入： ftp://192.168.1.100
+即可查看资源。
+下载：选中文件，复制，回到桌面，粘贴即可下载。(也可拖动到桌面)。
+     支持文件夹下载。
+----------------------------------
+
+
+----------------------------------
+<span class=b>登录方式2：使用ftp客户端 登陆</span>
+1.下载ftp客户端：<a href="./FileZilla_3.9.0.6_win32-setup.exe">点击下载FileZilla_3.9</a>
+2.安装FileZilla_3.9，并打开；
+
+3.在软件界面填写信息：
+<span class=b>匿名登录 (匿名登录不能上传)</span>
+主机：192.168.1.100  
+（匿名登录不用填写用户名、密码）
+点击快速连接，即可在右边看到远程主机的文件，即可拖过拖动下载；
+
+或者
+
+<span class=b>公共用户名登录</span>
+主机：192.168.1.100 
+用户名： peptidelab
+密码：wifi密码
+即可通过拖动上传文件，<span class=red>目前只能上传到upload文件夹。</span>
+----------------------------------
+	</pre>
+<hr/>
+<div class=skyBlue>Contact: JimmyMall[at]163.com</div>
+
+</div>
+</body>
+</html>
