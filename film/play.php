@@ -20,20 +20,36 @@
 	
 	//4.显示视频
 ?>
+  <!-- for players  begin-->
+  <link rel="stylesheet" href="html5media/flowplayer/skin/minimalist.css">
+  <script src="html5media/jquery-1.11.2.min.js"></script>
+  <script src="html5media/flowplayer/flowplayer.min.js"></script>
+  <!-- for players  end-->
+   <style>
+  /*视频样式*/
+#flowplayer{width:600px; border:2px solid #0096ff; padding:10px; background-color:black; color:red;}
+</style>
+
 <div class=wrap>
 
-	<h1 id=title><?php echo $v_name;?></h1>
+	<h1><?php echo $v_name;?></h1>
 
-	<video id=myVideo poster="<?php echo $dir.$v_name;?>.jpg" controls preload="auto" name="media">
-		<source src="<?php echo $dir.$v_name;?>.mp4" type="video/mp4">
-		您的浏览器不支持html5“视频”标签。请使用chrome浏览器观看本站。
+
+	
+<div class="flowplayer" id=flowplayer width="320" height="240" controls="controls" preload="auto" name="media">
+	<video poster="<?php echo $dir.$v_name;?>.jpg">
+		<source type="video/mp4" src="<?php echo $dir.$v_name;?>.mp4">
+
+		您的浏览器不支持html5视频标签。推荐chrome等现代浏览器。
 	</video>
-	<div id=info></div>
+</div>
+	
+	
 
 	<br />
-	<a id=list href="index.php" target="_blank">返回列表</a> | 
-	<a id=playOrPause href="javascript:void(0);">播放</a> | 
-	<a id=download href="<?php echo $dir.$v_name;?>.mp4" target="_">下载</a> | 
+	<a id='list' href="index.php" target="_blank">返回列表</a> | 
+	<a id='store' href="javascript:void(0);">收藏</a> | 
+	<a id='download' href="<?php echo $dir.$v_name;?>.mp4" target="_">下载</a> | 
 	
 	<hr>
 	<p>评论</p>
@@ -49,86 +65,13 @@
 </div>
 
 <script>
-//获取元素
-function $(s){return document.getElementById(s);}
-
-/**
-* 将秒数换成时分秒格式
-* 整理：www.jbxue.com
-*/
-//从秒转化为时分秒
-function formatSeconds(value) {
-    var s = parseInt(value);// 秒
-    var m = 0;// 分
-    var h = 0;// 小时
-	
-    if(s > 60) {
-        m = parseInt(s/60);
-        s = parseInt(s%60);
-		if(m > 60) {
-			h = parseInt(m/60);
-			m = parseInt(m%60);
-		}
-    }
-	var result = ""+parseInt(s)+"秒";
-	if(m > 0)  result = ""+parseInt(m)+"分"+result;
-	if(h > 0)  result = ""+parseInt(h)+"小时"+result;
-
-    return result;
-}
-
-window.onload=function(){
-	var myVideo = $('myVideo');//获取video元素
-	var tol = 0;
-	myVideo.addEventListener("loadedmetadata", function(){
-		tol = myVideo.duration;//获取总时长
-		$('info').innerHTML=formatSeconds(tol);
+$(document).ready(function(){
+  // 在这里写你的代码...
+	$('#store').click(function(){
+		alert('该功能正在开发中...');
 	});
-	
-	$('playOrPause').onclick=playToggle;
-	
-	//播放与暂停
-	function playToggle(){
-		if(myVideo.paused){
-			myVideo.play();//播放
-			this.innerHTML='暂停';
-		}else{
-			myVideo.pause();//暂停
-			this.innerHTML='播放';
-		}
-	}
-	
-	//====================备用[0,时长(秒)]
-	//可以记录播放的位置，放在关闭浏览器的事件中
-	//播放时间点更新时
-	myVideo.addEventListener("timeupdate", function(){
-		var currentTime = myVideo.currentTime;//获取当前播放时间
-		console.log(currentTime);//在调试器中打印
-	});
-	
-	//设置播放点
-	function playBySeconds(num){ 
-		myVideo.currentTime = num;
-	}
-	
-	//====================备用
-	//可以记录播放的音量，放在关闭浏览器的事件中[0,1]
-	//音量改变时
-	myVideo.addEventListener("volumechange", function(){
-		var volume = myVideo.volume;//获取当前音量
-		console.log(volume);//在调试器中打印
-	});
-	//设置音量
-	function setVol(num){ 
-		myVideo.volume = num;
-	}
 
-	window.onunload = onbeforeunload_handler;      
-    function onbeforeunload_handler(){   
-       window.event.returnValue="确定要退出本页吗？"; 
-    }
-
-}
+});
 
 
 </script>

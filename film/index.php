@@ -1,21 +1,4 @@
-<?php 
-	include('header.php');
-
-	
-	//1.获取参数
-	if(isset($_GET['id'])){
-		$id=$_GET['id'];
-	}else{
-		$id=1;
-	}
-	//2.获取视频列表
-	
-	//3.获取视频目录和文件名
-	$v_name=$v_list[$id];
-	$dir='media/';
-	
-	//4.显示视频
-?>
+<?php  include('header.php'); ?>
 <div class=wrap>
 
 <style>

@@ -1,0 +1,109 @@
+/* CSS Document */
+/***
+ * bioMooc http://www.bioMooc.com
+ * e-mail: admin@bioMooc.com
+ * 
+ * 2015-11-15
+ * auther: DawnEve
+ * e-mail: JimmyMall@live.com
+ */
+
+*{border:0;margin:0;  padding:0;}
+body{background:url(../images/common/bg.gif);font-family:'微软雅黑',Tahoma; margin:0 auto; font-size:12px}
+ul{display:block;margin:0;padding:0;list-style:none;}
+li{display:block;margin:0;padding:0;list-style: none;}
+img{border:0;}
+dl,dt,dd,span{margin:0;padding:0;display:block;}
+a,a:focus{text-decoration:none;color:#000;outline:none;blr:expression(this.onFocus=this.blur());}
+a:hover{color:#00a4ac;text-decoration:none;}
+table{border-collapse:collapse;border-spacing: 0;}
+cite{font-style:normal;}
+h2{font-weight:normal;}
+::-moz-selection{color:#fff;color:rgba(255,255,255,0.85);background:#03a8b1;}
+::selection{color:#fff;color:rgba(255,255,255,0.85);background:#03a8b1;}
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
+h2{font-size:12px}
+
+
+body {font: 12px/1.2 Tahoma,'Microsoft Yahei','Simsun';}
+
+.wrap{ width:1200px; margin:20px auto; border:2px solid #eee; padding:10px; border-radius:10px;
+	border-bottom: 1px solid #CCCCCC; }
+.nav a {   text-decoration: none;cursor: pointer;  font-weight: normal; font-size: 14px; color: #555;}
+.nav a:hover{ color: #06a7e1;}
+.nav{	list-style: none;	overflow:hidden;}
+.nav li{	float:left; 	border-left:1px solid grey;	padding:0 10px;}
+
+
+
+/*顶部标题样式*/
+#topNav{position:fixed; top:0px;  background:#0096ff;overflow:hidden; padding:8px 0; margin:0;
+	width:100%; min-height:20px;}
+#topNav .right{ float:right; color:#fff; padding:0 20px;}
+#topNav a{ color:#fff;}
+#topNav a:hover{ text-decoration: underline;}
+
+
+/*视频样式*/
+video{width:600px;  border:2px solid #0096ff; padding:10px; background-color:#000;}
+
+.clear{width:100%; height:20px; clear:both;overflow:hidden;}
+
+.footer{text-align:center; width:1200px; margin:20px auto;
+	border:1px solid #E9E8E8;
+}
+.anounce{text-align:left; margin: 10px 0; padding:10px;	
+	background: #F9F9F9;}
+	
+
+/* CSS login */
+.userlogin{width:1100px;}
+.loginleft{width:874px;float:left; background:#fff;border-right:solid 1px #dbdcde;border-bottom:solid 1px #dbdcde;height:638px; background-image:url(../images/common/loginbg.jpg); background-repeat:no-repeat; background-position:539px 173px;}
+.rightuser{width:216px;float:right;height:413px;background:#fff;border-right:solid 1px #dbdcde;border-bottom:solid 1px #dbdcde;margin-top:8px; overflow:hidden;}
+.userlist{float:left; width:216px;padding-left:10px;padding-top:16px;}
+.userlist li{float:left;padding-right:2px;margin-bottom:8px;_margin-bottom:4px;width:64px;height:64px;}
+.logintitle{padding-top:103px;padding-left:92px;}
+.logininfo{clear:both;margin-top:40px;padding-left:20px;float:left;}
+.logininfo li{line-height:32px;height:32px;margin-bottom:20px;}
+.logininfo li span{float:left;width:80px; line-height:32px;}
+.inputbtn,.yzm{width:280px;*width:270px;height:32px;line-height:32px; background:url(../images/common/inputbg.gif) repeat-x; border-left:solid 1px #bababa;border-top:solid 1px #bababa;border-right:solid 1px #e9e9e9; border-bottom:solid 1px #e9e9e9;text-indent:8px;margin-right:17px;}
+.yzm{width:176px;}
+.ulogin{width:107px;height:35px;line-height:35px;color:#fff; font-size:14px; text-align:center; background:#df5400;font-weight:bold;cursor:pointer; margin-right:13px;margin-top:15px;}
+.ureg{width:107px;height:35px;line-height:35px;color:#fff; font-size:14px; text-align:center; background:#02a2aa;font-weight:bold;cursor:pointer;margin-top:15px; }
+.regleft{width:874px;float:left;background:#fff;border-right:solid 1px #dbdcde;border-bottom:solid 1px #dbdcde;height:638px;}
+.regleft form{clear:both}
+.regtab{padding-top:44px;padding-left:58px;}
+.regtab li{float:left; cursor:pointer;}
+.regtabn,.regtabh{height:37px;line-height:37px;float:left;width:119px;text-align:center; background:#e1e1e1;font-size:14px;font-weight:bold;}
+.regtabh{background:#02a2aa;color:#fff;}
+.regul{padding-left:79px;margin-top:40px;float:left;}
+.regul li{line-height:32px;height:32px;margin-bottom:15px;color:#7f7f7f;}
+.regul li span{float:left;line-height:32px;width:80px;color:#000;}
+.regul li cite{color:#000;}
+.regul li input{font-size:12px;font-family:Tahoma;}
+.regul li i,.regul li em{font-style:normal}
+.regul li .red{color:#c00; padding-right:10px;}
+.rlogin{width:107px;height:35px;line-height:35px;color:#fff; font-size:14px; text-align:center; background:#df5400;font-weight:bold;cursor:pointer; margin-right:30px;}
+.alogin{color:#02a2aa; font-weight:bold;}
+.alogin:hover{color:#df5400;}
+.mapdl{padding-left:47px;margin-top:50px; clear:both;float:left; height:37px; width:825px;}
+.mapdl dt{float:left;margin-right:45px;}
+.mapdl dd{ width:650px;float:left;}
+.mapdl dt a{display:block;width:114px;height:37px;background:url(../images/mapbg.gif) top;font-size:14px;font-weight:bold;line-height:37px;color:#fff;text-indent:20px;}
+.mapdl dt a:hover{color:#fff;}
+.mapul{float:left;padding-top:8px;}
+.mapul li{float:left;margin-right:17px; line-height:25px;}
+.otherbg{background:url(../images/mapbg.gif) bottom !important;}
+
+.nlink{padding-bottom:40px}
+.nlink .linkbox{padding-left:47px;margin-top:50px; clear:both;float:left; height:37px; width:825px; border:0; background:none}
+.nlink .linkbox h3{float:left;margin-right:45px;}
+.nlink .linkbox ul{ width:650px;float:left;}
+.nlink .linkbox h3 a{display:block;width:77px; text-align:center;height:37px;background:url(../images/mapbg.gif) top;font-size:14px;font-weight:bold;line-height:37px;color:#fff; padding-right:37px; overflow:hidden}
+.nlink .linkbox h3 a:hover{color:#fff;}
+.nlink .linkbox{float:left;padding-top:8px;}
+.nlink .linkbox li{float:left;margin-right:17px; line-height:25px;}
+
+/*login title*/
+.ftitle{height:37px;width:120px;background:#02a2aa;color:#fff;font-size:14px;font-weight:bold; text-align:center;line-height:37px;float:left;}
+.ftbg{width:39px;height:37px;background:url(../images/common/jtr.gif) no-repeat;float:left;}
