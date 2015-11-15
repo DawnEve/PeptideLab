@@ -5,8 +5,8 @@
 
 .box,.box img{width:260px; height:176px; }
 .box{float:left;position:relative;
-	opacity:0.5;/*ff,chrome 50%*/
-	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+	opacity:0.8;/*ff,chrome 50%*/
+	filter:alpha(opacity=80); /*IE滤镜，透明度50%*/
 	border:5px solid #fff;
 	overflow:hidden;
 	padding:10px;
@@ -24,8 +24,8 @@
     padding: 3px 5px;
 }
 .box:hover{
-	opacity:0.9;/*ff,chrome 90%*/
-	filter:alpha(opacity=90); /*IE滤镜，透明度90%*/
+	opacity:1;/*ff,chrome 100%*/
+	filter:alpha(opacity=100); /*IE滤镜，透明度100%*/
 	border:5px solid #0096ff;
 }
 .box span p{z-indent:2;}
@@ -65,10 +65,29 @@
 
 </div>
 
-<script>
-	
 
-
+<script src="html5media/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var imgWid = 0 ;
+	var imgHei = 0 ; //变量初始化
+	var big = 1.1;//放大倍数
+	$(".box").each(function(index){
+		$(this).hover(function(){
+			$(this).stop(true,true);
+			var imgWid2 = 0;var imgHei2 = 0;//局部变量
+			imgWid = $(this).find('img').width();
+			imgHei = $(this).find('img').height();
+			imgWid2 = imgWid * big;
+			imgHei2 = imgHei * big;
+			$(this).find('img').css({"z-index":2});
+			$(this).find('img').animate({"width":imgWid2,"height":imgHei2,  "margin-left":-imgWid2/20,"margin-top":-imgHei2/20 });
+		},function(){
+			$(this).find('img').stop().animate({"width":imgWid,"height":imgHei,"z-index":1,  "margin-left":0,"margin-top":0});
+		});
+	});
+});
 </script>
+
 
 <?php 	include('footer.php'); ?>

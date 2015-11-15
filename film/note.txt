@@ -9,9 +9,11 @@
 		您的浏览器不支持html5“视频”标签。
     </video>
 
+2.鼠标悬停图片放大
+	-[1] view-source:http://demo.sc.chinaz.com//Files/DownLoad/webjs1/201312/jiaoben1778/
 
 
-
+	
 
 
 
