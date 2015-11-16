@@ -49,15 +49,20 @@ http://www.jb51.net/css/383986.html
 		<a href="login.php">登陆</a> | 
 		<a href="register.php">注册</a>
 	</span>
+
+	<a class="logo" href="index.php" title="生物慕课网">生物慕课网</a>
 </div>
+
 <div class="clear"></div>
 
-<div class=wrap>
-	<h1>生物慕课网</h1>
-</div>
+<style>
+
+
+
+</style>
 <ul class="wrap nav">
 	<li><a href="index.php">首页</a></li>  
-	<li><a href="xx">上传</a></li> 
+	<li><a href="upload.php">上传视频</a></li> 
 	<li><a href="xx">关于</a></li> 
 	<li><a href="http://www.uimaker.com/member/reg_new.php" target="_blank">美工参考</a></li> 
 	<li><a href="http://www.w3school.com.cn/php/func_filesystem_move_uploaded_file.asp" target="_blank">php参考</a></li> 

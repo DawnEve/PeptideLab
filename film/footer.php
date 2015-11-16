@@ -1,6 +1,10 @@
+<style>
+
+</style>
+
 
 <div class="wrap footer">
-	<div style="color:gray;">
+	<div class='copyright'>
 		Copyright © 2001-2015 bioMOOC, All Rights Reserved. <a href='index.php'>生物慕课网</a> 版权所有
 	</div>
 	
