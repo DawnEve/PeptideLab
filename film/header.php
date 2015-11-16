@@ -55,7 +55,10 @@ http://www.jb51.net/css/383986.html
 
 <div class="clear"></div>
 
+<style>
 
+
+</style>
 <ul class="wrap nav">
 	<li><a href="index.php">首页</a></li>  
 	<li><a href="upload.php">上传视频</a></li> 
@@ -64,4 +67,13 @@ http://www.jb51.net/css/383986.html
 	<li><a href="http://www.w3school.com.cn/php/func_filesystem_move_uploaded_file.asp" target="_blank">php参考</a></li> 
 	<li><a href="http://jquery.cuishifeng.cn/" target="_blank">jQuery手册</a></li> 
 	<li><a href="note.txt" target="_blank">开发文档</a></li> 
+
+	<div class="search"> 
+		<form name="formsearch" action="search.php" target="_blank">
+			<input name="q" type="text" class="searchinput" value="在这里搜索..." onfocus="if(this.value=='在这里搜索...'){this.value='';}" onblur="if(this.value==''){this.value='在这里搜索...';}">
+			<span class="searchbtn">
+				<input name="mysubmit" type="image" src="images/searchbtn.png">
+			</span> 
+		 </form>
+	</div>
 </ul>

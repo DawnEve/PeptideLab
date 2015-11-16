@@ -13,8 +13,20 @@
 	-[1] 鼠标悬停图片放大view-source:http://demo.sc.chinaz.com//Files/DownLoad/webjs1/201312/jiaoben1778/
 	-[2] 添加html5的video标签检测，提醒低版本升级。
 	-[3] 美化界面：顶部登陆条、导航菜单等。
-	-[4] 增加上传页面。
-
+	-[4] 增加上传界面。
+	-[5] 增加搜索界面。
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 ------------------------------
 1.视频格式的服务器端自动转换: (FFmpeg)
 http://blog.csdn.net/hemingwang0902/article/details/4382429
