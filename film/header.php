@@ -55,15 +55,11 @@ http://www.jb51.net/css/383986.html
 
 <div class="clear"></div>
 
-<style>
 
-
-
-</style>
 <ul class="wrap nav">
 	<li><a href="index.php">首页</a></li>  
 	<li><a href="upload.php">上传视频</a></li> 
-	<li><a href="xx">关于</a></li> 
+	<li><a href="#">关于</a></li> 
 	<li><a href="http://www.uimaker.com/member/reg_new.php" target="_blank">美工参考</a></li> 
 	<li><a href="http://www.w3school.com.cn/php/func_filesystem_move_uploaded_file.asp" target="_blank">php参考</a></li> 
 	<li><a href="http://jquery.cuishifeng.cn/" target="_blank">jQuery手册</a></li> 

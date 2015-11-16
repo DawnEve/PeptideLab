@@ -26,51 +26,14 @@
 			</form>
 			
 		</div>
-    
     </div>
+    
 	
 	
 	
 	
 	<div class=clear></div>
 	
-	
-	
-	
-	
-	
-	
-<!--	
-<form accept-charset="UTF-8" action="/session" data-form-nonce="db5729f55df6970eced7b3d98c74979879cc945c" method="post">
-	
-	<div style="margin:0;padding:0;display:inline">
-		<input name="utf8" type="hidden" value="">
-		<input name="authenticity_token" type="hidden" value=<?php echo session_id();?>>
-	</div> 
-	<div class="auth-form-header">
-        <h1 class="hosted-signin-title">Sign in</h1>
-    </div>
-	
-	<div class="auth-form-body">
-		<label for="login_field">
-			Username or email address
-		</label>
-		<input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="input-block" id="login_field" name="login" tabindex="1" type="text">
-
-		<label for="password">
-			Password <a href="/password_reset">(forgot password)</a>
-		</label>
-		<input class="input-block" id="password" name="password" tabindex="2" type="password">
-
-		<input id="return_to" name="return_to" type="hidden" value="/join">
-		<input class="btn " data-disable-with="Signing in…" name="commit" tabindex="3" type="submit" value="Sign in">
-	</div>
-</form>
-	-->
-	
-
-
-
 
 </div>
 <?php
