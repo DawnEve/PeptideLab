@@ -30,7 +30,7 @@ ffmpeg 视频转换
 //获取模型数据
 include('model.php');
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -53,7 +53,7 @@ http://www.jb51.net/css/383986.html
 <div class="clear"></div>
 
 <div class=wrap>
-	<h1>xx慕课网</h1>
+	<h1>生物慕课网</h1>
 </div>
 <ul class="wrap nav">
 	<li><a href="index.php">首页</a></li>  

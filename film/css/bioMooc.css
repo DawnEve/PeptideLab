@@ -27,8 +27,8 @@ h2{font-size:12px}
 
 body {font: 12px/1.2 Tahoma,'Microsoft Yahei','Simsun';}
 
-.wrap{ width:1200px; margin:20px auto; border:2px solid #eee; padding:10px; border-radius:10px;
-	border-bottom: 1px solid #CCCCCC; }
+.wrap{ width:1200px; margin:20px auto; border:1px solid #fff; padding:10px; border-radius:10px;
+	border-bottom: 2px solid #aaa; border-right: 1px solid #aaa; }
 .nav a {   text-decoration: none;cursor: pointer;  font-weight: normal; font-size: 14px; color: #555;}
 .nav a:hover{ color: #06a7e1;}
 .nav{	list-style: none;	overflow:hidden;}
@@ -46,12 +46,8 @@ body {font: 12px/1.2 Tahoma,'Microsoft Yahei','Simsun';}
 
 /*视频样式*/
 video{width:600px;  border:2px solid #0096ff; padding:10px; background-color:#000;}
-
 .clear{width:100%; height:20px; clear:both;overflow:hidden;}
-
-.footer{text-align:center; width:1200px; margin:20px auto;
-	border:1px solid #E9E8E8;
-}
+.footer{text-align:center; margin:20px auto;}
 .anounce{text-align:left; margin: 10px 0; padding:10px;	
 	background: #F9F9F9;}
 	
@@ -107,3 +103,6 @@ video{width:600px;  border:2px solid #0096ff; padding:10px; background-color:#00
 /*login title*/
 .ftitle{height:37px;width:120px;background:#02a2aa;color:#fff;font-size:14px;font-weight:bold; text-align:center;line-height:37px;float:left;}
 .ftbg{width:39px;height:37px;background:url(../images/common/jtr.gif) no-repeat;float:left;}
+
+/*C2F69F*/
+.links{ background:#fff; padding:10px;}

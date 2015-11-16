@@ -9,11 +9,9 @@
 		您的浏览器不支持html5“视频”标签。
     </video>
 
-2.鼠标悬停图片放大
-	-[1] view-source:http://demo.sc.chinaz.com//Files/DownLoad/webjs1/201312/jiaoben1778/
-
-
-	
+2.前台效果
+	-[1] 鼠标悬停图片放大view-source:http://demo.sc.chinaz.com//Files/DownLoad/webjs1/201312/jiaoben1778/
+	-[2] 添加html5的video标签检测，提醒低版本升级。
 
 
 
@@ -29,8 +27,14 @@ http://movie.ks.js.cn/
 随便点开，有视频效果：
 http://theater.mtime.com/China_Jiangsu_Province_Kunshan_Yushanzhen/1665/
 
+播放视频demo代码：
+http://blog.csdn.net/wanlong360599336/article/details/46474415
 ============
 HTML5的视频格式之争：http://www.ruanyifeng.com/blog/2010/05/html5_codec_fight.html
+
+
+国内视频解决方案：
+http://www.cuplayer.com/CuSunPlayer/apps.html
 
 
 ============

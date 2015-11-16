@@ -3,19 +3,20 @@
 
 <style>
 
-.box,.box img{width:260px; height:176px; }
+#videoList{border:1px solid #fff; overflow:hidden;}
+.box,.box img{width:227px; height:176px; }
 .box{float:left;position:relative;
 	opacity:0.8;/*ff,chrome 50%*/
 	filter:alpha(opacity=80); /*IE滤镜，透明度50%*/
-	border:5px solid #fff;
+	border:3px solid #fff;
 	overflow:hidden;
-	padding:10px;
+	margin:3px;
 }
 .box span{ position:absolute; 
-	background:#fff; padding:10px 20px;  left:5px;top:5px;
+	background:#fff; padding:5px;  left:0px;top:0px;
 	width:100%;
-	opacity:0.9;/*ff,chrome */
-	filter:alpha(opacity=90); /*IE滤镜，透明度*/
+	opacity:0.8;/*ff,chrome */
+	filter:alpha(opacity=80); /*IE滤镜，透明度*/
 }
 .box span a{
 	display: inline-block;
@@ -26,7 +27,7 @@
 .box:hover{
 	opacity:1;/*ff,chrome 100%*/
 	filter:alpha(opacity=100); /*IE滤镜，透明度100%*/
-	border:5px solid #0096ff;
+	border:3px solid #0096ff;
 }
 .box span p{z-indent:2;}
 </style>
@@ -68,6 +69,7 @@
 
 <script src="html5media/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
+/** 鼠标悬停时图片放大 */
 $(function(){
 	var imgWid = 0 ;
 	var imgHei = 0 ; //变量初始化
