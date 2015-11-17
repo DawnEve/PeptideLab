@@ -2,8 +2,8 @@
 
 </style>
 
-
-<div class="wrap footer">
+<div class="footer">
+<div class="wrap">
 	<div class='copyright'>
 		Copyright © 2001-2015 bioMOOC, All Rights Reserved. <a href='index.php'>生物慕课网</a> 版权所有
 	</div>
@@ -74,6 +74,7 @@ function print_links($links){
 		echo '<br />友情链接[bio]: ', print_links($links);
 	?>
 	</div>
+</div>
 </div>
 
 <style>
