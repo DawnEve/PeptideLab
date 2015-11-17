@@ -1,6 +1,3 @@
-<style>
-
-</style>
 
 <div class="footer">
 <div class="wrap">
@@ -78,27 +75,9 @@ function print_links($links){
 </div>
 
 <style>
-.top {text-align: center;
-    display: none;
-    position: fixed;
-    z-index: 200;
-    top: 45%;
-    right: 30px;
-    padding: 10px;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    font-weight: bold;
-    background: #dddec2;
-    color: #696b53;
-    border-radius: 30px;
-    -moz-transition: all 0.26s ease-out 0s;
-    -webkit-transition: all 0.26s ease-out 0s;
-    opacity: .75;
-}
-.top:hover {background:#c8c9a7;color:#f2f5cd;}
+
 </style>
-<a href="#container" class="top" style="display: inline;">Top</a>
+<a href="#container" class="gotop" style="display: inline;">Top</a>
 
 
 </body>
