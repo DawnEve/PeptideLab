@@ -14,7 +14,8 @@
 	-[2] 添加html5的video标签检测，提醒低版本升级。
 	-[3] 美化界面：顶部登陆条、导航菜单等。
 	-[4] 增加上传界面。
-	-[5] 增加搜索界面。
+	-[5] 增加搜索界面。图片提交按钮，会提交图片的x和y坐标。
+	-[6] 增加微博关注。
 	
 	
 	
@@ -26,7 +27,9 @@
 	
 	
 	
-	
+------------------------------
+另一个并行页面：
+http://202.196.120.201/
 ------------------------------
 1.视频格式的服务器端自动转换: (FFmpeg)
 http://blog.csdn.net/hemingwang0902/article/details/4382429
@@ -49,6 +52,9 @@ HTML5的视频格式之争：http://www.ruanyifeng.com/blog/2010/05/html5_codec_fight.ht
 http://www.cuplayer.com/CuSunPlayer/apps.html
 
 
+============
+Video.js是一个可以让你在网页上嵌入视频播放器的 JS 库
+http://yunkus.com/article/html5/59.html
 ============
 视频播放方案：不翻墙不好用
 https://html5media.info/
@@ -73,4 +79,5 @@ http://www.w3school.com.cn/html5/html_5_video_dom.asp
 2.界面
 2.1登陆界面：https://flowplayer.org/login/?return_to=/videos/
 
+    font-family: 'Microsoft Yahei', Verdana, sans-serif, 宋体;
 

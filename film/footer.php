@@ -28,25 +28,42 @@ function print_links($links){
 		$arr=$links[$i];
 		$str .= "<a href='". $arr[0] ."' target='_blank'>". $arr[1] ."</a>";
 		if($i!= (count($links)-1) ) $str .=  ' | ';
-		if( ($i!=0) && ($i%10==0) ) $str .=  '<br />';
+		if( ($i!=0) && ($i%15==0) ) $str .=  '<br />';
 	}
 	return $str;
 }
 	
-		//计算机技术类============================
-		$links_IT=array(
-			array('http://www.imeixue.cn/','每学网'),// 韩顺平的作品？
-			array('http://www.css88.com/archives/1706','前端'),
+		//计算机技术类============================工具类
+		$links_IT_tools=array(
 			array('http://jquery.cuishifeng.cn/','jQuery手册'),
-			array('http://jquery.cuishifeng.cn/','jQuery手册'),
+			array('http://www.php100.com/manual/css3_0/media-20queries.shtml','css3手册'),
 			array('http://www.w3school.com.cn/','w3school'),
 			array('http://miostudio.sinaapp.com/','mySinaapp'),
 			array('http://php.net/','PHP'),
-			array('http://www.imooc.com/','慕课网'),
+			array('http://aibusy.com/blog/?p=226','Sublime插件'),
 			array('http://www.uimaker.com/member/reg_new.php','UI制造者'),
-			array('http://study.163.com/','网易云课堂'),
+			array('http://bonsaiden.github.io/JavaScript-Garden/zh/#function.closures','js秘密花园'),
+			array('http://www.qietu.com/','切图网'),
+			array('http://www.php100.com/','php100'),
+			array('http://www.bootcss.com/','bootstrap'),
+			array('http://www.shejidaren.com/free-bootstrap-ui-kits.html','设计达人'),
 		);
-		echo '友情链接[IT]: ', print_links($links_IT);
+		echo '<br />友情链接[IT Tools]: ', print_links($links_IT_tools);
+
+		//计算机技术类============================资料类
+		$links_IT=array(
+			array('http://www.imeixue.cn/','每学网'),// 韩顺平的作品？
+			array('http://www.w3cplus.com/','w3cplus'),// 大漠
+			array('http://www.css88.com/archives/1706','前端'),
+			array('http://study.163.com/','网易云课堂'),
+			array('http://www.imooc.com/','慕课网'),
+
+			array('http://www.shejipi.com/12931.html','设计癖'),
+			array('http://www.w3cfuns.com/article-1306-1.html','响应式布局'),
+			array('http://code.csdn.net/news/2819417','25个前端框架'),
+			array('http://aibusy.com/course_list.html','前端大纲'),
+		);
+		echo '<br />友情链接[IT]: ', print_links($links_IT);
 		
 		
 		//生物技术类===========================
@@ -58,6 +75,30 @@ function print_links($links){
 	?>
 	</div>
 </div>
+
+<style>
+.top {text-align: center;
+    display: none;
+    position: fixed;
+    z-index: 200;
+    top: 45%;
+    right: 30px;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    background: #dddec2;
+    color: #696b53;
+    border-radius: 30px;
+    -moz-transition: all 0.26s ease-out 0s;
+    -webkit-transition: all 0.26s ease-out 0s;
+    opacity: .75;
+}
+.top:hover {background:#c8c9a7;color:#f2f5cd;}
+</style>
+<a href="#container" class="top" style="display: inline;">Top</a>
+
 
 </body>
 </html>

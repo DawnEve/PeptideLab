@@ -44,21 +44,24 @@ http://www.jb51.net/css/383986.html
 
 </head>
 <body>
+<a id="container" style="display:block;"></a>
 <div id='topNav'>
+	<div class="right weibo">
+		<iframe width="136" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=136&height=24&uid=1750584642&style=2&btn=red&dpc=1"></iframe>
+	</div>
+
 	<span class=right>
 		<a href="login.php">登陆</a> | 
 		<a href="register.php">注册</a>
 	</span>
+		
 
 	<a class="logo" href="index.php" title="生物慕课网">生物慕课网</a>
 </div>
 
 <div class="clear"></div>
 
-<style>
 
-
-</style>
 <ul class="wrap nav">
 	<li><a href="index.php">首页</a></li>  
 	<li><a href="upload.php">上传视频</a></li> 
