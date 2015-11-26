@@ -4,6 +4,7 @@
 	[1] 删掉2个备份文件到dustbin文件夹；
 	[2] 整理源码：js的ajax部分；php中分离常用配置信息。新建myLib文件夹
 	[3] 继续修改index对应的php的内容，精简代码，函数放到单独文件中。
+	[4] add get in function.php
 
 2.执行
 	[1] 开始再了解原理

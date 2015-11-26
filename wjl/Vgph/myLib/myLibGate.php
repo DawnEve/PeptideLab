@@ -1,27 +1,27 @@
 <?php
 /*===========================================
-* =====ÅäÖÃÐÅÏ¢¡¢º¯Êý¿â
-* ÎÄ¼þ¹æÔò£ºËùÓÐÏîÄ¿¶¼Í¨ÓÃµÄÎÄ¼þ·Åµ½commonÖÐ
-* ÀàÎÄ¼þ·Åµ½classÎÄ¼þÖÐ
+* -------------é…ç½®ä¿¡æ¯ã€å‡½æ•°åº“--------------
+* æ–‡ä»¶è§„åˆ™ï¼šæ‰€æœ‰é¡¹ç›®éƒ½é€šç”¨çš„æ–‡ä»¶æ”¾åˆ°commonä¸­
+* ç±»æ–‡ä»¶æ”¾åˆ°classæ–‡ä»¶ä¸­
 //===========================================*/
-//±àÂë·½Ê½
+//ç¼–ç æ–¹å¼
 header("Content-Type: text/html; charset=utf8");
-//Ê±ÇøÉèÖÃ
+//æ—¶åŒºè®¾ç½®
 date_default_timezone_set('PRC');
 
-//´¦ÀíÂ·¾¶
+//å¤„ç†è·¯å¾„
 if(!isset($path)){ die('invalid URL');}
 $slash=substr($path,strlen($path)-1);
 if( $slash!="/" && $slash!="\\" ){
 	$path .= "/";
 }
 
-//°üº¬Êý¾Ý¿âÁ¬½Ó
+//åŒ…å«æ•°æ®åº“è¿žæŽ¥
 include $path . 'common/conn.php';
-//°üº¬º¯Êý¿â
+//åŒ…å«å‡½æ•°åº“
 include $path . 'function.php';
 
-//×Ô¶¯µ¼ÈëÀà
+//è‡ªåŠ¨å¯¼å…¥ç±»
 function my_autoloader($classname) {
 	global $path;
 	$classpath=$path.'class/'.$classname.'.class.php';
@@ -35,11 +35,3 @@ function my_autoloader($classname) {
 
 spl_autoload_extensions(".class.php"); // comma-separated list
 spl_autoload_register('my_autoloader');
-
-
-
-
-
-
-
-

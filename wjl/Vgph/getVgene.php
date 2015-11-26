@@ -7,16 +7,9 @@ require $path.'myLibGate.php';
 //----------------------------------
 
 //获取class值
-if(empty($_GET["c"]))die('invalid URL');//禁止直接访问
-$vclass=$_GET["c"];
-
+$vclass=get("c",'',true);//禁止直接访问
 //获取引物值
-if(empty($_GET["q"])){
-	//$primer0= "CAG GTG CAG CTG CAG GAG TCS G"; //原始引物序列
-	die('please input a primer.');
-}else{
-	$primer0=trim($_GET["q"]);//去掉2端空格
-}
+$primer0=get("q",'CAG GTG CAG CTG CAG GAG TCS G',true);//原始引物序列?
 
 
 //引物序列确定

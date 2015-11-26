@@ -1,9 +1,32 @@
 <?php
+
+
 /**
-	·ÃÎÊÊı¾İ¿â£¬·µ»Ø²éÑ¯ºóµÄ×ÊÔ´¾ä±ú
+	getæ–¹å¼è·å–å‚æ•°
+å‚æ•°åˆ—è¡¨ï¼š
+	æƒ³è¦è·å–çš„å‚æ•°åï¼Œé»˜è®¤å€¼ï¼Œæ²¡æœ‰è¯¥å‚æ•°æ˜¯å¦die
+*/
+function get($name,$default,$isDie=false){
+	if(empty($_GET[$name])){
+		if($isDie){die('invalid URL.');}
+		return $default;
+	}else{
+		return trim($_GET[$name]);//å»æ‰2ç«¯ç©ºæ ¼
+	}
+}
+
+
+
+
+
+
+
+
+/**
+	è®¿é—®æ•°æ®åº“ï¼Œè¿”å›æŸ¥è¯¢åçš„èµ„æºå¥æŸ„
 */
 function query($vclass){
-	//¹¹½¨sqlÓï¾ä	
+	//æ„å»ºsqlè¯­å¥	
 	if($vclass=="humIGLVAndhumIGKV"){
 		$sql="SELECT * FROM vgene where class in('humIGLV','humIGKV')";
 	}else if($vclass=="all"){
@@ -11,13 +34,13 @@ function query($vclass){
 	}else{
 		$sql="SELECT * FROM vgene where class='".$vclass. "'";
 	}
-	//Ö´ĞĞsqlÓï¾ä
+	//æ‰§è¡Œsqlè¯­å¥
 	return mysql_query($sql);
 }
 
 
 /**
-	¼ò²¢ÒıÎïÌæ»»º¯Êı
+	ç®€å¹¶å¼•ç‰©æ›¿æ¢å‡½æ•°
 */
 function replaceATGC($str){
     $str=preg_replace("/R/is", "[AG]", $str);
@@ -39,45 +62,45 @@ function replaceATGC($str){
 
 
 /**
-¸ù¾İÊäÈë²ÎÊı£¬»ñÈ¡vgeneÁĞ±í¡£
-²ÎÊı°üÀ¨£º
-	Êı¾İ¿â²éÑ¯µÄ×ÊÔ´¾ä±ú£º $rows 
-	¼æ²¢Ìæ»»¹ıµÄÒıÎï£º $primer
-	¸ÃÒıÎïÊÇ·ñÎª·´ÏòÒıÎï£¬Ä¬ÈÏÎª·ñ£º$isReverse=false
+æ ¹æ®è¾“å…¥å‚æ•°ï¼Œè·å–vgeneåˆ—è¡¨ã€‚
+å‚æ•°åŒ…æ‹¬ï¼š
+	æ•°æ®åº“æŸ¥è¯¢çš„èµ„æºå¥æŸ„ï¼š $rows 
+	å…¼å¹¶æ›¿æ¢è¿‡çš„å¼•ç‰©ï¼š $primer
+	è¯¥å¼•ç‰©æ˜¯å¦ä¸ºåå‘å¼•ç‰©ï¼Œé»˜è®¤ä¸ºå¦ï¼š$isReverse=false
 */
 function getVgeneList($rows,$primer,$isReverse=false){
-	//·ÖÎö²éÑ¯½á¹û	
-	$tbl="";//±£´æÏìÓ¦µÄ±í¸ñ
+	//åˆ†ææŸ¥è¯¢ç»“æœ	
+	$tbl="";//ä¿å­˜å“åº”çš„è¡¨æ ¼
 	if ($row = mysql_fetch_array($rows)) {
 		$tbl .= "<table class=show border=1>\n";
 		$tbl .= "<tr><th>Id</th><th>GeneName</th><th>class</th><th>sequence</th></tr>\n";
 		
-		$i=0;//hitÊı
-		$i_totle=0;//²éÑ¯×ÜÊı
-		$aHitNames=array();//hitµÄv»ùÒòÃû×Ö
+		$i=0;//hitæ•°
+		$i_totle=0;//æŸ¥è¯¢æ€»æ•°
+		$aHitNames=array();//hitçš„våŸºå› åå­—
 		
 		do {
-			$i_totle++;//²éÑ¯ÌõÄ¿µÄ¼ÆËãÆ÷
+			$i_totle++;//æŸ¥è¯¢æ¡ç›®çš„è®¡ç®—å™¨
 			$template=$row["base"];
 			
-			//ÒıÎï·´Ïò£¬´Ó5'-3'µ½3'-5'
+			//å¼•ç‰©åå‘ï¼Œä»5'-3'åˆ°3'-5'
 			if($isReverse){
 				$primer=strrev($primer);
 			}
 			
-			//¼ì²âÊÇ·ñÆ¥Åä
+			//æ£€æµ‹æ˜¯å¦åŒ¹é…
 			$template2 = preg_replace("/($primer)/is", "<span class=highlight>$1</span>", $template);
 			if($template!=$template2){
-				$aHitNames[]= $row["name"];//ÃüÖĞµÄV»ùÒòÃû×Ö
-				//ÃüÖĞµÄV»ùÒòÏêÏ¸ĞÅÏ¢
+				$aHitNames[]= $row["name"];//å‘½ä¸­çš„VåŸºå› åå­—
+				//å‘½ä¸­çš„VåŸºå› è¯¦ç»†ä¿¡æ¯
 				$tbl .='<tr><td>' . $row["No"]. '</td><td>'. $row["name"].'</td> <td>'. $row["class"] .'</td><td>'. $template2.'</td>';
-				$i++;//ÃüÖĞ¼ÇÂ¼µÄ¼ÆÊıÆ÷
+				$i++;//å‘½ä¸­è®°å½•çš„è®¡æ•°å™¨
 			}
 		}while ($row = mysql_fetch_array($rows));
 		
 		$tbl .= "</table>\n";
 	} else {
-		$tbl = "¶Ô²»Æğ£¬Ã»ÓĞÕÒµ½¼ÇÂ¼£¡"; 
+		$tbl = "å¯¹ä¸èµ·ï¼Œæ²¡æœ‰æ‰¾åˆ°è®°å½•ï¼"; 
 	}
 	return array($tbl,$i,$i_totle,$aHitNames);
 }
