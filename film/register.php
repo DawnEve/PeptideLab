@@ -13,7 +13,7 @@
     
 	<div class="clearfix"></div>
 
-<form action="reg_new.php" method="post" id="regUser" name="form2">
+<form action="register_do.php" method="post" id="regUser" name="form2">
 	<input name="authenticity_token" type="hidden" value=<?php echo session_id();?>>
 	<ul class="regul">
 		<li><span>用户名</span><input class="inputbtn" id="txtUsername" name="userid"><i id="_userid"><em class="red">*</em>用户名必须是3-15个中文、数字、字母、下划线</i></li>
