@@ -7,4 +7,6 @@
 		4=>"madagascar3",
 		5=>"inTheSnow",
 		6=>"flowPlayer",
+		7=>"大圣归来",
+		8=>"冰雪奇缘"
 	);

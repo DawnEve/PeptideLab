@@ -7,14 +7,12 @@
 	for($i=1;$i<=count($v_list);$i++){
 		$str = '';
 		$str .= '<div class="box">';
-		$str .= "	<a href='play.php?id={$i}'>";
-		$str .= '		<img title="点击观看" src="media/'. $v_list[$i] .'.jpg">';
-		$str .= '	</a> ';
-		$str .= '	<span>';
-		$str .= '		<a href="media/'. $v_list[$i] .'.mp4" target="_" title="请右键，选择 另存为">下载</a>';
-		$str .='		| <b>'. $v_list[$i] .'</b>';
-		$str .='	</span> ';
-		$str .= "</div>\n\n";
+		$str .= "	<a title='点击观看' href='play.php?id={$i}'>";
+		$str .= '<img src="media/'. $v_list[$i] .'.jpg">';
+		$str .= '</a> ';
+		$str .= '	<span><a href="media/'. $v_list[$i] .'.mp4" target="_blank" title="请右键，选择 另存为">下载</a>';
+		$str .='		| <b>'. $v_list[$i] .'</b></span> ';
+		$str .= "</div>\r\n";
 		echo $str;
 	};
 ?>
