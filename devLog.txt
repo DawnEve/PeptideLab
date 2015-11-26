@@ -4,6 +4,6 @@
 	-[1] 更新contact.html和tep.html.
 
 2.忽略与包含文件夹
-
+	-[2] #暂时忽略player文件夹
 
 
