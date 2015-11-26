@@ -33,9 +33,9 @@
 <script src="html5media/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
 /** 鼠标悬停时图片放大 */
-$(function(){
-	var imgWid = 0 ;
-	var imgHei = 0 ; //变量初始化
+$(document).ready(function(){
+	var imgWid = 227 ;
+	var imgHei = 176 ; //变量初始化
 	var big = 1.1;//放大倍数
 	$(".box").each(function(index){
 		$(this).hover(function(){
@@ -43,8 +43,11 @@ $(function(){
 			var imgWid2 = 0;var imgHei2 = 0;//局部变量
 			imgWid = $(this).find('img').width();
 			imgHei = $(this).find('img').height();
+
+			
 			imgWid2 = imgWid * big;
 			imgHei2 = imgHei * big;
+			
 			$(this).find('img').css({"z-index":2});
 			$(this).find('img').animate({"width":imgWid2,"height":imgHei2,  "margin-left":-imgWid2/20,"margin-top":-imgHei2/20 });
 		},function(){
