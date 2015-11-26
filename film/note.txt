@@ -1,0 +1,87 @@
+视频播放技术路线与难点
+
+现在，最流行的视频格式是H.264。
+=========================
+1.通过poster添加预览图，检测是否支持video标签
+    <video poster="aa.png">
+		<source type="video/mp4" src="bauhaus.mp4">
+		
+		您的浏览器不支持html5“视频”标签。
+    </video>
+
+2.前台效果
+	-[1] 鼠标悬停图片放大view-source:http://demo.sc.chinaz.com//Files/DownLoad/webjs1/201312/jiaoben1778/
+	-[2] 添加html5的video标签检测，提醒低版本升级。
+	-[3] 美化界面：顶部登陆条、导航菜单等。
+	-[4] 增加上传界面。
+	-[5] 增加搜索界面。图片提交按钮，会提交图片的x和y坐标。
+	-[6] 增加微博关注。顶部导航栏变为黑色。
+	-[7] 美化底部导航栏，添加栏杆样背景图形。
+	-[8] 美化顶部微博图，美化导航栏，美化搜索框。
+	-[9] 添加注册处理页面register_do.php
+	-[10] add 2 new mp4 video
+	-[11] 初始化预览图长宽
+3.后台功能
+	
+	
+	
+	
+	
+	
+	
+	
+	
+------------------------------
+另一个并行页面：
+http://202.196.120.201/
+------------------------------
+1.视频格式的服务器端自动转换: (FFmpeg)
+http://blog.csdn.net/hemingwang0902/article/details/4382429
+http://www.zhangxinxu.com/wordpress/2010/03/让所有浏览器支持html5-video视频标签/
+jPlayer:http://www.suchso.com/UIweb/jquery-html5-bofangqi-jPlayer-demo.html
+---------------------------
+电影资源：
+http://movie.ks.js.cn/
+
+随便点开，有视频效果：
+http://theater.mtime.com/China_Jiangsu_Province_Kunshan_Yushanzhen/1665/
+
+播放视频demo代码：
+http://blog.csdn.net/wanlong360599336/article/details/46474415
+============
+HTML5的视频格式之争：http://www.ruanyifeng.com/blog/2010/05/html5_codec_fight.html
+
+
+国内视频解决方案：
+http://www.cuplayer.com/CuSunPlayer/apps.html
+
+
+============
+Video.js是一个可以让你在网页上嵌入视频播放器的 JS 库
+http://yunkus.com/article/html5/59.html
+============
+视频播放方案：不翻墙不好用
+https://html5media.info/
+github:https://github.com/etianen/html5media
+============
+flowplayer/flowplayer
+flash播放器：https://flowplayer.org/latest/
+演示页面：https://flowplayer.org/docs/quickstart.html
+github代码：https://github.com/flowplayer/flowplayer
+==============
+视频格式转换
+http://www.html5videoplayer.net/
+
+============
+html5视频音频的方法与属性：
+http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp
+http://www.runoob.com/html/html5-video.html
+http://www.w3school.com.cn/html5/html5_video.asp
+http://www.w3school.com.cn/html5/html_5_video_dom.asp
+
+============================
+2.界面
+2.1登陆界面：https://flowplayer.org/login/?return_to=/videos/
+
+    font-family: 'Microsoft Yahei', Verdana, sans-serif, 宋体;
+
