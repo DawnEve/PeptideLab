@@ -156,19 +156,18 @@ window.onload=function(){
 
 
 //==============================================
-var xmlHttp
-
 function showVgene(str,vclass){
 	if (str.length==0) { 
-	  document.getElementById("vgeneHited").innerHTML=""
-	  return
+	  document.getElementById("vgeneHited").innerHTML="";
+	  alert ("please input a primer first!");
+	  return;
 	}
 	
-	xmlHttp=GetXmlHttpObject()
+	var xmlHttp=GetXmlHttpObject()
 	
 	if (xmlHttp==null){
-	  alert ("Browser does not support HTTP Request")
-	  return
+	  alert ("Browser does not support HTTP Request");
+	  return;
 	}
 	
 	var url="getVgene.php";
@@ -176,19 +175,18 @@ function showVgene(str,vclass){
 	url=url+"&c="+vclass;//传入v基因类别
 	
 	url=url+"&sid="+Math.random();
-	xmlHttp.onreadystatechange=stateChanged;
+	//回调函数
+	xmlHttp.onreadystatechange=function(){
+		if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){ 
+			document.getElementById("vgeneHited").innerHTML=xmlHttp.responseText 
+		}
+	}
 	xmlHttp.open("GET",url,true);
 	xmlHttp.send(null);
 } 
 
 
 
-//
-function stateChanged(){
-	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){ 
-		document.getElementById("vgeneHited").innerHTML=xmlHttp.responseText 
-	}
-}
 
 
 

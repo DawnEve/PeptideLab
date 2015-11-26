@@ -1,36 +1,16 @@
-﻿<?php
-//header("Content-Type: text/html; charset=utf8");
+<?php
 
-//连接数据库：
-$conn=mysql_connect("localhost","root","");
-//选择要操作的数据库；
-mysql_select_db("test");
-//修改mysql客户端和连接字符集；
-mysql_query("set names utf8");
+//定义库的路径，以/结尾
+$path="F:/xampp/htdocs/wjl/Vgph/myLib/";
+//包含库文件
+require $path.'myLibGate.php';
 
 
-
-//简并引物替换函数
-function replaceATGC($str)
-{
-    $str=preg_replace("/R/is", "[AG]", $str);
-    $str=preg_replace("/Y/is", "[TC]", $str);
-    $str=preg_replace("/M/is", "[AC]", $str);
-    $str=preg_replace("/K/is", "[TG]", $str);
-    $str=preg_replace("/S/is", "[GC]", $str);
-    $str=preg_replace("/W/is", "[AT]", $str);
-	
-    $str=preg_replace("/H/is", "[ATC]", $str);
-    $str=preg_replace("/B/is", "[TGC]", $str);
-    $str=preg_replace("/V/is", "[AGC]", $str);
-    $str=preg_replace("/D/is", "[ATG]", $str);
-	
-    $str=preg_replace("/N/is", "[ATGC]", $str);
-
-    return $str;
-}
-
+//===========================================
+//=====工作代码
+//===========================================
 //获取class值 http://blog.sina.com.cn/s/blog_aadf4b9201011d4t.html
+if(empty($_GET["c"]))die('invalid URL');//禁止直接访问
 $vclass=$_GET["c"];
 
 //设置变量保存响应值：
