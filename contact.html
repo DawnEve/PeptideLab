@@ -36,15 +36,18 @@ a {
  padding: 0;
  margin: 0;
 }
+#mytable b{
+	color:#0096ff;
 
-caption {
+}
+#mytable caption {
  padding: 0 0 5px 0;
  width: 700px;  
  font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
  text-align: right;
 }
 
-th {
+#mytable th {
  font: bold 15px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
  color: #4f6b72;
  border-right: 1px solid #C1DAD7;
@@ -57,16 +60,16 @@ th {
  /*background: #CAE8EA url(images/bg_header.jpg) no-repeat;*/
 }
 
-th.left{border-left: 1px solid #C1DAD7;}
+#mytable th.left{border-left: 1px solid #C1DAD7;}
 
-th.nobg {
+#mytable th.nobg {
  border-top: 0;
  border-left: 0;
  border-right: 1px solid #C1DAD7;
  background: none;
 }
 
-td {
+#mytable td {
  border-right: 1px solid #C1DAD7;
  border-bottom: 1px solid #C1DAD7;
  background: #fff;
@@ -76,19 +79,19 @@ td {
 }
 
 
-td.alt {
+#mytable td.alt {
  background: #F5FAFA;
  color: #797268;
 }
 
-th.spec {
+#mytable th.spec {
  border-left: 1px solid #C1DAD7;
  border-top: 0;
  background: #fff url(images/bullet1.gif) no-repeat;
  font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 }
 
-th.specalt {
+#mytable th.specalt {
  border-left: 1px solid #C1DAD7;
  border-top: 0;
  background: #f5fafa url(images/bullet2.gif) no-repeat;
@@ -98,11 +101,13 @@ th.specalt {
 /*---------for IE 5.x bug*/
 html>body td{ font-size:15px;}
 
-h1 {
+#mytable h1 {
 	margin:50px 0 0 0;
 	font: normal 20px/22px Arial,"Helvetica Neue",Helvetica,sans-serif;
 	color: #393939;
 }
+
+.clear{height:20px; width:100%; clear:both; border:1px dashed grey;margin:5px;}
 
 </style>
 <body>
@@ -114,6 +119,13 @@ h1 {
 
 <!--联系人表格-->
 <div id="Contactlist"></div>
+
+
+<div class=clear></div>
+	<!-- UY BEGIN 评论代码-->
+	<div id="uyan_frame"></div>
+	<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js"></script>
+	<!-- UY END -->
 
 <br><br>
 <div id="footer">
@@ -149,14 +161,18 @@ function note(text,obj){
 
 //表格内容部分json(人名，电话，邮箱，qq，备注)
 var oaddressBook={
+	"<b>实验室成员:</b>":["","","",""],
 	"王军亮":["15890149335","JimmyMall@163.com","314649593","2014级"],
 	"祝晓晴":["18638696516","1450129874@qq.com","1450129874","2014级"],
 	"吕小翠":["18736112367","1226228317@qq.com","1226228317","2014级"],
-	"":["","","",""],
 
-	"刘世阳":["13526782005","","北京鼎国昌盛生物技术有限责任公司",""],
+	"<b>试剂公司:</b>":["","","",""],
+	"齐耀印":["13837177128","","","各种试剂，索莱宝试剂"],
+	"王霄龙":["15803864856","","金唯智测序","销售代表：要测序袋子"],
+	"刘世阳":["13526782005","","北京鼎国昌盛生物技术有限责任公司","细菌用培养皿"],
+	"王向华":["18137377698","","xx公司","密理博代理：超滤管"],
 	"齐艳龙":["15803998904","","生工生物技术有限公司",""],
-	"全式金代理":["13015520040","0371-86182586","全式金郑州代理",""],
+	"全式金代理":["13015520040","0371-86182586","全式金郑州代理","proteinRulerI"],
 	"杨新忠":["13814687955-15156988898","0513-82211323","海门三和华兴(卖1.5mlEP管、手套)","www.hmhuaxing.com"],
 }
 
@@ -165,7 +181,7 @@ window.onload=function(){
 
 	//填充表头
 	tableText+='<table id="mytable" cellspacing="0" summary="The technical specifications of the Apple PowerMac G5 series">';
-	tableText+='<caption>实验室通讯录2015-11-10</caption>';
+	tableText+='<caption>实验室通讯录2015-11-26</caption>';
 	tableText+='<tr>';
     tableText+='<th scope="col" class="left" abbr="Configurations" >姓名</th>';
     tableText+='<th scope="col" abbr="Dual 1.8">手机</th>';
