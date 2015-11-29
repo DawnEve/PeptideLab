@@ -1,8 +1,7 @@
 <?php
 //----------------------------------
-//定义库的路径，以/结尾
+//定义库的路径，以/结尾。包含库文件
 $path="F:/xampp/htdocs/wjl/Vgph/myLib/";
-//包含库文件
 require $path.'myLibGate.php';
 //----------------------------------
 
@@ -26,7 +25,7 @@ $response .= "<b>primer info: </b><div id=primr>
 OriInput:$primer0<br />delSpace:$primer1 length:$len<br />aftSubst:$primer</div>";
 
 //获取查询数据库的结果
-$result=getVgeneList( query($vclass) ,$primer);
+$result=getVgeneList( $vclass,$primer);
 
 //命中条目总数
 $response .= "<div class=separator>Brief results</div>";

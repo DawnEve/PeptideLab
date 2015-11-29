@@ -68,16 +68,18 @@ function replaceATGC($str){
 	兼并替换过的引物： $primer
 	该引物是否为反向引物，默认为否：$isReverse=false
 */
-function getVgeneList($rows,$primer,$isReverse=false){
-	//分析查询结果	
-	$tbl="";//保存响应的表格
+function getVgeneList($vclass,$primer,$isReverse=false){
+	// 用抗体类查询数据库
+	$rows=query($vclass);
+	// 分析查询结果	
+	$tbl="";//保存数据table
 	if ($row = mysql_fetch_array($rows)) {
 		$tbl .= "<table class=show border=1>\n";
 		$tbl .= "<tr><th>Id</th><th>GeneName</th><th>class</th><th>sequence</th></tr>\n";
 		
 		$i=0;//hit数
 		$i_totle=0;//查询总数
-		$aHitNames=array();//hit的v基因名字
+		$aHitNames=array();//hit的v基因名字的数组
 		
 		do {
 			$i_totle++;//查询条目的计算器
@@ -96,7 +98,7 @@ function getVgeneList($rows,$primer,$isReverse=false){
 				$tbl .='<tr><td>' . $row["No"]. '</td><td>'. $row["name"].'</td> <td>'. $row["class"] .'</td><td>'. $template2.'</td>';
 				$i++;//命中记录的计数器
 			}
-		}while ($row = mysql_fetch_array($rows));
+		}while ($row = mysql_fetch_assoc($rows));
 		
 		$tbl .= "</table>\n";
 	} else {
