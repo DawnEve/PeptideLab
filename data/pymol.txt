@@ -1,0 +1,57 @@
+color magentas
+ affibody: NKEMRNAYWEIALLPNLNNQQKRAFIRSLYDDPSQSANLLAEAKKLNDAQAPK
+
+http://www.liankebio.com/TechServiceShow/articleID/2014030026.html
+http://www.bdbiosciences.com/research/multicolor/tools/index.jsp
+ 
+ 
+ 教程：
+ 
+ http://wenku.baidu.com/view/43481580d4d8d15abe234e4e.html
+ http://wenku.baidu.com/view/483b70fa0242a8956bece41f.html
+ 
+ 一步一步来：
+ http://wenku.baidu.com/view/97fc32916529647d26285216.html
+ 
+ 
+ 分子立场软件：
+ http://tieba.baidu.com/p/2341318003?pid=33012322554&cid=0#33012322554
+ http://tieba.baidu.com/p/1972529782?pid=26059174482&cid=0#26059174482
+ http://tieba.baidu.com/p/514307155?pid=5168755779&cid=0#5168755779
+
+NAMD分子力场：
+http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1261
+usr: wangjl
+pwd:u16
+
+http://www.ks.uiuc.edu/Research/namd/
+http://charm.cs.illinois.edu/
+  
+拉氏图说明 http://wenku.baidu.com/view/2d7c6dce6137ee06eff9187e.html
+
+------------------------------------------ 
+UCSF Chimera
+------------------------------------------
+> UCSF Chimera 软件的论文
+http://wenku.baidu.com/view/f4094fc9b14e852458fb57fd.html
+分子对接与药物虚拟筛选 http://wenku.baidu.com/view/39b94d51f01dc281e53af064.html
+ 
+ http://www.cgl.ucsf.edu/chimera/current/docs/UsersGuide/frametut.html
+
+
+ 
+ 
+------------------------------------------ 
+DOCK
+------------------------------------------  
+DOCK 6 Manual： http://wenku.baidu.com/view/614a2dbff121dd36a32d826a.html 
+  
+
+
+
+------------------------------------------ 
+BioEdit
+------------------------------------------    
+BioEdit中文说明书 http://wenku.baidu.com/view/0c50cf81e53a580216fcfe4b.html
+  
+  
