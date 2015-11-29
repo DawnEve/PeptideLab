@@ -1,65 +1,12 @@
-﻿<html>
+<html>
 <head>
-<title>VGP-VGene Primer Helper</title>
-<style>
-body{
-	font-family:"微软雅黑";
-}
-.dna{
-	border:1px solid #eee;margin:5px;
-	font-family: Courier,MS Courier New, Prestige, verdana,arial,sans-serif;}
-.primer{
-	width:700px;
-}
-.separator{
-	/*the separator*/
-	background:#000;
-	color:#fff;
-	font-family:"微软雅黑";
-	font-size:18px;
-	padding:5px;
-	margin-top:10px;
-	font-weight:bold;
-}
-
-.grey{color:#aaa;}
-.blue{color:#0096ff;}
-.hit{
-	padding:0px 5px;margin:0px 5px; border-radius:10px;
-	background:red;color:#fff;font-weight:bold;
-}
-
-
-table.show{width:200px; background:#efeeef;
-	font-family: Courier,MS Courier New, Prestige, verdana,arial,sans-serif;
-	font-size:18px;
-	color:#333333;
-	border-width: 1px;
-	border-color: #999999;
-	border-collapse: collapse;
-}
-table.show th {
-	background-color:#ff9600;
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #dd6400;
-}
-table.show tr {
-	background-color:#d4e3e5;
-}
-table.show td {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #a9c6c9;
-}
-.highlight{background:#0096ff;}
-</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>VGP-VGene Primer Helper</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<h1>Vgph-VGene Primer Helper(version0.3.1)<a href="./errorMatch/" target="_blank">容错版</a></h1>
-<h3>Find out how many Vgenes matching your primer?</h3>
+<h1>Vgph-VGene Primer Helper(version0.3.2)</h1>
+<h3>Find out how many Vgenes matching your primer?  You may like to try <a href="./errorMatch/" target="_blank">error tolerant</a> version.</h3>
 <div class="dna grey">Degenerate base:
 R:AG	Y:CT	M:AC	K:GT	S:GC	W:AT
 H:ATC	B:GTC	V:GAC	D:GAT	N:ATGC</div>
@@ -101,6 +48,7 @@ H:ATC	B:GTC	V:GAC	D:GAT	N:ATGC</div>
 
 
 <script>
+//tools
 function $(s){	return document.getElementById(s);}
 function println(s){ document.write(s+"<br />");}
 function getVClass(){
@@ -114,7 +62,7 @@ function getVClass(){
 }
 
 
-//
+//事件处理函数
 window.onload=function(){
 	//提交函数
 	function VgeneSubmit(){
@@ -156,19 +104,18 @@ window.onload=function(){
 
 
 //==============================================
-var xmlHttp
-
 function showVgene(str,vclass){
 	if (str.length==0) { 
-	  document.getElementById("vgeneHited").innerHTML=""
-	  return
+	  document.getElementById("vgeneHited").innerHTML="";
+	  alert ("please input a primer first!");
+	  return;
 	}
 	
-	xmlHttp=GetXmlHttpObject()
+	var xmlHttp=GetXmlHttpObject()
 	
 	if (xmlHttp==null){
-	  alert ("Browser does not support HTTP Request")
-	  return
+	  alert ("Browser does not support HTTP Request");
+	  return;
 	}
 	
 	var url="getVgene.php";
@@ -176,23 +123,15 @@ function showVgene(str,vclass){
 	url=url+"&c="+vclass;//传入v基因类别
 	
 	url=url+"&sid="+Math.random();
-	xmlHttp.onreadystatechange=stateChanged;
+	//回调函数
+	xmlHttp.onreadystatechange=function(){
+		if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){ 
+			document.getElementById("vgeneHited").innerHTML=xmlHttp.responseText 
+		}
+	}
 	xmlHttp.open("GET",url,true);
 	xmlHttp.send(null);
 } 
-
-
-
-//
-function stateChanged(){
-	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){ 
-		document.getElementById("vgeneHited").innerHTML=xmlHttp.responseText 
-	}
-}
-
-
-
-
 
 //获得ajax对象
 function GetXmlHttpObject(){
