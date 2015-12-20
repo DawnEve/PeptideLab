@@ -111,14 +111,16 @@ class Limit{
 */
 function doMatch($primer,$template){
 
-	//找到匹配核，从模板的20个碱基之后找
-	Limit::$firstMach;
+	//1.找到匹配核，从模板的20个碱基之后找
+	$len=Limit::$minMach-Limit::$firstMach;
+	$template1=substr($template,$len);
+	$template2 = preg_replace("/($primer)/is", "<span class=highlight>$1</span>", $template1);
 	
-	//找到之后向前延伸，使用isEqual函数判断，并记录正确和错误数
+	//2.找到之后向前延伸，使用isEqual函数判断，并记录正确和错误数
 	
-	//如果错误数大于最大数，或至少匹配总数达到，停止延伸
+	//3.如果错误数大于最大数，或至少匹配总数达到，停止延伸
 	
-	//返回匹配核位置，正确数，错误数
+	//4.返回匹配核位置，正确数，错误数
 
 
 }
