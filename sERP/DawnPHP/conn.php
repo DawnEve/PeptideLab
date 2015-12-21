@@ -8,10 +8,11 @@
 //header("content-type:text/html; cahrset=utf-8");
 
 // database connection and schema constants
-define('DB_HOST', '192.168.1.100');
+//define('DB_HOST', '192.168.1.100');
+define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
-define('DB_SCHEMA', 'myblog');
+define('DB_SCHEMA', 'serp');
 define('DB_TBL_PREFIX', 'WROX_');
 
 #1、获取连接

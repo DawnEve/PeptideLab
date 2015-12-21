@@ -1,4 +1,22 @@
 <?php
+//检查是否登陆了
+
+function check_login(){
+	if(!isset($_SESSION['uid'])){
+		header("Location:index.php");
+		exit();
+	}
+}
+
+
+
+
+
+
+
+
+
+
 //随机数函数
 function random_text($count,$rm_similar=false){
 	$chars=array_flip(array_merge(range(0,9),range('A','Z'))); 
