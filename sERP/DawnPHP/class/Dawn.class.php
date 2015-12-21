@@ -1,6 +1,6 @@
 <?php
 class Dawn{
-	//getº¯Êı
+	//getå‡½æ•°
 	static function get($key,$default=''){
 		if(isset($_GET[$key])){
 			return $_GET[$key];
@@ -8,7 +8,7 @@ class Dawn{
 			return $default;
 		}
 	}
-	//postº¯Êı
+	//postå‡½æ•°
 	static function post($key,$default=''){
 		if(isset($_POST[$key])){
 			return $_POST[$key];
@@ -16,11 +16,11 @@ class Dawn{
 			return $default;
 		}
 	}
-	//sessionº¯Êı-set
+	//sessionå‡½æ•°-set
 	static function sessionSet($key,$value){
 		$_SESSION[$key]=$value;
 	}
-	//sessionº¯Êı-get
+	//sessionå‡½æ•°-get
 	static function sessionGet($key){
 		if(isset($_SESSION[$key])){
 			return $_SESSION[$key];
@@ -41,33 +41,33 @@ class Dawn{
 		return $array;
 	}
 	
-	//³ö´íºóÏÔÊ¾ ·µ»ØÊ×Ò³
+	//å‡ºé”™åæ˜¾ç¤º è¿”å›é¦–é¡µ
 	public static function died(){
-		die('Invalid visit.<br><a href="index.php">·µ»ØÊ×Ò³</a>');
+		die('Invalid visit.<br><a href="index.php">è¿”å›é¦–é¡µ</a>');
 	}
 	
-	//¼ÓÔØÊÓÍ¼
+	//åŠ è½½è§†å›¾
 	public static function view($viewname){
 		//include('BathPath' . '../view/' . $viewname . '.html');
 		include('view/' . $viewname . '.html');
 	}
 	
-	//ÍË³ö
+	//é€€å‡º
 	public static function logout(){
-		//ÍË³ö¸ÉÈı¼şÊÂ£º
+		//é€€å‡ºå¹²ä¸‰ä»¶äº‹ï¼š
 		if(isset($_SESSION['uid'])){
-			//1.Çå³ıÊı×éÖĞµÄ»á»°ĞÅÏ¢
-			$_SESSION['uid']=null;//»òÆäËûÈ«¾ÖÓÃ»§±äÁ¿
-			$_SESSION=array();//Çå¿Õsession
+			//1.æ¸…é™¤æ•°ç»„ä¸­çš„ä¼šè¯ä¿¡æ¯
+			$_SESSION['uid']=null;//æˆ–å…¶ä»–å…¨å±€ç”¨æˆ·å˜é‡
+			$_SESSION=array();//æ¸…ç©ºsession
 			
-			//2.Çå³ıcookie
+			//2.æ¸…é™¤cookie
 			setcookie(session_name(),false, time()-3600);
 			
-			//3.Ïú»Ù·şÎñÆ÷ÉÏµÄ»á»°ÎÄ¼ş
+			//3.é”€æ¯æœåŠ¡å™¨ä¸Šçš„ä¼šè¯æ–‡ä»¶
 			session_destroy();
 		}
 		
-		//Ìø×ª»ØÊ×Ò³
+		//è·³è½¬å›é¦–é¡µ
 		header("Location:index.php");
 		//echo 'logout';
 	}

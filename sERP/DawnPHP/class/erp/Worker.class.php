@@ -2,8 +2,13 @@
 namespace erp;
 
 class Worker{
-	function hi(){
-		echo 'hi';
+	private $usr='';
+	
+	
+	function __construct($usr=''){
+		if($usr!=''){
+			$this->usr=$usr;
+		}
 	}
 
 	/**
@@ -30,12 +35,14 @@ class Worker{
 		//header("Location:index.php");
 	}
 	
-	
-	/**
-		用户是否签到
-	*/
-	function isSigned($usr){
-		return false;
+	function listStatus(){
+		$usr=$this->usr;
+		$arr=array();
+		$arr['status']=Status::mylist($usr);
+		$arr['money']=Money::mylist($usr);
+		
+		//echo '<pre>';	print_r($arr);
+		return $arr;
 	}
 
 

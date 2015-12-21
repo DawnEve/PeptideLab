@@ -1,5 +1,5 @@
 <?php
-//¼ì²éÊÇ·ñµÇÂ½ÁË
+//æ£€æŸ¥æ˜¯å¦ç™»é™†äº†
 
 function check_login(){
 	if(!isset($_SESSION['uid'])){
@@ -17,7 +17,7 @@ function check_login(){
 
 
 
-//Ëæ»úÊýº¯Êý
+//éšæœºæ•°å‡½æ•°
 function random_text($count,$rm_similar=false){
 	$chars=array_flip(array_merge(range(0,9),range('A','Z'))); 
 	if($rm_similar){
@@ -29,7 +29,7 @@ function random_text($count,$rm_similar=false){
 	return $text;
 }
 
-//ÅÅ³ýº¯Êý
+//æŽ’é™¤å‡½æ•°
 function debug($s,$isDie=true){
 	echo '<hr><pre>';
 	print_r($s);
