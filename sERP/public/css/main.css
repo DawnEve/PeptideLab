@@ -1,0 +1,11 @@
+/* main css */
+
+.box{ padding:10px; margin:15px; background:#efefef; font-family:'微软雅黑';border-radius:10px;}
+.box p{background:#0096ff;color:#fff; padding:5px;margin:0;}
+.box ul{ list-style:none;}
+.box ul li{ margin:10px;}
+.box ul li b{margin:0 10px;}
+.box ul li span{margin:0 10px;}
+
+
+

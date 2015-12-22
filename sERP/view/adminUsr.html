@@ -1,0 +1,124 @@
+<script type="text/javascript" src="public/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="public/css/main.css">
+
+<div class=box>
+	<h1>用户管理</h1>
+	<div class='info'>
+		<table id='userTable'  border='1'>
+		</table>
+	</div>
+</div>
+
+
+
+
+<div class=box>
+	<h1>添加用户</h1>
+	<form method='post' action='admin.php?a=addUsr' onsubmit='checkFormAddUsr(this);'>
+		
+		<b>类&nbsp;&nbsp;&nbsp;&nbsp;别: </b><select name='group'>
+		<option value='0'>普通用户</option>
+		<option value='1'>管理员</option>
+		</select><br /><br />
+		
+		
+		<b>用户名: </b><input type='text' name='usr'><br /><br />
+		<b>密&nbsp;&nbsp;&nbsp;&nbsp;码: </b></b><input type='password' name='psw'><br /><br />
+		
+		<b>手&nbsp;&nbsp;&nbsp;&nbsp;机: </b><input type='text' name='phone'><br /><br />
+		<b>Q&nbsp;&nbsp;&nbsp;&nbsp;Q: </b><input type='text' name='QQ'><br /><br />
+		<b>Email: </b><input type='text' name='email'><br /><br />
+		
+		
+		<input type='submit' name='send' value='添加用户'>
+	</form>
+
+</div>
+
+
+
+
+
+<style>
+.box form b{padding:0 10px;}
+
+
+
+
+
+
+
+/*
+http://www.laozuo.org/4631.html
+*/
+#userTable {
+	border-bottom: 1px solid rgb(230, 189, 189);
+	border-collapse: collapse;
+}
+/* Border styles */
+#userTable thead, #userTable tr {border: 1px solid #ccc;}
+
+/* Padding and font style */
+#userTable td, #userTable th {
+	padding: 5px 10px;
+	font-size: 12px;
+	font-family: Verdana;
+}
+
+/* Alternating background colors */
+#userTable tr:nth-child(even) {background: rgba(239, 239, 239,0.5)}
+#userTable tr:nth-child(even):hover{background: rgba(239, 239, 239,0.9)}
+
+#userTable tr:nth-child(odd) {background: #FFF;}
+#userTable tr:nth-child(odd):hover{background: rgba(239, 239, 239,0.1);}
+
+</style>
+
+<script>
+//myAddEvent(obj,ev,fn);绑定事件
+myAddEvent(window,'load',initSelect);
+
+
+function initSelect(){
+	var oParent=$('userTable');
+	//表头
+	var oTr=document.createElement('tr');
+	oTr.innerHTML='<th>用户名</th>	<th>添加日期</th>	<th>电话</th>	<th>手机</th>	<th>邮箱</th>	<th>分组</th>	<th>操作</th>';
+	oParent.appendChild(oTr);
+	
+	//数据
+	var data=getJson(list);
+	for(var i=0;i<data.length;i++){
+		var oTr=getDomTd(data[i],i%2);
+		//插入dom树
+		oParent.appendChild(oTr);
+	};
+	
+	//获取dom结构
+	function getDomTd(obj,isEven){
+		var isEven=isEven||false;
+		var group=['普通用户', '管理员'];
+		var groupName=group[ obj['group'] ];
+		if(groupName=='管理员'){
+			groupName='<b style="color:red;">'+groupName+'</b>';
+		}
+		
+		var oTr=document.createElement('tr');
+		if(isEven){
+			oTr.setAttribute('class','even');
+		}
+		//用户信息
+		var usr=obj['usr'];
+		var usrDom="<a href='admin.php?a=pool&u="+usr+"' target='_blank'>"+usr+"</a>";
+		oTr.innerHTML='<td>'+ usrDom+'</td>	<td>'+obj['add_time']+'</td>	<td>'+obj['phone']+'</td>	<td>'+obj['QQ']+'</td>	<td>'+obj['email']+'</td>	<td>'+ groupName +'</td>	<td><a href="javascript:delUsr(\''+usr+'\')">删除</a></td>';
+
+		return oTr;
+	
+	}
+	
+	oParent.onchange=function(){
+		var usr=oParent.value;
+		location = 'admin.php?a=pool&u='+usr;
+	}
+}
+</script>

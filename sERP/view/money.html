@@ -1,0 +1,38 @@
+
+<div class=box>
+
+
+	<h1>添加今天的花销</h1>
+
+	<form method='post' action='index.php?a=fee'>
+		
+		类别: <select name='category'>
+		<option value='1'>路费</option>
+		<option value='2'>住宿</option>
+		</select>
+		<br /><br />
+		
+		
+		金额: <input type='text' name='fee' id='fee'><br /><br />
+		
+		
+		<input type='submit' name='send' value='添加'>
+	</form>
+
+</div>
+
+<script>
+
+myAddEvent($('fee'),'keydown',function(e){
+	var event=e||event;
+	var key=event.keyCode;
+	//只能输入数字
+	if([8,37,39,96,105,110,110,190].indexOf(key)==-1){
+		if(!( (key>=96 && key<=105)||(key>=48 && key<=57)  )){
+			//return false;
+			event.returnValue=false;
+		}
+	}	
+});
+
+</script>

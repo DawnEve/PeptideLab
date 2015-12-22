@@ -9,5 +9,6 @@
 
 2.执行
 	[1] 开始再了解原理
+	[2] 备份Vgph-before.backup.zip；写出伪代码：
 
 

@@ -1,0 +1,14 @@
+
+===========================
+2015-12-19 14-07-37
+----------------------------
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx527dd89a15670d7e&redirect_uri=http://202.196.120.202/weixin/demo/bb.php&response_type=code&scope=snsapi_base&state=wjl888connect_redirect=1#wechat_redirect
+
+===========================
+
+===========================
+2015-12-19 19-23-14
+----------------------------
+http://202.196.120.202/weixin/demo/aa.html
+
+===========================
