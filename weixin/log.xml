@@ -1379,3 +1379,24 @@ OpenID：oFriLjpzpdPB5XhG_FMsN_McTSuo
     <Content><![CDATA[中国：🇨🇳
 仙人掌：🌵]]></Content>
 </xml>
+2015-12-22 19:28:34 R 
+<xml><ToUserName><![CDATA[gh_68d2123f89d2]]></ToUserName>
+<FromUserName><![CDATA[oFriLjpzpdPB5XhG_FMsN_McTSuo]]></FromUserName>
+<CreateTime>1450783671</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[老王]]></Content>
+<MsgId>6231068420924618934</MsgId>
+</xml>
+2015-12-22 19:28:34 T 
+<xml>
+    <ToUserName><![CDATA[oFriLjpzpdPB5XhG_FMsN_McTSuo]]></ToUserName>
+    <FromUserName><![CDATA[gh_68d2123f89d2]]></FromUserName>
+    <CreateTime>1450783714</CreateTime>
+    <MsgType><![CDATA[text]]></MsgType>
+    <Content><![CDATA[该指令目前不能识别，
+请回复 帮助 查看可用指令。
+2015-12-22 19:28:34
+You said: 老王
+OpenID：oFriLjpzpdPB5XhG_FMsN_McTSuo
+技术支持 米欧光影工作室]]></Content>
+</xml>
