@@ -77,5 +77,17 @@ class Money{
 		}
 		return $arr;
 	}
+	
+	/**
+		返回花费列表
+	*/
+	function detail($usr=''){
+		//如果usr为空，则调取所有人的花费
+		if($usr==''){
+			$sql='select * from money order by usr,add_time, category;';
+		}
+		//调取usr的花费
+	
+	}
 }
 

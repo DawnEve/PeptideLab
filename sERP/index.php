@@ -13,7 +13,13 @@ if(isset($_SESSION['uid'])){
 	$worker=$_SESSION['uid'];
 	$usr=$worker['usr'];
 	echo '用户[ ' . $worker['usr'] .' ]已登陆';
-	echo ' | <a href="index.php?a=logout">退出</a><hr>';
+	echo ' | <a href="index.php?a=logout">退出</a>';
+	if($worker['group']==1){
+		//显示管理员页面
+		echo ' | <a href="admin.php">管理</a>';
+	}
+	echo '<hr>';
+	
 }else{
 	echo '目前没有用户登陆。请登陆。<hr>';
 }
@@ -30,7 +36,7 @@ if(isset($_SESSION['uid'])){
 	//如果是post提交
 	if(isset($_POST['send'])){
 		switch($action){
-			case 'qiandao':
+			case 'qiandao'://签到控制器
 				$status=$_POST['send'];
 				$result=Status::add($usr,$status);
 				if($result[0]==1){
@@ -39,7 +45,7 @@ if(isset($_SESSION['uid'])){
 					die('签到失败；请<a href="index.php">重试</a>');
 				}
 				break;
-			case 'fee':
+			case 'fee'://添加费用控制器
 				$fee=Dawn::post('fee',0);
 				$category=Dawn::post('category',0);
 				if($fee>0){
@@ -50,7 +56,7 @@ if(isset($_SESSION['uid'])){
 				}
 				header("Location:index.php");
 				break;
-			case 'delMoney':
+			case 'delMoney'://删除费用控制器
 				$id=Dawn::get('id','');
 				if($id!=''){
 					$arr=Money::delete($id);
@@ -60,7 +66,7 @@ if(isset($_SESSION['uid'])){
 				}
 				header("Location:index.php");
 				break;
-			default:
+			default: //默认排错控制器
 				MyDebug::p($_GET);
 				MyDebug::p($_POST);
 				break;
@@ -68,13 +74,11 @@ if(isset($_SESSION['uid'])){
 	}else{
 		//如果不是post提交
 		
-		//已经登陆，则提示可以创建用户
-		//MyDebug::p($_SESSION['uid']);
+		//则进入用户处理页面
 		include('userPage.php');
 		exit();
 	}
 	exit();
-	
 }
 
 

@@ -1,7 +1,20 @@
 ERP方案
 
-
 1.需求
+http://tieba.baidu.com/p/4221052277
+我想做一个出勤统计表，让每个员工自己统计每天的出勤情况。
+比如：今天是在岗还是出差？出差的话，花了多少路费，多少住宿费。
+
+然后每周自动把整个部门的差旅单打印出来。
+
+同时统计每个人至今的差旅费有多少。
+
+这样的小软件，用什么语言编最好？VB？VBA？C？C++？数据库？
+
+
+
+
+
 
 2.数据表
 create database serp;
@@ -55,9 +68,16 @@ insert into money(usr,sid,fee,add_time,category) values('wjl',11,100,1450672358,
 	[1] 可以登陆，退出。
 	[2] 可以签到.
 	
-	为什么php中写的js不执行？
+	<tips>为什么php中写的js不执行？
 	http://www.oschina.net/question/176226_143359
 	<script>应为<script type="text/javascript">。
+	
+	前台基本够用。
+	
+	[3]后台统计页面
+	
+	<tips>注意 group是mysql保留字，字段中使用需要加`顶层数字键最左端`的符号。
+	update worker set group=2 where usr='wjl';
 	
 	
 	
