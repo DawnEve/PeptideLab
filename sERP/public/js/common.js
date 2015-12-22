@@ -5,9 +5,15 @@ function $(obj){
 	return typeof obj=='object'?obj:document.getElementById(obj);
 }
 
-//
+
+//json转换函数
 function getJson(str){
 	return eval("("+str+")");
+}
+
+//调试函数
+function n(s){
+	console.log(s);
 }
 
 //给obj增加事件的自定义函数：兼容IE/chrome/ff
@@ -46,17 +52,18 @@ function myAddEvent(obj,ev,fn){
 	}
 	
 	//获得ul的dom
-	function getDomUl(obj){
+	function getDomUl(obj,showDelBtn){
+		var showDelBtn=showDelBtn==undefined?true:showDelBtn;
 		var oUl=document.createElement('ul');
 		for(var i=0;i<obj.length;i++){
-			var oLi=getDomLi(obj[i]);
+			var oLi=getDomLi(obj[i],showDelBtn);
 			oUl.appendChild(oLi);
 		}
 		
 		return oUl;
 	}
 	//获得li的dom
-	function getDomLi(obj){
+	function getDomLi(obj,showDelBtn){
 		//大标签
 		var oLi=document.createElement('li');
 		//时间
@@ -82,12 +89,14 @@ function myAddEvent(obj,ev,fn){
 		oLi.appendChild(oSpan);
 		//删除按钮
 		if(obj['category']!=undefined){
-			var oBtnSpan=document.createElement('span');
-			var oBtn=document.createElement('a');
-			oBtn.innerHTML='删除';
-			oBtn.setAttribute('href','javascript:del('+obj['id']+')');
-			oBtnSpan.appendChild(oBtn);
-			oLi.appendChild(oBtnSpan);
+			if(showDelBtn){
+				var oBtnSpan=document.createElement('span');
+				var oBtn=document.createElement('a');
+				oBtn.innerHTML='删除';
+				oBtn.setAttribute('href','javascript:del('+obj['id']+')');
+				oBtnSpan.appendChild(oBtn);
+				oLi.appendChild(oBtnSpan);
+			}
 		}
 		
 		return oLi;

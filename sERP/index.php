@@ -12,7 +12,11 @@ use erp\Money;
 if(isset($_SESSION['uid'])){
 	$worker=$_SESSION['uid'];
 	$usr=$worker['usr'];
-	echo '用户[ ' . $worker['usr'] .' ]已登陆';
+	if($worker['group']==1){
+		echo '管理员[ ' . $worker['usr'] .' ]已登陆';
+	}else{
+		echo '普通用户[ ' . $worker['usr'] .' ]已登陆';
+	}
 	echo ' | <a href="index.php?a=logout">退出</a>';
 	if($worker['group']==1){
 		//显示管理员页面

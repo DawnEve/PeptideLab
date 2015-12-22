@@ -1,0 +1,48 @@
+<script type="text/javascript" src="public/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="public/css/main.css">
+
+<h1>花费汇总表</h1>
+<div class='info' id='detail'>
+	
+	<!--div class=box>
+		<p>status</p>
+		<ul>
+			<li><b>key</b><span>value</span><span>value</span></li>
+		</ul>
+	</div>
+	
+	<div class=box>
+		<p>money</p>
+		<ul>
+			<li><b>key</b><span>value</span></li>
+			<li><b>key</b><span>value</span><span>value</span></li>
+			<li><b>key</b><span>value</span></li>
+		</ul>
+	</div-->
+</div>
+<script>
+window.onload=function(){
+	//
+	var oParent=$('detail');
+	showMoney(data,oParent);
+}
+
+function showMoney(obj,oParent){
+	for(var key in obj){
+		if(obj[key].length==0){continue;}//如果长度为0，则直接跳过
+		//1.组装obj
+		var oP=document.createElement('p');
+		oP.innerHTML=key;
+		var oBox=document.createElement('div');
+		oBox.setAttribute('class','box');
+		
+		oBox.appendChild(oP);
+		//2.获取dom
+		var oUl=getDomUl(obj[key],false);
+		oBox.appendChild(oUl);
+		
+		oParent.appendChild(oBox);
+	}
+};
+
+</script>

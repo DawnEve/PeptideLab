@@ -85,8 +85,30 @@ class Money{
 		//如果usr为空，则调取所有人的花费
 		if($usr==''){
 			$sql='select * from money order by usr,add_time, category;';
-		}
+		}else{
 		//调取usr的花费
+			$sql='select * from money where usr="%s" order by usr,add_time, category;';
+			$sql=sprintf($sql,
+			mysql_real_escape_string($usr,$GLOBALS['DB']));
+		}
+		
+		$result=mysql_query($sql,$GLOBALS['DB']);
+		$arr=array();
+		if($result){
+			while($row=mysql_fetch_assoc($result)){
+				$row['add_time']=date('Y-m-d H:i:s',$row['add_time']);
+				$arr[]=$row;
+			}
+		}
+		
+		//按照用户名,重组数组
+		$arrByUsr=array();
+		for($i=0;$i<count($arr);$i++){
+			$usr=$arr[$i]['usr'];
+			$arrByUsr[$usr][]=$arr[$i];
+		}
+
+		return $arrByUsr;
 	
 	}
 }

@@ -74,7 +74,7 @@ insert into money(usr,sid,fee,add_time,category) values('wjl',11,100,1450672358,
 	
 	前台基本够用。
 	
-	[3]后台统计页面
+	[3]后台统计页面；增加了activeRecord类。
 	
 	<tips>注意 group是mysql保留字，字段中使用需要加`顶层数字键最左端`的符号。
 	update worker set group=2 where usr='wjl';
