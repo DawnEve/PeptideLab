@@ -10,6 +10,17 @@ class Worker{
 			$this->usr=$usr;
 		}
 	}
+	
+	/**
+		检查用户是否存在
+	*/
+	function check($usr){
+		$query=sprintf('select * from worker where usr="%s";',
+			mysql_real_escape_string($usr,$GLOBALS['DB'])
+		);
+		$rows = mysql_query($query,$GLOBALS['DB']);
+		return mysql_fetch_assoc($rows);
+	}
 
 	/**
 		用户登陆
@@ -37,7 +48,7 @@ class Worker{
 	
 	//列出所有人员的信息
 	static function mylist(){
-		$sql='select * from worker';
+		$sql='select * from worker order by `group` DESC, add_time';
 		
 		$result=mysql_query($sql,$GLOBALS['DB']);
 		$arr=array();
@@ -79,20 +90,42 @@ class Worker{
 
 		$result=mysql_query($sql,$GLOBALS['DB']);
 		if(mysql_affected_rows()>0){
-			$arr1=Status::del($usr);
-			if($arr1[0]==0){
-				return $arr1;
-			}
-			
-			$arr2=Money::del($usr);
-			if($arr2[0]==0){
-				return $arr2;
-			}
+			$arr1=Status::del($usr);//删除签到信息
+			$arr2=Money::del($usr);//删除花费信息
 			
 			return array(1,'删除成功');
 		}else{
 			return array(0,mysql_error());
 		}
+	}
+	
+	//增加用户
+	function add($info){
+		//查看是否重复
+		if($this->check($info['usr'])){
+			return array(0,'该用户已经存在！');
+		};
+		
+	
+		//插入新记录
+		$query=sprintf('insert into worker(usr,psw,add_time,phone,QQ,email,`group`) values("%s","%s","%s","%s","%s","%s","%s");',
+			mysql_real_escape_string($info['usr'],$GLOBALS['DB']),
+			sha1($info['psw']),
+			time(),
+			mysql_real_escape_string($info['phone'],$GLOBALS['DB']),
+			mysql_real_escape_string($info['QQ'],$GLOBALS['DB']),
+			mysql_real_escape_string($info['email'],$GLOBALS['DB']),
+			mysql_real_escape_string($info['group'],$GLOBALS['DB'])
+		);
+		
+		$result=mysql_query($query,$GLOBALS['DB']);
+		if(mysql_affected_rows()>0){
+			//return array(1,mysql_insert_id());
+			return array(1, $info['usr']);
+		}else{
+			return array(0,mysql_error());
+		}
+		//debug($query);
 	}
 
 }

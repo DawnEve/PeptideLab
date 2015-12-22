@@ -38,12 +38,28 @@ if(isset($_SESSION['uid'])){
 	//如果是post提交
 	if(isset($_POST['send'])){
 		switch($action){
+			case 'addUsr'://添加用户控制器
+				$info=$_POST;
+				//debug($info);
+				$w=new Worker();
+				$result=$w->add($info);
+				
+				//显示结果信息
+				echo '<a href="admin.php?a=usr">查看用户</a> <br><br>';
+				if($result[0]==0){
+					die($result[1]); 
+				}
+				echo $result[1].' 已添加。';
+				
+				break;
 			case 'delUsr'://删除用户控制器
 				$usr=Dawn::get('usr','');
+				echo '<a href="admin.php?a=usr">查看用户</a> <br><br>';
 				
 				//如果是自己，则不能删除					
 				if($usr!=$worker['usr']){
 					$result=Worker::del($usr);
+					//debug($result);
 				}else{
 					$result=array(0,'不能删除自己的账号！');
 				}
