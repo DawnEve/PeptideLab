@@ -37,6 +37,7 @@ CREATE TABLE `worker` (
 ----insert into worker values('wjl','123456',1450617215,15890149335,469004330,'wjl@163.com',1);
 insert into worker values('wjl','7c4a8d09ca3762af61e59520943dc26494f8941b',1450617215,15890149335,469004330,'wjl@163.com',1);
 insert into worker values('zyj','7c4a8d09ca3762af61e59520943dc26494f8941b',1450617215,15890149335,469004330,'zyj@163.com',1);
+insert into worker values('jim','7c4a8d09ca3762af61e59520943dc26494f8941b',1450617215,15890149335,469004330,'zyj@163.com',1);
 
 
 CREATE TABLE `status` (
@@ -84,5 +85,10 @@ insert into money(usr,sid,fee,add_time,category) values('wjl',11,100,1450672358,
 	目前用的是js传值，先把php的json字符串打印到js中，再用js解析成对象，再组装dom到文件中。
 	
 	可以浏览用户。
+	[5] 删除用户。因为太关键，所以做了两次js确认。
 	
+	
+	
+	
+	增加用户。
 	

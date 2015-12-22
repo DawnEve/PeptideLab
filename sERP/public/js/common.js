@@ -114,6 +114,26 @@ function del(id){
 		oSend.setAttribute('name','send');
 		oSend.setAttribute('value','delMoney');
 		oForm.appendChild(oSend);
+		//模拟一个post发送。第二种post方式。第一种是ajax
+		oForm.submit();
+	}
+}
+
+
+//删除用户	
+function delUsr(usr){
+	var isCon=confirm('确定要删除用户 '+usr+' 吗？');
+	if(isCon){
+		if( !confirm('将要删除 '+usr+' 用户的所有资料，而且不可恢复。确认删除吗？') )return;;
+		
+		var oForm=document.createElement('form');
+		oForm.setAttribute('action','admin.php?a=delUsr&usr='+usr);
+		oForm.setAttribute('method','post');
+		var oSend=document.createElement('input');
+		oSend.setAttribute('name','send');
+		oSend.setAttribute('value','delUsr');
+		oForm.appendChild(oSend);
+		//模拟一个post发送。第二种post方式。第一种是ajax
 		oForm.submit();
 	}
 }

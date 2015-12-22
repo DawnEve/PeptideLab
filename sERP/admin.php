@@ -16,8 +16,10 @@ if($worker['group']!=1){
 	die('Invalid visit! Not administrator.');
 }
 //高级菜单项目
-echo ' | <a href="admin.php?a=pool">汇总查询</a>';
+echo ' | <a href="admin.php?a=sign">签到</a>';
+echo ' | <a href="admin.php?a=pool">花费</a>';
 echo ' | <a href="admin.php?a=usr">管理用户</a>';
+echo ' | 管理员[ ' . $worker['usr'] .' ]已登陆';
 echo ' | <a href="index.php?a=logout">退出</a>';
 
 echo '<hr>';
@@ -31,12 +33,18 @@ use erp\Money;
 //逻辑处理阶段
 
 //员工登陆过
+$action=Dawn::get('a','');
 if(isset($_SESSION['uid'])){
 	//如果是post提交
 	if(isset($_POST['send'])){
 		switch($action){
-			case 'qiandao'://签到控制器
-				$status=$_POST['send'];
+			case 'delUsr'://删除用户控制器
+				$usr=Dawn::get('usr','');
+				$result=Worker::del($usr);
+				if($result[0]==0){
+					die($result[1]); 
+				}
+				echo $result[1];
 				break;
 			default: //默认排错控制器
 				MyDebug::p($_GET);
@@ -44,7 +52,6 @@ if(isset($_SESSION['uid'])){
 				break;
 		}
 	}else{
-		$action=Dawn::get('a','');
 		//获取所有用户的信息
 		$u=new Worker();
 		$data=json_encode( $u->mylist() );
@@ -53,6 +60,13 @@ if(isset($_SESSION['uid'])){
 		//默认是列表
 		if($action==''){
 			Dawn::view('admin');
+		}
+		//签到汇总
+		if($action=='sign'){
+			//签到汇总
+			
+			echo '签到汇总';
+			
 		}
 		//用户管理
 		if($action=='usr'){

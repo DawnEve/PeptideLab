@@ -111,5 +111,25 @@ class Money{
 		return $arrByUsr;
 	
 	}
+	
+	/**
+		删除用户资料
+	*/
+	static function del($usr){
+		if($usr==''){
+			return array(0,'用户名不能为空');
+		}
+		$sql='delete from money where usr="%s"';
+		$sql=sprintf($sql,
+			mysql_real_escape_string($usr,$GLOBALS['DB']) );
+			
+
+		$result=mysql_query($sql,$GLOBALS['DB']);
+		if(mysql_affected_rows()>0){
+			return array(1,'删除成功');
+		}else{
+			return array(0,mysql_error());
+		}
+	}
 }
 

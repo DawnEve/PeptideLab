@@ -34,6 +34,10 @@ function init(){
 
 
 function showMoney(obj,oParent){
+	if(obj.length==0){
+		//如果没有结果，则提示
+		oParent.innerHTML='<span style="color:red">没有数据.</span>';
+	}
 	for(var key in obj){
 		if(obj[key].length==0){continue;}//如果长度为0，则直接跳过
 		
@@ -97,7 +101,6 @@ function initSelect(){
 		}else{
 			var url = 'admin.php?a=pool';
 		}
-	n(url);	
 		window.location=url;
 	}
 }

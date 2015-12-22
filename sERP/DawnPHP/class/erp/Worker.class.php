@@ -64,7 +64,36 @@ class Worker{
 		//echo '<pre>';	print_r($arr);
 		return $arr;
 	}
+	
+	/**
+		删除用户资料
+	*/
+	static function del($usr){
+		if($usr==''){
+			return array(0,'用户名不能为空');
+		}
+		$sql='delete from worker where usr="%s"';
+		$sql=sprintf($sql,
+			mysql_real_escape_string($usr,$GLOBALS['DB']) );
+			
 
+		$result=mysql_query($sql,$GLOBALS['DB']);
+		if(mysql_affected_rows()>0){
+			$arr1=Status::del($usr);
+			if($arr1[0]==0){
+				return $arr1;
+			}
+			
+			$arr2=Money::del($usr);
+			if($arr2[0]==0){
+				return $arr2;
+			}
+			
+			return array(1,'删除成功');
+		}else{
+			return array(0,mysql_error());
+		}
+	}
 
 }
 
