@@ -1,11 +1,41 @@
 <script type="text/javascript" src="public/js/common.js"></script>
 <link rel="stylesheet" type="text/css" href="public/css/main.css">
 
-<h1>用户管理</h1>
-<div class='info'>
-	<table id='userTable'  border='1'>
-	</table>
+<div class=box>
+	<h1>用户管理</h1>
+	<div class='info'>
+		<table id='userTable'  border='1'>
+		</table>
+	</div>
 </div>
+
+
+
+
+<div class=box>
+	<h1>添加用户</h1>
+	<form method='post' action='index.php?a=fee'>
+		
+		类别: <select name='category'>
+		<option value='1'>普通用户</option>
+		<option value='2'>管理员</option>
+		</select>
+		<br /><br />
+		
+		
+		用户名: <input type='text' name='fee' id='fee'><br /><br />
+		
+		
+		<input type='submit' name='send' value='添加'>
+	</form>
+
+</div>
+
+
+
+
+
+
 <style>
 /*
 http://www.laozuo.org/4631.html
@@ -15,22 +45,21 @@ http://www.laozuo.org/4631.html
 	border-collapse: collapse;
 }
 /* Border styles */
-#userTable thead, #userTable tr {border: 1px solid rgb(230, 189, 189);}
+#userTable thead, #userTable tr {border: 1px solid #ccc;}
 
 /* Padding and font style */
 #userTable td, #userTable th {
 	padding: 5px 10px;
 	font-size: 12px;
 	font-family: Verdana;
-	color: rgb(177, 106, 104);
 }
 
 /* Alternating background colors */
-#userTable tr:nth-child(even) {background: rgba(238, 211, 210,0.5)}
-#userTable tr:nth-child(even):hover{background: rgba(238, 211, 210,0.9)}
+#userTable tr:nth-child(even) {background: rgba(239, 239, 239,0.5)}
+#userTable tr:nth-child(even):hover{background: rgba(239, 239, 239,0.9)}
 
 #userTable tr:nth-child(odd) {background: #FFF;}
-#userTable tr:nth-child(odd):hover{background: rgba(238, 211, 210,0.1);}
+#userTable tr:nth-child(odd):hover{background: rgba(239, 239, 239,0.1);}
 
 </style>
 

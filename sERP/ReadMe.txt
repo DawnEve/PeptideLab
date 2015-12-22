@@ -86,9 +86,6 @@ insert into money(usr,sid,fee,add_time,category) values('wjl',11,100,1450672358,
 	
 	可以浏览用户。
 	[5] 删除用户。因为太关键，所以做了两次js确认。
-	
-	
-	
-	
-	增加用户。
+		- [1] 不能删除自己
+	[6]--	增加用户。
 	

@@ -40,7 +40,14 @@ if(isset($_SESSION['uid'])){
 		switch($action){
 			case 'delUsr'://删除用户控制器
 				$usr=Dawn::get('usr','');
-				$result=Worker::del($usr);
+				
+				//如果是自己，则不能删除					
+				if($usr!=$worker['usr']){
+					$result=Worker::del($usr);
+				}else{
+					$result=array(0,'不能删除自己的账号！');
+				}
+				//显示结果信息
 				if($result[0]==0){
 					die($result[1]); 
 				}
