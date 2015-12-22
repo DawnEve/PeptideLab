@@ -35,6 +35,26 @@ class Worker{
 		//header("Location:index.php");
 	}
 	
+	//列出所有人员的信息
+	static function mylist(){
+		$sql='select * from worker';
+		
+		$result=mysql_query($sql,$GLOBALS['DB']);
+		$arr=array();
+		if($result){
+			while($row=mysql_fetch_assoc($result)){
+				//$row['add_time']=date('Y-m-d H:i:s',$row['add_time']);
+				unset($row['psw']);
+				$row['add_time']=date('Y-m-d H:i:s',$row['add_time']);
+				$arr[]=$row;
+			}
+		}
+		return $arr;
+	}
+	
+	/**
+		列出用户所有资料
+	*/
 	function listStatus(){
 		$usr=$this->usr;
 		$arr=array();

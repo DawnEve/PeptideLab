@@ -17,11 +17,11 @@ if(isset($_SESSION['uid'])){
 	}else{
 		echo '普通用户[ ' . $worker['usr'] .' ]已登陆';
 	}
-	echo ' | <a href="index.php?a=logout">退出</a>';
 	if($worker['group']==1){
 		//显示管理员页面
 		echo ' | <a href="admin.php">管理</a>';
 	}
+	echo ' | <a href="index.php?a=logout">退出</a>';
 	echo '<hr>';
 	
 }else{

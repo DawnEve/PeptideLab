@@ -74,10 +74,15 @@ insert into money(usr,sid,fee,add_time,category) values('wjl',11,100,1450672358,
 	
 	前台基本够用。
 	
-	[3]后台统计页面；增加了activeRecord类。
+	[3]后台汇总计算金额，按照用户汇总金额；增加了activeRecord类class/db/activeRecord.class.php
 	
 	<tips>注意 group是mysql保留字，字段中使用需要加`顶层数字键最左端`的符号。
 	update worker set group=2 where usr='wjl';
 	
+	[4] 增加了模板引擎类，TPL类class/tpl.class.php
+	不过不会用模板引擎。
+	目前用的是js传值，先把php的json字符串打印到js中，再用js解析成对象，再组装dom到文件中。
+	
+	可以浏览用户。
 	
 	

@@ -21,18 +21,28 @@
 	</div-->
 </div>
 <script>
-window.onload=function(){
+//myAddEvent(obj,ev,fn);绑定事件
+myAddEvent(window,'load',init);
+
+
+//初始化汇总
+function init(){
 	//
 	var oParent=$('detail');
 	showMoney(data,oParent);
 }
 
+
 function showMoney(obj,oParent){
 	for(var key in obj){
 		if(obj[key].length==0){continue;}//如果长度为0，则直接跳过
+		
+		//计算总金额
+		var sum=getSum(obj[key]);
+		
 		//1.组装obj
 		var oP=document.createElement('p');
-		oP.innerHTML=key;
+		oP.innerHTML=key+'  【总金额: '+sum+' 元】';
 		var oBox=document.createElement('div');
 		oBox.setAttribute('class','box');
 		
@@ -43,6 +53,52 @@ function showMoney(obj,oParent){
 		
 		oParent.appendChild(oBox);
 	}
+	
+	//计算总金额
+	function getSum(obj){
+		//
+		var sum=0;
+		for(var i=0;i<obj.length;i++){
+			var fee=+(obj[i]['fee']);
+			sum += fee;
+		}
+		return sum;
+	}
 };
 
+</script>
+
+
+<script>
+//myAddEvent(obj,ev,fn);绑定事件
+myAddEvent(window,'load',initSelect);
+
+
+function initSelect(){
+	var oParent=$('select');
+	var data=getJson(list);
+	for(var i=0;i<data.length;i++){
+		var this_usr=data[i]['usr'];
+		var oOption=document.createElement('option');
+		oOption.setAttribute('value',this_usr);
+		if(usr==this_usr){
+			oOption.setAttribute('selected','selected');
+		}
+		oOption.setAttribute('value',this_usr);
+		oOption.innerHTML=this_usr;
+		//插入dom树
+		oParent.appendChild(oOption);
+	};
+	
+	oParent.onchange=function(){
+		var this_usr=oParent.value;
+		if(this_usr!=''){
+			var url = 'admin.php?a=pool&u='+this_usr;
+		}else{
+			var url = 'admin.php?a=pool';
+		}
+	n(url);	
+		window.location=url;
+	}
+}
 </script>
