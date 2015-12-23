@@ -37,6 +37,9 @@ function print_links($links){
 			array('http://www.w3school.com.cn/','w3school'),
 			array('http://miostudio.sinaapp.com/','mySinaapp'),
 			array('http://php.net/','PHP'),
+			array('http://www.sqlite.org/','sqlite'),
+			array('https://openresty.org/download/agentzh-nginx-tutorials-zhcn.html','Nginx教程(版本2015.03.19)'),
+			//  
 			array('http://aibusy.com/blog/?p=226','Sublime插件'),
 			array('http://www.uimaker.com/member/reg_new.php','UI制造者'),
 			array('http://bonsaiden.github.io/JavaScript-Garden/zh/#function.closures','js秘密花园'),

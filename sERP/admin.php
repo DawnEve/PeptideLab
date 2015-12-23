@@ -18,7 +18,7 @@ if($worker['group']!=1){
 //高级菜单项目
 echo ' | <a href="admin.php?a=sign">签到汇总</a>';
 echo ' | <a href="admin.php?a=fee">花费汇总</a>';
-echo ' | <a href="admin.php?a=usr">管理用户</a>';
+echo ' | <a href="admin.php?a=usr">用户管理</a>';
 echo ' | 管理员[ ' . $worker['usr'] .' ]已登陆';
 echo ' | <a href="index.php?a=logout">退出</a>';
 

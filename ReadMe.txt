@@ -82,4 +82,80 @@ cd existing_git_repo
 git remote add origin https://git.oschina.net/dawnEve/PeptideLab.git
 git push -u origin master
 
+----------------------------------------------
+为主机配备多个域名解析
 
+1.
+erp.dawnEve.cc解析ERP文件夹：sERP
+weixin.dawnEve.cc解析微信文件夹：weixin
+dawnEve.cc解析电影文件夹：film
+
+peptide.xyz解析多肽管理项目:peptide
+
+
+由innerForum.tk兜底，解析主域名。
+-------------
+
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/"
+    ServerName localhost
+	ServerAlias localhost
+    ErrorLog "logs/localhost-error.log"
+    CustomLog "logs/localhost-access.log" common
+</VirtualHost>
+
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/sERP"
+    ServerName erp.dawnEve.cc
+	ServerAlias erp.dawnEve.cc
+    ErrorLog "logs/dawnEve.cc-erp-error.log"
+    CustomLog "logs/dawnEve.cc-erp-access.log" common
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/weixin"
+    ServerName weixin.dawnEve.cc
+    ErrorLog "logs/dawnEve.cc-weixin-error.log"
+    CustomLog "logs/dawnEve.cc-weixin-access.log" common
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/film"
+    ServerName dawnEve.cc
+	ServerAlias www.dawnEve.cc, dawnEve.cc, *.dawnEve.cc
+    ErrorLog "logs/dawnEve.cc-film-error.log"
+    CustomLog "logs/dawnEve.cc-film-access.log" common
+</VirtualHost>
+
+
+
+
+
+
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/peptide"
+    ServerName peptide.xyz
+	ServerAlias peptide.xyz, www.peptide.xyz
+    ErrorLog "logs/peptide.xyz-error.log"
+    CustomLog "logs/peptide.xyz-access.log" common
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/"
+    ServerName innerforum.tk
+	ServerAlias innerforum.tk,www.innerforum.tk
+    ErrorLog "logs/innerforum.tk-error.log"
+    CustomLog "logs/innerforum.tk-access.log" common
+</VirtualHost>
+
+----------------------------------------------

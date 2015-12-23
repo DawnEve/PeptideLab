@@ -5,9 +5,9 @@
 
 
 <div class=box>
-	<h1>用户签到表 <span id=curent></span></h1>
+	<h1>用户签到表</h1>
 	<div class='info'>
-		请选择时间
+		请选择日期
 		<select id=year>
 			<!--option value=2015>2015</option-->
 		</select>
@@ -29,6 +29,8 @@
 	</div>
 	
 	<div class='info'>
+		<b>日期:</b>
+		<span id=curent></span>
 		<table id='signTable'  border='1'>
 		</table>
 	</div>
@@ -37,7 +39,7 @@
 
 <style>
 .info{margin:10px 0;}
-.info select{width:100px;}
+.info select{width:60px;}
 
 /*
 http://www.laozuo.org/4631.html
