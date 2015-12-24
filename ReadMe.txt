@@ -82,6 +82,9 @@ cd existing_git_repo
 git remote add origin https://git.oschina.net/dawnEve/PeptideLab.git
 git push -u origin master
 
+
+
+==============================================
 ----------------------------------------------
 为主机配备多个域名解析
 

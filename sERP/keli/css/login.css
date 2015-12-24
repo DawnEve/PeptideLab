@@ -1,0 +1,121 @@
+/* 
+* @Author: anchen
+* @Date:   2015-12-15 18:00:50
+* @Last Modified by:   anchen
+* @Last Modified time: 2015-12-17 19:14:26
+*/
+/*先定义全局的css*/
+body{
+    margin:0 auto;
+    text-align:center;
+    background-color:#EEF3FA;
+    font-size:14px; 
+    font-family:"宋体";
+}
+div,ol,ul,li,h1,h2,h3,h4,h5,h6,p,form,fieldset,legend,input{ margin:0px; padding:0px;}
+ol,ul{ list-style:none;}
+img{ border:0 none;margin:0px; padding:0px;display:block;}
+
+/*背景图层*/
+.bg_tu{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index:-1;
+}
+.bg_tu > img {
+    height:100%;
+    width:100%;
+    border:0;
+}
+/**
+ * header
+ */
+.header{   
+    height:75px;
+    background:url(../images/head.png) ;
+    background-repeat: repeat-x ;
+}
+.logo{float: left;padding-left: 20%;padding-top: 10px;}
+.logo_1{float: left;padding-top:33px;padding-left:10px;}
+
+ /*表单*/
+.login_form{
+    position: absolute; top:50%; left:50%; margin-top:-260px; margin-left: -300px; padding: 30px; width:600px; height:400px;
+    background:url(../images/1.png);
+    border-radius: 10px;
+}
+.login_box .form-control {
+    display: inline-block;
+    font-size: 18px;
+    width: auto;
+}
+
+.login_form {padding-top: 70px; font-size: 16px;font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
+.form-control {display: inline-block; *display: inline; zoom: 1; width: auto; font-size: 18px;}
+.form-control.x319 {width: 319px;}
+.form-control.x164 {width: 164px;display: inline-block;float: left;}
+.form-group {margin-bottom: 40px;}
+.form-group label.t {float: left;margin-top:15px;width: 120px;  cursor: pointer;}
+.form-group.space {padding-top: 15px;padding-right:200px; border-top: 1px #FFF dotted;}
+.form-group img {vertical-align:middle;margin-top: 1px; height: 32px; vertical-align: top;}
+.m {cursor: pointer;}
+.k{float:left;}
+.bottom {text-align: center; font-size: 12px;}
+.btn-lg, .btn-group-lg > .btn {
+    border-radius: 6px;
+    font-size: 18px;
+    line-height: 1.33;
+    padding: 10px 16px;
+}
+
+.btn-primary {
+    background-color: #428bca;
+    border-color: #357ebd;
+    color: #fff;}
+
+
+.btn-lg, .btn-group-lg > .btn {
+    border-radius: 6px;
+    font-size: 18px;
+    line-height: 1.33;
+    padding: 10px 16px;
+}
+.btn-primary {
+    background-color: #428bca;
+    border-color: #357ebd;
+    color: #fff;
+}
+.btn {
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}

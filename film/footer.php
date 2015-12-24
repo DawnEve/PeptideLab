@@ -65,6 +65,7 @@ function print_links($links){
 			array('http://www.cnblogs.com/ljchow/archive/2010/06/09/1754352.html','js动画原理'),
 			array('http://www.blogdaren.com/','php博客花园'),
 			array('http://gaodc.com/','8年php高东臣博客'),
+			array('http://www.shouce.ren/api/index','在线手册下载'),
 		);
 		echo '<br />友情链接[IT]: ', print_links($links_IT);
 		
