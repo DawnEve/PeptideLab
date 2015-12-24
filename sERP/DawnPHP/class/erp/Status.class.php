@@ -46,7 +46,9 @@ class Status{
 	}
 	
 	
-	//列出这个人的状态
+	/**
+		列出这个人的状态
+	*/
 	static function mylist($usr,$date=''){
 		if($date==''){
 			$date=date('Ymd',time());
@@ -84,6 +86,29 @@ class Status{
 		}else{
 			return array(0,mysql_error());
 		}
+	}
+	
+	
+	/**
+		列出这个人的状态
+	*/
+	function listByDate($date=''){
+		if($date==''){
+			$date=date('Ymd',time());
+		}
+		
+		//如果仅仅是检查
+		$sql='select * from status where date="%s" order by usr, add_time;';
+		$sql=sprintf($sql,
+			mysql_real_escape_string($date,$GLOBALS['DB'])
+		);
+		$result=mysql_query($sql,$GLOBALS['DB']);
+		$arr=array();
+		while($row=mysql_fetch_assoc($result)){
+			$row['add_time']=date('Y-m-d H:i:s',$row['add_time']);
+			$arr[]=$row;
+		}
+		return $arr;
 	}
 }
 

@@ -16,9 +16,9 @@ if($worker['group']!=1){
 	die('Invalid visit! Not administrator.');
 }
 //高级菜单项目
-echo ' | <a href="admin.php?a=sign">签到</a>';
-echo ' | <a href="admin.php?a=pool">花费</a>';
-echo ' | <a href="admin.php?a=usr">管理用户</a>';
+echo ' | <a href="admin.php?a=sign">签到汇总</a>';
+echo ' | <a href="admin.php?a=fee">花费汇总</a>';
+echo ' | <a href="admin.php?a=usr">用户管理</a>';
 echo ' | 管理员[ ' . $worker['usr'] .' ]已登陆';
 echo ' | <a href="index.php?a=logout">退出</a>';
 
@@ -35,7 +35,9 @@ use erp\Money;
 //员工登陆过
 $action=Dawn::get('a','');
 if(isset($_SESSION['uid'])){
-	//如果是post提交
+	/**
+		如果是post提交，则执行数据增删改查
+	*/
 	if(isset($_POST['send'])){
 		switch($action){
 			case 'addUsr'://添加用户控制器
@@ -75,6 +77,9 @@ if(isset($_SESSION['uid'])){
 				break;
 		}
 	}else{
+		/**
+			如果是不是post提交，则执行显示
+		*/
 		//获取所有用户的信息
 		$u=new Worker();
 		$data=json_encode( $u->mylist() );
@@ -87,18 +92,16 @@ if(isset($_SESSION['uid'])){
 		//签到汇总
 		if($action=='sign'){
 			//签到汇总
-			
 			echo '签到汇总';
-			
+			Dawn::view('adminSign');
 		}
 		//用户管理
 		if($action=='usr'){
 			echo 'usr admin';
-			
 			Dawn::view('adminUsr');
 		}
 		//数据汇总
-		if($action=='pool'){
+		if($action=='fee'){
 			//列出所有用户，指定时间段
 			Dawn::view('detail_select');
 			//如果没有指定用户
@@ -110,15 +113,12 @@ if(isset($_SESSION['uid'])){
 				$list = $m->detail($usr);
 			}
 			
-			//加载模型
+			//加载视图
 			$list = json_encode($list);
 			Dawn::view('detail');
 			echo "<script type='text/javascript'>var usr='$usr', data = getJson('$list');</script>";
 			exit();
 		}
-		
-		
-		
 	}
 }
 			

@@ -87,7 +87,7 @@ class Money{
 			$sql='select * from money order by usr,add_time, category;';
 		}else{
 		//调取usr的花费
-			$sql='select * from money where usr="%s" order by usr,add_time, category;';
+			$sql='select * from money where usr="%s" order by usr, add_time, category;';
 			$sql=sprintf($sql,
 			mysql_real_escape_string($usr,$GLOBALS['DB']));
 		}

@@ -75,17 +75,46 @@ insert into money(usr,sid,fee,add_time,category) values('wjl',11,100,1450672358,
 	
 	前台基本够用。
 	
-	[3]后台汇总计算金额，按照用户汇总金额；增加了activeRecord类class/db/activeRecord.class.php
-	
+	[3]后台汇总计算金额，按照用户汇总金额；增加了activeRecord类class/db/activeRecord.class.php【不过不会用。】
+		- [1] 汇总金额的排序需要优化。一个人的应该是先日期，再类别。
+			select * from money where usr="wjl" order by usr, add_time, category;
+		
+		
 	<tips>注意 group是mysql保留字，字段中使用需要加`顶层数字键最左端`的符号。
 	update worker set group=2 where usr='wjl';
 	
-	[4] 增加了模板引擎类，TPL类class/tpl.class.php
-	不过不会用模板引擎。
+	[4]	可以浏览用户。
+	增加了模板引擎类，TPL类class/tpl.class.php【不过不会用模板引擎。】
 	目前用的是js传值，先把php的json字符串打印到js中，再用js解析成对象，再组装dom到文件中。
 	
-	可以浏览用户。
 	[5] 删除用户。因为太关键，所以做了两次js确认。
 		- [1] 不能删除自己
-	[6] 增加用户。
+	[6] 增加用户。如果有该用户，则提示。
+	[7] 按照日期汇总签到。
+		事件绑定：myAddEvent(window,'load',myCalendar);
+
+	[9]--后台 修改用户信息。
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	------------------------------------------------
+	浅谈Javascript中Promise对象的实现
+	http://segmentfault.com/a/1190000000684654
+
+	原生js加载器，支持AMD规范和普通加载
+	http://www.oschina.net/code/snippet_100995_11481
+	
+	最简单版弹出层对话框，弹出层基本模型！
+	http://www.oschina.net/code/snippet_100995_11458
+	
+	
+	
 	
