@@ -91,11 +91,14 @@ http://www.kancloud.cn/manual/thinkphp/1687
 		遵循框架的命名规范和目录规范；
 		开发过程中尽量开启调试模式，及早发现问题；
 		多看看日志文件，查找隐患问题；
+			--日志文件的位置：F:\xampp\htdocs\think\Runtime\Logs\Home
 		养成使用I函数获取输入变量的好习惯；
 		更新或者环境改变后遇到问题首要问题是清空Runtime目录；
 
 		F:\xampp\htdocs\think\Apps\myClass\curl函数
 
+		
+		
 ===========================
 配置
 ===========================
@@ -133,5 +136,51 @@ http://www.kancloud.cn/manual/thinkphp/1687
 	http://tp.dawneve.cc/home/user/login/var/value
 
 # 多层MVC
-
 http://www.kancloud.cn/manual/thinkphp/1698
+	默认的模型层是Model，我们也可以更改设置，例如
+	对模型层的分层划分是很灵活的，开发人员可以根据项目的需要自由定义和增加模型分层，
+
+	视图（View）层：
+		-- 视图层由模板和模板引擎组成，在模板中可以直接使用PHP代码
+		-- 默认的视图层是View目录，我们可以调整设置如下：
+			'DEFAULT_V_LAYER'       =>  'Mobile', // 默认的视图层名称更改为Mobile
+			视图的位置：
+				UserController->read
+				模板存在:./Apps/Home/View/User/read.html
+
+	控制器（Controller）层
+		访问控制器 Home/Controller/UserController.class.php 定义如下：
+		
+		事件控制器 Home/Event/UserEvent.class.php 定义如下：
+		而 UserEvent负责内部的事件响应，并且只能在内部调用：
+		http://www.kancloud.cn/manual/thinkphp/1698
+			Home\Event\UserEvent Object
+				//实例化一个UserEvent对象。只能内部调用。
+				$a=A('User','Event');
+				$a->hi();
+				echo '<pre>';
+				print_r($a);
+				
+		用户只需要定义视图，在没有C的情况下也能自动识别。??????
+			http://tp.dawneve.cc/index.php?c=blog&a=list		
+				
+# CBD模式
+	ThinkPHP引入了全新的CBD（核心Core+行为Behavior+驱动Driver）架构模式
+	而标签位置类似于AOP概念中的“切面”，行为都是围绕这个“切面”来进行编程。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
