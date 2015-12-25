@@ -72,4 +72,13 @@ class Dawn{
 		//echo 'logout';
 	}
 	
+	/**
+		显示回退按钮
+	*/
+	static function showBackBtn($words='后退'){
+		echo ' <a href="javascript:window.history.back();">'. $words .'</a> ';
+	
+	} 
+	
+	
 }

@@ -90,6 +90,7 @@ insert into money(usr,sid,fee,add_time,category) values('wjl',11,100,1450672358,
 	[5] 删除用户。因为太关键，所以做了两次js确认。
 		- [1] 不能删除自己
 	[6] 增加用户。如果有该用户，则提示。
+		- [1] 如果用户为空，则直接返回错误。
 	[7] 按照日期汇总签到。
 		事件绑定：myAddEvent(window,'load',myCalendar);
 

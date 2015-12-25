@@ -42,7 +42,12 @@ if(isset($_SESSION['uid'])){
 		switch($action){
 			case 'addUsr'://添加用户控制器
 				$info=$_POST;
-				//debug($info);
+				//debug($info['usr']=='');
+				if(trim($info['usr'])==''){
+					echo '<b style="color:red">错误:请填写用户名!</b>';
+					Dawn::showBackBtn('回退');
+					exit();
+				}
 				$w=new Worker();
 				$result=$w->add($info);
 				
