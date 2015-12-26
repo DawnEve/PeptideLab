@@ -72,4 +72,26 @@ class Dawn{
 		//echo 'logout';
 	}
 	
+	/**
+		显示回退按钮
+	*/
+	static function showBackBtn($words='后退'){
+		echo ' <a href="javascript:window.history.back();">'. $words .'</a> ';
+	
+	}
+ 	/**
+		显示回到首页按钮
+	*/
+	static function goToIndex($words='回到首页'){
+		echo ' <a href="index.php">'. $words .'</a> ';
+	}
+	
+	/**
+		显示回到后台首页按钮
+	*/
+	static function goToAdmin($words='回到后台首页'){
+		echo ' <a href="admin.php">'. $words .'</a> ';
+	} 
+	
+	
 }

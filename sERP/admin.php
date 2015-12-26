@@ -42,7 +42,12 @@ if(isset($_SESSION['uid'])){
 		switch($action){
 			case 'addUsr'://添加用户控制器
 				$info=$_POST;
-				//debug($info);
+				//debug($info['usr']=='');
+				if(trim($info['usr'])==''){
+					echo '<b style="color:red">错误:请填写用户名!</b>';
+					Dawn::showBackBtn('回退');
+					exit();
+				}
 				$w=new Worker();
 				$result=$w->add($info);
 				
@@ -70,6 +75,18 @@ if(isset($_SESSION['uid'])){
 					die($result[1]); 
 				}
 				echo $result[1];
+				break;
+			case 'updateUsr'://更新用户控制器
+				$data=$_POST;
+				$result=Worker::update($data);
+					//debug($result);
+				//显示结果信息
+				if($result[0]==0){
+					echo '更新失败：';
+					die($result[1]); 
+				}
+				echo $result[1] . ' 用户信息修改成功！';				
+				echo ' <a href="admin.php?a=usr">返回</a> ';
 				break;
 			default: //默认排错控制器
 				MyDebug::p($_GET);
@@ -121,7 +138,4 @@ if(isset($_SESSION['uid'])){
 		}
 	}
 }
-			
-			
-
 ?>

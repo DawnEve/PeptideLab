@@ -1,2 +1,10 @@
-MVC结构，其实就是三个Model,Contraller,View单词的简称,，Model，主要任务就是把数据库或者其他文件系统的数据按 照我们需要的方式读取出来。View，主要负责页面的，把数据以html的形式显示给用户。Controller，主要负责业务逻辑，根据用户的 Request进行请求的分配，比如说显示登陆界面，就需要调用一个控制器userController的方法loginAction来显示。
+MVC结构，其实就是三个Model,Contraller,View单词的简称,
+
+Model，主要任务就是把数据库或者其他文件系统的数据按照我们需要的方式读取出来。
+
+View，主要负责页面的，把数据以html的形式显示给用户。
+
+Controller，主要负责业务逻辑，根据用户的Request进行请求的分配，比如说显示登陆界面，就需要调用一个控制器userController的方法loginAction来显示。
+
+
 

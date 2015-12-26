@@ -23,8 +23,6 @@ if( Status::check($worker['usr']) ){
 		//
 		Dawn::view('money');
 	}
-	
-
 }else{
 //2.如果没有签到，则显示签到页面
 	Dawn::view('qiandao');

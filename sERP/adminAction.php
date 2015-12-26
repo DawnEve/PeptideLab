@@ -20,6 +20,16 @@ if(isset($_POST['send'])){
 			$s=new Status();
 			$data=json_encode( $s->listByDate($date) );
 			echo $data;
+			exit();
+		case 'getOneUsr'://返回ajax请求数据：获得用户名
+			//获取数据
+			$info=$_POST;
+			$usr=$info['usr'];
+			//请求数据
+			$data=json_encode( Worker::mylist($usr) );
+
+			echo $data;
+			exit();
 	}
 }				
 ?>

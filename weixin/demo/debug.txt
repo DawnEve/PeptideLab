@@ -832,3 +832,30 @@ SimpleXMLElement Object
 
 
 ===========================
+
+===========================
+2015-12-26 11-02-21
+----------------------------
+SimpleXMLElement Object
+(
+    [0] => text
+)
+
+
+===========================
+
+===========================
+2015-12-26 11-02-21
+----------------------------
+SimpleXMLElement Object
+(
+    [ToUserName] => gh_601f7cea9197
+    [FromUserName] => oLVn7vkJEZgmpSI6qgxUKYvbTcCo
+    [CreateTime] => 1451098838
+    [MsgType] => text
+    [Content] => 123edf
+    [MsgId] => 6232422052874749124
+)
+
+
+===========================

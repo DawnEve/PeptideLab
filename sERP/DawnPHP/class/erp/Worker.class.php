@@ -47,9 +47,13 @@ class Worker{
 	}
 	
 	//列出所有人员的信息
-	static function mylist(){
-		$sql='select * from worker order by `group` DESC, add_time';
-		
+	static function mylist($usr=''){
+		if(''==$usr){
+			$sql='select * from worker order by `group` DESC, add_time';
+		}else{
+			$sql='select * from worker where usr="'. $usr .'" order by `group` DESC, add_time';
+		}
+
 		$result=mysql_query($sql,$GLOBALS['DB']);
 		$arr=array();
 		if($result){
@@ -98,6 +102,38 @@ class Worker{
 			return array(0,mysql_error());
 		}
 	}
+	//更新用户信息
+	function update($info){
+		//插入新记录
+		//如果密码为空，则放弃修改密码，否则修改密码
+		if(''==trim($info['psw'])){
+			$query=sprintf('update worker set phone="%s",QQ="%s",email="%s",`group`="%s" where usr="%s";',
+				mysql_real_escape_string($info['phone'],$GLOBALS['DB']),
+				mysql_real_escape_string($info['QQ'],$GLOBALS['DB']),
+				mysql_real_escape_string($info['email'],$GLOBALS['DB']),
+				mysql_real_escape_string($info['group'],$GLOBALS['DB']),
+				mysql_real_escape_string($info['usr'],$GLOBALS['DB'])
+			);
+		}else{
+			$query=sprintf('update worker set psw="%s",phone="%s",QQ="%s",email="%s",`group`="%s" where usr="%s";',
+				sha1($info['psw']),
+				mysql_real_escape_string($info['phone'],$GLOBALS['DB']),
+				mysql_real_escape_string($info['QQ'],$GLOBALS['DB']),
+				mysql_real_escape_string($info['email'],$GLOBALS['DB']),
+				mysql_real_escape_string($info['group'],$GLOBALS['DB']),
+				mysql_real_escape_string($info['usr'],$GLOBALS['DB'])
+			);
+		}
+		$result=mysql_query($query,$GLOBALS['DB']);
+
+		//if(mysql_affected_rows()>0){ 如果没有更新，则会返回影响0条，以为失败，其实是成功的。
+		if($result){
+			//return array(1,mysql_insert_id());
+			return array(1, $info['usr']);
+		}else{
+			return array(0,mysql_error($GLOBALS['DB']));
+		}
+	}
 	
 	//增加用户
 	function add($info){
@@ -106,7 +142,6 @@ class Worker{
 			return array(0,'该用户已经存在！');
 		};
 		
-	
 		//插入新记录
 		$query=sprintf('insert into worker(usr,psw,add_time,phone,QQ,email,`group`) values("%s","%s","%s","%s","%s","%s","%s");',
 			mysql_real_escape_string($info['usr'],$GLOBALS['DB']),

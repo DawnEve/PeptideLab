@@ -1,4 +1,5 @@
 <script type="text/javascript" src="public/js/common.js"></script>
+<script type="text/javascript" src="public/js/ajaxObjPrototype.js"></script>
 <link rel="stylesheet" type="text/css" href="public/css/main.css">
 
 <div class=box>
@@ -110,7 +111,7 @@ function initSelect(){
 		//用户信息
 		var usr=obj['usr'];
 		var usrDom="<a href='admin.php?a=fee&u="+usr+"' target='_blank'>"+usr+"</a>";
-		oTr.innerHTML='<td>'+ usrDom+'</td>	<td>'+obj['add_time']+'</td>	<td>'+obj['phone']+'</td>	<td>'+obj['QQ']+'</td>	<td>'+obj['email']+'</td>	<td>'+ groupName +'</td>	<td><a href="javascript:delUsr(\''+usr+'\')">删除</a></td>';
+		oTr.innerHTML='<td>'+ usrDom+'</td>	<td>'+obj['add_time']+'</td>	<td>'+obj['phone']+'</td>	<td>'+obj['QQ']+'</td>	<td>'+obj['email']+'</td>	<td>'+ groupName +'</td>	<td><a href="javascript:editUsr(\''+usr+'\')">修改</a> | <a href="javascript:delUsr(\''+usr+'\')">删除</a></td>';
 
 		return oTr;
 	
@@ -120,5 +121,55 @@ function initSelect(){
 		var usr=oParent.value;
 		location = 'admin.php?a=fee&u='+usr;
 	}
+}
+
+//修改用户信息
+function editUsr(usr){
+	//修改用户的列表
+	//alert('要修改用户信息: ' + usr);
+	var ajax=new Ajax();
+	var url='adminAction.php?a=getOneUsr';
+	var para='&usr='+usr+'&send=获取用户信息';
+	ajax.post(url, para, function(data){
+	
+	
+		//n(data);return;
+	
+		//从后台获取数据
+		 json=getJson(data)[0];
+		//1.1从前台添加数据，修改视图
+		document.getElementsByTagName('h1')[1].innerHTML='<b style="color:red">编辑用户信息</b>';
+		//1.2修改类别
+		 form=window.document.forms[0];
+		form.setAttribute('action','admin.php?a=updateUsr');
+		var o=form.group.options;
+		for(var i=0;i<o.length;i++){
+			if(o[i].value==json['group']){
+				o[i].setAttribute('selected','selected');
+			}
+		}
+		//1.3修改用户名
+		form.usr.value=json['usr'];
+		form.usr.readOnly =true;//不允许修改用户ID
+		form.usr.style.color='grey';
+		form.psw.setAttribute('placeholder','如果不想修改密码，请留空');
+		//1.4修改手机号/QQ/Email
+		form.phone.value=json['phone'];
+		form.QQ.value=json['QQ'];
+		form.email.value=json['email'];
+		//1.5修改按钮文字
+		form.send.value='提交修改';
+		//1.6 取消修改按钮
+		if(form.cancel==undefined){
+			var oReset=document.createElement('input');
+			oReset.setAttribute('name','cancel');
+			oReset.setAttribute('type','reset');
+			oReset.setAttribute('value','放弃修改');
+			oReset.onclick=function(){
+				location=location;
+			}
+			form.appendChild(oReset);
+		}
+	});
 }
 </script>
