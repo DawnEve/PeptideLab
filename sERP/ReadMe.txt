@@ -94,7 +94,9 @@ insert into money(usr,sid,fee,add_time,category) values('wjl',11,100,1450672358,
 	[7] 按照日期汇总签到。
 		事件绑定：myAddEvent(window,'load',myCalendar);
 
-	[9]--后台 修改用户信息。
+	[9] 后台 修改用户信息。不能修改用户名，这是id。
+		如果密码为空，则不改变密码。
+		[bug]//todo//checkFormAddUsr(this) 函数不存在。
 	
 	
 
@@ -115,6 +117,23 @@ insert into money(usr,sid,fee,add_time,category) values('wjl',11,100,1450672358,
 	
 	最简单版弹出层对话框，弹出层基本模型！
 	http://www.oschina.net/code/snippet_100995_11458
+	
+	
+	===============================================
+	屏幕录像软件：
+	http://www.chinaz.com/free/2011/1228/228963.shtml
+	
+	屏幕录像截图工具Bandicam
+	http://www.bandicam.com/cn/downloads/
+	http://www.bandicam.com/cn/downloads/ing/
+	
+	屏幕录像软件：Windows Media Encoder, 还可以搭建mms广播及直播，微软出品，免费
+	--------------
+	FastStone Capture 录屏
+	Boilsoft Video Joiner 合并
+	SolveigMM Video Splitter 分割
+	Wondershare HD Video Converter 转码
+	--------------
 	
 	
 	
