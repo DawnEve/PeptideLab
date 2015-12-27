@@ -1,0 +1,122 @@
+未解决问题：
+如何设置局域网虚拟域名？谁给个建议。
+修改每个用户的hosts文件的方法就算了，虽然理论上可行，但是很不方便。
+
+解决的问题：
+===============================================
+1.一台主机对应多个域名，怎么分别映射到不同文件夹？
+2.同一个域名不同的子域名，怎么分别映射到不同的文件夹？
+3.同一个主机，如何设置多个虚拟域名（就是想用于调试，但是并没有买该域名，比如xxx.com），且指向不同文件夹？
+4.同一个局域网内，如何设置虚拟域名？【没解决】
+===============================================
+
+
+
+一、修改apache
+1.1 修改httpd.conf
+　　打开Apache的目录，找到httpd.conf文件，分别去掉下面两行文字前面的#号。
+
+ #LoadModule vhost_alias_module modules/mod_vhost_alias.s
+ #Include conf/extra/httpd-vhosts.conf
+
+
+
+1.2 修改httpd-vhosts.conf
+文件位置：C:\xampp\apache\conf\extra\httpd-vhosts.conf
+
+打开该文件，看到以下类似内容。虚拟主机的配置也是参照以下内容配置。
+
+ServerAdmin 管理员邮箱
+DocumentRoot 网站目录 （注意：如果网站目录中的路径有空格，请在路径两端加上双引号）
+ServerName 要绑定的域名（必填）
+
+
+
+一个例子：
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/"
+    ServerName localhost
+	ServerAlias localhost
+    ErrorLog "logs/localhost-error.log"
+    CustomLog "logs/localhost-access.log" common
+</VirtualHost>
+
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/sERP"
+    ServerName erp.dawnEve.cc
+	ServerAlias erp.dawnEve.cc
+    ErrorLog "logs/dawnEve.cc-erp-error.log"
+    CustomLog "logs/dawnEve.cc-erp-access.log" common
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/weixin"
+    ServerName weixin.dawnEve.cc
+    ErrorLog "logs/dawnEve.cc-weixin-error.log"
+    CustomLog "logs/dawnEve.cc-weixin-access.log" common
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin JimmyMall@live.com
+    DocumentRoot "F:/xampp/htdocs/film"
+    ServerName dawnEve.cc
+	ServerAlias www.dawnEve.cc, dawnEve.cc, *.dawnEve.cc
+    ErrorLog "logs/dawnEve.cc-film-error.log"
+    CustomLog "logs/dawnEve.cc-film-access.log" common
+</VirtualHost>
+
+
+
+
+
+
+二、如果是本机虚拟域名，还需要修改本机dns文件hostname
+“c:\windows\system32\drivers\etc\hosts” 
+hosts文件所在文件夹："c:\windows\system32\drivers\etc" 
+
+在末尾添加：
+127.0.0.1 aa.tp.com
+127.0.0.1 tp.com
+127.0.0.1 *.tp.com
+
+
+注意：
+1.apache是从上向下匹配的，所以把最详细的域名放到上面；
+2.所有配置需要重启apache才能生效；
+
+
+
+======================================
+修改XAMPP的默认启动文件夹。
+
+正确安装好XAMPP后，默认是必须将php程序放到 xampp\htdocs文件夹下才能运行，如果把主目录修改到 D: 盘 www 文件夹
+
+1、打开文件xampp\apache\conf\httpd.conf
+C:\xampp\apache\conf
+
+2、文件中找到DocumentRoot "D:/xampp/htdocs"和<Directory "D:/xampp/htdocs">;
+3、修改为DocumentRoot "D:/www"和<Directory "D:/www">;
+
+# DocumentRoot "C:/xampp/htdocs"
+DocumentRoot "D:\web"
+
+#<Directory "C:/xampp/htdocs">
+<Directory "D:\web">
+
+
+4、在 D 盘新建一个 www 文件夹，重启apache
+
+http://zhidao.baidu.com/link?url=QzNvQ0ZYVtJEdtmtAgclMsHhPPfCVG_ymJ0AtOMrA8Ah_zmLGlE5uxaMDbNwyCyUzpRNundxIlkrVEdcOkSixq
+
+
+
+
+---------------------------------------------------------------
+http://www.cnblogs.com/BTMaster/p/3583588.html
+http://www.2cto.com/os/201506/408323.html

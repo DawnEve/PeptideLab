@@ -1,29 +1,9 @@
 
---------------------------------
-»ùÓÚphpµÄÑ§ÉúÈí¼þ¿ª·¢¿Î³ÌÊµÑµÏîÄ¿½ø¶È¹ÜÀíÏµÍ³
-°üº¬£º¶Ô½ø¶ÈÐÅÏ¢¡¢ÏîÄ¿¡¢Ñ§ÉúÐÅÏ¢½øÐÐ¹ÜÀí¡£
 
-
-Ã²ËÆ²»ÒªÇó½çÃæ ¼ò¼òµ¥µ¥µÄ½çÃæ¾ÍºÃ
-
-1.¹æ»®½×¶Î£º¿ª·¢¼Æ»®¡¢ÖÊÁ¿¼Æ»®¡¢²âÊÔ¼Æ»®  
-
-2.¸ÅÒªÉè¼Æ½×¶Î£ºÐèÇó·ÖÎö¡¢¸ÅÒªÉè¼Æ  
-	 ÐèÒª²úÉúÊ²Ã´ÎÄµµ£¬ÓÃµ½Ê²Ã´¹¤¾ß£¿
-3.ÏêÏ¸Éè¼Æ½×¶Î£ºÏêÏ¸Éè¼Æ¡¢²¿·Ö±àÂë  
-4.±àÂë²âÊÔ½×¶Î£º±àÂë¡¢²âÊÔ¼°±¨¸æ 
-5.Íê³É½×¶Î£º²Ù×÷ÊÖ²á¡¢ÓÃ»§ÊÖ²á¡¢Î¬»¤ËµÃ÷   
-
-
-Ö÷ÒªÄÜÊµÏÖÒªÇóµÄÄÇÐ©»ù±¾¹¦ÄÜ¾Í¿ÉÒÔÁË
-
-µÇÂ¼ÒªÇó2ÖÖµÇÂ¼  Ñ§Éú ºÍ¹ÜÀíÔ± Ñ§Éú¿ÉÒÔ¿´µ½È«²¿ÈËÔ±ÐÅÏ¢µ«ÊÇÖ»ÄÜÐÞ¸Ä×Ô¼ºµÄÐÅÏ¢ ¹ÜÀíÔ±ÊÇÈ«²¿ÄÜÐÞ¸Ä
-
-È»ºóÍøÕ¾ÖÁÉÙÒª·Ö4¸öÄ£¿é
-
-ÒªÀí½âmvc¾ßÌå¸ÉÂï£¬ÏÖÔÚ´ó²¿·ÖµÄ¿ò¼Ü¶¼ÊÇ»ùÓÚmvc
 2015-12-23 23:07:10
-mÖ÷Òª¶ÔÊý¾Ý¿â²Ù×÷£¬Ò²¶àÓÃÓÚ´¦Àí½Ó¿Ú£¬c¿ØÖÆÆ÷£¬¿ØÖÆÂß¼­£¬½²v·µ»ØµÄÊý¾Ý×öÂß¼­ÅÐ¶Ï£¬È¥µ÷ÓÃm
+mÖ÷Òª¶ÔÊý¾Ý¿â²Ù×÷£¬Ò²¶àÓÃÓÚ´¦Àí½Ó¿Ú£¬
+c¿ØÖÆÆ÷£¬¿ØÖÆÂß¼­£¬½«v·µ»ØµÄÊý¾Ý×öÂß¼­ÅÐ¶Ï£¬È¥µ÷ÓÃm
+
 
 
 --------------------------------
@@ -32,6 +12,8 @@ mÖ÷Òª¶ÔÊý¾Ý¿â²Ù×÷£¬Ò²¶àÓÃÓÚ´¦Àí½Ó¿Ú£¬c¿ØÖÆÆ÷£¬¿ØÖÆÂß¼­£¬½²v·µ»ØµÄÊý¾Ý×öÂß¼­ÅÐ¶Ï£
 
 ¹Ù·½ÎÄµµ£ºhttp://document.thinkphp.cn/manual_3_2.html
 ¿´ÔÆÎÄµµ£ºhttp://www.kancloud.cn/manual/thinkphp/1682
+
+¿ìËÙÈëÃÅ£ºhttp://www.kancloud.cn/thinkphp/thinkphp_quickstart
 
 ===========================
 »ù´¡
@@ -177,7 +159,17 @@ http://www.kancloud.cn/manual/thinkphp/1698
 
 
 
-
+	//-----------------------------------
+	call_user_func(array(&$o, $method));
+	http://tieba.baidu.com/p/4231187056?pid=81178002953
+	//-----------------------------------
+	Ð´ÈëÎÄ¼þÊ±ÔõÃ´ÉèÖÃ±àÂë¸ñÊ½£¿
+	//$fp = @fopen("Log.html", "w"); //¼ÇÂ¼²¶»ñµ½µÄÒ³ÃæÔ´Âë
+	$fp = @fopen("Log.html", "w, ccs=<utf-8>");//±£³Öutf-8¸ñÊ½
+	
+	fwrite($fp,'some text here'); 
+	fclose($fp);
+	//-----------------------------------
 
 
 
