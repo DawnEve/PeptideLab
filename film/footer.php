@@ -2,13 +2,13 @@
 <div class="footer">
 <div class="wrap">
 	<div class='copyright'>
-		Copyright © 2001-2015 bioMOOC, All Rights Reserved. <a href='index.php'>生物慕课网</a> 版权所有
+		Copyright © 2001-2015 xxMooc, All Rights Reserved. <a href='index.php'>某某慕课网</a> 版权所有
 	</div>
 	
 	<div class=anounce>
 		<b>欢迎监督和反馈：</b><br>
-	生物慕课Bio MOOC（biology massive open online courses）仅提供交流平台。<br>
-	欢迎协助我们监督管理，共同维护互联网健康，如果您对网站上面的内容有异议，请立即发邮件到 bioMOOC@163.com 联系通知管理员，也可以通过QQ周知，我们的QQ号为: 123456789 <br>
+	某某慕课xxMOOC（xx massive open online courses）仅提供交流平台。<br>
+	欢迎协助我们监督管理，共同维护互联网健康，如果您对网站上面的内容有异议，请立即发邮件到 xxMooc@163.com 联系通知管理员，也可以通过QQ周知，我们的QQ号为: 123456789 <br>
 	我们保证在1个工作日内给予处理和答复，谢谢您的监督。
 	</div>
 	
@@ -70,12 +70,12 @@ function print_links($links){
 		echo '<br />友情链接[IT]: ', print_links($links_IT);
 		
 		
-		//生物技术类===========================
+		//某某技术类===========================
 		$links=array(
 			array('http://emuch.net/','小木虫'),
 			array('http://www.dxy.cn/','丁香园'),
 		);
-		echo '<br />友情链接[bio]: ', print_links($links);
+		echo '<br />友情链接[scholar]: ', print_links($links);
 	?>
 	</div>
 </div>

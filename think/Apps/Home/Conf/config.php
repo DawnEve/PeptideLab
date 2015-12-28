@@ -9,18 +9,22 @@ return array(
 	
 	//db by wjl
 	'DB_TYPE' =>  "mysql",
-	'DB_HOST' =>  "192.168.1.100",
+	'DB_HOST' =>  "localhost",
 	'DB_NAME' =>  "test",
 	'DB_USER' =>  "root",
 	'DB_PWD' =>  "",
-	'DB_PORT' =>  "",
+	'DB_PORT' =>  "3306",
 	'DB_PREFIX' =>  "t_",
-	'DB_PARAMS' => array(),
-	'DB_DEBUG' => true,
-	'DB_FIELDS_CACHE' => false,
+
+
 	'DB_CHARSET' => "utf8",
-	'DB_DEPLOY_TYPE' => 0,
-	'DB_RW_SEPARATE' => false,
-	'DB_MASTER_NUM' => 1,
-	'DB_SLAVE_NO' =>  ""
+	
+	//router config
+	'URL_ROUTER_ON'=>true,
+	'URL_ROUTE_RULES'=>array(
+		'news/:year/:month/:day' => array('News/archive', 'status=1'),
+		'news/:id'               => 'News/read',
+		'news/read/:id'          => '/news/:1',
+	 ),
+ 
 );

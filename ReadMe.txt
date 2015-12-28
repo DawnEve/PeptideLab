@@ -9,6 +9,8 @@ devLog.txt 记录版本变化。
 3.sERP下的出勤考核项目。
 3.weixin目录下的微信项目。 
 4.sERP下的domainPriceAPI是用cURL采集数据的。
+	已经备份到github我的库中：
+	https://github.com/DawnEve/DawnPHPTools/tree/master/19-php_cURL_domainPriceAPI
 
 ----------------------------
 问题探讨：

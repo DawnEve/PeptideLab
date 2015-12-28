@@ -39,7 +39,7 @@ include('model.php');
 http://www.jb51.net/css/383986.html
 -->
 <meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″ />
-<link href="css/bioMooc.css" rel="stylesheet" type="text/css">
+<link href="css/mooc.css" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -56,7 +56,7 @@ http://www.jb51.net/css/383986.html
 	</span>
 		
 
-	<a class="logo" href="index.php" title="生物慕课网">生物慕课网</a>
+	<a class="logo" href="index.php" title="某某慕课网">某某慕课网</a>
 </div>
 
 <div class="clear"></div>

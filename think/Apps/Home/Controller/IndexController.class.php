@@ -22,6 +22,10 @@ class IndexController extends Controller {
 	
 	}
 	
+	function router(){
+		dump( C('URL_ROUTER_ON') );
+	}
+	
 
 }
 
