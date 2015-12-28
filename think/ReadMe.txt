@@ -14,6 +14,7 @@ MySql手册速查：http://c.biancheng.net/cpp/html/1456.html
 
 官方文档：http://document.thinkphp.cn/manual_3_2.html
 看云文档：http://www.kancloud.cn/manual/thinkphp/1682
+===========================
 
 快速入门：http://www.kancloud.cn/thinkphp/thinkphp_quickstart
 
@@ -173,13 +174,48 @@ http://www.kancloud.cn/manual/thinkphp/1698
 	fclose($fp);
 	//-----------------------------------
 
+===========================
+路由
+===========================
+# 路由规则
+
+1.去掉index.php
+	需要使用.htaccess文件。
+	
+2.去掉模块名：
+原来：http://tp.dawneve.cc/Home/news/year
+希望：http://tp.dawneve.cc/news/year
+在系统惯例设置，改两处修改：
+	'MODULE_ALLOW_LIST'      =>  array('Home','Admin'),//允许的模块，加上这一句和默认模块才能访问。
+	'DEFAULT_MODULE'        =>  'Home',  // 默认模块
 
 
+3.设置静态路由：
+	http://tp.dawneve.cc/u
+	
+	//router config
+	'URL_ROUTER_ON'=>true,
+	'URL_ROUTE_RULES'=>array(
+		'u'=>'user/index',
+	}
+
+	在视图中常量：{$Think.get.id}
+
+	路由规则：'news/:year/:month/:day' => array('News/archive', 'status=1'),
+	url: http://tp.dawneve.cc/news/2015/12/20
+	视图中：{$Think.get.year}年{$Think.get.month}月{$Think.get.day}日
 
 
+	静态路由：http://tp.dawneve.cc/news/top.shtml
+	'URL_MAP_RULES'=>array(
+		'news/top' => 'news/archive?type=top',
+		//静态路由定义不受URL后缀影响。静态路由是完全匹配。
+	),
 
 
-
-
-
+	
+===========================
+视图
+===========================
+ThinkPHP中的视图主要就是指模板文件和模板引擎
 

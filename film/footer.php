@@ -47,6 +47,7 @@ function print_links($links){
 			array('http://www.php100.com/','php100'),
 			array('http://www.bootcss.com/','bootstrap'),
 			array('http://www.shejidaren.com/free-bootstrap-ui-kits.html','设计达人'),
+			array('http://edu.ibeifeng.com/list-index-is_key-is_new.html','北风网'),
 		);
 		echo '<br />友情链接[IT Tools]: ', print_links($links_IT_tools);
 
