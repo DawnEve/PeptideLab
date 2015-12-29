@@ -18,6 +18,12 @@ class UserModel extends Model{
 		array('create_time','time',1,'function'),
 	);
 	*/
+	
+	//type定义每个字段的类型，可以永远字段验证。
+	protected $fields=array('id','user','email','_pk'=>'id',
+		'type'=>array('id'=>'smallint', 'user'=>'varchar')	);
+	
+	
 	public function __construct(){
 		parent::__construct();
 		echo '[from UserModel->__construct()]<hr>';

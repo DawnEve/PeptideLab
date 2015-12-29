@@ -2,6 +2,8 @@
 return array(
 	//'配置项'=>'配置值'
 	
+	//关闭字段缓存
+	//'DB_FIELDS_CACHE'=>false,
 
 	//页面调试开关
 	'SHOW_PAGE_TRACE' => true,

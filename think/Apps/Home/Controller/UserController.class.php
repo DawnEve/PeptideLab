@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+
 class UserController extends Controller {
     public function index(){
 		echo 'UserController->index: ';
@@ -68,6 +69,140 @@ class UserController extends Controller {
 		
 	}
 	
+	
+	function select(){
+		echo 'User->select():';
+		$user=M('User');
+		dump( $user->select() );//查询所有值
+	}
+	
+	function select2(){
+		echo 'User->select(2):';
+		$user=M('User');
+		dump( $user->where('id=1')->select() );//查询id=1的条目
+	}
+	
+	function select3(){
+		echo 'User->select(3):';
+		$user=M('User');
+		dump( $user->where('id>4 or email like "%qq.com"')->select() );//复杂where语句
+	}
+	
+	function select4(){
+		echo 'User->select(4):';
+		$user=M('User');
+		
+		$condition['id']=1;
+		$condition['user']='tom';
+		$condition['_logic']='or';//使用数组方式定义where条件
+		dump( $user->where($condition)->select() );//复杂where语句
+	}
+	
+	function select5(){
+		echo 'User->select(5):';
+		$user=M('User');
+		
+		$condition=new \stdClass();//必须使用顶层命名空间
+		$condition->id=1;
+		$condition->user='tom';
+		$condition->_logic='or';//使用对象方式定义where条件
+		dump( $user->where($condition)->select() );//复杂where语句
+	}
+	
+	
+	//表达式查询
+	function select6(){
+		echo 'User->select(6):';
+		$user=M('User');
+		
+		$map['id']=array('eq',1);
+		
+		dump( $user->where($map)->select() );//复杂where语句
+	}
+	
+	//表达式查询
+	function select7(){
+		echo 'User->select(7):';
+		$user=M('User');
+		//$map2['id']=array('not between',array(2,4));
+		//$map2['id']=array('between','1,3');
+		$map2['id']=array('not in','1,3,4');
+		
+		dump( $user->where($map2)->select() );//复杂where语句
+	}
+	
+	
+	//自定义查询
+	function select8(){
+		echo 'User->select(8):';
+		$user=M('User');
+		$map3['id']=array('exp','>=3');
+		dump( $user->where($map3)->select() );//复杂where语句
+	}
+	
+	//-------------------------------------------------------
+	//组合查询 _string
+	function where(){
+		echo 'User->where():';
+		$user=M('User');
+		$map3['_string']='id>5';//字符串查询条件
+		dump( $user->where($map3)->select() );//复杂where语句
+	}
+	
+	//组合查询 |
+	function where2(){
+		echo 'User->where2():';
+		$user=M('User');
+		$map3['id|email']=array('eq','3');//&是and，|是or
+		dump( $user->where($map3)->select() );//复杂where语句
+	}
+	
+	//统计查询
+	function where3(){
+		echo 'User->where3():';
+		$user=M('User');
+
+		dump( $user->count('id') );//8
+		dump( $user->count('email') );//8
+	}
+	
+	//统计查询
+	function where4(){
+		echo 'User->where4():';
+		$user=M('User');
+
+		dump( $user->max('id') );//8
+	}
+	
+	//动态查询
+	function dynamic(){
+		echo 'User->dynamic():';
+		$user=M('User');
+
+		dump( $user->getByAddTime('1451294372') );
+	}
+	
+	
+	//动态查询
+	function dynamic2(){
+		echo __method__;
+		$user=M('User');
+		dump( $user->getFieldByUser('Tom','id') );
+	}
+	
+	//sql查询：读
+	function sql(){
+		echo __method__;
+		$user=M('User');
+		dump( $user->query('select * from think_user;') );
+	}
+	
+	//sql查询：写
+	function sql2(){
+		echo __method__;
+		$user=M('User');
+		dump( $user->execute('update think_user set modi_time="1451294972" where id=1;') );
+	}
 	
 	
 }

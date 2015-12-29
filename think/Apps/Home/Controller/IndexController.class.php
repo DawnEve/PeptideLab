@@ -5,6 +5,11 @@ use Think\Controller;
 //use Home\Model\UserModel;
 
 class IndexController extends Controller {
+
+
+	
+
+
     public function index(){
 	
 		echo '<pre>', C('name');
@@ -61,6 +66,18 @@ class IndexController extends Controller {
 		$user=M();//空M方法，可以使用原生sql查询。不用D，因为D会创建一个空Model再执行查询，速度慢
 		dump($user->query('show tables;'));
 		//dump($user->query('show databases;'));
+	}
+	
+	function model7(){
+		echo 'model7';
+		$user=M('User');//缓存与否的影响
+		dump( $user->getDbFields() );
+	}
+	
+	function model8(){
+		echo 'model8';
+		$user=D('User');//手工指定缓存字段，需要在Model类中自定义。使用D方法。
+		dump( $user->getDbFields() );
 	}
 	
 	public function Read(){
