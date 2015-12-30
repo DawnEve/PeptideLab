@@ -12,6 +12,9 @@ backup
 dustbin
 test
 bin
+#这个是测试文件夹
+8081
+
 
 #zip(s)不备份
 *.rar

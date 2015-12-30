@@ -205,6 +205,36 @@ class UserController extends Controller {
 	}
 	
 	
+	//====================================连贯操作
+	
+	function lg(){
+		echo __method__;
+		$user=M('User');
+		dump( $user->where('id>5')->select() );//连贯操作
+	}
+
+	function lg2(){
+		echo __method__;
+		$user=M('User');
+		dump( $user->where('id>4')->order('user DESC')->select() );//连贯操作
+	}
+	
+	function lg3(){
+		echo __method__;
+		$user=M('User');
+		dump( $user->where('id>4')->order('user DESC')->limit(2)->select() );//连贯操作
+	}
+	
+	function lg4(){
+		echo __method__;
+		$user=M('User');
+		dump( $user->select(array(
+			//'where'=>'id>5',//
+			'where'=>array('id'=>array('neq',5)),
+			'order'=>'user desc',
+		)) );//连贯操作
+	}
+	
 }
 
 //http://tp.dawneve.cc/index.php/home/User/index
