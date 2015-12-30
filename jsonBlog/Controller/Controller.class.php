@@ -39,9 +39,10 @@ class Controller{
 	/**
 		获取左侧菜单
 	*/
-	function getLeftMenu($keyword){
+	function getLeftMenu($keyword,$id){
 		$data=Json::get($keyword);
 		$arr=array('keyword'=>$keyword);
+		$arr['id']=$id;
 		$arr['data']=json_decode($data,true);
 		
 		return $arr;

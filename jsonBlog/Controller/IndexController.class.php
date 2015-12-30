@@ -14,7 +14,7 @@ class IndexController extends Controller{
 		$arrTop=$this->getTopMenu($k);
 		//1.2获得左侧导航信息
 		$arrLeft=$this->getLeftMenu($k,$id);
-		//debug($arrLeft);
+
 		
 		//2.包含视图
 		$c = substr(__class__,0,stripos(__class__,'Controller'));
