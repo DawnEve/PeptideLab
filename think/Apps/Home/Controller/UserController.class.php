@@ -234,6 +234,40 @@ class UserController extends Controller {
 			'order'=>'user desc',
 		)) );//连贯操作
 	}
+
+
+	function lg5(){
+		echo __method__;
+		$user=M('User');
+		dump( $user->where('id in(3,4,5)')->find() );//连贯操作
+	}
+
+	
+	function lg6(){
+		echo __method__;
+		$user=M('User');
+		$map['user']='Jim';
+		$map['_logic']='Or';
+		dump( $user->where($map)->where('id in(1,3)')->select() );//连贯操作
+	}
+
+	function lg7(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		dump( $user->field('id,user,email')->select() );//连贯操作field
+	}
+
+	function lg8(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		dump( $user->field(array('id','LEFT(email,5)'))->select() );//取出email字段左边5位
+	}	
 	
 }
 
