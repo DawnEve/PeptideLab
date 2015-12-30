@@ -1,0 +1,38 @@
+<?php debug($arrLeft);?>
+
+<ul class=left id='leftpanel'>
+	<li><h5 class=title>目录结构</h5>
+		<ul class=submenu>
+			<li><a href='index.php?k=phpCMS&id=1'>title</a></li>
+			<li>yyy</li>
+		</ul>
+	</li>
+</ul>
+
+<script>
+//获得元素
+function $(s){
+	return document.getElementById(s);
+}
+//打印结果
+function n(s){
+	console.log(s);
+}
+
+var oUl=$('leftpanel');
+var aTitle=oUl.getElementsByClassName('title');
+var aSubMenu=oUl.getElementsByClassName('submenu');
+
+for(var i=0;i<aTitle.length;i++){
+	var oTitle=aTitle[i];
+	var oSubMenu=aSubMenu[i];
+	oTitle.onclick=function(){
+		if(oSubMenu.style.display=='block'){
+			oSubMenu.style.display='none';
+		}else{
+			oSubMenu.style.display='block';
+		}
+	}
+}
+
+</script>
