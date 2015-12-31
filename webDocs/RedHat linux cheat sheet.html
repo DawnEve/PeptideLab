@@ -1,0 +1,313 @@
+
+<!-- saved from url=(0027)http://jd40c.com/linux.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="GENERATOR" content="Adobe PageMill 3.0 Win">
+  <title>RedHat linux cheat sheet</title>
+</head>
+<body bgcolor="#ffffff">
+
+<p></p><center>&nbsp;</center><p></p>
+
+<p></p><center><table width="655" border="0" cellspacing="2" cellpadding="0" height="512">
+  <tbody><tr>
+    <td width="100%" height="41" align="CENTER"><b><font face="Verdana">RedHat/Fedora
+      command cheat sheet:</font></b></td> 
+  </tr>
+  <tr>
+    <td width="100%" height="232" valign="TOP">
+      <p><b></b></p><hr align="LEFT"><b><br>
+      Packing, unpacking, and installing files:</b><p></p>
+
+      <p><b>gzip compress</b>:<br>
+							#<i>gzip</i> &lt;filename.ext&gt;</p>
+
+      <p><b>gzip extract</b>:<br>
+							#<i>gunzip</i> &lt;filename.ext&gt;</p>
+
+      <p><b>gzip retrieve information about file</b>:<br>
+							#<i>gzip -l</i> &lt;filename.ext&gt;</p>
+
+      <p><b>tar archive</b>:<br>
+							#<i>tar cfv</i> &lt;archive name.ext&gt; &lt;file/folder to archive&gt;</p>
+
+      <p><b>tar extract</b>:<br>
+							#<i>tar xvf </i>&lt;filename.ext&gt;</p>
+
+      <p><b>tar retrieve information about file</b>:<br>
+							#<i>tar tvf </i>&lt;filename.tar&gt;</p>
+
+      <p><b>gzip and tar compress in one command</b>:<br>
+							#<i>tar cvzf </i>&lt;archive name.tar.gz&gt; &lt;file/folder to
+      archive&gt;</p>
+						<p><b>gzip and tar extract in one command</b>:<br>
+							#<i>tar xvzf </i>&lt;filename.tar.gz&gt;<br>
+<br>
+      <b>install rpm files</b>:<br>
+							#<i>rpm -ivh</i> &lt;rpm file name&gt;<br>
+							<br>
+							<b>install rpm package even if already installed:</b><br>
+							#<i>rpm -ivh --replacepkgs</i> &lt;rpm file name&gt;<br>
+							<br>
+							<b>uninstall rpm packages:</b><br>
+							#<i>rpm -e</i> &lt;rpm package name&gt;<br>
+							<br>
+							After uninstalling an rpm package, you will find that it still has config files and other bits strewn about. The <i>rm -rf</i> and <i>rm -f</i> commands are <b>VERY</b> powerful and can easily <b>render your linux installation unusable</b>. Be <b>very careful</b>. A 'reasonably safe' way (provided you pay attention and are careful) to clean the files up is:<br>
+							<br>
+							1) Do a <i>find / -name "&lt;filename&gt;*" | more</i><br>
+							2) Check the output and make SURE&nbsp;it only includes the files you want to remove.<br>
+							3) Do a <i>find / -name "&lt;filename&gt;*" | xargs rm -f</i></p>
+						<p>
+						</p><hr align="LEFT"><p></p>
+
+      <p><b>tar basic functions and options:<br>
+<br>
+      function:</b><br>
+      c To create a new archive<br>
+      x To extract files from an archive<br>
+      t To list the contents of an archive<br>
+      r To append files to the end of an archive<br>
+      u To update files that are newer than those in the archive<br>
+      d To compare files in the archive to those in the filesystem<br>
+<br>
+      <b>options:</b><br>
+      f &lt;filename&gt; To specify that the tar file to be read or
+      written is named &lt;filename&gt;<br>
+      k To keep any existing files when extracting, i.e. don't delete
+      the origional files<br>
+      v To make tar show the files it is archiving or restoring (don't
+      use in shell scripts)<br>
+      z To specify that the data to be written to the tar file should
+      be gzipped</p>
+
+      <p></p><hr align="LEFT"><br>
+      <b>Miscellaneous commands</b>:<p></p>
+
+      <p><b>To download a web page(s)</b>:<br>
+							#<i>wget -m -r -l5<br>
+<br>
+      </i><b>Checking open network ports</b>:<br>
+							#<i>netstat -apn | more</i></p>
+
+      <p><b>Show file attributes and permissions</b>:<br>
+							#<i>ll<br>
+<br>
+      </i><b>Show all files in a directory (including hidden .&lt;name&gt;
+      files<br>
+								#</b><i>ls -A</i></p>
+
+      <p><b>Show information about mounted volumes</b>:<br>
+							#<i>df -h</i></p>
+
+      <p><b>Turn off all power management</b>:<br>
+							#<i>xset -dpms</i></p>
+
+      <p><b>Load StartX setup routine</b>:<br>
+							#<i>X86config<br>
+<br>
+      </i><b>Display log file starting at the end</b>:<br>
+							#<i>tail -f </i>&lt;file name&gt;<br>
+<br>
+      <b>Samba commands</b>:<br>
+							<b>Add user/change password (user must have a unix account first)</b>:<br>
+							#<i>smbpasswd -a</i> &lt;username&gt;</p>
+
+      <p></p><hr align="LEFT"><br>
+      <b>Apache commands</b>:<br>
+      <b>.htpasswd file creation for Apache Directory security use</b>:<br>
+<br>
+      To create a new .htpasswd file and add a user (will prompt for
+      password):<br>
+						#<i>htpasswd -c /etc/httpd/conf/.htpasswd</i> &lt;name&gt;<br>
+      To create a new user in an existing .htpasswd file (will prompt
+      for password):<br>
+						#<i>htpasswd /etc/httpd/conf/.htpasswd</i> &lt;name&gt;<br>
+<br>
+      <b>&lt;Directory&gt; security examples in httpd.conf (which use
+      the .htpasswd file)</b>:<br>
+<br>
+      <i>&lt;Directory "/var/www/html/&lt;directory&gt;"&gt;<br>
+      AuthType Basic<br>
+      AuthName "Restricted Uploads"<br>
+      AuthUserFile /etc/httpd/conf/.htpasswd<br>
+      Require valid-user</i> (means anyone in the .htpasswd file can
+      access)<br>
+      <i>&lt;/Directory&gt;</i><p></p>
+
+      <p>**and**<br>
+<br>
+      <i>&lt;Directory "/var/www/html/&lt;directory&gt;"&gt;<br>
+      AuthType Basic<br>
+      AuthName "Restricted file access"<br>
+      AuthUserFile /etc/httpd/conf/.htpasswd<br>
+      Require jjones</i> (only jjones in the .htpasswd file has access)<br>
+      <i>&lt;/Directory&gt;</i></p>
+
+      <i><hr align="LEFT"></i>
+
+      <p><b>RedHat/Fedora account creation</b>:<br>
+      <b>To create a new user account</b>:<br>
+							#<i>useradd </i>&lt;name&gt;</p>
+
+      <p><b>To add/change a password</b>:<br>
+							#<i>passwd</i> &lt;name&gt; (will prompt for password twice)</p>
+
+      <p><b>To add a user to a group</b>:<br>
+							#<i>usermod -G</i> &lt;groupname&gt; &lt;username&gt;<br>
+<br>
+      </p><hr align="LEFT"><p></p>
+
+      <p><b>Set owner of a file/folder</b>:<br>
+							#<i>chown</i> &lt;user<b>.</b>group&gt; &lt;file/folder name&gt;<br>
+							#<i>chown</i> <b>-R</b> &gt;user<b>.</b>group&gt; &lt;file/folder
+      name&gt; for recursive, i.e. apply changes to subfolders<br>
+<br>
+      <b>Set permissions on a file/folder</b>:<br>
+							#<i>chmod</i> 777 &lt;file/folder name&gt; for full rights (dangerous!)<br>
+							#<i>chmod</i> 775 &lt;file/folder name&gt; for full rights for
+      user/group but no write/execute for 'other'<br>
+							#<i>chmod</i> 765 &lt;file/folder name&gt; for full user rights,
+      no write for 'group', and no write/execute for 'other'<br>
+      Add <b>-R</b> for recursive, i.e. <i>chmod</i> <b>-R</b> 775
+      &lt;file/folder name&gt; to apply rights to subfolders<br>
+<br>
+      File permissions take the form of:<br>
+      <table width="158" border="1" cellspacing="2" cellpadding="2">
+        <tbody><tr>
+          <td width="35%" align="CENTER">User</td> 
+          <td width="32%" align="CENTER">Group</td> 
+          <td width="33%" align="CENTER">Other</td> 
+        </tr>
+        <tr>
+          <td width="35%" align="CENTER">-RWX</td> 
+          <td width="32%" align="CENTER">RWX</td> 
+          <td width="33%" align="CENTER">RWX</td> 
+        </tr>
+      </tbody></table><br>
+<br>
+      The leading dash in the above table is for the type of data,
+      <b>d</b> would be a directory and <b>-</b> indicates a file.<br>
+<br>
+      File permissions can be set using bits, as referenced above:<br>
+      <table width="473" border="1" cellspacing="2" cellpadding="2">
+        <tbody><tr>
+          <td colspan="3" align="CENTER">User</td>
+           
+          <td colspan="3" align="CENTER">Group</td>
+           
+          <td colspan="3" align="CENTER">Other</td>
+           
+        </tr>
+        <tr>
+          <td width="11%" align="CENTER">read</td> 
+          <td width="11%" align="CENTER">write</td> 
+          <td width="11%" align="CENTER">execute</td> 
+          <td width="11%" align="CENTER">read</td> 
+          <td width="11%" align="CENTER">write</td> 
+          <td width="11%" align="CENTER">execute</td> 
+          <td width="11%" align="CENTER">read</td> 
+          <td width="11%" align="CENTER">write</td> 
+          <td width="12%" align="CENTER">execute</td> 
+        </tr>
+        <tr>
+          <td width="11%" align="CENTER">400</td> 
+          <td width="11%" align="CENTER">200</td> 
+          <td width="11%" align="CENTER">100</td> 
+          <td width="11%" align="CENTER">40</td> 
+          <td width="11%" align="CENTER">20</td> 
+          <td width="11%" align="CENTER">10</td> 
+          <td width="11%" align="CENTER">4</td> 
+          <td width="11%" align="CENTER">2</td> 
+          <td width="12%" align="CENTER">1</td> 
+        </tr>
+      </tbody></table><br>
+<br>
+      Another way to look at it would be to visualize -r--r--r-- and
+      calculate it as:<br>
+      <table width="49" border="1" cellspacing="2" cellpadding="0">
+        <tbody><tr>
+          <td width="100%" valign="TOP" align="RIGHT">400</td> 
+        </tr>
+        <tr>
+          <td width="100%" valign="TOP" align="RIGHT">40</td> 
+        </tr>
+        <tr>
+          <td width="100%" valign="TOP" align="RIGHT">4</td> 
+        </tr>
+        <tr>
+          <td width="100%" valign="TOP" align="RIGHT">= 444</td> 
+        </tr>
+      </tbody></table><br>
+<br>
+      ~examples~<br>
+      File permissions of -rwxrwxr-x would be:<br>
+      400+200+100 plus 40+20+10 plus 4+1 (no write for Other) which
+      equals 775<br>
+      File permissions of -rwxr-xr-x would be:<br>
+      400+200+100 plus 40+10 plus 4+1 (no write for Group or Other)
+      which equals 755<br>
+<br>
+      So, <i>chmod -R 775 /var/www/html</i> means /html and subfolders
+      have -rwxrwxr-x or full rights except 'Other', which doesn't
+      have write permissions.<br>
+<br>
+      </p><hr align="LEFT"><br>
+      <b>Making symbolic links:<br>
+							#</b><i>ln -s</i> &lt;location/filename&gt; &lt;name of symbolic
+      link&gt;<br>
+<br>
+      Example: <i>ln -s /var/www/html/homesite</i> homesite would create
+      a link named homesite to /var/www/html/homesite which is a folder.<p></p>
+
+      <p></p><hr align="LEFT"><p></p>
+
+      <p><b>Sending Root system messages and logs to an email address:</b><br>
+      Edit /etc/aliases<br>
+      Un-remark (remove # symbol) from 'root:' and add the email address
+      of the recipient.<br>
+      Save file.<br>
+      At the command prompt, type <i>newaliases</i> to update the database.
+      
+						</p><p></p>
+						<hr>
+						<p><br>
+						  <b>Enable daily yum updates:</b><br>
+						  Pre-FC6 setup:<br>
+						# <i>chkconfig yum on</i><br>
+						# <i>service yum start</i><br>
+		Should see "Enabling nightly yum update:  [OK]"</p>
+						<p>FC6 and later setup (yum-cron is a seperate package):<br>
+						  # yum install yum-cron<br>
+					      # chkconfig yum-cron on<br>
+				          # service yum-cron start<br>
+			              Should see "Enabling nightly yum update: [OK]"<br>
+                        </p>
+<p><b>Other yum features:<br>
+							</b>List all available software:<br>
+							#<i>yum list</i><br>
+							<br>
+							See if there are updated packages available:<br>
+							#<i>yum check-update</i><br>
+							<br>
+							Update all installed packages that have a newer version available:<br>
+							#<i>yum update</i><br>
+							<br>
+							Install specific package(s) (and its dependencies, if missing any):<br>
+							#<i>yum install</i> <i>&lt;packagename&gt;<br>
+							</i><br>
+							Search all known packages entries (descriptions etc) for <i>&lt;word&gt;<br>
+								#</i><i>yum search</i> <i>&lt;word&gt;<br>
+							</i><br>
+							Show basic information about a package<br>
+							#yum info <i>&lt;packagename&gt;</i></p>
+						<dd>
+						</dd><dd>
+						</dd><dd>
+						</dd><dd>
+						</dd><dd>
+					</dd></td>
+  </tr>
+</tbody></table></center>
+
+
+
+</body></html>

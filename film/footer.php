@@ -21,10 +21,19 @@
 function print_links($links){
 	$str='';
 	for($i=0; $i<count($links); $i++){
-		//
+		//获取单个数组
 		$arr=$links[$i];
-		$str .= "<a href='". $arr[0] ."' target='_blank'>". $arr[1] ."</a>";
+		
+		//拼接注释
+		$title='';
+		if(isset($arr[2])){
+			$title=' title="'.$arr[2].'"';
+		}
+		//拼接链接
+		$str .= "<a href='". $arr[0] ."' target='_blank'".$title.">". $arr[1] ."</a>";
+		//如果不是结尾，增加|
 		if($i!= (count($links)-1) ) $str .=  ' | ';
+		//如果是结尾，换行
 		if( ($i!=0) && ($i%15==0) ) $str .=  '<br />';
 	}
 	return $str;
@@ -39,6 +48,7 @@ function print_links($links){
 			array('http://php.net/','PHP'),
 			array('http://www.sqlite.org/','sqlite'),
 			array('https://openresty.org/download/agentzh-nginx-tutorials-zhcn.html','Nginx教程(版本2015.03.19)'),
+			array('http://fex.baidu.com/ueditor/#start-config','uEditor','百度富文本编辑器'),
 			//  
 			array('http://aibusy.com/blog/?p=226','Sublime插件'),
 			array('http://www.uimaker.com/member/reg_new.php','UI制造者'),

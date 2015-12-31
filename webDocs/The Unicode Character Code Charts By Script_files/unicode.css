@@ -1,0 +1,130 @@
+a:link {
+ color: #880000; 
+ text-decoration: none; 
+}
+
+a:visited {
+ color: #880000; 
+ text-decoration: none; 
+}
+
+a:active {
+ color:#FF0000; 
+ text-decoration: none; 
+}
+
+a:hover {
+ color:#FF0000; 
+ text-decoration: none; 
+}
+
+body {
+ margin-left: 0.6em;
+ text-align: center; 
+}
+
+h1 {
+ color: #880000; 
+ text-align: center;
+}
+
+table {
+ border-collapse: collapse; 
+ border-color: #C0C0C0; 
+ border-style: solid; 
+ text-align: left;
+} 
+
+table td {
+ font-size: 85%; padding-left:0.25em; 
+ border-color: #C0C0C0 #000000 #C0C0C0 #000000; 
+}
+
+.codes {
+ font-family: verdana, arial, helvetica, sans-serif;
+ font-size: 8pt;
+ background-color: #ccc;
+}
+
+.links {
+ color: #880000; 
+ font-weight: bold;
+ margin: 1em;
+}
+
+.matrix {
+ background: #fff;
+ border-collapse: collapse; 
+ border-color: #880000; 
+ border-style: solid; 
+ border-collapse: collapse;
+ font-family: arial, helvetica, verdana, sans-serif;
+ font-size: 3em;
+ font-weight: bold;
+}
+
+.matrix td {
+ padding: 0.2em;
+ border-collapse: collapse; 
+ border-color: #880000; 
+ border-style: solid; 
+ text-align: center;
+}
+
+.mb {
+ background-color:#E0E0E0; 
+ font-weight:bold; 
+ font-style:italic 
+}
+
+.mt {
+ background-color:#F0F0F0; 
+}
+
+.navigation {
+ text-align: center;
+}
+
+.pb { 
+ font-style:italic; 
+}
+
+.sg { 
+ background-color:#880000; 
+ color:#FFFFFF; 
+ font-weight:bold; 
+}
+
+.sb { 
+ border-color:inherit 
+}
+
+.symbol td {
+ border-bottom-color: #CCCCCC; 
+}
+
+.unicode {
+ font-size: 0.3em;
+ font-weight: normal;
+}
+
+.unicode td {
+ border-bottom-color: #CCCCCC;
+ border-top-color: #CCCCCC; 
+ padding: 0.2em;
+}
+
+.unicodeHex {
+ font-size: 0.3em;
+ font-weight: normal;
+}
+
+.unicodeHex td { 
+ border-top-color: #CCCCCC; 
+}
+
+#copy {
+ color: #880000; 
+ font-weight: bold;
+ margin: 1em;
+}
