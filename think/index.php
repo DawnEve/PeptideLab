@@ -27,7 +27,8 @@ define('RUNTIME_PATH','./Runtime/');
 // 定义应用目录
 define('APP_PATH','./Apps/');
 
-
+//设置字符集，防止乱码
+header("Content-type: text/html; charset=utf-8");
 
 
 // 引入ThinkPHP入口文件

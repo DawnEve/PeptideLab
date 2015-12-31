@@ -2,13 +2,13 @@
 <div class="footer">
 <div class="wrap">
 	<div class='copyright'>
-		Copyright © 2001-2015 bioMOOC, All Rights Reserved. <a href='index.php'>生物慕课网</a> 版权所有
+		Copyright © 2001-2015 xxMooc, All Rights Reserved. <a href='index.php'>某某慕课网</a> 版权所有
 	</div>
 	
 	<div class=anounce>
 		<b>欢迎监督和反馈：</b><br>
-	生物慕课Bio MOOC（biology massive open online courses）仅提供交流平台。<br>
-	欢迎协助我们监督管理，共同维护互联网健康，如果您对网站上面的内容有异议，请立即发邮件到 bioMOOC@163.com 联系通知管理员，也可以通过QQ周知，我们的QQ号为: 123456789 <br>
+	某某慕课xxMOOC（xx massive open online courses）仅提供交流平台。<br>
+	欢迎协助我们监督管理，共同维护互联网健康，如果您对网站上面的内容有异议，请立即发邮件到 xxMooc@163.com 联系通知管理员，也可以通过QQ周知，我们的QQ号为: 123456789 <br>
 	我们保证在1个工作日内给予处理和答复，谢谢您的监督。
 	</div>
 	
@@ -21,10 +21,19 @@
 function print_links($links){
 	$str='';
 	for($i=0; $i<count($links); $i++){
-		//
+		//获取单个数组
 		$arr=$links[$i];
-		$str .= "<a href='". $arr[0] ."' target='_blank'>". $arr[1] ."</a>";
+		
+		//拼接注释
+		$title='';
+		if(isset($arr[2])){
+			$title=' title="'.$arr[2].'"';
+		}
+		//拼接链接
+		$str .= "<a href='". $arr[0] ."' target='_blank'".$title.">". $arr[1] ."</a>";
+		//如果不是结尾，增加|
 		if($i!= (count($links)-1) ) $str .=  ' | ';
+		//如果是结尾，换行
 		if( ($i!=0) && ($i%15==0) ) $str .=  '<br />';
 	}
 	return $str;
@@ -39,6 +48,7 @@ function print_links($links){
 			array('http://php.net/','PHP'),
 			array('http://www.sqlite.org/','sqlite'),
 			array('https://openresty.org/download/agentzh-nginx-tutorials-zhcn.html','Nginx教程(版本2015.03.19)'),
+			array('http://fex.baidu.com/ueditor/#start-config','uEditor','百度富文本编辑器'),
 			//  
 			array('http://aibusy.com/blog/?p=226','Sublime插件'),
 			array('http://www.uimaker.com/member/reg_new.php','UI制造者'),
@@ -47,6 +57,7 @@ function print_links($links){
 			array('http://www.php100.com/','php100'),
 			array('http://www.bootcss.com/','bootstrap'),
 			array('http://www.shejidaren.com/free-bootstrap-ui-kits.html','设计达人'),
+			array('http://edu.ibeifeng.com/list-index-is_key-is_new.html','北风网'),
 		);
 		echo '<br />友情链接[IT Tools]: ', print_links($links_IT_tools);
 
@@ -70,12 +81,12 @@ function print_links($links){
 		echo '<br />友情链接[IT]: ', print_links($links_IT);
 		
 		
-		//生物技术类===========================
+		//某某技术类===========================
 		$links=array(
 			array('http://emuch.net/','小木虫'),
 			array('http://www.dxy.cn/','丁香园'),
 		);
-		echo '<br />友情链接[bio]: ', print_links($links);
+		echo '<br />友情链接[scholar]: ', print_links($links);
 	?>
 	</div>
 </div>

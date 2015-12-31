@@ -1,0 +1,141 @@
+@import "bootstrap.min.css";
+
+@import "prettify.css";
+
+#mce-EMAIL {
+	width: 200px !important;
+}
+
+.navbar {
+	margin-bottom: 0px !important;
+}
+
+#mce-success-response {
+	color: #336;
+	font-size: 12px;
+}
+
+.caption {
+	margin-left: 10px;
+	font-weight: bold;
+	padding-bottom: 5px !important;
+	padding-top: 5px !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	background: white !important;
+	font-size: 13px !important;
+	color: #333 !important;
+}
+
+.code {
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	background: white !important;
+}
+
+span.title {
+	font-weight: bold;
+}
+
+span.latest {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+span.author {
+	font-style: italic;
+	font-size: 20px;
+}
+
+#unofficial {
+	font-size: 14px !important;
+	font-weight: bold !important;
+	margin-top: -8px !important;
+	color: black !important;
+}
+
+#footer {
+	font-style: italic;
+	margin: 10px !important;
+	padding: 0px !important;
+}
+
+pre.code {
+	border: 1px dashed #CCC !important;
+	padding: 10px !important;
+}
+
+.good {
+	color: green !important;
+}
+
+.bad {
+	color: #A55 !important;
+}
+
+.title {
+	margin-top: 15px !important;
+	color: #557 !important;
+	margin-bottom: 10px !important;
+}
+
+q {
+	font-style: italic;
+	font-weight: bold;
+}
+
+div.content {
+	margin-top: 10px !important;
+	margin-left: 15px !important;
+}
+
+div.full {
+	font-size: 20px;
+	padding: 7px !important;
+}
+
+div.header {
+	font-weight: bold;
+	font-size: 20px;
+	color: #557 !important;
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+}
+
+.right-snippet {
+	border: 1px dashed #CCC !important;
+	padding: 10px !important;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	margin-left: 0px !important;
+	margin-right: 10px !important;
+	background: white !important;
+}
+
+.remark {
+	font-size: 16px;
+	font-style: italic;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+}
+
+.sub {
+	font-weight: bold;
+	font-size: 20px;
+	color: #557 !important;
+	margin-top: 15px !important;
+	margin-bottom: 15px !important;
+}
+
+#twitter-widget-0,.g-plusone {
+	margin: 0px !important;
+}
+
+#header-widgets {
+	margin-top: 30px !important;
+	padding-top: 30px !important;
+}
+
+#sponsor-logo {
+	width: 100% !important;
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- saved from url=(0021)http://www.java8.org/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+<meta name="google-site-verification" content="WWBdxC8X7MBQlX9izFeckAdjuPnEF-2KIh9A60m89SQ">
+<meta name="majestic-site-verification" content="MJ12_7d8b31b7-5931-4558-a754-543d98f53b50">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="./Java 8 Resources - Java 8 Cheatsheet_files/default.css" type="text/css" rel="stylesheet">
+
+<title>Java 8 Resources - Java 8 Cheatsheet</title>
+<meta name="description" content="Java 8 Resources (lambdas, method references, defender methods, streams) - Java 8 Cheatsheet">
+
+<script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script><script async="" src="./Java 8 Resources - Java 8 Cheatsheet_files/analytics.js"></script><script type="text/javascript" src="./Java 8 Resources - Java 8 Cheatsheet_files/prettify.js"></script><script type="text/javascript" src="./Java 8 Resources - Java 8 Cheatsheet_files/jquery-2.0.3.js"></script><script type="text/javascript" src="./Java 8 Resources - Java 8 Cheatsheet_files/bootstrap3.min.js"></script><script type="text/javascript" src="./Java 8 Resources - Java 8 Cheatsheet_files/social-utils.js"></script><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script><script type="text/javascript" src="./Java 8 Resources - Java 8 Cheatsheet_files/in.js"></script><script type="text/javascript" src="./Java 8 Resources - Java 8 Cheatsheet_files/jquery.min.js"></script><style type="text/css">#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}</style><script src="./Java 8 Resources - Java 8 Cheatsheet_files/secureAnonymousFramework"></script><script type="text/javascript" src="./Java 8 Resources - Java 8 Cheatsheet_files/jquery.form-n-validate.js"></script><script type="text/javascript" src="./Java 8 Resources - Java 8 Cheatsheet_files/jquery.form-n-validate.js"></script><style type="text/css">* html #li_ui_li_gen_1451546395314_0 a#li_ui_li_gen_1451546395314_0-link{height:1% !important;}#li_ui_li_gen_1451546395314_0{position:relative !important;overflow:visible !important;display:block !important;}#li_ui_li_gen_1451546395314_0 span{-webkit-box-sizing:content-box !important;-moz-box-sizing:content-box !important;box-sizing:content-box !important;}#li_ui_li_gen_1451546395314_0 a#li_ui_li_gen_1451546395314_0-link{border:0 !important;height:20px !important;text-decoration:none !important;padding:0 !important;margin:0 !important;display:inline-block !important;}#li_ui_li_gen_1451546395314_0 a#li_ui_li_gen_1451546395314_0-link:link, #li_ui_li_gen_1451546395314_0 a#li_ui_li_gen_1451546395314_0-link:visited, #li_ui_li_gen_1451546395314_0 a#li_ui_li_gen_1451546395314_0-link:hover, #li_ui_li_gen_1451546395314_0 a#li_ui_li_gen_1451546395314_0-link:active{border:0 !important;text-decoration:none !important;}#li_ui_li_gen_1451546395314_0 a#li_ui_li_gen_1451546395314_0-link:after{content:"." !important;display:block !important;clear:both !important;visibility:hidden !important;line-height:0 !important;height:0 !important;}#li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-logo{background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-position:0px -593px !important;background-repeat:no-repeat !important;background-color:#0077b5 !important;background-size:initial !important;cursor:pointer !important;border:0 !important;border-right:1px solid #066094 !important;text-indent:-9999em !important;overflow:hidden !important;padding:0 !important;margin:0 !important;position:absolute !important;left:0px !important;top:0px !important;display:block !important;width:20px !important;height:20px !important;float:right !important;border-radius:2px !important;-webkit-border-radius:2px !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-webkit-border-top-right-radius:2px !important;-webkit-border-bottom-right-radius:2px !important;}#li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title{color:#fff !important;cursor:pointer !important;display:block !important;white-space:nowrap !important;float:left !important;margin-left:1px !important;vertical-align:top !important;overflow:hidden !important;text-align:center !important;height:18px !important;padding:0 4px 0 23px !important;border:1px solid #000 !important;border-top-color:#0077b5 !important;border-right-color:#0077b5 !important;border-bottom-color:#0077b5 !important;border-left-color:#0077b5 !important;text-shadow:0 -1px #005887 !important;line-height:20px !important;border-radius:2px !important;-webkit-border-radius:2px !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-webkit-border-top-right-radius:2px !important;-webkit-border-bottom-right-radius:2px !important;background-color:#0077b5 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0077b5), color-stop(100%,#0077b5)) !important; background-image: -webkit-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;}#li_ui_li_gen_1451546395314_0.hovered #li_ui_li_gen_1451546395314_0-title{border:1px solid #000 !important;border-top-color:#0369a0 !important;border-right-color:#0369a0 !important;border-bottom-color:#0369a0 !important;border-left-color:#0369a0 !important;background-color:#0369a0 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0369a0), color-stop(100%,#0369a0)) !important; background-image: -webkit-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;}#li_ui_li_gen_1451546395314_0.clicked #li_ui_li_gen_1451546395314_0-title, #li_ui_li_gen_1451546395314_0.down #li_ui_li_gen_1451546395314_0-title{color:#fff !important;border:1px solid #000 !important;border-top-color:#066094 !important;border-right-color:#066094 !important;border-bottom-color:#066094 !important;border-left-color:#066094 !important;background-color:#066094 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#066094), color-stop(100%,#066094)) !important; background-image: -webkit-linear-gradient(top, #066094 0%, #066094 100%) !important;}.IN-shadowed #li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title{}.IN-shadowed #li_ui_li_gen_1451546395314_0.hovered #li_ui_li_gen_1451546395314_0-title{}.IN-shadowed #li_ui_li_gen_1451546395314_0.clicked #li_ui_li_gen_1451546395314_0-title, .IN-shadowed #li_ui_li_gen_1451546395314_0.down #li_ui_li_gen_1451546395314_0-title{}#li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title-text, #li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title-text *{color:#fff !important;font-size:11px !important;font-family:Arial, sans-serif !important;font-weight:bold !important;font-style:normal !important;-webkit-font-smoothing:antialiased !important;display:inline-block !important;background:transparent none !important;vertical-align:top !important;height:18px !important;line-height:20px !important;float:none !important;}#li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title-text strong{font-weight:bold !important;}#li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title-text em{font-style:italic !important;}#li_ui_li_gen_1451546395314_0.hovered #li_ui_li_gen_1451546395314_0-title-text, #li_ui_li_gen_1451546395314_0.hovered #li_ui_li_gen_1451546395314_0-title-text *{color:#fff !important;}#li_ui_li_gen_1451546395314_0.clicked #li_ui_li_gen_1451546395314_0-title-text, #li_ui_li_gen_1451546395314_0.down #li_ui_li_gen_1451546395314_0-title-text, #li_ui_li_gen_1451546395314_0.clicked #li_ui_li_gen_1451546395314_0-title-text *, #li_ui_li_gen_1451546395314_0.down #li_ui_li_gen_1451546395314_0-title-text *{color:#fff !important;}#li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title #li_ui_li_gen_1451546395314_0-mark{display:inline-block !important;width:0px !important;overflow:hidden !important;}.success #li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title{color:#fff !important;border-top-color:#0077b5 !important;border-right-color:#0077b5 !important;border-bottom-color:#0077b5 !important;border-left-color:#0077b5 !important;background-color:#0077b5 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0077b5), color-stop(100%,#0077b5)) !important; background-image: -webkit-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;}.success #li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title-text, .success #li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title-text *{color:#fff !important;}.IN-shadowed .success #li_ui_li_gen_1451546395314_0 #li_ui_li_gen_1451546395314_0-title{}.success #li_ui_li_gen_1451546395314_0.hovered #li_ui_li_gen_1451546395314_0-title{color:#fff !important;border-top-color:#0369a0 !important;border-right-color:#0369a0 !important;border-bottom-color:#0369a0 !important;border-left-color:#0369a0 !important;background-color:#0369a0 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0369a0), color-stop(100%,#0369a0)) !important; background-image: -webkit-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;}.success #li_ui_li_gen_1451546395314_0.hovered #li_ui_li_gen_1451546395314_0-title-text, .success #li_ui_li_gen_1451546395314_0.hovered #li_ui_li_gen_1451546395314_0-title-text *{color:#fff !important;}.success #li_ui_li_gen_1451546395314_0.clicked #li_ui_li_gen_1451546395314_0-title, .success #li_ui_li_gen_1451546395314_0.down #li_ui_li_gen_1451546395314_0-title{color:#fff !important;border-top-color:#066094 !important;border-right-color:#066094 !important;border-bottom-color:#066094 !important;border-left-color:#066094 !important;background-color:#066094 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#066094), color-stop(100%,#066094)) !important; background-image: -webkit-linear-gradient(top, #066094 0%, #066094 100%) !important;}.success #li_ui_li_gen_1451546395314_0.clicked #li_ui_li_gen_1451546395314_0-title-text, .success #li_ui_li_gen_1451546395314_0.down #li_ui_li_gen_1451546395314_0-title-text, .success #li_ui_li_gen_1451546395314_0.clicked #li_ui_li_gen_1451546395314_0-title-text *, .success #li_ui_li_gen_1451546395314_0.down #li_ui_li_gen_1451546395314_0-title-text *{color:#fff !important;}.IN-shadowed .success #li_ui_li_gen_1451546395314_0.clicked #li_ui_li_gen_1451546395314_0-title, .IN-shadowed .success #li_ui_li_gen_1451546395314_0.down #li_ui_li_gen_1451546395314_0-title{}#li_ui_li_gen_1451546395324_1-container.IN-right {display:inline-block !important;float:left !important;overflow:visible !important;position:relative !important;height:20px !important;padding-left:2px !important;line-height:1px !important;cursor:pointer !important;}#li_ui_li_gen_1451546395324_1.IN-right {display:block !important;float:left !important;height:20px !important;margin-right:4px !important;padding-right:4px !important;background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-color:transparent !important;background-repeat:no-repeat !important;background-position:right -447px !important;}#li_ui_li_gen_1451546395324_1-inner.IN-right {display:block !important;float:left !important;padding-left:8px !important;text-align:center !important;background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-color:transparent !important;background-repeat:no-repeat !important;background-position:0px -426px !important;}#li_ui_li_gen_1451546395324_1-content.IN-right {display:inline !important;font-size:11px !important;color:#4e4e4e !important;font-weight:bold !important;font-family:Arial, sans-serif !important;line-height:20px !important;padding:0 5px 0 5px !important;}#li_ui_li_gen_1451546395324_1-container.IN-empty {display:none !important;}#li_ui_li_gen_1451546395324_1-container.IN-hidden #li_ui_li_gen_1451546395324_1 {display:none !important;}</style></head>
+
+<body>
+
+	<nav class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-header">
+			<a class="navbar-brand" href="./Java 8 Resources - Java 8 Cheatsheet_files/Java 8 Resources - Java 8 Cheatsheet.html">Java 8 Resources</a>
+			<div class="navbar-brand">
+	            <a href="https://twitter.com/share" rel="nofollow" class="twitter-share-button navbar-btn" data-url="http://www.java8.org/" data-text="#java8 Java 8 Cheatsheet" data-size="small">Tweet</a>
+				<span class="g-plusone" data-size="medium"></span>
+				<span class="IN-widget" style="line-height: 1; vertical-align: baseline; display: inline-block; text-align: center;"><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1451546395314_0"><a id="li_ui_li_gen_1451546395314_0-link" href="javascript:void(0);"><span id="li_ui_li_gen_1451546395314_0-logo">in</span><span id="li_ui_li_gen_1451546395314_0-title"><span id="li_ui_li_gen_1451546395314_0-mark"></span><span id="li_ui_li_gen_1451546395314_0-title-text">Share</span></span></a></span></span><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1451546395324_1-container" class="IN-right"><span id="li_ui_li_gen_1451546395324_1" class="IN-right"><span id="li_ui_li_gen_1451546395324_1-inner" class="IN-right"><span id="li_ui_li_gen_1451546395324_1-content" class="IN-right">54</span></span></span></span></span></span><script type="IN/Share+init" data-url="http://www.java8.org/" data-counter="right"></script>
+				<span id="unofficial">This is NOT the Official Website of Java.</span>            
+			</div>
+        </div>
+		
+	</nav>
+
+	<div class="row">
+		<div class="col-md-9">
+			<div class="content">
+				<h3 class="title text-center">
+					<span class="postName">Java 8 Cheatsheet</span>
+					<span class="author">by Nikolche Mihajlovski, 
+						<a href="http://www.ohmdb.com/" rel="nofollow"><img src="./Java 8 Resources - Java 8 Cheatsheet_files/ohmdb-logo.png"></a>
+						<a style="visibility: hidden;" rel="nofollow" href="https://plus.google.com/u/0/101896671685821826925?rel=author">Google</a>
+					</span>
+				</h3>
+				
+				
+<div class="sub text-center">Lambda expression - easy way to implement single-method (aka functional) interface</div>  
+
+<div class="row row-separated"><div class="col-md-6">
+
+<div class="caption">Lambda syntax</div>
+
+<pre class="prettyprint code"><code><span class="pun">(</span><span class="pln">parameters</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> expression
+</span><span class="pun">(</span><span class="pln">parameters</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> statement
+</span><span class="pun">(</span><span class="pln">parameters</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> statements </span><span class="pun">}</span></code></pre>
+
+</div><div class="col-md-6">
+
+<div class="caption">Lambda expression examples</div>
+
+<pre class="prettyprint code"><code><span class="pun">(</span><span class="kwd">int</span><span class="pln"> x</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> y</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> x </span><span class="pun">+</span><span class="pln"> y
+</span><span class="pun">()</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"hi "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> s</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">length</span><span class="pun">();</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> n</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></code></pre>
+
+</div></div>
+
+<div class="row row-separated"><div class="col-md-6">
+
+<div class="caption">Run a Runnable</div>
+
+<pre class="prettyprint code"><code><span class="typ">Runnable</span><span class="pln"> r </span><span class="pun">=</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Hello!"</span><span class="pun">);</span><span class="pln">
+r</span><span class="pun">.</span><span class="pln">run</span><span class="pun">();</span></code></pre>
+
+</div><div class="col-md-6">
+
+<div class="caption">The PI function</div>
+
+<pre class="prettyprint code"><code><span class="typ">Callable</span><span class="pun">&lt;</span><span class="typ">Double</span><span class="pun">&gt;</span><span class="pln"> pi </span><span class="pun">=</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="lit">3.14</span><span class="pun">;</span><span class="pln">
+</span><span class="typ">Double</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> pi</span><span class="pun">.</span><span class="pln">call</span><span class="pun">();</span></code></pre>
+
+</div></div>
+
+<div class="row row-separated"><div class="col-md-6">
+
+<div class="caption">Sort strings by length</div>
+
+<pre class="prettyprint code"><code><span class="typ">String</span><span class="pun">[]</span><span class="pln"> words </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">"aaa"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"b"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"cc"</span><span class="pun">};</span><span class="pln">
+</span><span class="typ">Arrays</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">(</span><span class="pln">words</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s1</span><span class="pun">,</span><span class="pln"> s2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> s1</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> s2</span><span class="pun">.</span><span class="pln">length</span><span class="pun">());</span><span class="pln">
+
+</span><span class="com">// equivalent to:</span><span class="pln">
+</span><span class="typ">Arrays</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">(</span><span class="pln">words</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="typ">String</span><span class="pln"> s1</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> s2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> s1</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> s2</span><span class="pun">.</span><span class="pln">length</span><span class="pun">());</span></code></pre>
+
+</div><div class="col-md-6">
+
+<div class="caption">Effectively final variables can be referenced in lambdas</div>
+
+<pre class="prettyprint code"><code><span class="com">// s is effectively final (not changed anywhere)</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"foo"</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// s can be referenced in the lambda</span><span class="pln">
+</span><span class="typ">Runnable</span><span class="pln"> r </span><span class="pun">=</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span></code></pre>
+
+</div></div>
+
+<div class="sub text-center">Method reference - easy way to use existing method in a functional way</div>  
+
+<div class="row row-separated"><div class="col-md-6">
+
+<div class="caption">Static method reference</div>
+
+<pre class="prettyprint code"><code><span class="com">// Class::staticMethod syntax</span><span class="pln">
+</span><span class="typ">Arrays</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">(</span><span class="pln">items</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Util</span><span class="pun">::</span><span class="pln">compareItems</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// equivalent to:</span><span class="pln">
+</span><span class="typ">Arrays</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">(</span><span class="pln">items</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="typ">Util</span><span class="pun">.</span><span class="pln">compareItems</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">));</span></code></pre>
+
+</div><div class="col-md-6">
+
+<div class="caption">Instance method reference</div>
+
+<pre class="prettyprint code"><code><span class="com">// instance::instanceMethod syntax</span><span class="pln">
+items</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">::</span><span class="kwd">print</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// equivalent to:</span><span class="pln">
+items</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">((</span><span class="pln">x</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">x</span><span class="pun">));</span></code></pre>
+
+</div></div>
+
+<div class="row row-separated"><div class="col-md-6">
+
+<div class="caption">Reference to a method of arbitrary instance</div>
+
+<pre class="prettyprint code"><code><span class="com">// Class::instanceMethod syntax</span><span class="pln">
+items</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="typ">Item</span><span class="pun">::</span><span class="pln">publish</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// equivalent to:</span><span class="pln">
+items</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">((</span><span class="pln">x</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> x</span><span class="pun">.</span><span class="pln">publish</span><span class="pun">();</span><span class="pln"> </span><span class="pun">});</span></code></pre>
+
+</div><div class="col-md-6">
+
+<div class="caption">Constructor reference</div>
+
+<pre class="prettyprint code"><code><span class="typ">ConstructorReference</span><span class="pln"> cref </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Item</span><span class="pun">::</span><span class="kwd">new</span><span class="pun">;</span><span class="pln">
+</span><span class="typ">Item</span><span class="pln"> item </span><span class="pun">=</span><span class="pln"> cref</span><span class="pun">.</span><span class="pln">constructor</span><span class="pun">();</span></code></pre>
+
+</div></div>
+
+<div class="sub text-center">Default method - interface method with default implementation</div>  
+
+<div class="row row-separated"><div class="col-md-6">
+
+<div class="caption">Defining default methods in interfaces</div>
+
+<pre class="prettyprint code"><code><span class="kwd">interface</span><span class="pln"> </span><span class="typ">Descriptive</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+  </span><span class="kwd">default</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> desc</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="str">"fantastic"</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">}</span></code></pre>
+
+</div><div class="col-md-6">
+
+<div class="caption">Implementing interface with default method</div>
+
+<pre class="prettyprint code"><code><span class="kwd">class</span><span class="pln"> </span><span class="typ">Item</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Descriptive</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+
+</span><span class="typ">Item</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Item</span><span class="pun">();</span><span class="pln">
+
+</span><span class="com">// prints "fantastic"</span><span class="pln">
+</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">x</span><span class="pun">.</span><span class="pln">desc</span><span class="pun">());</span></code></pre>
+
+</div></div>
+
+<div class="sub text-center">Stream - sequence of values</div>  
+
+<div class="row row-separated"><div class="col-md-6">
+
+<div class="caption">Count the non-empty strings</div>
+
+<pre class="prettyprint code"><code><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">String</span><span class="pun">&gt;</span><span class="pln"> strings </span><span class="pun">=</span><span class="pln"> </span><span class="pun">...;</span><span class="pln">
+</span><span class="kwd">long</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> strings</span><span class="pun">.</span><span class="pln">stream</span><span class="pun">().</span><span class="pln">filter</span><span class="pun">(</span><span class="pln">x </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="pun">!</span><span class="pln">x</span><span class="pun">.</span><span class="pln">isEmpty</span><span class="pun">()).</span><span class="pln">count</span><span class="pun">();</span></code></pre>
+
+</div><div class="col-md-6">
+
+<div class="caption">Join item titles</div>
+
+<pre class="prettyprint code"><code><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Item</span><span class="pun">&gt;</span><span class="pln"> items </span><span class="pun">=</span><span class="pln"> </span><span class="pun">...;</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> names </span><span class="pun">=</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">stream</span><span class="pun">().</span><span class="pln">map</span><span class="pun">((</span><span class="pln">x</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> x</span><span class="pun">.</span><span class="pln">getTitle</span><span class="pun">()).</span><span class="pln">collect</span><span class="pun">(</span><span class="typ">Collectors</span><span class="pun">.</span><span class="pln">joining</span><span class="pun">(</span><span class="str">", "</span><span class="pun">));</span></code></pre>
+
+</div></div>
+
+<div class="row row-separated"><div class="col-md-6">
+
+<div class="caption">Get distinct countries from cities</div>
+
+<pre class="prettyprint code"><code><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">City</span><span class="pun">&gt;</span><span class="pln"> cities </span><span class="pun">=</span><span class="pln"> </span><span class="pun">...;</span><span class="pln">
+</span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Country</span><span class="pun">&gt;</span><span class="pln"> countries </span><span class="pun">=</span><span class="pln"> cities</span><span class="pun">.</span><span class="pln">stream</span><span class="pun">().</span><span class="pln">map</span><span class="pun">((</span><span class="pln">c</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">getCountry</span><span class="pun">()).</span><span class="pln">distinct</span><span class="pun">().</span><span class="pln">collect</span><span class="pun">(</span><span class="typ">Collectors</span><span class="pun">.</span><span class="pln">toList</span><span class="pun">());</span></code></pre>
+
+</div><div class="col-md-6">
+
+<div class="caption">Get count, min, max, sum, and average statistics for items rating</div>
+
+<pre class="prettyprint code"><code><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Item</span><span class="pun">&gt;</span><span class="pln"> items </span><span class="pun">=</span><span class="pln"> </span><span class="pun">...;</span><span class="pln">
+</span><span class="typ">IntSummaryStatistics</span><span class="pln"> stats </span><span class="pun">=</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">stream</span><span class="pun">().</span><span class="pln">mapToInt</span><span class="pun">((</span><span class="pln">x</span><span class="pun">)</span><span class="pln"> </span><span class="pun">-&gt;</span><span class="pln"> x</span><span class="pun">.</span><span class="pln">getRating</span><span class="pun">()).</span><span class="pln">summaryStatistics</span><span class="pun">();</span></code></pre>
+
+</div></div>
+
+				
+			</div>
+		</div>
+
+		<div id="right" class="col-md-3">
+			<h3>Sponsors:</h3>
+			<div id="sponsors">
+				<a rel="nofollow" href="http://www.ohmdb.com/"><img src="./Java 8 Resources - Java 8 Cheatsheet_files/ohmdb-logo.png"><br>
+				<pre class="prettyprint right-snippet"><code><span class="typ">OhmDB</span><span class="pln"> db </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Ohm</span><span class="pun">.</span><span class="pln">db</span><span class="pun">(</span><span class="str">"my.db"</span><span class="pun">);</span><span class="pln">
+</span><span class="typ">Table</span><span class="pun">&lt;</span><span class="typ">Item</span><span class="pun">&gt;</span><span class="pln"> items</span><span class="pun">;</span><span class="pln">
+items </span><span class="pun">=</span><span class="pln"> db</span><span class="pun">.</span><span class="pln">table</span><span class="pun">(</span><span class="typ">Item</span><span class="pun">.</span><span class="kwd">class</span><span class="pun">);</span><span class="pln">
+</span><span class="typ">Item</span><span class="pln"> foo </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Item</span><span class="pun">(</span><span class="str">"foo"</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">long</span><span class="pln"> id </span><span class="pun">=</span><span class="pln"> items</span><span class="pun">.</span><span class="pln">insert</span><span class="pun">(</span><span class="pln">foo</span><span class="pun">);</span></code></pre>OhmDB - The Irresistible Database for Java</a>
+<br><br>			
+			<a rel="nofollow" href="http://empty/"><img id="sponsor-logo" src="./Java 8 Resources - Java 8 Cheatsheet_files/empty.png"></a><br>
+			</div>
+			<h3>All articles:</h3>
+			<div id="articles">
+			<p><a href="http://www.java8.org/caching-with-ConcurrentHashMap-in-java-8.html">Caching with ConcurrentHashMap and computeIfAbsent</a></p><p><a href="./Java 8 Resources - Java 8 Cheatsheet_files/Java 8 Resources - Java 8 Cheatsheet.html">Java 8 Cheatsheet</a></p><p><a href="http://www.java8.org/introduction-to-java-8-lambda-expressions.html">Introduction to Java 8 Lambda expressions</a></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div id="footer" class="text-center">
+				<p>Oracle and Java are registered trademarks of Oracle and/or its affiliates. Other names may be trademarks of
+					their respective owners.</p>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./Java 8 Resources - Java 8 Cheatsheet_files/content.js"></script>
+	
+	
+
+</body></html>

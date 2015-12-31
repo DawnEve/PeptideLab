@@ -9,16 +9,52 @@ devLog.txt 记录版本变化。
 3.sERP下的出勤考核项目。
 3.weixin目录下的微信项目。 
 4.sERP下的domainPriceAPI是用cURL采集数据的。
+	已经备份到github我的库中：
+	https://github.com/DawnEve/DawnPHPTools/tree/master/19-php_cURL_domainPriceAPI
 
 ----------------------------
 问题探讨：
 
 1.探讨因为人的理解能力不同，所以需要视频：http://tieba.baidu.com/p/4234602481?pid=81281570729
+	不行，以后劝别人千万别看视频，看视频是有害的。文档都看不懂的，可以退出别干了。
 2.前台数据全部ajax可以吗？http://tieba.baidu.com/p/4230703885?pid=81283455997
 ============================
 
 
+===================================
+-----------------------------------
+js收藏
+不可错过的javascript迷你库：http://yanhaijing.com/js/2015/12/29/mini-js-lib/
+js加载器：https://github.com/yanhaijing/lodjs
+抛物线讲解：http://www.zhangxinxu.com/wordpress/2013/12/javascript-js-%E5%85%83%E7%B4%A0-%E6%8A%9B%E7%89%A9%E7%BA%BF-%E8%BF%90%E5%8A%A8-%E5%8A%A8%E7%94%BB/
+抛物线例子：http://www.zhangxinxu.com/study/201312/js-parabola.html
 
+
+-----------------------------------
+前端
+
+用户为什么看不见？
+http://isux.tencent.com/why-people-cannot-see.html
+
+
+腾讯isux团队：
+http://isux.tencent.com/
+http://isux.tencent.com/front-end-development-for-year-and-a-half.html
+
+腾讯 CDC，ISUX，WSD 这几个设计团队之间的区别是什么？各自的职责有哪些不同之处？
+http://www.zhihu.com/question/20091143
+
+-----------------------------------
+===================================
+
+
+Nginx开发从入门到精通
+http://tengine.taobao.org/book/
+http://www.cnblogs.com/skynet/p/4146083.html
+http://nginx.org/
+
+-----------------------------------
+===================================
 
 好看的UI:http://electron.atom.io/
 

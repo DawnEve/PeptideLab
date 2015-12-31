@@ -1,0 +1,6 @@
+第一阶段Html、CSS、JavaScript基础、JAVA基础增强
+第二阶段JavaWEB、JavaMail开发技术、网上银行交易系统、网上在线支付
+第三阶段Android核心基础
+第四阶段Android高级、Git版本管理、linux、Webservice技术
+第五阶段Android项目实战：手机卫士、新浪微盘、321影音、手机彩票、植物大战僵尸、10000知道、
+手机团购客户端等等
