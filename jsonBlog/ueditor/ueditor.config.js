@@ -34,16 +34,14 @@
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
         , toolbars: [
-			['fullscreen', 'source', '|', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', '|'],
-			[
-            'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
-            'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
-            'directionalityltr', 'directionalityrtl', 'indent', '|',
-            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
-            'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
-            'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 
-
-			'insertframe', 'insertcode',  'pagebreak', 'template', 'background', '|',
+			['fullscreen',  'undo', 'redo','|', 'fontsize', 'bold', 'italic', 'underline',  'strikethrough',   'forecolor', 'backcolor', '|', 'link', 'unlink', 'anchor','|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map','|', 'insertcode','|','source',],
+						
+			['fontborder','superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset','blockquote', 'pasteplain', '|','selectall','insertorderedlist', 'insertunorderedlist',  '|',
+            'rowspacingtop', 'rowspacingbottom', 'lineheight', '|', 'customstyle', 'paragraph', 'fontfamily',  '|',
+            'directionalityltr', 'directionalityrtl', 'indent', '|','touppercase', 'tolowercase', '|',],
+			
+			['imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+            'insertframe',   'pagebreak', 'template', 'background', '|',
             'horizontal', 'date', 'time', 'spechars',  'wordimage', '|',
             'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
             'print', 'preview', 'searchreplace', 'help', 'drafts'
@@ -117,9 +115,9 @@
         //,autoClearEmptyNode : true //getContent时，是否删除空的inlineElement节点（包括嵌套的情况）
 
         //启用自动保存
-        //,enableAutoSave: true
+        ,enableAutoSave: true
         //自动保存间隔时间， 单位ms
-        //,saveInterval: 500
+        ,saveInterval: 500
 
         //,fullscreen : false //是否开启初始化时即全屏，默认关闭
 
