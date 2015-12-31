@@ -16,7 +16,7 @@ class IndexController extends Controller{
 		$arrLeft=$this->getLeftMenu($k,$id);
 
 		
-		//2.包含视图
+		//2.加载视图并显示
 		$c = substr(__class__,0,stripos(__class__,'Controller'));
 		$a = substr(__method__,2+stripos(__method__,'::'));
 

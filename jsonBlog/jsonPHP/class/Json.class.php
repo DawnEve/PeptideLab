@@ -6,7 +6,12 @@ class Json{
 		get string from file
 	*/
 	static function get($topic){
-		return file_get_contents( 'data/menu/' . $topic . '.json');
+		$filename='data/menu/' . $topic . '.json';
+		if(file_exists($filename)){
+			return file_get_contents( $filename );
+		}else{
+			return false;
+		}
 	}
 	
 	

@@ -3,18 +3,20 @@
 
 <?php
 for($i=0; $i<count($arrLeft['data']);$i++){
+	//1级目录
 	$one=$arrLeft['data'][$i];
-	echo "<li><h5 class=title>{$one[1]}</h5>";
+	$title1=$i . '. ' . $one[1];
+	echo "<li><h5 class=title>{$title1}</h5>";
 	echo '	<ul class=submenu>';
-	//二级目录
+	//2级目录
 	$two=$one[2];
-		//debug($one);
 	foreach($two as $key=>$value){
 		$class='';
-		if($id==$i.'_'.$key){
+		$fname=$i.'_'.$key;
+		if($id==$fname){
 			$class=' class=cur';
 		}
-		echo "<li".$class."><a href='index.php?k=".$keyword."&id=".$i.'_'.$key."'>".$value."</a></li>";
+		echo "<li".$class."><a href='index.php?k=".$keyword."&id=".$fname."'>". $fname .' '.$value."</a></li>";
 	}
 	
 	echo "</ul>";

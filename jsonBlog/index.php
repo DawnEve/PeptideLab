@@ -4,17 +4,10 @@ define("BathPath","F:/xampp/htdocs/jsonBlog/jsonPHP/");
 include('jsonPHP/door.php');
 
 //获取数据
-$c=Dawn::get('c','Index') . 'Controller';
-$a=Dawn::get('a','index');
-$k=Dawn::get('k','');
-$id=Dawn::get('id','-1');
-
-
-//显示当前页
-//$topic = $k;
-
-//显示顶部菜单
-//showMenu($topic);
+$c=Dawn::get('c','Index') . 'Controller';//控制器
+$a=Dawn::get('a','index');//动作
+$k=Dawn::get('k','');//关键词
+$id=Dawn::get('id','0_1');//关键词下的页面
 
 
 //实例化控制器

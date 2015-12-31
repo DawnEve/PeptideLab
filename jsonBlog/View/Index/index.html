@@ -1,5 +1,3 @@
-
-
 <!--头部-->
 <?php include('header.html');?>
 
@@ -9,7 +7,21 @@
 	<?php include('leftMenu.html');?>
 	
 	<div class=right>
-		具体内容
+		<?php 
+			//拼装地址,并打印
+			$filepath= 'data/' . $keyword . '/' . $id . '.html';
+			echo '<p class="filepath">file name: ' .$filepath . '</p>';
+			//拼装图片文件夹
+			$picturePath='data/' . $keyword . '/';
+
+			//包含文章视图文件
+			if(file_exists($filepath)){
+				include($filepath);
+			}else{
+				echo '<div class=alert>还在紧张制作中，请稍后再来...</div>';
+			} 
+		
+		?>
 	</div>
 </div>
 
