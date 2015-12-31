@@ -14,7 +14,7 @@
 1.读写json的代码保留下来，供以后用。
 
 	/**
-		get string from file
+		get json string from file
 	*/
 	static function get($topic){
 		$filename='data/menu/' . $topic . '.json';
@@ -24,3 +24,4 @@
 			return false;
 		}
 	}
+2.把顶部目录改成array，正常；

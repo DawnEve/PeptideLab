@@ -2,6 +2,8 @@
 .settings
 .buildpath
 .project
+.externalToolBuilders/
+
 
 backup
 

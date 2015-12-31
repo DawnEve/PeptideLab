@@ -29,9 +29,11 @@ class Controller{
 		获取顶部菜单
 	*/
 	function getTopMenu($keyword){
-		$data=Json::get('title');
+		$title=new Config('data/menu/title.php');
+		$data=$title->get();
+		
 		$arr=array('keyword'=>$keyword);
-		$arr['data']=json_decode($data,true);
+		$arr['data']=$data;
 		
 		return $arr;
 	}
