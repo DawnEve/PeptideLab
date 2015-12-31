@@ -29,8 +29,8 @@ class Controller{
 		获取顶部菜单
 	*/
 	function getTopMenu($keyword){
-		$title=new Config('data/menu/title.php');
-		$data=$title->get();
+		$top=new Config('data/menu/title.php');
+		$data=$top->get();
 		
 		$arr=array('keyword'=>$keyword);
 		$arr['data']=$data;
@@ -42,10 +42,12 @@ class Controller{
 		获取左侧菜单
 	*/
 	function getLeftMenu($keyword,$id){
-		$data=Json::get($keyword);
+	    $top=new Config('data/menu/'.$keyword.'.php');
+		$data=$top->get();	    
+		
 		$arr=array('keyword'=>$keyword);
 		$arr['id']=$id;
-		$arr['data']=json_decode($data,true);
+		$arr['data']=$data;
 		
 		return $arr;
 	}

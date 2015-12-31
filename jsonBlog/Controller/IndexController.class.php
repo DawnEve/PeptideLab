@@ -9,14 +9,17 @@ class IndexController extends Controller{
 		if($k=='')return;
 		if($id=='')return;
 	
-		//1.»ñµÃÊı¾İ
-		//1.1 »ñµÃ¶¥²¿µ¼º½
+		//1.è·å¾—æ•°æ®
+		//1.1 è·å¾—é¡¶éƒ¨å¯¼èˆª
 		$arrTop=$this->getTopMenu($k);
-		//1.2»ñµÃ×ó²àµ¼º½ĞÅÏ¢
+		//1.2è·å¾—å·¦ä¾§å¯¼èˆªä¿¡æ¯
 		$arrLeft=$this->getLeftMenu($k,$id);
 
+		$num=count($arrLeft['data']);
 		
-		//2.¼ÓÔØÊÓÍ¼²¢ÏÔÊ¾
+
+		
+		//2.åŠ è½½è§†å›¾å¹¶æ˜¾ç¤º
 		$c = substr(__class__,0,stripos(__class__,'Controller'));
 		$a = substr(__method__,2+stripos(__method__,'::'));
 

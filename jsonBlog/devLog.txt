@@ -25,3 +25,32 @@
 		}
 	}
 2.把顶部目录改成array，正常；
+<?php
+//顶部菜单
+$aa='{"html":"0","css":"1","javascript":"2","PHP":"3","thinkPHP":"3","ci":"4","phpCMS":"5"}';
+
+$arr=json_decode($aa,true);
+
+//数组写入文件
+	function array2config($arr,$file){
+		$str='<?php'.PHP_EOL.'return '.var_export($arr,TRUE).';';
+		file_put_contents($file, $str);
+	}
+$data=array2config($arr,'PHP.php');
+
+
+echo '<pre>';
+echo $data;
+
+
+3.左侧边改为array，同时修改数据结构。
+	数组存储，扩展性更强：array('读取','20151231165013', 'txt'),
+		第一项是标题，接着是文件名，最后是扩展名。
+
+4.-支持txt格式的文档。
+
+
+
+
+
+

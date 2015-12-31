@@ -5,8 +5,8 @@
  * 配置文件操作类
  * 类名时驼峰法，方法名是下划线法。
  *
- * @version		v1.0.0
- * @revise		2015.12.15
+ * @version		v1.0.3
+ * @revise		2015.12.31
  * @date		2015.12.15
  * @author		Dawn
  * @email		JimmyMall@live.com
@@ -22,6 +22,11 @@ class Config{
 		读取配置项，有参数就返回，否则就全部返回
 	*/
 	function get($key=''){
+	    //如果文件不存在，则返回false
+	    if(!file_exists($this->config_file)){
+	        return false;
+	    }
+	    //如果存在，则读取
 		$set = include($this->config_file);
 		if(''==$key){
 			return $set;
