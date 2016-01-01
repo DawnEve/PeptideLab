@@ -1,0 +1,237 @@
+﻿<script src='ajaxObjPrototype.js'></script>
+<style>
+*{margin:0;padding:0;}
+.wrap{padding:10px;margin:10px auto;}
+#history{border:1px solid #eee; margin:10px;padding:10px;min-height:200px;}
+
+
+
+.left{background:#eee; width:110px;float:left; padding:10px;}
+.right{background:#efefef;margin-left:140px; padding:10px;}
+
+p.title{background:purple; padding:2px 10px; margin:10px 0; color:#fff;}
+ul {  list-style-type: none;  padding: 0;}
+ul li {
+  font-weight: bold;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+ul em {
+  display: inline-block;
+  width: 50px;
+  font-style: normal;
+}
+ul span {
+  display: inline-block;
+}
+
+.content input {
+	padding: 8px;
+	margin:0 10px;
+	width:35px;
+	height:34px;
+}
+.content em {
+  text-align: right;
+  padding: 8px 8px 8px 0;
+}
+.content span {
+  color: white;
+  background: cornflowerblue;
+  padding: 8px;
+  width: 30px;
+  border-radius: 4px;
+  animation: grow-padding-right 5s;
+}
+
+#history .record p{color:#999; padding:5px; font-family:'微软雅黑';}
+
+</style>
+
+<div class=wrap>
+<div id=score>
+
+<div class=left>
+	<p class=title>控制区</p>
+	<ul class="content">
+		<!--li><input type='button' onclick='add(-1)' value='-'><input type='button'  onclick='add(1)' value='+'></li-->
+	</ul>
+</div>
+<div class=right>
+	<p class=title>显示区</p>
+	<ul class="content">
+		<!--li><em>张大三</em><span style="padding-right: 40.5882%;">138</span></li-->
+	</ul>
+</div>
+
+</div>
+	
+
+	<div id=history>
+		<p class=title>历史记录</p>
+		<div class=record>
+			
+		</div>
+	</div>
+
+</div>
+
+
+<script>
+function n(s){
+	console.log(s);
+}
+function $(s){
+	return document.getElementById(s);
+}
+function add(num){
+	n(num);
+}
+
+window.onload=function(){
+	//请求一次数据
+	//获取元素 顶部
+	var oScore=$('score');
+	var oLeft=oScore.getElementsByClassName('left')[0];
+	var oRight=oScore.getElementsByClassName('right')[0];
+	//获取元素 底部
+	var oHistory=$('history');
+	var oRecord=oHistory.getElementsByClassName('record')[0];
+	
+	//内容
+	oLC=oLeft.getElementsByClassName('content')[0];
+	oRC=oRight.getElementsByClassName('content')[0];
+
+	//请求ajax，获取数据
+	var ajax=new Ajax();
+	var url='action.php?a=get';
+	ajax.get(url,function(str){
+		var objs=ajax.getJson(str);
+		for(var k in objs){
+			var obj=objs[k];
+			//更新分数
+			refreshScore(obj);
+			//显示到历史记录中
+			oRecord.appendChild( getDomHistory(obj) );
+		}
+		//刷新视图
+		init(names);
+	});
+	
+}
+
+//初始化视图
+function init(names){
+	var maxScore=names[0][5];
+	for(var i=0;i<names.length;i++){
+		var cur=names[i][5];
+		if(cur>maxScore){
+			maxScore=cur;
+		}
+	}
+	if(0==maxScore){maxScore=-1;}
+	names['max']=maxScore;
+	
+	for(var i=0;i<names.length;i++){
+		//定义分数百分比
+		names[i][6]=names[i][5]/maxScore*90;
+		//刷新视图
+		var person=names[i];
+		//n(person);	//[0, "闫中义", 2012, 4, 4, 0] 0为名字，4为id号。5为分数
+		oLC.appendChild( getDomLeft(person) );
+		oRC.appendChild( getDomRight(person) );
+	}
+}
+
+//刷新：分数数据
+function refreshScore(obj){
+	//计算分数
+	//n(obj);//Object {id: "4", uid: "1", score: "-1", add_time: "2015-12-28 17:19:43"}
+	names[obj['uid']][5] += +obj['score'];
+}
+
+//视图：历史记录
+function getDomHistory(obj){
+	var oP=document.createElement('p');
+	var str=obj['add_time']+'(记录号'+obj['id']+'): ';
+	str += names[obj['uid']][1];
+	str += " "+obj['score'];
+	
+	oP.innerHTML=str;
+	//n(obj)//Object {id: "1", uid: "0", score: "0", add_time: "2015-12-28 17:19:32"}
+	
+	
+	return oP;
+}
+
+//视图：左侧
+function getDomLeft(arr){
+	//1.创建dom
+	var oLi=document.createElement('li');
+	var oInput=document.createElement('input');
+	oInput.setAttribute('type','button');
+	oInput.setAttribute('onclick','add(-'+arr[0]+')');
+	oInput.setAttribute('value','-');
+	
+	var oInput2=document.createElement('input');
+	oInput2.setAttribute('type','button');
+	oInput2.setAttribute('onclick','add('+arr[0]+')');
+	oInput2.setAttribute('value','+');
+	
+	oLi.appendChild( oInput );
+	oLi.appendChild( oInput2 );
+
+	//2.返回
+	return oLi;
+}
+
+//视图：右侧
+function getDomRight(arr){
+	//1.创建dom
+	var oLi=document.createElement('li');
+	var oEm=document.createElement('em');
+	oEm.innerHTML=arr[1];
+	
+	var oSpan=document.createElement('span');
+	oSpan.innerHTML=arr[5];
+	oSpan.setAttribute('style','padding-right:'+arr[6]+'%;');
+	//n(arr);
+
+	oLi.appendChild( oEm );
+	oLi.appendChild( oSpan );
+
+	//2.返回
+	return oLi;
+}
+
+
+//原始信息
+
+var names=[
+//编号:[名单	入学年份	学制	年级]
+[0, "闫中义", 2012, 4, 4, 0]
+,[1, "周秀曼", 2014, 4, 4, 0]
+,[2, "王成功", 2013, 3, 3, 0]
+,[3, "王鸿飞", 2015, 4, 4, 0]
+,[4, "敬雪莉", 2013, 3, 3, 0]
+,[5, "吴春景", 2013, 3, 3, 0]
+,[6, "杨金金", 2013, 3, 3, 0]
+,[7, "张丹", 2014, 3, 2, 0]
+,[8, "王军亮", 2014, 3, 2, 0]
+,[9, "李一帆", 2014, 3, 2, 0]
+,[10, "王婷婷", 2014, 3, 2, 0]
+,[11, "孟婧洁", 2014, 3, 2, 0]
+,[12, "吕小翠", 2014, 3, 2, 0]
+,[13, "祝晓晴", 2014, 3, 2, 0]
+,[14, "林燕", 2015, 3, 1, 0]
+,[15, "衣丽丽", 2015, 3, 1, 0]
+,[16, "高珂", 2015, 3, 1, 0]
+,[17, "王冰琳", 2015, 3, 1, 0]
+,[18, "刘娅婷", 2015, 3, 1, 0]
+,[19, "曹文鹏", 2015, 3, 1, 0]
+,[20, "秦亚萍", 2015, 3, 1, 0]
+,[21, "吴慧静", 2015, 3, 1, 0]
+
+];
+
+</script>
