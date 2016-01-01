@@ -14,8 +14,8 @@ return array(
 	//router config
 	'URL_ROUTER_ON'=>true,
 	
-	//动态路由
-	'URL_ROUTE_RULES'=>array(
+	//动态路由2
+	'URL_ROUTE_RULES2'=>array(
 		'n'=>'news/index',
 		'news/:year/:month/:day' => array('News/archive', 'status=1'),
 		'news/read/:id'          => '/news/:1',//重定向规则(以/开头的是重定向定义)
@@ -27,8 +27,8 @@ return array(
 		//http://tp.dawneve.cc/new/12
 	 ),
 	 
-	//静态路由
-	'URL_MAP_RULES'=>array(
+	//静态路由2
+	'URL_MAP_RULES2'=>array(
 		'news/top' => 'news/archive?type=top',
 		//静态路由定义不受URL后缀影响。静态路由是完全匹配。
 	),

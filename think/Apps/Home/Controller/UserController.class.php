@@ -267,8 +267,114 @@ class UserController extends Controller {
 		
 		$user=M('User');
 		dump( $user->field(array('id','LEFT(email,5)'))->select() );//取出email字段左边5位
-	}	
+	}
 	
+	function lg9(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		dump( $user->field(array('id','LEFT(email,5)'=>'left5Email2'))->select() );//取出email字段左边5位，并重新命名字段
+	}
+	function lg10(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		dump( $user->limit(1,1)->select() );//limit用法
+	}
+	
+	function page(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		dump( $user->page(3,2)->select() );//分页的page：5、6
+	}
+	
+	
+	function table(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		dump( $user->table('__INFO__')->select() );//用于切换表
+		//dump( $user->table('__user__')->select() );//用于切换表
+		//dump( $user->table('test.t_user')->select() );//用于切换表
+	}
+	
+		
+	function table2(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		//MyDump( $user->field('a.id,b.id')->table('__USER__ as a,__INFO__ as b')->select() );//多表查询
+		MyDump( $user->field('a.id,b.id')->table(array('think_user'=>'a', 'think_info'=>'b'))->select() );//多表查询
+	}
+	
+	function table3(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		MyDump( $user->alias('a')->select() );//别名
+	}
+	
+	function table4(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('Info');
+		MyDump( $user->field('id,SUM(weight) as sum')->group('uid')->select() );//别名
+	}
+	
+	function table5(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('Info');
+		MyDump( $user->comment('查找身高体重')->select() );//添加注释
+	}
+	
+	function table6(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		//MyDump( $user->join('think_info ON think_user.id = think_info.uid ')->select() );//连接查询
+		//MyDump( $user->alias('a')->field('a.id,a.user,b.height,b.weight')->join('think_info b ON a.id= b.uid')->select() );//内连接
+		//MyDump( $user->alias('a')->field('a.id,a.user,b.height,b.weight')->join('think_info b ON a.id= b.uid','RIGHT')->select() );//右链接
+		MyDump( $user->alias('a')->field('a.id,a.user,b.height,b.weight')->join('think_info b ON a.id= b.uid','LEFT')->select() );//左链接
+	}
+	
+	function table7(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		MyDump( $user->field('id')->union('select id form __INFO__')->select() );//UNION todo
+	}
+	
+	function cache(){
+		echo '<hr>namespace:',__namespace__;
+		echo '<hr>class:',__class__;
+		echo '<hr>method:',__method__;
+		
+		$user=M('User');
+		//MyDump( $user->select() );//cache
+		MyDump( $user->cache(true)->select() );//cache
+	}
 }
 
 //http://tp.dawneve.cc/index.php/home/User/index
@@ -276,5 +382,4 @@ class UserController extends Controller {
 /*
 http://tp.dawneve.cc/index.php?c=user
 http://tp.dawneve.cc/home/user/login/var/value
-
 */
