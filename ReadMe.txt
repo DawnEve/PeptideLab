@@ -11,6 +11,8 @@ devLog.txt 记录版本变化。
 4.sERP下的domainPriceAPI是用cURL采集数据的。
 	已经备份到github我的库中：
 	https://github.com/DawnEve/DawnPHPTools/tree/master/19-php_cURL_domainPriceAPI
+5.jsonBlog目录下的博客系统。
+
 
 ----------------------------
 问题探讨：

@@ -15,9 +15,8 @@ class IndexController extends Controller{
 		//1.2获得左侧导航信息
 		$arrLeft=$this->getLeftMenu($k,$id);
 
+		//1.3对数据进行判断，如果为空，则在加载完顶部和侧边目录后返回
 		$num=count($arrLeft['data']);
-		
-
 		
 		//2.加载视图并显示
 		$c = substr(__class__,0,stripos(__class__,'Controller'));

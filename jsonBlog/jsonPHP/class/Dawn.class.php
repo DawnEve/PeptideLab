@@ -45,4 +45,24 @@ class Dawn{
 	public static function died(){
 		die('Invalid visit.<br><a href="index.php">返回首页</a>');
 	}
+	
+	public static function showTxt($filename){
+	    //1.确定文件存在，否则提示
+	    if(!file_exists($filename)){
+	        return '<p>文件不存在</p>';
+	    }
+	    //2.对文件进行替换
+	    $data = file_get_contents($filename);
+	    //对<>进行转义
+	    $data=preg_replace('/</','&lt;',$data);
+	    $data=preg_replace('/>/','&gt;',$data);
+	    //对换行的========替换为<hr>
+	    $data=preg_replace('/={20,}/','<hr class=top><h4>',$data);
+	    $data=preg_replace('/\-{20,}/','</h4><hr class=under>',$data);
+	    
+	    
+	    //3.输出显示
+	    return $data;
+	
+	}
 }

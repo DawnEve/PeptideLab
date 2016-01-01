@@ -7,7 +7,7 @@ include('jsonPHP/door.php');
 $c=Dawn::get('c','Index') . 'Controller';//控制器
 $a=Dawn::get('a','index');//动作
 $k=Dawn::get('k','PHP');//关键词
-$id=Dawn::get('id','0_1');//关键词下的页面
+$id=Dawn::get('id','0_0');//关键词下的页面，由页面序号索引到文件名
 
 
 //实例化控制器

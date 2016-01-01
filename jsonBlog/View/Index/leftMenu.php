@@ -3,7 +3,7 @@
 
 <?php
 $trueFileName='';
-
+$fileType='';
 
 for($i=0; $i<count($arrLeft['data']);$i++){
 	//1级目录
@@ -27,10 +27,12 @@ for($i=0; $i<count($arrLeft['data']);$i++){
 			$trueFileName = $two[$j][1];
 			//为文件真名连接扩展名
 			if(isset($two[$j][2])){
-				$trueFileName .= '.' . $two[$j][2];
+			    //获取文件扩展名
+			    $fileType=$two[$j][2];
 			}else{
-				$trueFileName .= '.html';
+			    $fileType='html';
 			}
+			$trueFileName .= '.' . $fileType;
 		}
 		//这是文件说明
 		$fname=$two[$j][0];

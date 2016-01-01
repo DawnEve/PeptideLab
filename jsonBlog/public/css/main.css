@@ -66,8 +66,18 @@
     border-radius: 3px;
     margin-left: 10px;
 }
+
+/*ubuntu代码显示风格1*/
+.content pre.ubuntu1{background:#300E25; color:#fff;  font-size: 15px;	border-radius: 10px;
+	font-family:Consolas,"Andale Mono", monospace;}
+.content pre.ubuntu1 hr.top{ height:40px; border:0;margin-top:100px; background-color:#A5D75C;
+	border-top-left-radius:10px;border-top-right-radius:10px;}
+.content pre.ubuntu1 hr.under{	border:0;border-bottom:1px #A5D75C dashed;	height:10px;}
+.content pre.ubuntu1 h4{font-size:20px;	color:#A5D75C;}
+
+
+
 /*表格样式*/
 .content table{
 	margin: 10px;
-
 }

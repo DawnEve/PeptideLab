@@ -1,10 +1,10 @@
 <!--头部-->
-<?php include('header.html');?>
+<?php include('header.php');?>
 
 <!--主体-->
 <div class=main>
 	<!--左边目录-->
-	<?php include('leftMenu.html');?>
+	<?php include('leftMenu.php');?>
 	
 	<div class=right>
 		<?php 
@@ -18,7 +18,14 @@
 
 			//包含文章视图文件
 			if(file_exists($filepath)){
-				include($filepath);
+				if('txt'==$fileType){
+					echo '<div class="content"><pre class=ubuntu1>';
+					echo Dawn::showTxt($filepath);
+					echo '</pre></div>';
+				}else{
+					//debug($fileType);
+					include($filepath);
+				}
 			}else{
 				echo '<div class=alert>作者还没写出来，请稍后再来...</div>';
 			} 
@@ -30,4 +37,4 @@
 <div class=clear></div>
 
 <!--尾部-->
-<?php include('footer.html');?>
+<?php include('footer.php');?>

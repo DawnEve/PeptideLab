@@ -47,8 +47,21 @@ echo $data;
 	数组存储，扩展性更强：array('读取','20151231165013', 'txt'),
 		第一项是标题，接着是文件名，最后是扩展名。
 
-4.-支持txt格式的文档。
-
+4.支持直接读取txt格式的文档。
+	要求：utf-8编码，文件后缀注明是txt；
+	格式化：
+		遇到<>会转义为实体；
+		遇到连续20个=转义为<h1 class=top>；
+		遇到连续20个-转义为<h1 class=under>；
+	css样式设置：首先在index.html中标注 <pre class=ubuntu1>；
+	接着在css文件中写样式：
+/*ubuntu代码显示风格1*/
+.content pre.ubuntu1{background:#300E25; color:#fff;  font-size: 15px;	border-radius: 10px;
+	font-family:Consolas,"Andale Mono", monospace;}
+.content pre.ubuntu1 hr.top{ height:40px; border:0;margin-top:100px; background-color:#A5D75C;
+	border-top-left-radius:10px;border-top-right-radius:10px;}
+.content pre.ubuntu1 hr.under{	border:0;border-bottom:1px #A5D75C dashed;	height:10px;}
+.content pre.ubuntu1 h4{font-size:20px;	color:#A5D75C;}
 
 
 
