@@ -87,7 +87,16 @@ function n(s){
 function $(s){
 	return document.getElementById(s);
 }
-
+//实现数组克隆
+function cloneArr(arr){
+	var _arr=[];
+	for(var i=0;i<arr.length;i++){
+		var arr_=arr[i];
+		arr_[5]=0;//积分不会自动归零，必须手动清零。再次注意：数组的复制始终是引用！
+		_arr.push(arr_);
+	}
+	return _arr;
+}
 
 
 window.onload=function(){
@@ -97,8 +106,12 @@ window.onload=function(){
 }
 
 
+
+
 //刷新视图
 function refresh(url){
+	var persons=[];
+	persons=cloneArr(names);//从基础数据克隆出新数据
 	//获取元素 顶部
 	var oScore=$('score');
 	var oLeft=oScore.getElementsByClassName('left')[0];
@@ -119,24 +132,15 @@ function refresh(url){
 		for(var k in objs){
 			var obj=objs[k];
 			//更新分数
-			refreshScore(obj);
+			persons=refreshScore(obj,persons);
 			//显示到历史记录中
 			oRecord.appendChild( getDomHistory(obj) );
 		}
 		//刷新视图
-		refreshTopView(oLC,oRC);
+		refreshTopView(oLC,oRC,persons);
 	});
 }	
 	
-
-//减少的函数
-function minus(num){
-	doAdd(num,-1);	
-}
-//增加的函数
-function add(num){
-	doAdd(num,+1);	
-}
 
 //执行增加减少ajax操作
 function doAdd(uid,score){
@@ -149,26 +153,26 @@ function doAdd(uid,score){
 	
 
 //刷新顶部视图
-function refreshTopView(oLC,oRC){
+function refreshTopView(oLC,oRC,persons){
 	//清空元素
 	oLC.innerHTML='';
 	oRC.innerHTML='';
 	//获取最大分数
-	var maxScore=names[0][5];
-	for(var i=0;i<names.length;i++){
-		var cur=names[i][5];
+	var maxScore=persons[0][5];
+	for(var i=0;i<persons.length;i++){
+		var cur=persons[i][5];
 		if(cur>maxScore){
 			maxScore=cur;
 		}
 	}
 	if(0==maxScore){maxScore=-1;}
-	names['max']=maxScore;
+	persons['max']=maxScore;
 	
-	for(var i=0;i<names.length;i++){
+	for(var i=0;i<persons.length;i++){
 		//定义分数百分比
-		names[i][6]=names[i][5]/maxScore*90;
+		persons[i][6]=persons[i][5]/maxScore*90;
 		//刷新视图
-		var person=names[i];
+		var person=persons[i];
 		//n(person);	//[0, "闫中义", 2012, 4, 4, 0] 0为名字，4为id号。5为分数
 		//刷新视图
 		oLC.appendChild( getDomLeft(person) );
@@ -177,22 +181,22 @@ function refreshTopView(oLC,oRC){
 }
 
 //刷新：分数数据
-function refreshScore(obj){
+function refreshScore(obj,persons){
 	//计算分数
 	//n(obj);//Object {id: "4", uid: "1", score: "-1", add_time: "2015-12-28 17:19:43"}
-	names[obj['uid']][5] += +obj['score'];
+	persons[obj['uid']][5] += parseInt( obj['score'] );
+	return persons;
 }
 
 //视图：历史记录
 function getDomHistory(obj){
 	var oP=document.createElement('p');
-	var str=obj['add_time']+'(记录号'+obj['id']+'): ';
+	var str=obj['add_time']+'(记录号'+obj['id']+'): ';//获取年龄
 	str += names[obj['uid']][1];
 	str += " "+obj['score'];
 	
 	oP.innerHTML=str;
 	//n(obj)//Object {id: "1", uid: "0", score: "0", add_time: "2015-12-28 17:19:32"}
-	
 	
 	return oP;
 }
@@ -203,7 +207,7 @@ function getDomLeft(arr){
 	var oLi=document.createElement('li');
 	var oInput=document.createElement('input');
 	oInput.setAttribute('type','button');
-	oInput.setAttribute('onclick','minus('+arr[0]+')');
+	oInput.setAttribute('onclick','doAdd('+arr[0]+',-1)');
 	oInput.setAttribute('value','-');
 	
 	var oInputT=document.createElement('input');
@@ -215,7 +219,7 @@ function getDomLeft(arr){
 	
 	var oInput2=document.createElement('input');
 	oInput2.setAttribute('type','button');
-	oInput2.setAttribute('onclick','add('+arr[0]+')');
+	oInput2.setAttribute('onclick','doAdd('+arr[0]+',1)');
 	oInput2.setAttribute('value','+');
 	
 	oLi.appendChild( oInput );
@@ -272,6 +276,7 @@ var names=[
 ,[19, "曹文鹏", 2015, 3, 1, 0]
 ,[20, "秦亚萍", 2015, 3, 1, 0]
 ,[21, "吴慧静", 2015, 3, 1, 0]
+,[22, "杜江峰", 2015, 3, 1, 0]
 
 ];
 
