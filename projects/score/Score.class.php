@@ -22,5 +22,12 @@ class Score{
 		//debug($sql);
 		return mysql_query($sql,$this->conn);
 	}
+	
+	//清空数据
+	function init(){
+		$sql="TRUNCATE TABLE score;";
+		//debug($sql);
+		return mysql_query($sql,$this->conn);		
+	}
 
 }

@@ -50,6 +50,10 @@ ul span {
 #history .record p{color:#999; padding:5px; font-family:'微软雅黑';}
 
 </style>
+<a href='admin.php'>登陆</a> |
+<a href='action.php?a=logout'>退出</a>
+<hr>
+
 
 <div class=wrap>
 <div id=score>
@@ -81,13 +85,22 @@ ul span {
 
 
 <script>
+//用于调试
 function n(s){
 	console.log(s);
 }
+//用于选择
 function $(s){
 	return document.getElementById(s);
 }
-//实现数组克隆
+function getJson(s){
+	if(typeof s=='object'){
+		return s;
+	}
+	return eval("("+s+")");
+}
+	 
+//数组克隆
 function cloneArr(arr){
 	var _arr=[];
 	for(var i=0;i<arr.length;i++){
@@ -99,8 +112,9 @@ function cloneArr(arr){
 }
 
 
+//页面初始化
 window.onload=function(){
-	//请求一次数据
+	//ajax请求一次数据
 	var url='action.php?a=get';
 	refresh(url);
 }
@@ -129,6 +143,14 @@ function refresh(url){
 	var ajax=new Ajax();
 	ajax.get(url,function(str){
 		var objs=ajax.getJson(str);
+		
+		//如果错误，则直接返回
+		if(2015==objs[0]){
+			alert(objs[1]);
+			location=location;//刷新页面。
+			return;
+		}
+		
 		for(var k in objs){
 			var obj=objs[k];
 			//更新分数
@@ -170,7 +192,7 @@ function refreshTopView(oLC,oRC,persons){
 	
 	for(var i=0;i<persons.length;i++){
 		//定义分数百分比
-		persons[i][6]=persons[i][5]/maxScore*90;
+		persons[i][6]=persons[i][5]/maxScore*70;
 		//刷新视图
 		var person=persons[i];
 		//n(person);	//[0, "闫中义", 2012, 4, 4, 0] 0为名字，4为id号。5为分数
@@ -250,17 +272,18 @@ function getDomRight(arr){
 }
 
 
-//原始信息
-
+//基础信息
 var names=[
-//编号:[名单	入学年份	学制	年级]
+//编号:[名单	入学年份	学制	年级  分数初始值]
 [0, "闫中义", 2012, 4, 4, 0]
 ,[1, "周秀曼", 2014, 4, 4, 0]
 ,[2, "王成功", 2013, 3, 3, 0]
+
 ,[3, "王鸿飞", 2015, 4, 4, 0]
 ,[4, "敬雪莉", 2013, 3, 3, 0]
 ,[5, "吴春景", 2013, 3, 3, 0]
 ,[6, "杨金金", 2013, 3, 3, 0]
+
 ,[7, "张丹", 2014, 3, 2, 0]
 ,[8, "王军亮", 2014, 3, 2, 0]
 ,[9, "李一帆", 2014, 3, 2, 0]
@@ -268,6 +291,7 @@ var names=[
 ,[11, "孟婧洁", 2014, 3, 2, 0]
 ,[12, "吕小翠", 2014, 3, 2, 0]
 ,[13, "祝晓晴", 2014, 3, 2, 0]
+
 ,[14, "林燕", 2015, 3, 1, 0]
 ,[15, "衣丽丽", 2015, 3, 1, 0]
 ,[16, "高珂", 2015, 3, 1, 0]
@@ -276,6 +300,7 @@ var names=[
 ,[19, "曹文鹏", 2015, 3, 1, 0]
 ,[20, "秦亚萍", 2015, 3, 1, 0]
 ,[21, "吴慧静", 2015, 3, 1, 0]
+
 ,[22, "杜江峰", 2015, 3, 1, 0]
 
 ];
