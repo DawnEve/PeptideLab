@@ -9,7 +9,7 @@
 	echo '<br><br>';
 
 	echo '<br>请谨慎操作：<br>';
-	echo '<hr><a href="action.php?a=init">清空数据</a>';
+	echo '<hr><a href="action.php?a=initDb">清空数据</a>';
 	
 	
 	die();

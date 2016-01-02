@@ -47,7 +47,7 @@ switch ($action){
 		
 		echo json_encode( $score->get() );
 		break;
-	case "init":
+	case "initDb":
 		//如果没有登陆，则不允许操作
 		if(!$isLog){
 			//
@@ -66,6 +66,9 @@ switch ($action){
 			echo '清理失败';
 		}
 		echo '<hr><a href="index.html">回到首页</a>';
+		break;
+	case "isLog":
+		echo json_encode( array($isLog) );
 		break;
 	case "login":
 		$db=(new Db())->get();

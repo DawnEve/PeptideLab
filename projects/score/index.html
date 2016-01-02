@@ -48,11 +48,12 @@ ul span {
 }
 
 #history .record p{color:#999; padding:5px; font-family:'微软雅黑';}
-
+#log{border-bottom:1px solid #aaa; padding:2px 20px;}
 </style>
-<a href='admin.php'>登陆</a> |
-<a href='action.php?a=logout'>退出</a>
-<hr>
+<div id='log'>
+		<a href='admin.php'>登陆</a> |
+		<a href='action.php?a=logout'>退出</a>
+</div>
 
 
 <div class=wrap>
@@ -112,8 +113,11 @@ function cloneArr(arr){
 }
 
 
+
 //页面初始化
 window.onload=function(){
+	loginOrNot();
+
 	//ajax请求一次数据
 	var url='action.php?a=get';
 	refresh(url);
@@ -121,6 +125,26 @@ window.onload=function(){
 
 
 
+function loginOrNot(){
+	var oLog=$('log');
+	var aA=oLog.getElementsByTagName('a');
+	var oA0=aA[0], oA1=aA[1];
+	//请求数据
+	var url='action.php?a=isLog';
+	var ajax=new Ajax();
+	ajax.get(url,function(s){
+		var loged=getJson(s)[0];
+		oLog.innerHTML='';
+		if(loged){
+			oLog.appendChild(oA1);
+		}else{
+			oLog.appendChild(oA0);
+		}
+	
+	});
+		
+
+}
 
 //刷新视图
 function refresh(url){

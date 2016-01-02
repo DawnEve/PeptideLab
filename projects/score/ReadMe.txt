@@ -16,7 +16,9 @@
 4.增加登陆功能、清空记录功能；
 	不登陆只能看，不能投票。
 
-5--首页没法显示是否登陆。
+5首页没法显示是否登陆？已经用ajax实现判断。
+
+--后台需要自己输入网址过去，里面有清空一个操作。
 
 http://www.html5tricks.com/demo/html5-css3-bar-chart/index.html
 
