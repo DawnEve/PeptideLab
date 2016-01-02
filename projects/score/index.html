@@ -2,7 +2,7 @@
 <style>
 *{margin:0;padding:0;}
 .wrap{padding:10px;margin:10px auto;}
-#history{border:1px solid #eee; margin:10px;padding:10px;min-height:200px;}
+#history{border:1px solid #eee; margin:10px;padding:10px;max-height:200px;}
 
 
 
@@ -13,7 +13,7 @@ p.title{background:purple; padding:2px 10px; margin:10px 0; color:#fff;}
 ul {  list-style-type: none;  padding: 0;}
 ul li {
   font-weight: bold;
-  margin-bottom: 4px;
+	margin:5px 0;
   border-radius: 4px;
 }
 ul em {
@@ -25,20 +25,23 @@ ul span {
   display: inline-block;
 }
 
+.content input.score {
+	width:20px;margin:0;
+}
 .content input {
-	padding: 8px;
+	padding:0px;
 	margin:0 10px;
-	width:35px;
-	height:34px;
+	width:25px;
+	height:22px;
 }
 .content em {
   text-align: right;
-  padding: 8px 8px 8px 0;
+  padding: 2px;
 }
 .content span {
   color: white;
   background: cornflowerblue;
-  padding: 8px;
+  padding: 2px;
   width: 30px;
   border-radius: 4px;
   animation: grow-padding-right 5s;
@@ -84,27 +87,33 @@ function n(s){
 function $(s){
 	return document.getElementById(s);
 }
-function add(num){
-	n(num);
-}
+
+
 
 window.onload=function(){
 	//请求一次数据
+	var url='action.php?a=get';
+	refresh(url);
+}
+
+
+//刷新视图
+function refresh(url){
 	//获取元素 顶部
 	var oScore=$('score');
 	var oLeft=oScore.getElementsByClassName('left')[0];
-	var oRight=oScore.getElementsByClassName('right')[0];
+	var  oRight=oScore.getElementsByClassName('right')[0];
 	//获取元素 底部
 	var oHistory=$('history');
 	var oRecord=oHistory.getElementsByClassName('record')[0];
-	
-	//内容
-	oLC=oLeft.getElementsByClassName('content')[0];
-	oRC=oRight.getElementsByClassName('content')[0];
+	//清空元素
+	oRecord.innerHTML='';
+	//顶部dom元素
+	var oLC=oLeft.getElementsByClassName('content')[0];
+	var oRC=oRight.getElementsByClassName('content')[0];
 
 	//请求ajax，获取数据
 	var ajax=new Ajax();
-	var url='action.php?a=get';
 	ajax.get(url,function(str){
 		var objs=ajax.getJson(str);
 		for(var k in objs){
@@ -115,13 +124,36 @@ window.onload=function(){
 			oRecord.appendChild( getDomHistory(obj) );
 		}
 		//刷新视图
-		init(names);
+		refreshTopView(oLC,oRC);
 	});
+}	
 	
+
+//减少的函数
+function minus(num){
+	doAdd(num,-1);	
+}
+//增加的函数
+function add(num){
+	doAdd(num,+1);	
 }
 
-//初始化视图
-function init(names){
+//执行增加减少ajax操作
+function doAdd(uid,score){
+	var url='action.php?a=add&uid='+uid+'&score='+score;
+	//再次请求数据
+	refresh(url);
+}
+
+
+	
+
+//刷新顶部视图
+function refreshTopView(oLC,oRC){
+	//清空元素
+	oLC.innerHTML='';
+	oRC.innerHTML='';
+	//获取最大分数
 	var maxScore=names[0][5];
 	for(var i=0;i<names.length;i++){
 		var cur=names[i][5];
@@ -138,6 +170,7 @@ function init(names){
 		//刷新视图
 		var person=names[i];
 		//n(person);	//[0, "闫中义", 2012, 4, 4, 0] 0为名字，4为id号。5为分数
+		//刷新视图
 		oLC.appendChild( getDomLeft(person) );
 		oRC.appendChild( getDomRight(person) );
 	}
@@ -170,8 +203,15 @@ function getDomLeft(arr){
 	var oLi=document.createElement('li');
 	var oInput=document.createElement('input');
 	oInput.setAttribute('type','button');
-	oInput.setAttribute('onclick','add(-'+arr[0]+')');
+	oInput.setAttribute('onclick','minus('+arr[0]+')');
 	oInput.setAttribute('value','-');
+	
+	var oInputT=document.createElement('input');
+	oInputT.setAttribute('class','score');
+	oInputT.setAttribute('id','score'+arr[0]);
+	oInputT.setAttribute('type','text');
+	oInputT.setAttribute('value','1');
+	
 	
 	var oInput2=document.createElement('input');
 	oInput2.setAttribute('type','button');
@@ -179,6 +219,7 @@ function getDomLeft(arr){
 	oInput2.setAttribute('value','+');
 	
 	oLi.appendChild( oInput );
+	//oLi.appendChild( oInputT );
 	oLi.appendChild( oInput2 );
 
 	//2.返回

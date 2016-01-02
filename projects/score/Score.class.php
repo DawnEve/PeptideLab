@@ -15,7 +15,12 @@ class Score{
 		}
 		return $arr;
 	}
-
-
+	
+	//添加记录
+	function add($uid,$score){
+		$sql="insert into score(uid,score,add_time)values({$uid},{$score},".time().")";
+		//debug($sql);
+		return mysql_query($sql,$this->conn);
+	}
 
 }

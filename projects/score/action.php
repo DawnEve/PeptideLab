@@ -11,6 +11,7 @@ date_default_timezone_set('PRC');
 
 include('Db.class.php');
 include('Score.class.php');
+include('function.php');
 
 
 
@@ -25,5 +26,14 @@ switch ($action){
 		$score=new Score($db->get());
 		echo json_encode( $score->get() );
 		break;
-
+	case "add":
+		$uid=$_GET['uid'];
+		$sc=$_GET['score'];
+				
+		$db=new Db();
+		$score=new Score($db->get());
+		$score->add($uid,$sc);
+		
+		echo json_encode( $score->get() );
+		break;
 }
