@@ -4,14 +4,15 @@ devLog.txt 记录版本变化。
 
 ============================
 重点项目：
-1.film文件夹下的慕课网项目
+1.film文件夹下的慕课网项目. --项目独立了
 2.wjl>Vgph项目
-3.sERP下的出勤考核项目。
-3.weixin目录下的微信项目。 
-4.sERP下的domainPriceAPI是用cURL采集数据的。
+3.sERP下的出勤考核项目。——项目独立了
+3.weixin目录下的微信项目。--项目独立了
+4.sERP下的domainPriceAPI是用cURL采集数据的。 --项目独立了
 	已经备份到github我的库中：
 	https://github.com/DawnEve/DawnPHPTools/tree/master/19-php_cURL_domainPriceAPI
-5.jsonBlog目录下的博客系统。
+5.jsonBlog目录下的博客系统。--项目独立了
+6.think目录下的thinkPHP学习。 --项目独立了
 
 
 ----------------------------
