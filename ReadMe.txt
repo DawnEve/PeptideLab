@@ -1,6 +1,8 @@
 
+for main dir:
 
 devLog.txt 记录版本变化。
+访问地址：http://blog.dawneve.cc/index.php?k=PHP
 
 ============================
 重点项目：
