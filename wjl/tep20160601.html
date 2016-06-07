@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<charset='utf8'>
 <head>
 	<title>Tep——A tool for Translating peptide from phage</title>
 	<style>
@@ -83,7 +82,7 @@
 <div id=header>
 	
 	
-	<h1>Tep(version0.3.5) 
+	<h1>Tep(version0.3.3) 
 		<span class=small> —— A tool for <b>T</b>ranslating p<b>e</b>ptide from <b>p</b>hage</span>
 	</h1>
 
@@ -144,10 +143,9 @@ GACAGCTATCGTAGCCCCTCGTGTCTCGCGCGAGAG
 		
 		
 		<div id=footer>
-			If you have any suggestions, advice or questions, please don't hesitate to contact me: jimmyMall[at]live.com.<br>
-			Junliang Wang, School of Life Sciences, Zhengzhou University, 100 Science Road, Zhengzhou 450001, China<br />
+			If you have any suggestions, advice or questions, please don't hesitate to contact me: jimmymall[at]live.com.<br>
 			Distributed under the MIT license.<br />
-			&copy;2014-2016 PeptideLab<br /> 
+			&copy;2014-2016 FireCloud<br />
 		</div><!--end of footer-->
 	
 	
@@ -252,13 +250,12 @@ function separate(s, num){
 		temp += s.substring(i,i+1);
 		temp += spacer;
 	}
-
+	
 	return temp;
 }
 
 //求反向互补序列
 function reverseCom(dna){
-	var dna=dna.toUpperCase();
 	var temp="";
 	for(var i=dna.length; i>=0; i--){
 		var t = dna.substring(i,i+1);
