@@ -11,4 +11,154 @@
 	20160105.
 
 
+---------------
+20160607
+
+版本库所在文件夹占用的空间：
+$ du -hs
+3.7G    .
+
+
+版本库所占空间：
+du -sh .git
+111M    .git
+
+
+查找当前文档大小：
+$ git count-objects -v
+count: 6
+size: 1
+in-pack: 5820
+packs: 2
+size-pack: 949264 #949MB很大了
+prune-packable: 0
+garbage: 0
+size-garbage: 0
+
+文档压缩
+$ git gc
+
+再次查看大小：
+$ git count-objects -v
+count: 0
+size: 0
+in-pack: 2916
+packs: 1
+size-pack: 474632
+prune-packable: 0
+garbage: 0
+size-garbage: 0
+
+
+
+删除了大型文件：
+$ git filter-branch -f --prune-empty --index-filter "git rm -rf --cached --ignore-unmatch 'how/printer/HP Installer.zip'" --tag-name-filter cat -- --all
+$ git filter-branch -f --prune-empty --tree-filter "git rm -rf --cached --ignore-unmatch 'how/printer/HP Installer.zip'" --tag-name-filter cat -- --all
+
+强制上传
+
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch 'how/printer/HP Installer.zip'" --prune-empty --tag-name-filter cat -- --all
+
+
+
+
+还是没删掉？
+git filter-branch -f --tree-filter 'rm -f how/printer/*.zip' --tag-name-filter cat -- --all
+
+
+
+寻找大文件的ID
+$ git verify-pack -v .git/objects/pack/*.idx
+$ git filter-branch --index-filter 'git rm --cached *.dylib \ --ignore-unmatch' --prune-empty --tag-name-filter cat -- --all
+
+
+一、保证git良好的性能
+在大的仓库中, git靠压缩历史信息来节约磁盘和内存空间.
+压缩操作并不是自动进行的, 你需要手动执行 git gc:
+$ git gc
+压缩操作比较耗时, 你运行git gc命令最好是在你没有其它工作的时候.
+
+http://blog.csdn.net/hudashi/article/details/7668795
+
+
+
+如何删除不小心记录的大文件？
+http://blog.csdn.net/zcf1002797280/article/details/50723783
+
+如何删掉大文件？【en】
+https://github.com/githubtraining/zzz_deprecated-feedback/issues/63
+
+
+$ git count-objects -v
+count: 0
+size: 0
+in-pack: 2910
+packs: 1
+size-pack: 474632
+prune-packable: 0
+garbage: 0
+size-garbage: 0
+
+列出来打包的文件
+
+$ ls .git/objects/pack
+pack-91efe3139567fa59ea65e9f4726dc076a998c8c7.idx  
+pack-91efe3139567fa59ea65e9f4726dc076a998c8c7.pack
+
+git verify-pack -v .git/objects/pack/pack-91efe3139567fa59ea65e9f4726dc076a998c8c7.idx | sort -k 3 -n | tail -3
+
+底下的三个就是大文件：
+3fc832b299b2c0d8abde98734205a90894800a55 blob   6064590 5105777 68772778
+33befa6215b54b8b76e32a213cd73e9e7cdbd698 blob   7336515 3098452 7520523
+04a565b23cc5a70145cb4ccb164c29122f0f6ea2 blob   371186156 370857440 109959855
+
+
+
+使用 rev-list 命令，传入 - -objects 选项，它会列出所有 commit SHA 值，blob SHA 值及相应的文件路径，这样查看 blob 的文件名。
+$ git rev-list --objects --all | grep 04a565b23
+
+04a565b23cc5a70145cb4ccb164c29122f0f6ea2 how/printer/HP Installer.zip
+
+
+将该文件从历史记录的所有 tree 中移除。
+
+$ git log --pretty=oneline --branches -- "how/printer/HP Installer.zip"
+fe52d4810bf436c3574597eab35ca933e24f2640 20160607
+2ba1cd63408a689873145d0e906f41e655ba584c header.
+
+
+git filter-branch --index-filter 'git rm --cached --ignore-unmatch  "how/printer/HP Installer.zip"' -- 2ba1cd63408a689873145d0e906f41e655ba584c..
+Rewrite 02878ddd0e3310b733e5c91ea86541bdd883c933 (2/2) (0 seconds passed, remaining 0 predicted)
+WARNING: Ref 'refs/heads/master' is unchanged
+
+$ rm -Rf .git/refs/original
+$ rm -Rf .git/logs/
+$ git gc
+
+
+git gc --prune=now
+
+-----------------------
+
+$ git count-objects -v
+count: 7
+size: 362186
+in-pack: 2909
+packs: 1
+size-pack: 112466
+prune-packable: 0
+garbage: 0
+size-garbage: 0
+
+-----------------------
+接着第二次：
+git verify-pack -v .git/objects/pack/pack-91efe3139567fa59ea65e9f4726dc076a998c8c7.idx | sort -k 3 -n | tail -8 
+47953eebe10fd2fdf95bf40ee1c0683e44938de0 blob   5730896 3826613 88640538
+3fc832b299b2c0d8abde98734205a90894800a55 blob   6064590 5105777 68772778
+33befa6215b54b8b76e32a213cd73e9e7cdbd698 blob   7336515 3098452 7520523
+
+$ git rev-list --objects --all | grep 04a565b23
+
+
+
 
