@@ -4,24 +4,24 @@
 </style>
 
 
-<h1>ÎªDNA±ê³öÃ¸ÇĞÎ»µã</h1>
+<h1>ä¸ºDNAæ ‡å‡ºé…¶åˆ‡ä½ç‚¹</h1>
 
 
 
 
-ÇëÊäÈëdna:<br>
+è¯·è¾“å…¥dna:<br>
 <textarea type=input id=input>CATatgcatcatTAG</textarea><br>
 <input type=button value="submit" id=submit />
 <input type=button value="clear" id=reset />
-<span id=tips>ÇëË¢ĞÂÒ³Ãæ»òµã»÷resetÒÔÖØĞÂÌá½»ĞòÁĞ¡£</span>
+<span id=tips>è¯·åˆ·æ–°é¡µé¢æˆ–ç‚¹å‡»resetä»¥é‡æ–°æäº¤åºåˆ—ã€‚</span>
 
 <hr>
 <div id=output></div>
 <script>
 window.onload=function(){
-/*--------------------------------ÖØÖÃÊÂ¼ş°ó¶¨------------------------------*/
+/*--------------------------------é‡ç½®äº‹ä»¶ç»‘å®š------------------------------*/
 	$("reset").onclick=function(){
-		//$("input").innerHTML="";//²»»áÇå¿ÕÓÃ»§µÄÊäÈë¡£
+		//$("input").innerHTML="";//ä¸ä¼šæ¸…ç©ºç”¨æˆ·çš„è¾“å…¥ã€‚
 		$("input").value="";
 		$("output").innerHTML="";
 		$("tips").style.visibility="hidden";
@@ -29,29 +29,29 @@ window.onload=function(){
 		$("input").focus();
 	}
 	
-/*--------------------------------Ìá½»ÊÂ¼ş°ó¶¨------------------------------*/
+/*--------------------------------æäº¤äº‹ä»¶ç»‘å®š------------------------------*/
 	$("submit").onclick=function(){
 		$("output").innerHTML="";
-//1.»ñÈ¡×Ö·û´®
+//1.è·å–å­—ç¬¦ä¸²
 		var str=$("input").value.toUpperCase();		
 
-//2.·´Ïò¡¢»¥²¹£»
-		n("Ô­Ê¼ĞòÁĞ£º"+DNA.getDNA(str)+"<br/>","output");
-		n("·´Ïò - -£º"+DNA.reverse(str)+"<br/>","output");
-		n("»¥²¹ - -£º"+DNA.complete(str)+"<br/>","output");
-		n("·´Ïò»¥²¹£º<span class=red>"+DNA.revCom(str)+"</span><br/>","output");
+//2.åå‘ã€äº’è¡¥ï¼›
+		n("åŸå§‹åºåˆ—ï¼š"+DNA.getDNA(str)+"<br/>","output");
+		n("åå‘ - -ï¼š"+DNA.reverse(str)+"<br/>","output");
+		n("äº’è¡¥ - -ï¼š"+DNA.complete(str)+"<br/>","output");
+		n("åå‘äº’è¡¥ï¼š<span class=red>"+DNA.revCom(str)+"</span><br/>","output");
 		
 		n("<hr>","output");
 		
 		var strOri=DNA.getDNA(str);
 		var aaOri=DNA.translate(str);
-		n("Ô­Ê¼ĞòÁĞ£º"+strOri+" ["+strOri.length+"bp]<br/>","output");
-		n("·­Òë²úÎï£º"+DNA.separate(aaOri)+"<br/>","output");
-		n("·­Òë²úÎï£º<span class=red>"+aaOri+" ["+aaOri.length+"aa]</span><br/>","output");
+		n("åŸå§‹åºåˆ—ï¼š"+strOri+" ["+strOri.length+"bp]<br/>","output");
+		n("ç¿»è¯‘äº§ç‰©ï¼š"+DNA.separate(aaOri)+"<br/>","output");
+		n("ç¿»è¯‘äº§ç‰©ï¼š<span class=red>"+aaOri+" ["+aaOri.length+"aa]</span><br/>","output");
 		
 				
 		n("<hr>","output");
-		n("¸ô¿ªºó -£º"+DNA.spaceEvery(str)+"<br/>","output");
+		n("éš”å¼€å -ï¼š"+DNA.spaceEvery(str)+"<br/>","output");
 	
 	};
 
@@ -77,26 +77,26 @@ function n(s, o){
 }
 
 
-/**½¨Á¢Ò»¸öDNA¶ÔÏó£¬ÓĞºÜ¶à¾²Ì¬·½·¨¿ÉÓÃ¡£
-	- ·ÂÕÕMath¶ÔÏó£¬Ê¹ÓÃ·½·¨Ò²ÀàËÆ;
-	- ¼¯³É¾²Ì¬·½·¨£¬¿ÉÒÔÖ±½ÓÊ¹ÓÃ;
-	- Ö±½Ó·µ»Ø½á¹û£¬²»Ö§³ÖÁ´Ê½µ÷ÓÃ¡£
+/**å»ºç«‹ä¸€ä¸ªDNAå¯¹è±¡ï¼Œæœ‰å¾ˆå¤šé™æ€æ–¹æ³•å¯ç”¨ã€‚
+	- ä»¿ç…§Mathå¯¹è±¡ï¼Œä½¿ç”¨æ–¹æ³•ä¹Ÿç±»ä¼¼;
+	- é›†æˆé™æ€æ–¹æ³•ï¼Œå¯ä»¥ç›´æ¥ä½¿ç”¨;
+	- ç›´æ¥è¿”å›ç»“æœï¼Œä¸æ”¯æŒé“¾å¼è°ƒç”¨ã€‚
 	- at: 20141111
 	- by JimmyMall[at]163.com
 */
 var DNA={
-	//alert("¸Ã¶ÔÏó½ö½ö·â×°¾²Ì¬·½·¨,ÇëÖ±½ÓÊ¹ÓÃ!");
+	//alert("è¯¥å¯¹è±¡ä»…ä»…å°è£…é™æ€æ–¹æ³•,è¯·ç›´æ¥ä½¿ç”¨!");
 	getDNA: function(str){
-		//ÊäÈëDNA²¢¸ñÊ½»¯£ºÈ¥µô»»ĞĞ
+		//è¾“å…¥DNAå¹¶æ ¼å¼åŒ–ï¼šå»æ‰æ¢è¡Œ
 		str=str.replace(/\r/g,'').replace(/\n/g,'');
-		//È¥µô·Ç×ÖÄ¸×Ö·û£ºÊı×Ö¡¢ÌØÊâ·ûºÅ
+		//å»æ‰éå­—æ¯å­—ç¬¦ï¼šæ•°å­—ã€ç‰¹æ®Šç¬¦å·
 		str=str.replace(/[^a-zA-Z]/g,'');
-		//È¥µô¿Õ¸ñ¡¢±ä³É´óĞ´
+		//å»æ‰ç©ºæ ¼ã€å˜æˆå¤§å†™
 		return str.replace(/\s/g,"").toUpperCase();
 	},
-	//·­×ª×Ö·û´®
+	//ç¿»è½¬å­—ç¬¦ä¸²
 	reverse2: function(dna){
-		//·´Ïò×Ö·û´®
+		//åå‘å­—ç¬¦ä¸²
 		var rev="";
 		for(var i=dna.length-1; i>=0; i--){
 			rev += dna.charAt(i);
@@ -104,11 +104,11 @@ var DNA={
 		return rev;
 	},
 	reverse: function(dna){
-		//·´Ïò×Ö·û´®
+		//åå‘å­—ç¬¦ä¸²
 		dna=DNA.getDNA(dna);
 		return dna.split("").reverse().join("");
 	},
-	//»¥²¹ĞòÁĞ
+	//äº’è¡¥åºåˆ—
 	complete:function(dna){
 		dna=DNA.getDNA(dna);
 		var comp="";
@@ -118,17 +118,17 @@ var DNA={
 				case "T": comp +="A";break;
 				case "G": comp +="C";break;
 				case "C": comp +="G";break;
-				default: comp +="X";//²»´¦Àí¼ò²¢¼î»ù
+				default: comp +="X";//ä¸å¤„ç†ç®€å¹¶ç¢±åŸº
 			}
 		}
 		return comp;
 	},
-	//·´Ïò»¥²¹ĞòÁĞ
+	//åå‘äº’è¡¥åºåˆ—
 	revCom:function(dna){
 		dna=DNA.getDNA(dna);
 		return DNA.complete( DNA.reverse(dna) );
 	},
-	//·­ÒëdnaÎªaaµ¥×ÖÄ¸ËõĞ´£º
+	//ç¿»è¯‘dnaä¸ºaaå•å­—æ¯ç¼©å†™ï¼š
 	translate: function(dna){
 		str=DNA.getDNA(dna);
 		var codens={
@@ -165,7 +165,7 @@ var DNA={
 
 		return aa;
 	},
-	//aaµ¥×ÖÄ¸ËõĞ´ÖĞ¼ä¼ÓÉÏ2¸ö¿Õ¸ñ£»
+	//aaå•å­—æ¯ç¼©å†™ä¸­é—´åŠ ä¸Š2ä¸ªç©ºæ ¼ï¼›
 	separate: function(s){
 		var temp="";
 		for(i=0; i<s.length; i++){
@@ -175,11 +175,11 @@ var DNA={
 		
 		return temp;
 	},
-	//×Ö·û´®strÃ¿¸ôn¸ö¼ÓÒ»¸ö¿Õ¸ñ£»
+	//å­—ç¬¦ä¸²stræ¯éš”nä¸ªåŠ ä¸€ä¸ªç©ºæ ¼ï¼›
 	spaceEvery: function(str, n){
 		s=DNA.getDNA(str);
 		var temp="";
-		n=n||3;//Ä¬ÈÏÈı¸ö×Ö·û¼ÓÒ»¸ö¿Õ¸ñ
+		n=n||3;//é»˜è®¤ä¸‰ä¸ªå­—ç¬¦åŠ ä¸€ä¸ªç©ºæ ¼
 		for(i=0; i<s.length; i+=3){
 			temp+=s.substring(i,i+3);
 			temp+="&nbsp;";
@@ -189,7 +189,7 @@ var DNA={
 	},
 
 	help: function(){
-		alert("Íõ¾üÁÁ£ºJimmyMall[at]163.com");
+		alert("JimmyMall at 163 dot com");
 	}
  }
  /////////end of DNA object
